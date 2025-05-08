@@ -1,1 +1,7 @@
 @import "tailwindcss";
+
+@layer components {
+  [data-id="header-item"] {
+    @apply p-2 flex items-center justify-center ml-6 mr-6;
+  }
+}

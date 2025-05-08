@@ -4,12 +4,12 @@ export interface FooterProps {
 }
 
 export const Footer = ({ }: FooterProps) => (
-    <header data-id="footer" className="min-h-15 shadow flex items-center justify-between">
+    <footer data-id="footer" className="min-h-15 flex items-center justify-between mt-auto">
         <div data-id="footer-item">
-            <h1>left</h1>
+            <h1>footer</h1>
         </div>
         <div data-id="footer-item">
             <p>right</p>
         </div>
-    </header>
+    </footer>
 );

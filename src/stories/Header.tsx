@@ -13,6 +13,5 @@ export const Header = ({ }: HeaderProps) => (
     <div data-id="header-item">
       <p>right</p>
     </div>
-
   </header>
 );

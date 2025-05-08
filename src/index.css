@@ -8,4 +8,9 @@
   [data-id="footer-item"] {
     @apply p-2 flex items-center justify-center ml-6 mr-6;
   }
+
+  /* root of pages */
+  [data-id="main"] {
+    @apply min-h-screen flex flex-col;
+  }
 }

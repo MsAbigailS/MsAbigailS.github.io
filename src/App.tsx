@@ -10,22 +10,22 @@ function App() {
   return (
     <Router>
       {/* all pages */}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/page2" element={<Page2 />} />
-      </Routes>
-
       <div className="min-h-screen flex flex-col">
-        
-        <div data-id="main">
-          <nav>
-            <Link to="/">Home</Link>
-            <Link to="/page2">PAGE2</Link>
-          </nav>
-        </div>
-        <Footer />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/page2" element={<Page2 />} />
+        </Routes>
       </div>
-    </Router>
+
+
+      {/* TODO: removing until nav layout decided */}
+      {/* <div data-id="main">
+        <nav>
+          <Link to="/">Home</Link>
+          <Link to="/page2">PAGE2</Link>
+        </nav>
+      </div> */}
+    </Router >
   )
 }
 

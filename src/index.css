@@ -3,11 +3,17 @@
 @import "tailwindcss";
 
 :root {
-  --color-pink: "#C4939A";
-  --color-green: "#65743A";
-  --color-orange: "#B87D4B";
-  --color-blue: "#1C6E8C";
+  --color-pink: "#F4E1E4";
+  /*C4939A*/
+  --color-green: "#EFFBF1";
+  /*65743A*/
+  --color-orange: "#FDDED8";
+  /* #B87D4B */
+  --color-blue: "#D6E4FF";
+  /* #1C6E8C */
   --color-black: "#010102";
+  --color-red: "#903242";
+  --color-purple: "#EBDEF8";
 
 }
 
@@ -16,11 +22,17 @@
   --font-dm-sans: 'DM Sans', sans-serif;
   --font-inknut: 'Inknut Antiqua', serif;
   --font-assistant: 'Assistant', sans-serif;
-  --color-pink: "#C4939A";
-  --color-green: "#65743A";
-  --color-orange: "#B87D4B";
-  --color-blue: "#1C6E8C";
+  --color-pink: "#F4E1E4";
+  /*C4939A*/
+  --color-green: "#EFFBF1";
+  /*65743A*/
+  --color-orange: "#FDDED8";
+  /* #B87D4B */
+  --color-blue: "#D6E4FF";
+  /* #1C6E8C */
   --color-black: "010102";
+  --color-red: "#903242";
+  --color-purple: "#EBDEF8";
 }
 
 @layer components {

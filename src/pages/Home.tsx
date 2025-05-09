@@ -3,6 +3,7 @@ import heroImg from '../assets/standing.png'
 import { Header } from "../stories/Header"
 import { Footer } from "../stories/Footer"
 import { Card } from "../stories/Card"
+import { Tag } from "../stories/Tag"
 
 export default function Home() {
     // setting up meta tag only on mount
@@ -31,9 +32,10 @@ export default function Home() {
                 <img src={heroImg} alt="heroImg" className="h-80 pt-6 pl-6" />
             </div>
 
+
             <div className={`flex flex-row`}>
-                <Card title="Project 1" description="A project I worked on!" technologies={["React", "Typescript", "Tailwindcss"]} theme="white" />
-                <Card title="Project 2" description="Another project I worked on!" technologies={["React", "Typescript", "Tailwindcss"]} theme="white" />
+                <Card title="Project 1" description="A project I worked on!" technologies={["React", "Typescript", "Tailwindcss"]} theme="pink" />
+                <Card title="Project 2" description="Another project I worked on!" technologies={["React", "Typescript", "Tailwindcss"]} theme="blue" />
                 <Card title="Project 3" description="Yet another project I worked on!" technologies={["React", "Typescript", "Tailwindcss"]} />
                 <Card title="Project 4" description="A project I worked on!" technologies={["React", "Typescript", "Tailwindcss"]} />
                 <Card title="Project 5" description="Another project I worked on!" technologies={["React", "Typescript", "Tailwindcss"]} />

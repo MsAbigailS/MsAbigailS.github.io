@@ -28,3 +28,16 @@ export const Primary: Story = {
         title: 'Card Title',
     },
 };
+
+// project card
+export const Project: Story = {
+    args: {
+        primary: false,
+        backgroundColor: '#f8f3f2',
+        textColor: '#010102',
+        title: 'Project Title',
+        description: 'Project Description',
+        technologies: ['React', 'TypeScript', 'Tailwind CSS'],
+        completed: new Date('2023-01-01'),
+    }
+}

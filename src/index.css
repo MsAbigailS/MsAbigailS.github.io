@@ -2,11 +2,25 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Manrope:wght@200..800&display=swap');
 @import "tailwindcss";
 
+:root {
+  --color-pink: "#C4939A";
+  --color-green: "#65743A";
+  --color-orange: "#B87D4B";
+  --color-blue: "#1C6E8C";
+  --color-black: "#010102";
+
+}
+
 @theme {
   --font-manrope: 'Manrope', sans-serif;
   --font-dm-sans: 'DM Sans', sans-serif;
   --font-inknut: 'Inknut Antiqua', serif;
   --font-assistant: 'Assistant', sans-serif;
+  --color-pink: "#C4939A";
+  --color-green: "#65743A";
+  --color-orange: "#B87D4B";
+  --color-blue: "#1C6E8C";
+  --color-black: "010102";
 }
 
 @layer components {
@@ -20,6 +34,6 @@
 
   /* root of pages */
   [data-id="main"] {
-    @apply min-h-screen flex flex-col bg-[#010102] text-white font-assistant;
+    @apply min-h-screen flex flex-col bg-[#010102] text-white font-assistant overflow-x-hidden;
   }
 }

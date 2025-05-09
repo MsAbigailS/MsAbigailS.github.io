@@ -11,8 +11,11 @@ const meta = {
     },
     tags: ['autodocs'],
     argTypes: {
-        backgroundColor: {
-            control: 'color'
+        theme: {
+            control: {
+                type: 'select',
+                options: ['white', 'blue', 'green', 'orange'],
+            },
         },
     }
 } satisfies Meta<typeof Card>;
@@ -24,7 +27,6 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
     args: {
         primary: true,
-        backgroundColor: '#ffffff',
         title: 'Card Title',
     },
 };
@@ -33,8 +35,6 @@ export const Primary: Story = {
 export const Project: Story = {
     args: {
         primary: false,
-        backgroundColor: '#f8f3f2',
-        textColor: '#010102',
         title: 'Project Title',
         description: 'Project Description',
         technologies: ['React', 'TypeScript', 'Tailwind CSS'],

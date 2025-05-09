@@ -31,7 +31,14 @@ export default function Home() {
                 <img src={heroImg} alt="heroImg" className="h-80 pt-6 pl-6" />
             </div>
 
-            <Card title="Personal Website" description="A website to showcase the cool stuff I've worked on!" technologies={["React", "Typescript", "Tailwindcss"]} />
+            <div className={`flex flex-row`}>
+                <Card title="Project 1" description="A project I worked on!" technologies={["React", "Typescript", "Tailwindcss"]} theme="white" />
+                <Card title="Project 2" description="Another project I worked on!" technologies={["React", "Typescript", "Tailwindcss"]} theme="white" />
+                <Card title="Project 3" description="Yet another project I worked on!" technologies={["React", "Typescript", "Tailwindcss"]} />
+                <Card title="Project 4" description="A project I worked on!" technologies={["React", "Typescript", "Tailwindcss"]} />
+                <Card title="Project 5" description="Another project I worked on!" technologies={["React", "Typescript", "Tailwindcss"]} />
+                <Card title="Personal Website" description="A website to showcase the cool stuff I've worked on!" technologies={["React", "Typescript", "Tailwindcss"]} />
+            </div>
             <Footer />
         </div>
     )

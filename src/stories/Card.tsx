@@ -35,7 +35,9 @@ export const Card = ({
         // (0.72 ratio @ 120-w)
         // inspired by Pokemon cards
         // IDEA: Evo cards showcase connected projects
-        <div className={`shadow-md flex rounded-lg p-3 m-1 bg-white`}>
+        <div className={`shadow-md flex rounded-lg p-3 m-1 bg-white
+            bg-[linear-gradient(225deg,transparent_25%,rgba(65,65,65,.1)_70%,transparent_75%,transparent_100%)] bg-[length:250%_250%,100%_100%] transition-[background-position_2s_ease] bg-[position:-100%_0,0_0] hover:bg-[position:150%_0,0_0] hover:duration-[1000ms]
+        `}>
             <div className={`rounded-md justify-center items-center flex flex-col min-w-75 min-h-92 max-w-75 max-h-92 p-1.5`} style={{ backgroundColor: bgColor, color: txtColor }}>
                 < div className={`flex flex-col w-full max-h-40 min-h-40`}>
                     {/* top row */}

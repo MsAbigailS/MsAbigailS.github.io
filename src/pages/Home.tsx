@@ -4,6 +4,7 @@ import { Header } from "../stories/Header"
 import { Footer } from "../stories/Footer"
 import { Card } from "../stories/Card"
 import { Tag } from "../stories/Tag"
+import { Test } from "../stories/Test"
 
 export default function Home() {
     // setting up meta tag only on mount
@@ -31,6 +32,8 @@ export default function Home() {
                 </div>
                 <img src={heroImg} alt="heroImg" className="h-80 pt-6 pl-6" />
             </div>
+
+            <Test />
 
 
             <div className={`flex flex-row`}>

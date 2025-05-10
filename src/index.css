@@ -51,7 +51,7 @@
 
   /* subject headers */
   [data-id="subject-header"] {
-    @apply text-4xl font-bold font-inknut mt-4 mb-4;
+    @apply lg:text-7xl text-5xl font-bold font-inknut mt-4 mb-4;
   }
 
   /* highlights a text */

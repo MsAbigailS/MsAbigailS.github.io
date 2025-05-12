@@ -73,13 +73,14 @@ export default function Home() {
                         transition-all
                         group-hover:translate-x-[0%]
                         duration-[700ms] ease-in-out
+                        text-center
                         `}>
                         Want to see my projects?
                     </div>
                     {/* text that shows */}
 
                     <div className={`absolute mix-blend-difference 
-                        duration-[700ms] ease-in-out`}>
+                        duration-[700ms] ease-in-out text-center`}>
                         Want to see my projects?
                     </div>
 

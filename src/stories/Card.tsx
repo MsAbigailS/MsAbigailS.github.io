@@ -43,7 +43,7 @@ export const Card = ({
         // inspired by Pokemon cards
         // IDEA: Evo cards showcase connected projects
 
-        <div id="card" className={`min-w-75 min-h-98 max-w-75 max-h-98 relative p-1.5`}>
+        <div id="card" className={`min-w-75 min-h-98 max-w-75 max-h-98 relative m-1.5`}>
             {/* shine animation over card */}
             <div id="cover"
                 className=

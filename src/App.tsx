@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import Home from './pages/Home'
-import Page2 from './pages/PAGE2'
+import Projects from './pages/Projects'
 import { useState } from 'react'
 import { Header } from './stories/Header'
 import { Footer } from './stories/Footer'
@@ -13,7 +13,7 @@ function App() {
       <div className="min-h-screen flex flex-col">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/page2" element={<Page2 />} />
+          <Route path="/projects" element={<Projects />} />
         </Routes>
       </div>
 

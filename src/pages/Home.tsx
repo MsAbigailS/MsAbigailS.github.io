@@ -1,9 +1,11 @@
 import { useEffect } from 'react'
 import heroImg from '../assets/standing.png'
+import aboutMeImg from '../assets/typing.png'
 import { Header } from "../stories/Header"
 import { Footer } from "../stories/Footer"
 import { Card } from "../stories/Card"
 import { Tag } from "../stories/Tag"
+
 
 export default function Home() {
     // setting up meta tag only on mount
@@ -36,11 +38,11 @@ export default function Home() {
             </div>
 
             {/* About me */}
-            <div data-id="about" className={`flex lg:flex-row flex-col-reverse justify-center items-center pl-10 pr-10`}>
+            <div data-id="about" className={`flex lg:flex-row flex-col-reverse justify-center items-center`}>
                 <div className={`flex-[1]`}>
-                    img
+                    <img src={aboutMeImg} alt="aboutMeImg" className="h-160" />
                 </div>
-                <div className={`flex-[1] lg:text-start text-center`}>
+                <div className={`flex-[1] lg:text-start text-center pr-10`}>
                     <div id="professionalSummary">
                         <p data-id="subject-header">Software Engineer</p>
                         <p>I'm a <span data-id="highlight">software engineer</span> with a passion for building projects. I love to learn new things and work on challenging projects.</p>

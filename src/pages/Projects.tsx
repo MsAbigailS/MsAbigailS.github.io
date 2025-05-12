@@ -22,10 +22,23 @@ export default function Projects() {
     return (
         <div data-id="main">
             <Header />
-            <div className={`border-1 border-amber-500 flex flex-row flex-wrap justify-center items-center`}>
+
+            <h1 data-id="subject-header" className={`text-center mb-10`}>
+                Project Showcase
+            </h1>
+
+            <div className={`flex flex-row flex-wrap justify-center items-center`}>
                 <Card title="Project 1" description="A project I worked on!" technologies={["React", "Typescript", "Tailwindcss"]} theme="pink" />
                 <Card title="Project 2" description="Another project I worked on!" technologies={["React", "Typescript", "Tailwindcss"]} theme="blue" />
                 <Card title="Project 3" description="Yet another project I worked on!" technologies={["React", "Typescript", "Tailwindcss"]} />
+                <Card title="Project 4" description="A project I worked on!" technologies={["React", "Typescript", "Tailwindcss"]} theme="green" />
+                <Card title="Project 5" description="Another project I worked on!" technologies={["React", "Typescript", "Tailwindcss"]} theme="orange" />
+                <Card title="Project 6" description="Yet another project I worked on!" technologies={["React", "Typescript", "Tailwindcss"]} />
+                <Card title="Project 7" description="A project I worked on!" technologies={["React", "Typescript", "Tailwindcss"]} theme="pink" />
+                <Card title="Project 4" description="A project I worked on!" technologies={["React", "Typescript", "Tailwindcss"]} theme="green" />
+                <Card title="Project 5" description="Another project I worked on!" technologies={["React", "Typescript", "Tailwindcss"]} theme="orange" />
+                <Card title="Project 6" description="Yet another project I worked on!" technologies={["React", "Typescript", "Tailwindcss"]} />
+                <Card title="Project 7" description="A project I worked on!" technologies={["React", "Typescript", "Tailwindcss"]} theme="pink" />
                 <Card title="Project 4" description="A project I worked on!" technologies={["React", "Typescript", "Tailwindcss"]} theme="green" />
                 <Card title="Project 5" description="Another project I worked on!" technologies={["React", "Typescript", "Tailwindcss"]} theme="orange" />
                 <Card title="Project 6" description="Yet another project I worked on!" technologies={["React", "Typescript", "Tailwindcss"]} />

@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Header } from "../stories/Header"
 import { Footer } from "../stories/Footer"
 import { Card } from "../stories/Card"
@@ -26,6 +27,11 @@ export default function Projects() {
             <h1 data-id="subject-header" className={`text-center mb-10`}>
                 Project Showcase
             </h1>
+
+            {/* TODO: Make filterable project page */}
+            <div className={`border-1 text-center mb-10`}>
+                Here is where I'll have a cool filter
+            </div>
 
             <div className={`flex flex-row flex-wrap justify-center items-center`}>
                 <Card title="Project 1" description="A project I worked on!" technologies={["React", "Typescript", "Tailwindcss"]} theme="pink" />

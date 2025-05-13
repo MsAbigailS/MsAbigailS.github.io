@@ -1,0 +1,79 @@
+[
+    {
+        "name": "Project A",
+        "description": "A brief description of Project A.",
+        "technologies": [
+            "JavaScript",
+            "React",
+            "Node.js"
+        ],
+        "url": "test.com",
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Project B",
+        "description": "A brief description of Project B.",
+        "technologies": [
+            "Python",
+            "Django",
+            "PostgreSQL"
+        ],
+        "url": "test.com",
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Project C",
+        "description": "A brief description of Project C.",
+        "technologies": [
+            "Java",
+            "Spring",
+            "MySQL"
+        ],
+        "url": "test.com",
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Project D",
+        "description": "A brief description of Project D.",
+        "technologies": [
+            "C#",
+            ".NET",
+            "SQL Server"
+        ],
+        "url": "test.com",
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Project E",
+        "description": "A brief description of Project E.",
+        "technologies": [
+            "PHP",
+            "Laravel",
+            "MongoDB"
+        ],
+        "url": "test.com",
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Project F",
+        "description": "A brief description of Project F.",
+        "technologies": [
+            "Ruby",
+            "Rails",
+            "SQLite"
+        ],
+        "url": "test.com",
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Project G",
+        "description": "A brief description of Project G.",
+        "technologies": [
+            "Go",
+            "Gin",
+            "PostgreSQL"
+        ],
+        "url": "test.com",
+        "image": "https://via.placeholder.com/150"
+    }
+]

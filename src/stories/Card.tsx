@@ -47,17 +47,23 @@ export const Card = ({
             {/* shine animation over card */}
             <div id="cover"
                 className=
-                {`min-w-full min-h-full absolute bg-no-repeat 
+                {`z-20 min-w-full min-h-full absolute bg-no-repeat 
                     bg-[linear-gradient(45deg,transparent_25%,rgba(65,65,65,.2)_70%,transparent_75%,transparent_100%)] bg-[length:250%_250%,100%_100%] 
-                    transition-[background-position_0s_ease] bg-[position:-100%_0,0_0] hover:bg-[position:150%_0,0_0] hover:duration-[1000ms]`}
+                    transition-[background-position_0s_ease] bg-[position:-100%_0,0_0] hover:bg-[position:150%_0,0_0] hover:duration-[1000ms]
+                    mix-blend-color-dodge`}
             >
             </div>
 
+            <div className={`absolute min-w-71 min-h-94 z-0 rounded-md p-2`}>
+                <div className={`min-w-full min-h-full z-0 absolute rounded-md bg-white opacity-50`}></div>
+            </div>
+
+
             {/* main content of card */}
-            <div id="content" className={`min-w-full min-h-full shadow-md flex rounded-lg p-2`} style={{ backgroundColor: bgColor }}>
-                <div className={`min-w-full min-h-full rounded-md justify-center items-centerflex flex-co p-2`} style={{ backgroundColor: txtColor }}>
+            <div id="content" className={`min-w-full min-h-full shadow-md flex rounded-lg p-2`} style={{ backgroundColor: bgColor, color: txtColor }}>
+                <div className={`min-w-full min-h-full rounded-md justify-center items-centerflex flex-co p-2`} style={{ backgroundColor: bgColor }}>
                     {/* upper half of card */}
-                    < div className={`flex flex-col w-full max-h-40 min-h-40`}>
+                    < div className={`flex flex-col w-full max-h-40 min-h-40 relative z-10`}>
                         {/* top row */}
                         < div className={`min-h-8 max-h-8 flex flex-row`}>
                             {/* project title */}
@@ -80,7 +86,7 @@ export const Card = ({
                     </div >
 
                     {/* lower half of card */}
-                    < div className={`flex flex-col w-full min-h-50 max-h-50`}>
+                    < div className={`flex flex-col w-full min-h-50 max-h-50 relative z-10`}>
                         {/* upper section */}
                         < div className={`flex-col min-h-42 max-h-42 items-center flex`}>
                             {/* description */}

@@ -38,7 +38,8 @@ export default function Projects() {
                 {projects.map((project, index) => {
                     return (
                         <div key={index} className={`flex flex-row flex-wrap justify-center items-center`}>
-                            <Card title={project.name} description={project.description} technologies={project.technologies} />
+                            <Card title={project.title} description={project.description} technologies={project.technologies}
+                                completed={project.demo} url={project.demo} complexity={project.complexity} challenges={project.challenges} />
                         </div>
                     )
                 })}

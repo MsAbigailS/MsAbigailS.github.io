@@ -3,17 +3,19 @@
 @import "tailwindcss";
 
 :root {
-  --color-pink: "#F4E1E4";
+  --color-pink: "#BF8B85";
   /*C4939A*/
-  --color-green: "#EFFBF1";
+  --color-green: "#82846D";
   /*65743A*/
-  --color-orange: "#FDDED8";
+  --color-orange: "#468186";
   /* #B87D4B */
-  --color-blue: "#D6E4FF";
+  --color-blue: "#468186";
+  --color-blue-dark: "#2A4E50";
+  --color-blue-light: "#5CA4A9";
   /* #1C6E8C */
   --color-black: "#010102";
-  --color-red: "#903242";
-  --color-purple: "#EBDEF8";
+  --color-red: "#766C7F";
+  --color-purple: "#292137";
 
 }
 

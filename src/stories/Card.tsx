@@ -16,7 +16,13 @@ export interface CardProps {
     /** What technologies were used */
     technologies?: string[];
     /** When was the project completed */
-    completed?: Date;
+    completed?: string;
+    /** What visual/demo to show */
+    url?: string;
+    /** What complexity to show */
+    complexity?: string;
+    /** What challenges to show */
+    challenges?: string[];
 }
 
 export const Card = ({
@@ -28,8 +34,11 @@ export const Card = ({
     technologies = [],
     completed,
     title,
+    complexity,
+    url,
+    challenges = []
 }: CardProps) => {
-    const colors = ['blue', 'green', 'orange', 'pink']
+    const colors = ['blue', 'green', 'orange', 'pink', 'red']
     let bgColor = 'white'
     let txtColor = getComputedStyle(document.documentElement).getPropertyValue('--color-black').replace(/"/g, '')
     if (theme === undefined) {
@@ -50,7 +59,7 @@ export const Card = ({
                 {`z-20 min-w-full min-h-full absolute bg-no-repeat 
                     bg-[linear-gradient(45deg,transparent_25%,rgba(65,65,65,.2)_70%,transparent_75%,transparent_100%)] bg-[length:250%_250%,100%_100%] 
                     transition-[background-position_0s_ease] bg-[position:-100%_0,0_0] hover:bg-[position:150%_0,0_0] hover:duration-[1000ms]
-                    mix-blend-color-dodge`}
+                    `}
             >
             </div>
 
@@ -71,16 +80,14 @@ export const Card = ({
                                 {title}
                             </div >
                             {/* complexity */}
-                            < div id="category" className={`flex-[1] text-end`}>
-                                cmplxity
-                            </div >
+                            {/* < div id="category" className={`flex-[1] text-end`}>
+                                {complexity}
+                            </div > */}
                         </div >
                         {/* visual/demo */}
-                        < div className={`flex flex-col justify-items-center min-h-32 max-h-32 border-1 rounded-xs`}>
-                            <div id="demoFrame" className={`border-1 rounded-sm flex-[1] m-1 text-center flex`}> {/* frame */}
-                                <div className={`m-1 flex-[1] flex justify-center items-center`}>
-                                    visual/demo
-                                </div>
+                        < div className={`flex flex-col justify-items-center min-h-32 max-h-32 rounded-xs`} style={{ backgroundColor: bgColor, color: txtColor }}>
+                            <div id="demoFrame" className={`overflow-hidden rounded-sm m-1 flex justify-center items-center min-h-full`}> {/* frame */}
+                                <img src={url} className={`max-h-full min-h-full`} />
                             </div>
                         </div >
                     </div >
@@ -90,30 +97,35 @@ export const Card = ({
                         {/* upper section */}
                         < div className={`flex-col min-h-42 max-h-42 items-center flex`}>
                             {/* description */}
-                            < div className={`w-full flex-[2] min-w-0 overflow-hidden text-ellipsis text-sm pt-2`}>
+                            < div className={`w-full min-h-22 overflow-hidden text-ellipsis text-sm 
+                                pt-2 text-center`}>
                                 {description}
                             </div >
                             {/* technologies */}
                             {/* TODO: Handle more than 3 items showing without messing with other apperances */}
-                            <div className={`w-full flex-[1] flex flex-col text-sm`}>
+                            <div className={`w-full justify-center items-center min-h-22 flex flex-row flex-wrap overflow-hidden text-sm`}>
                                 {technologies.map((tech, index) => (
-                                    <div key={index} className={`flex-[1] flex items-center`}>
+                                    <div key={index} className={`flex pb-1 pt-1`}>
                                         <Tag label={tech} />
                                     </div>
-
                                 ))}
                             </div>
                         </div >
+
                         {/* bottom row */}
                         < div className={` min-h-8 max-h-8 flex flex-row`}>
                             {/* challenges */}
-                            < div className={`flex-[2] flex items-end`}>
-                                Challenges
-                            </div >
+                            {/* < div className={`flex-[2] flex items-end`}>
+                                {challenges.map((challenge, index) => (
+                                    <div key={index} className={`flex pb-1 pt-1`}>
+                                        <p>{challenge}</p>
+                                    </div>
+                                ))}
+                            </div > */}
                             {/* pride */}
-                            < div className={`flex-[1] flex items-end justify-end`}>
+                            {/* < div className={`flex-[1] flex items-end justify-end`}>
                                 Pride
-                            </div >
+                            </div > */}
                         </div >
                     </div >
                 </div >

@@ -1,79 +1,78 @@
 [
     {
-        "name": "Project A",
-        "description": "A brief description of Project A.",
+        "title": "Project 1",
+        "description": "This is a description of Project 1.",
         "technologies": [
+            "HTML",
+            "CSS",
             "JavaScript",
             "React",
             "Node.js"
         ],
-        "url": "test.com",
-        "image": "https://via.placeholder.com/150"
+        "completed": "2024/01/01",
+        "demo": "https://repository-images.githubusercontent.com/72586805/05dd0b80-6b7c-11e9-9cf5-15d6d7efb700",
+        "complexity": "Beginner",
+        "challenges": [
+            "Challenge 1",
+            "Challenge 2"
+        ],
+        "pride": 5
     },
     {
-        "name": "Project B",
-        "description": "A brief description of Project B.",
+        "title": "Project 2",
+        "description": "This is a description of Project 2.",
         "technologies": [
-            "Python",
-            "Django",
-            "PostgreSQL"
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "React",
+            "Node.js"
         ],
-        "url": "test.com",
-        "image": "https://via.placeholder.com/150"
+        "completed": "2024/01/01",
+        "demo": "https://repository-images.githubusercontent.com/72586805/05dd0b80-6b7c-11e9-9cf5-15d6d7efb700",
+        "complexity": "Beginner",
+        "challenges": [
+            "Challenge 1",
+            "Challenge 2"
+        ],
+        "pride": 5
     },
     {
-        "name": "Project C",
-        "description": "A brief description of Project C.",
+        "title": "Project 3",
+        "description": "This is a description of Project 3.",
         "technologies": [
-            "Java",
-            "Spring",
-            "MySQL"
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "React",
+            "Node.js"
         ],
-        "url": "test.com",
-        "image": "https://via.placeholder.com/150"
+        "completed": "2024/01/01",
+        "demo": "https://repository-images.githubusercontent.com/72586805/05dd0b80-6b7c-11e9-9cf5-15d6d7efb700",
+        "complexity": "Beginner",
+        "challenges": [
+            "Challenge 1",
+            "Challenge 2"
+        ],
+        "pride": 5
     },
     {
-        "name": "Project D",
-        "description": "A brief description of Project D.",
+        "title": "Project 4",
+        "description": "This is a description of Project 4.",
         "technologies": [
-            "C#",
-            ".NET",
-            "SQL Server"
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "React",
+            "Node.js"
         ],
-        "url": "test.com",
-        "image": "https://via.placeholder.com/150"
-    },
-    {
-        "name": "Project E",
-        "description": "A brief description of Project E.",
-        "technologies": [
-            "PHP",
-            "Laravel",
-            "MongoDB"
+        "completed": "2024/01/01",
+        "demo": "https://repository-images.githubusercontent.com/72586805/05dd0b80-6b7c-11e9-9cf5-15d6d7efb700",
+        "complexity": "Beginner",
+        "challenges": [
+            "Challenge 1",
+            "Challenge 2"
         ],
-        "url": "test.com",
-        "image": "https://via.placeholder.com/150"
-    },
-    {
-        "name": "Project F",
-        "description": "A brief description of Project F.",
-        "technologies": [
-            "Ruby",
-            "Rails",
-            "SQLite"
-        ],
-        "url": "test.com",
-        "image": "https://via.placeholder.com/150"
-    },
-    {
-        "name": "Project G",
-        "description": "A brief description of Project G.",
-        "technologies": [
-            "Go",
-            "Gin",
-            "PostgreSQL"
-        ],
-        "url": "test.com",
-        "image": "https://via.placeholder.com/150"
+        "pride": 5
     }
 ]

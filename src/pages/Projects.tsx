@@ -51,6 +51,17 @@ export default function Projects() {
         })
     }, [])
 
+    // toggling if list is visible
+    function toggleList() {
+        const el = document.getElementById('availableTechnologies')
+        if (!el) return
+        if (el.className.includes('hidden')) {
+            el.className = el.className.replace('hidden', 'block')
+        } else {
+            el.className = el.className.replace('block', 'hidden')
+        }
+    }
+
     return (
         <div data-id="main">
             <Header />
@@ -61,8 +72,8 @@ export default function Projects() {
 
             {/* TODO: Make filterable project page */}
             <div className={`flex flex-row justify-center min-w-full max-w-full mb-10 *:ml-1 *:mr-1`}>
-                <div className={`border-1 min-w-1/10 rounded-sm text-center`}>technologies</div>
-                <div id="availableTechnologies">
+                <div onClick={toggleList} className={`hover:cursor-pointer border-1 min-w-1/10 rounded-sm text-center`}>technologies</div>
+                <div id="availableTechnologies" className={`hidden`}>
 
                 </div>
                 <input type="text" placeholder="Search..." className={`border-2 min-w-1/4 border-gray-50 rounded-md`} />

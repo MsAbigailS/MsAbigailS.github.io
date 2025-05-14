@@ -22,11 +22,9 @@
         "title": "Project 2",
         "description": "This is a description of Project 2.",
         "technologies": [
-            "HTML",
-            "CSS",
-            "JavaScript",
-            "React",
-            "Node.js"
+            "Computer",
+            "Networking",
+            "Security"
         ],
         "completed": "2024/01/01",
         "demo": "https://repository-images.githubusercontent.com/72586805/05dd0b80-6b7c-11e9-9cf5-15d6d7efb700",
@@ -60,11 +58,9 @@
         "title": "Project 4",
         "description": "This is a description of Project 4.",
         "technologies": [
-            "HTML",
-            "CSS",
-            "JavaScript",
-            "React",
-            "Node.js"
+            "Cloud",
+            "AWS",
+            "CloudFormation"
         ],
         "completed": "2024/01/01",
         "demo": "https://repository-images.githubusercontent.com/72586805/05dd0b80-6b7c-11e9-9cf5-15d6d7efb700",

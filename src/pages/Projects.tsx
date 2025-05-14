@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import projects from '../data/projects.json'
 import { useNavigate } from 'react-router-dom'
 import { Header } from "../stories/Header"
@@ -21,6 +21,36 @@ export default function Projects() {
         }
     }, [])
 
+    // creating tech filter list by
+    // taking all techs from projects.json
+    // and adding to pg
+    useEffect(() => {
+        const list = document.getElementById('availableTechnologies')
+        if (!list) return
+        if (list.childElementCount > 0) {
+            list.innerHTML = ''
+        }
+
+        let technologies: Map<string, number> = new Map()
+        projects.forEach(project => {
+            project.technologies.forEach(technology => {
+                if (technologies.has(technology)) {
+                    technologies.set(technology, technologies.get(technology)! + 1)
+
+                } else {
+                    technologies.set(technology, 1)
+                }
+            })
+        });
+        technologies = new Map([...technologies.entries()].sort())
+        technologies.forEach((value, key) => {
+            const div = document.createElement('div')
+            div.className = `border-1 min-w-1/10 rounded-sm text-center`
+            div.innerText = key
+            list?.appendChild(div)
+        })
+    }, [])
+
     return (
         <div data-id="main">
             <Header />
@@ -30,8 +60,12 @@ export default function Projects() {
             </h1>
 
             {/* TODO: Make filterable project page */}
-            <div className={`border-1 text-center mb-10`}>
-                Here is where I'll have a cool filter
+            <div className={`flex flex-row justify-center min-w-full max-w-full mb-10 *:ml-1 *:mr-1`}>
+                <div className={`border-1 min-w-1/10 rounded-sm text-center`}>technologies</div>
+                <div id="availableTechnologies">
+
+                </div>
+                <input type="text" placeholder="Search..." className={`border-2 min-w-1/4 border-gray-50 rounded-md`} />
             </div>
 
             <div className={`flex flex-row flex-wrap justify-center items-center`}>

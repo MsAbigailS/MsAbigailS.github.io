@@ -58,12 +58,16 @@ export default function Projects() {
     }, [])
 
     // updating view based on selected filters
+    // TODO: make this more efficient
     useEffect(() => {
         console.log('selectedTech', selectedTech)
 
         const projectPar = document.getElementById('projects')
         if (!projectPar) return
         if (selectedTech.length === 0) {
+            Array.from(projectPar.children).map((child) => {
+                (child as HTMLElement).className = 'block'
+            })
             return
         }
 
@@ -136,9 +140,12 @@ export default function Projects() {
 
             {/* TODO: Make filterable project page */}
             <div className={`flex flex-row justify-center min-w-full max-w-full mb-10 *:ml-1 *:mr-1 *:select-none`}>
-                <div onClick={toggleList} className={`hover:cursor-pointer border-1 min-w-1/10 rounded-sm text-center`}>technologies {count}</div>
-                <div id="availableTechnologies" className={`hidden justify-center items-center *:min-w-full *:hover:cursor-pointer `}>
-
+                <div>
+                    <div onClick={toggleList} className={`hover:cursor-pointer min-w-1/10 rounded-sm text-center`}>
+                        filter {/*{count}*/}
+                    </div>
+                    <div id="availableTechnologies" className={`hidden z-30 absolute bg-[#010102] justify-center items-center *:min-w-full *:hover:cursor-pointer`}>
+                    </div>
                 </div>
                 <input type="text" placeholder="Search..." className={`border-2 min-w-1/4 border-gray-50 rounded-md`} />
             </div>

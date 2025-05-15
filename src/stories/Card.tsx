@@ -103,7 +103,7 @@ export const Card = ({
                             </div >
                             {/* technologies */}
                             {/* TODO: Handle more than 3 items showing without messing with other apperances */}
-                            <div className={`w-full justify-center items-center min-h-22 flex flex-row flex-wrap overflow-hidden text-sm`}>
+                            <div id="technologies" className={`w-full justify-center items-center min-h-22 flex flex-row flex-wrap overflow-hidden text-sm`}>
                                 {technologies.map((tech, index) => (
                                     <div key={index} className={`flex pb-1 pt-1`}>
                                         <Tag label={tech} />

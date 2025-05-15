@@ -38,6 +38,6 @@ export const Project: Story = {
         title: 'Project Title',
         description: 'Project Description',
         technologies: ['React', 'TypeScript', 'Tailwind CSS'],
-        completed: new Date('2023-01-01'),
+        completed: '2023-01-01'
     }
 }

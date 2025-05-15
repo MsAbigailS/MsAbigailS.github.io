@@ -70,5 +70,43 @@
             "Challenge 2"
         ],
         "pride": 5
+    },
+    {
+        "title": "Project 5",
+        "description": "This is a description of Project 5.",
+        "technologies": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "React",
+            "Node.js"
+        ],
+        "completed": "2024/01/01",
+        "demo": "https://repository-images.githubusercontent.com/72586805/05dd0b80-6b7c-11e9-9cf5-15d6d7efb700",
+        "complexity": "Beginner",
+        "challenges": [
+            "Challenge 1",
+            "Challenge 2"
+        ],
+        "pride": 5
+    },
+    {
+        "title": "Project 6",
+        "description": "This is a description of Project 6.",
+        "technologies": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "React",
+            "Node.js"
+        ],
+        "completed": "2024/01/01",
+        "demo": "https://repository-images.githubusercontent.com/72586805/05dd0b80-6b7c-11e9-9cf5-15d6d7efb700",
+        "complexity": "Beginner",
+        "challenges": [
+            "Challenge 1",
+            "Challenge 2"
+        ],
+        "pride": 5
     }
 ]

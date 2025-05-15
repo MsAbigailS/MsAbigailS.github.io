@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { Tag } from './Tag';
 
 export interface CardProps {
@@ -39,14 +40,18 @@ export const Card = ({
     challenges = []
 }: CardProps) => {
     const colors = ['blue', 'green', 'orange', 'pink', 'red']
-    let bgColor = 'white'
-    let txtColor = getComputedStyle(document.documentElement).getPropertyValue('--color-black').replace(/"/g, '')
-    if (theme === undefined) {
-        bgColor = colors[Math.floor(Math.random() * colors.length)]
-        bgColor = getComputedStyle(document.documentElement).getPropertyValue('--color-' + bgColor).replace(/"/g, '')
-    } else {
-        bgColor = getComputedStyle(document.documentElement).getPropertyValue('--color-' + theme).replace(/"/g, '')
-    }
+    let txtColor = useMemo(() => {
+        return getComputedStyle(document.documentElement).getPropertyValue('--color-black').replace(/"/g, '')
+    }, [])
+
+    const bgColor = useMemo(() => {
+        if (theme === undefined) {
+            return getComputedStyle(document.documentElement).getPropertyValue('--color-' + colors[Math.floor(Math.random() * colors.length)]).replace(/"/g, '')
+        } else {
+            return getComputedStyle(document.documentElement).getPropertyValue('--color-' + theme).replace(/"/g, '')
+        }
+    }, [])
+
     return (
         // (0.72 ratio @ 120-w)
         // inspired by Pokemon cards

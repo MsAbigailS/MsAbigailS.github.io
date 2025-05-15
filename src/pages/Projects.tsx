@@ -81,17 +81,30 @@ export default function Projects() {
                 if (selectedTech.includes(tech.textContent ?? '')) {
                     // (child as HTMLElement).className = 'hidden'
                     show = true;
-                    (child as HTMLElement).className = 'block';
-                    console.log(child.textContent || '');
+                    if (child.className.includes('hidden')) {
+                        (child as HTMLElement).className = (child as HTMLElement).className.replace('hidden', 'block')
+                    } else {
+                        (child as HTMLElement).className = 'block';
+                    }
+                    console.log(child || '');
                 }
             })
 
             if (!show) {
-                (child as HTMLElement).className = 'hidden'
+                if (child.className.includes('block')) {
+                    (child as HTMLElement).className = (child as HTMLElement).className.replace('block', 'hidden')
+                } else {
+                    (child as HTMLElement).className = 'hidden';
+                }
             }
         })
 
     }, [selectedTech])
+
+    const navigate = useNavigate()
+    const goToHome = () => {
+        navigate('/')
+    }
 
     // toggling if list is visible
     function toggleList() {
@@ -107,8 +120,10 @@ export default function Projects() {
     // filter selection
     function filterSelection(e: React.MouseEvent<HTMLElement>) {
         if (!e.currentTarget) return
+
         if ((e.currentTarget as HTMLElement).className.includes('bg-gray-700')) {
-            (e.currentTarget as HTMLElement).className = (e.currentTarget as HTMLElement).className.replace('bg-gray-700', '')
+            // de-selecting
+            (e.currentTarget as HTMLElement).className = (e.currentTarget as HTMLElement).className.replace(' bg-gray-700 text-white', ' text-zinc-400')
             setCount(count => count - 1)
             setSelectedTech(selectedTech => {
                 if (selectedTech.includes((e.currentTarget as HTMLElement).textContent ?? '')) {
@@ -118,7 +133,8 @@ export default function Projects() {
                 }
             })
         } else {
-            (e.currentTarget as HTMLElement).className += ' bg-gray-700'
+            // selecting
+            (e.currentTarget as HTMLElement).className += ' bg-gray-700 text-white';
             setCount(count => count + 1)
             setSelectedTech(selectedTech => {
                 if (selectedTech.includes((e.currentTarget as HTMLElement).textContent ?? '')) {
@@ -132,7 +148,7 @@ export default function Projects() {
 
     return (
         <div data-id="main">
-            <Header />
+            <Header left={<p onClick={goToHome}>Home</p>} right={<p>Resume</p>} />
 
             <h1 data-id="subject-header" className={`text-center mb-10`}>
                 Project Showcase
@@ -141,13 +157,18 @@ export default function Projects() {
             {/* TODO: Make filterable project page */}
             <div className={`flex flex-row justify-center min-w-full max-w-full mb-10 *:ml-1 *:mr-1 *:select-none`}>
                 <div>
-                    <div onClick={toggleList} className={`hover:cursor-pointer min-w-1/10 rounded-sm text-center`}>
+                    <div onClick={toggleList} className={`border-1 transition-colors ease-in-out duration-[300ms] pl-2 pr-2 
+                        hover:cursor-pointer hover:bg-white hover:text-[#010102] min-w-1/10 rounded-sm text-center
+                        tracking-widest`}>
                         filter {/*{count}*/}
                     </div>
-                    <div id="availableTechnologies" className={`hidden z-30 absolute bg-[#010102] justify-center items-center *:min-w-full *:hover:cursor-pointer`}>
+                    <div id="availableTechnologies" className={`hidden z-30 absolute bg-[#010102] justify-center items-center
+                        text-zinc-400 rounded-lg shadow-lg shadow-[#010102]
+                        *:min-w-full *:hover:cursor-pointer *:hover:text-white
+                        *:ease-in-out *:duration-[100ms] *:transition-all *:pl-5 *:pr-5 *:pt-1 *:pb-1`}>
                     </div>
                 </div>
-                <input type="text" placeholder="Search..." className={`border-2 min-w-1/4 border-gray-50 rounded-md`} />
+                {/* <input type="text" placeholder="Search..." className={`border-2 pl-3 pr-3 min-w-1/4 rounded-md outline-hidden `} /> */}
             </div>
 
             <div id="projects" className={`flex flex-row flex-wrap justify-center items-center`}>
@@ -155,7 +176,7 @@ export default function Projects() {
                     return (
                         <div key={index} className={`flex flex-row flex-wrap justify-center items-center`}>
                             <Card title={project.title} description={project.description} technologies={project.technologies}
-                                completed={project.demo} url={project.demo} complexity={project.complexity} challenges={project.challenges} theme='blue' />
+                                completed={project.demo} url={project.demo} complexity={project.complexity} challenges={project.challenges} />
                         </div>
                     )
                 })}

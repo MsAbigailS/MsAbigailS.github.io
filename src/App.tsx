@@ -11,7 +11,9 @@ import { Footer } from './stories/Footer'
 const ScrollToTop: React.FC<React.PropsWithChildren<{}>> = (props) => {
   const location = useLocation()
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+    setTimeout(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+    }, 10)
   }, [location])
 
   console.log('ScrollToTop', location.pathname)

@@ -72,7 +72,7 @@ export default function Home() {
 
             {/* Hero/initial view */}
             <div className={`translate-z-2 h-screen flex flex-col overflow-hidden`}>
-                <Header left={<p>Projects</p>} right={<p>Resume</p>} />
+                <Header left={<p onClick={gotoProjects}>Projects</p>} right={<p>Resume</p>} />
                 <div data-id="hero" className="flex lg:flex-grow lg:flex-row flex-col justify-center items-center w-full h-full">
                     <div className="flex flex-col justify-center items-center">
                         <div className="text-9xl font-inknut p-6">Abigail</div>

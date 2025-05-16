@@ -150,9 +150,8 @@ export default function Projects() {
             <Header left={<span onClick={goToHome}>Home</span>} right={<span>Resume</span>} />
 
             <ElementAnimation animation="tilt">
-                <div className={`flex flex-col justify-center items-center text-center m-50 max-w-150 min-w-150 min-h-150 max-h-150`}>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium totam minus rerum tempora rem beatae sapiente in quam deserunt itaque. Animi illum expedita minima iusto commodi voluptatem unde quasi saepe.
-                </div>
+                <Card title="Project Showcase" description="A collection of my projects and their details." technologies={['React', 'TypeScript', 'Tailwind CSS']}
+                    completed='2' url="sdf" complexity="Medium" challenges={['Challenge 1', 'Challenge 2']} />
             </ElementAnimation>
 
             <h1 data-id="subject-header" className={`text-center mb-10`}>

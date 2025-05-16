@@ -5,8 +5,7 @@ import aboutMeImg from '../assets/typing.png'
 import { useVisible } from '../hooks/useVisible'
 import { Header } from "../stories/Header"
 import { Footer } from "../stories/Footer"
-import { Card } from "../stories/Card"
-import { Tag } from "../stories/Tag"
+import { TextAnimation } from '../stories/TextAnimation'
 
 export default function Home() {
     // setting up meta tag only on mount
@@ -90,19 +89,18 @@ export default function Home() {
                 <div className={`flex-[1] lg:text-start text-center pl-5 pr-5 lg:pl-5 lg:pr-10`}>
                     <div id="professionalSummary">
                         <p data-id="subject-header">Software Engineer</p>
-                        <p>I'm a <span data-id="highlight">software engineer</span> with a passion for building projects. I love to learn new things and work on challenging projects.</p>
+                        <p>I'm a <TextAnimation text="software engineer" animation='appearSlide' /> with a passion for building projects. I love to learn new things and work on challenging projects.</p>
                     </div>
                     <div id="skillsSummary">
                         <p data-id="subject-header">What am I good at?</p>
-                        <p>I strongly believe software engineers should be able to work on <span data-id="highlight">any part of a project</span>, but I have a few areas of expertise:
+                        <p>I strongly believe software engineers should be able to work on <TextAnimation text="any part of a project" animation='appearSlide' />, but I have a few areas of expertise:
                         </p>
                     </div>
                     <div id="personalitySummary">
                         <p data-id="subject-header">Beyond the code.</p>
-                        <p>I'm a nerd.</p>
+                        <p>I'm a <TextAnimation text="nerd" animation='appearSlide' /> </p>
                     </div>
                     {/* NOTE: Maybe add something about currently into and/or favorite hackathon memory for more personality*/}
-
                 </div>
             </div>
 
@@ -112,7 +110,7 @@ export default function Home() {
             <div className={`mt-25 flex justify-center items-center`}>
                 <div data-id="subject-header" id="callToAction" onClick={gotoProjects} className={`relative rounded-xs overflow-hidden flex flex-col justify-center items-center hover:cursor-pointer group text-7xl`}>
                     {/* background color movement */}
-                    <div className={`border-1 border-amber-500 min-h-full translate-z-0 flex-grow justify-center items-center flex 
+                    <div className={`min-h-full translate-z-0 flex-grow justify-center items-center flex 
                         text-white
                         p-2
                         bg-gradient-to-r from-white to-white

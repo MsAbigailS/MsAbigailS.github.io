@@ -26,7 +26,6 @@ type Story = StoryObj<typeof meta>;
 // default card
 export const Primary: Story = {
     args: {
-        primary: true,
         title: 'Card Title',
     },
 };
@@ -34,7 +33,6 @@ export const Primary: Story = {
 // project card
 export const Project: Story = {
     args: {
-        primary: false,
         title: 'Project Title',
         description: 'Project Description',
         technologies: ['React', 'TypeScript', 'Tailwind CSS'],

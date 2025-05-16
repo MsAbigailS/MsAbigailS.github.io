@@ -2,14 +2,8 @@ import { useMemo } from 'react';
 import { Tag } from './Tag';
 
 export interface CardProps {
-    /** Is this the principal call to action on the page? */
-    primary?: boolean;
-    /** What theme to use */
+    /** What color theme to use (if unselected, a random theme will be chosen (excluding white))*/
     theme?: 'pink' | 'white' | 'blue' | 'green' | 'orange'
-    // /** What background color to use */
-    // // backgroundColor?: string;
-    // /** What text color to use */
-    // // textColor?: string;
     /** What title to include */
     title?: string;
     /** What description to show */
@@ -18,35 +12,50 @@ export interface CardProps {
     technologies?: string[];
     /** When was the project completed */
     completed?: string;
-    /** What visual/demo to show */
+    /** What link to show */
     url?: string;
+    /** What cover image to inclue */
+    image?: string;
+    /** What video to include */
+    video?: string;
     /** What complexity to show */
     complexity?: string;
     /** What challenges to show */
     challenges?: string[];
-    /** What awards to show */
-    awards?: string[];
+    /** What awards to show (grantor, [award]) */
+    awards?: { [key: string]: string[] };
 }
 
 export const Card = ({
-    primary = false,
     theme,
-    // backgroundColor = "#ffffff",
-    // textColor = '#010102',
-    description,
-    technologies = [],
-    completed,
-    title,
-    complexity,
+    title = 'Card Title',
+    description = 'Card Description',
+    technologies = ['tech1', 'tech2', 'tech3'],
+    completed = 'Date completed',
     url,
-    challenges = [],
-    awards = []
+    image,
+    video,
+    complexity,
+    challenges,
+    awards = { ['Grantor']: ['Award1', 'Award2'] },
 }: CardProps) => {
-    const colors = ['blue', 'green', 'orange', 'pink', 'red']
-    let txtColor = useMemo(() => {
-        return getComputedStyle(document.documentElement).getPropertyValue('--color-black').replace(/"/g, '')
-    }, [])
+    // setting up card dimensions
+    let cardDims: { width: number | string; height: number | string; innerWidth: number | string; innerHeight: number | string, border: number | string } = {
+        width: 75,
+        height: 98,
+        innerWidth: 0,
+        innerHeight: 0,
+        border: 4
+    }
+    cardDims.innerWidth = Number(cardDims.width) - Number(cardDims.border)
+    cardDims.innerHeight = Number(cardDims.height) - Number(cardDims.border)
+    cardDims.width = 'min-w-' + cardDims.width + ' ' + 'max-w-' + cardDims.width
+    cardDims.height = 'min-h-' + cardDims.height + ' ' + 'max-h-' + cardDims.height
+    cardDims.innerWidth = 'min-w-' + cardDims.innerWidth + ' ' + 'max-w-' + cardDims.innerWidth
+    cardDims.innerHeight = 'min-h-' + cardDims.innerHeight + ' ' + 'max-h-' + cardDims.innerHeight
 
+    // random select theme if no theme selected
+    const colors = ['blue', 'green', 'orange', 'pink', 'red']
     const bgColor = useMemo(() => {
         if (theme === undefined) {
             return getComputedStyle(document.documentElement).getPropertyValue('--color-' + colors[Math.floor(Math.random() * colors.length)]).replace(/"/g, '')
@@ -55,23 +64,24 @@ export const Card = ({
         }
     }, [])
 
-    return (
-        // (0.72 ratio @ 120-w)
-        // inspired by Pokemon cards
-        // IDEA: Evo cards showcase connected projects
+    // getting text color
+    let txtColor = useMemo(() => {
+        return getComputedStyle(document.documentElement).getPropertyValue('--color-black').replace(/"/g, '')
+    }, [])
 
-        <div id="card" className={`min-w-75 min-h-98 max-w-75 max-h-98 relative m-1.5`}>
+    return (
+        <div id="card" className={`relative ${cardDims.height} ${cardDims.width} m-1.5`}>
             {/* shine animation over card */}
             <div id="cover"
-                className=
-                {`z-20 min-w-full min-h-full absolute bg-no-repeat 
-                    bg-[linear-gradient(45deg,transparent_25%,rgba(65,65,65,.2)_70%,transparent_75%,transparent_100%)] bg-[length:250%_250%,100%_100%] 
-                    transition-[background-position_0s_ease] bg-[position:-100%_0,0_0] hover:bg-[position:150%_0,0_0] hover:duration-[1000ms]
+                className={`z-20 min-w-full min-h-full absolute bg-no-repeat 
+                    bg-[linear-gradient(45deg,transparent_25%,rgba(65,65,65,.2)_70%,transparent_75%,transparent_100%)] 
+                    bg-[length:250%_250%,100%_100%] bg-[position:-100%_0,0_0]
+                    transition-[background-position_0s_ease] hover:bg-[position:150%_0,0_0] hover:duration-[1000ms]
                     `}
             >
             </div>
 
-            <div className={`absolute min-w-71 min-h-94 z-0 rounded-md p-2`}>
+            <div className={`absolute ${cardDims.innerHeight} ${cardDims.innerWidth} z-0 rounded-md p-2`}>
                 <div className={`min-w-full min-h-full z-0 absolute rounded-md bg-white opacity-50`}></div>
             </div>
 
@@ -89,11 +99,11 @@ export const Card = ({
                             </div >
                             {/* awards */}
                             < div id="awards" className={`flex-[1] text-end`}>
-                                {awards.map((award, index) => (
+                                {/* {awards.map((award, index) => (
                                     <div key={index} className={`flex pb-1 pt-1`}>
                                         <p>{award}</p>
                                     </div>
-                                ))}
+                                ))} */}
                             </div >
                         </div >
                         {/* visual/demo */}

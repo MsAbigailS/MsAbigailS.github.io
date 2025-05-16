@@ -94,6 +94,7 @@
         ],
         "completed": "2023/10/08",
         "demo": "https://devpost.com/software/the-greenhouse-mission",
+        "img": "https://img.youtube.com/vi/82e-MhRV6DU/hqdefault.jpg",
         "complexity": "Intermediate",
         "challenges": [
             "Designing AI algorithms that effectively reduce carbon emissions.",
@@ -146,27 +147,6 @@
         "pride": 4,
         "awards": [
             "Best Community Impact"
-        ]
-    },
-    {
-        "title": "Hi",
-        "description": "Hi is a social networking application that connects users through shared interests and activities. It employs AI to suggest connections and events, fostering meaningful interactions in a digital space.",
-        "technologies": [
-            "React Native",
-            "Python",
-            "Flask",
-            "Machine Learning"
-        ],
-        "completed": "2023/10/08",
-        "demo": "https://devpost.com/software/hi-rvg549",
-        "complexity": "Intermediate",
-        "challenges": [
-            "Implementing AI algorithms for accurate user interest matching.",
-            "Ensuring user privacy and data security in social networking features."
-        ],
-        "pride": 4,
-        "awards": [
-            "Most Creative Social App"
         ]
     }
 ]

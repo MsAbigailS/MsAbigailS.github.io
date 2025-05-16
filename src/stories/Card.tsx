@@ -39,20 +39,11 @@ export const Card = ({
     challenges,
     awards = { ['Grantor']: ['Award1', 'Award2'] },
 }: CardProps) => {
-    // setting up card dimensions
-    let cardDims: { width: number | string; height: number | string; innerWidth: number | string; innerHeight: number | string, border: number | string } = {
-        width: 75,
-        height: 98,
-        innerWidth: 0,
-        innerHeight: 0,
-        border: 4
+    // card dimensions
+    const cardDims = {
+        card: 'min-h-98 max-h-98 min-w-75 max-w-75',
+        inner: 'min-h-94 max-h-94 min-w-71 max-w-71'
     }
-    cardDims.innerWidth = Number(cardDims.width) - Number(cardDims.border)
-    cardDims.innerHeight = Number(cardDims.height) - Number(cardDims.border)
-    cardDims.width = 'min-w-' + cardDims.width + ' ' + 'max-w-' + cardDims.width
-    cardDims.height = 'min-h-' + cardDims.height + ' ' + 'max-h-' + cardDims.height
-    cardDims.innerWidth = 'min-w-' + cardDims.innerWidth + ' ' + 'max-w-' + cardDims.innerWidth
-    cardDims.innerHeight = 'min-h-' + cardDims.innerHeight + ' ' + 'max-h-' + cardDims.innerHeight
 
     // random select theme if no theme selected
     const colors = ['blue', 'green', 'orange', 'pink', 'red']
@@ -70,21 +61,20 @@ export const Card = ({
     }, [])
 
     return (
-        <div id="card" className={`relative ${cardDims.height} ${cardDims.width} m-1.5`}>
+        <div id="card" className={`${cardDims.card} relative m-1.5`}>
             {/* shine animation over card */}
             <div id="cover"
-                className={`z-20 min-w-full min-h-full absolute bg-no-repeat 
-                    bg-[linear-gradient(45deg,transparent_25%,rgba(65,65,65,.2)_70%,transparent_75%,transparent_100%)] 
-                    bg-[length:250%_250%,100%_100%] bg-[position:-100%_0,0_0]
-                    transition-[background-position_0s_ease] hover:bg-[position:150%_0,0_0] hover:duration-[1000ms]
+                className=
+                {`z-20 min-w-full min-h-full absolute bg-no-repeat 
+                    bg-[linear-gradient(45deg,transparent_25%,rgba(65,65,65,.2)_70%,transparent_75%,transparent_100%)] bg-[length:250%_250%,100%_100%] 
+                    transition-[background-position_0s_ease] bg-[position:-100%_0,0_0] hover:bg-[position:150%_0,0_0] hover:duration-[1000ms]
                     `}
             >
             </div>
 
-            <div className={`absolute ${cardDims.innerHeight} ${cardDims.innerWidth} z-0 rounded-md p-2`}>
+            <div className={`absolute ${cardDims.inner} z-0 rounded-md p-2`}>
                 <div className={`min-w-full min-h-full z-0 absolute rounded-md bg-white opacity-50`}></div>
             </div>
-
 
             {/* main content of card */}
             <div id="content" className={`min-w-full min-h-full shadow-md flex rounded-lg p-2`} style={{ backgroundColor: bgColor, color: txtColor }}>

@@ -1,6 +1,7 @@
 import { useEffect, useState, useMemo } from 'react'
 import { createRoot } from 'react-dom/client'
 import projects from '../data/projects.json'
+import { Test } from '../stories/Test'
 import { useNavigate } from 'react-router-dom'
 import { Header } from "../stories/Header"
 import { Footer } from "../stories/Footer"
@@ -60,8 +61,6 @@ export default function Projects() {
     // updating view based on selected filters
     // TODO: make this more efficient
     useEffect(() => {
-        console.log('selectedTech', selectedTech)
-
         const projectPar = document.getElementById('projects')
         if (!projectPar) return
         if (selectedTech.length === 0) {
@@ -149,6 +148,8 @@ export default function Projects() {
     return (
         <div data-id="main">
             <Header left={<span onClick={goToHome}>Home</span>} right={<span>Resume</span>} />
+
+            <Test />
 
             <h1 data-id="subject-header" className={`text-center mb-10`}>
                 Project Showcase

@@ -1,26 +1,71 @@
+import { use, useRef, useEffect, useMemo, useState } from 'react'
 export interface TestProps {
 }
 
 export const Test = ({
 }: TestProps) => {
+    const [tilt, setTilt] = useState<{ x: number; y: number }>()
+    const size = 350
+
+    let card = useRef<HTMLDivElement>(null)
+
+    // let quad = useMemo(() => {
+    //     return console.log(`rotateX(${currLoc})`)
+    // }, [currLoc])
+
+    useEffect(() => {
+        const handleMouseMove = (e: MouseEvent) => {
+            if (!card.current) return
+
+            // defining quad bounds
+            const x = e.clientX - card.current.getBoundingClientRect().left
+            const y = e.clientY - card.current.getBoundingClientRect().top
+            const maxWidth = card.current.getBoundingClientRect().width
+            const maxHeight = card.current.getBoundingClientRect().height
+
+            // identify if mouse in bounds
+            if (x > 0 && x < maxWidth && y > 0 && y < maxHeight) {
+                if (x < maxWidth * 0.5 && y < maxHeight * 0.5) {
+                    setTilt({ x: -30, y: 30 }) // top left
+                } else if (x > maxWidth * 0.5 && y < maxHeight * 0.5) {
+                    setTilt({ x: -30, y: -30 }) // top right
+                } else if (x > maxWidth * 0.5 && y > maxHeight * 0.5) {
+                    setTilt({ x: 30, y: -30 }) // bottom right
+                } else if (x < maxWidth * 0.5 && y > maxHeight * 0.5) {
+                    setTilt({ x: 30, y: 30 }) // bottom left
+                }
+            } else {
+                // setCurrLoc(0)
+                card.current.style.transform = `rotateX(0deg) rotateY(0deg)`
+                return
+            }
+
+            // tilting or resetting
+            card.current.style.transform = `rotateX(${tilt?.x}deg) rotateY(${tilt?.y}deg)`
+            console.log(card.current.style.transform)
+        }
+
+        window.addEventListener('mousemove', handleMouseMove)
+
+        return () => {
+            window.removeEventListener('mousemove', handleMouseMove)
+        }
+
+    }, [tilt])
+
+    const colors = ['bg-blue-500', 'bg-green-500', 'bg-orange-500']
+    const bgColor = useMemo(() => {
+        return colors[Math.floor(Math.random() * colors.length)]
+    }, [])
 
     return (
-        // <div
-        //     className={`bg-zinc-950 shadow-xl rounded-md border border-slate-900 bg-no-repeat
-        //         bg-[linear-gradient(225deg,transparent_25%,rgba(65,65,65,.1)_70%,transparent_75%,transparent_100%)] bg-[length:250%_250%,100%_100%] transition-[background-position_2s_ease] bg-[position:-100%_0,0_0] hover:bg-[position:150%_0,0_0] hover:duration-[1000ms]
-        //         max-w-150 min-w-150 max-h-150 min-h-150`}
-        // >
-        // </div>
-        <div className={`text-white min-w-150 min-h-150 flex justify-center items-center flex-col relative`}>
-            <div id="cover"
-                className=
-                {`min-w-full min-h-full absolute bg-no-repeat
-                    bg-[linear-gradient(225deg,transparent_25%,rgba(65,65,65,.1)_70%,transparent_75%,transparent_100%)] bg-[length:250%_250%,100%_100%] 
-                    transition-[background-position_2s_ease] bg-[position:-100%_0,0_0] hover:bg-[position:150%_0,0_0] hover:duration-[1000ms]`}
+        <div>
+            <div ref={card} className={`inline-flex perspective group size-${size}
+                transition-transform duration-500 preserve-3d
+                bg-gradient-to-b from-red-400 to-yellow-300 rounded-lg shadow-lg shadow-amber-500
+                border border-purple-500 `}
             >
-            </div>
-            <div id="under" className={`bg-zinc-950 min-w-full min-h-150`}>
-                UNDER
+                <img src="https://s.yimg.com/ny/api/res/1.2/izepqz_8HAPj6TsnMmt_JA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyNDI7aD04Mjg-/https://media.zenfs.com/en/parade_pets_articles_328/fa8131c8b28f9b9f3117d5138a96272d" />
             </div>
         </div>
     );

@@ -24,6 +24,8 @@ export interface CardProps {
     complexity?: string;
     /** What challenges to show */
     challenges?: string[];
+    /** What awards to show */
+    awards?: string[];
 }
 
 export const Card = ({
@@ -37,7 +39,8 @@ export const Card = ({
     title,
     complexity,
     url,
-    challenges = []
+    challenges = [],
+    awards = []
 }: CardProps) => {
     const colors = ['blue', 'green', 'orange', 'pink', 'red']
     let txtColor = useMemo(() => {
@@ -84,10 +87,14 @@ export const Card = ({
                             < div id="title" className={`flex-[4]`}>
                                 {title}
                             </div >
-                            {/* complexity */}
-                            {/* < div id="category" className={`flex-[1] text-end`}>
-                                {complexity}
-                            </div > */}
+                            {/* awards */}
+                            < div id="awards" className={`flex-[1] text-end`}>
+                                {awards.map((award, index) => (
+                                    <div key={index} className={`flex pb-1 pt-1`}>
+                                        <p>{award}</p>
+                                    </div>
+                                ))}
+                            </div >
                         </div >
                         {/* visual/demo */}
                         < div className={`flex flex-col justify-items-center min-h-32 max-h-32 rounded-xs`} style={{ backgroundColor: bgColor, color: txtColor }}>

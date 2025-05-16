@@ -1,112 +1,172 @@
 [
     {
-        "title": "Project 1",
-        "description": "This is a description of Project 1.",
+        "title": "Site-in-Site",
+        "description": "Site-in-Site is a browser extension that enables users to embed one website within another, facilitating seamless multitasking and enhanced productivity. The extension leverages modern web technologies to create a dynamic and interactive user experience.",
         "technologies": [
-            "HTML",
-            "CSS",
             "JavaScript",
-            "React",
-            "Node.js"
-        ],
-        "completed": "2024/01/01",
-        "demo": "https://repository-images.githubusercontent.com/72586805/05dd0b80-6b7c-11e9-9cf5-15d6d7efb700",
-        "complexity": "Beginner",
-        "challenges": [
-            "Challenge 1",
-            "Challenge 2"
-        ],
-        "pride": 5
-    },
-    {
-        "title": "Project 2",
-        "description": "This is a description of Project 2.",
-        "technologies": [
-            "Computer",
-            "Networking",
-            "Security"
-        ],
-        "completed": "2024/01/01",
-        "demo": "https://repository-images.githubusercontent.com/72586805/05dd0b80-6b7c-11e9-9cf5-15d6d7efb700",
-        "complexity": "Beginner",
-        "challenges": [
-            "Challenge 1",
-            "Challenge 2"
-        ],
-        "pride": 5
-    },
-    {
-        "title": "Project 3",
-        "description": "This is a description of Project 3.",
-        "technologies": [
+            "Chrome Extensions",
             "HTML",
-            "CSS",
-            "JavaScript",
-            "React",
-            "Node.js"
+            "CSS"
         ],
-        "completed": "2024/01/01",
-        "demo": "https://repository-images.githubusercontent.com/72586805/05dd0b80-6b7c-11e9-9cf5-15d6d7efb700",
-        "complexity": "Beginner",
+        "completed": "2023/10/08",
+        "demo": "https://devpost.com/software/site-in-site",
+        "complexity": "Intermediate",
         "challenges": [
-            "Challenge 1",
-            "Challenge 2"
+            "Implementing secure cross-origin communication between embedded sites.",
+            "Ensuring responsive design within nested iframes."
         ],
-        "pride": 5
+        "pride": 4,
+        "awards": [
+            "Best Use of Google Cloud"
+        ]
     },
     {
-        "title": "Project 4",
-        "description": "This is a description of Project 4.",
+        "title": "MedMate",
+        "description": "MedMate is a personal health management application that utilizes AI to assist users in understanding their medical prescriptions and maintaining health records. The app features voice recording and summarization of doctor consultations, providing users with accessible and organized health information.",
         "technologies": [
-            "Cloud",
-            "AWS",
-            "CloudFormation"
+            "React Native",
+            "Python",
+            "Flask",
+            "GPT-3.5"
         ],
-        "completed": "2024/01/01",
-        "demo": "https://repository-images.githubusercontent.com/72586805/05dd0b80-6b7c-11e9-9cf5-15d6d7efb700",
-        "complexity": "Beginner",
+        "completed": "2023/10/08",
+        "demo": "https://devpost.com/software/healai-v7o852",
+        "complexity": "Intermediate",
         "challenges": [
-            "Challenge 1",
-            "Challenge 2"
+            "Integrating AI-driven summarization for medical consultations.",
+            "Ensuring data privacy and security for sensitive health information."
         ],
-        "pride": 5
+        "pride": 5,
+        "awards": [
+            "Best Use of AI"
+        ]
     },
     {
-        "title": "Project 5",
-        "description": "This is a description of Project 5.",
+        "title": "Dunk Dynasty",
+        "description": "Dunk Dynasty is an interactive platform that enhances the basketball viewing experience by allowing fans to place real-time bets on game events. The system uses AI to generate dynamic prompts and maintains a leaderboard to foster community engagement.",
         "technologies": [
-            "HTML",
-            "CSS",
-            "JavaScript",
+            "Python",
             "React",
-            "Node.js"
+            "Firebase",
+            "Machine Learning"
         ],
-        "completed": "2024/01/01",
-        "demo": "https://repository-images.githubusercontent.com/72586805/05dd0b80-6b7c-11e9-9cf5-15d6d7efb700",
-        "complexity": "Beginner",
+        "completed": "2023/10/08",
+        "demo": "https://devpost.com/software/dunk-dynasty",
+        "complexity": "Intermediate",
         "challenges": [
-            "Challenge 1",
-            "Challenge 2"
+            "Developing real-time betting algorithms synchronized with live game data.",
+            "Creating an engaging user interface that updates dynamically during games."
         ],
-        "pride": 5
+        "pride": 4,
+        "awards": [
+            "Best Gaming Hack"
+        ]
     },
     {
-        "title": "Project 6",
-        "description": "This is a description of Project 6.",
+        "title": "Model Maintenance",
+        "description": "Model Maintenance is a 3D visualization tool designed to monitor and predict maintenance needs in building systems. By analyzing sensor data through machine learning models, it provides real-time insights and alerts for preventative maintenance.",
         "technologies": [
-            "HTML",
-            "CSS",
-            "JavaScript",
-            "React",
-            "Node.js"
+            "Three.js",
+            "Python",
+            "Flask",
+            "Machine Learning"
         ],
-        "completed": "2024/01/01",
-        "demo": "https://repository-images.githubusercontent.com/72586805/05dd0b80-6b7c-11e9-9cf5-15d6d7efb700",
-        "complexity": "Beginner",
+        "completed": "2023/10/08",
+        "demo": "https://devpost.com/software/model-maintenance",
+        "complexity": "Advanced",
         "challenges": [
-            "Challenge 1",
-            "Challenge 2"
+            "Processing and visualizing complex sensor data in a 3D environment.",
+            "Developing predictive models for various building maintenance scenarios."
         ],
-        "pride": 5
+        "pride": 5,
+        "awards": [
+            "Best Visualization"
+        ]
+    },
+    {
+        "title": "The Greenhouse Mission",
+        "description": "The Greenhouse Mission is a mobile application that assists users in reducing their carbon footprint by optimizing daily tasks. Utilizing AI, it schedules activities like shopping and laundry during times that minimize environmental impact.",
+        "technologies": [
+            "React Native",
+            "Python",
+            "Flask",
+            "AI Scheduling Algorithms"
+        ],
+        "completed": "2023/10/08",
+        "demo": "https://devpost.com/software/the-greenhouse-mission",
+        "complexity": "Intermediate",
+        "challenges": [
+            "Designing AI algorithms that effectively reduce carbon emissions.",
+            "Integrating user-friendly interfaces for environmental impact feedback."
+        ],
+        "pride": 4,
+        "awards": [
+            "Best Sustainability Hack"
+        ]
+    },
+    {
+        "title": "Amelia",
+        "description": "Amelia is an automated voice assistant that proactively notifies users about their vehicle's maintenance needs. By combining road data with AI voice technologies, it makes preventative car care accessible through natural voice interactions, ensuring users stay safe and informed without lifting a finger.",
+        "technologies": [
+            "ChatGPT",
+            "ElevenLabs",
+            "Google Voice",
+            "Python",
+            "React Native",
+            "Twilio"
+        ],
+        "completed": "2023/10/08",
+        "demo": "https://devpost.com/software/blinkedin-mqo4rp",
+        "complexity": "Intermediate",
+        "challenges": [
+            "Piping audio from a real phone call into the Whisper API due to Google Voice limitations.",
+            "Training a good model with mocked data was difficult due to how the data was generated."
+        ],
+        "pride": 5,
+        "awards": [
+            "Best AI Voice Assistant"
+        ]
+    },
+    {
+        "title": "Redwood",
+        "description": "Redwood is a platform that facilitates community-driven tree planting initiatives. It uses geolocation and community engagement tools to organize and track reforestation efforts, promoting environmental sustainability.",
+        "technologies": [
+            "React",
+            "Node.js",
+            "MongoDB",
+            "Google Maps API"
+        ],
+        "completed": "2023/10/08",
+        "demo": "https://devpost.com/software/redwood",
+        "complexity": "Intermediate",
+        "challenges": [
+            "Integrating geolocation services for accurate tree planting tracking.",
+            "Developing community engagement features to encourage participation."
+        ],
+        "pride": 4,
+        "awards": [
+            "Best Community Impact"
+        ]
+    },
+    {
+        "title": "Hi",
+        "description": "Hi is a social networking application that connects users through shared interests and activities. It employs AI to suggest connections and events, fostering meaningful interactions in a digital space.",
+        "technologies": [
+            "React Native",
+            "Python",
+            "Flask",
+            "Machine Learning"
+        ],
+        "completed": "2023/10/08",
+        "demo": "https://devpost.com/software/hi-rvg549",
+        "complexity": "Intermediate",
+        "challenges": [
+            "Implementing AI algorithms for accurate user interest matching.",
+            "Ensuring user privacy and data security in social networking features."
+        ],
+        "pride": 4,
+        "awards": [
+            "Most Creative Social App"
+        ]
     }
 ]

@@ -11,9 +11,6 @@ export const ElementAnimation = ({
     animation,
     children
 }: ElementAnimationProps) => {
-
-    let styles: string[] = []
-
     const childrenRef = useRef<HTMLDivElement>(null);
 
     // removing any margins from children
@@ -31,7 +28,7 @@ export const ElementAnimation = ({
                 }
             })
         })
-    }, [animation]);
+    }, [children]);
 
     return (
         <div
@@ -43,6 +40,7 @@ export const ElementAnimation = ({
                 border-1 border-pink-500`
             }
         >
+            {animation}
             {children}
         </div>
     );

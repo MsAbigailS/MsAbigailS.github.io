@@ -148,7 +148,7 @@ export default function Projects() {
 
     return (
         <div data-id="main">
-            <Header left={<p onClick={goToHome}>Home</p>} right={<p>Resume</p>} />
+            <Header left={<span onClick={goToHome}>Home</span>} right={<span>Resume</span>} />
 
             <h1 data-id="subject-header" className={`text-center mb-10`}>
                 Project Showcase

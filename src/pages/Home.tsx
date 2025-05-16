@@ -71,7 +71,7 @@ export default function Home() {
 
             {/* Hero/initial view */}
             <div className={`translate-z-2 h-screen flex flex-col overflow-hidden`}>
-                <Header left={<p onClick={gotoProjects}>Projects</p>} right={<p>Resume</p>} />
+                <Header left={<span onClick={gotoProjects}>Projects</span>} right={<span>Resume</span>} />
                 <div data-id="hero" className="flex lg:flex-grow lg:flex-row flex-col justify-center items-center w-full h-full">
                     <div className="flex flex-col justify-center items-center">
                         <div className="text-9xl font-inknut p-6">Abigail</div>
@@ -89,16 +89,16 @@ export default function Home() {
                 <div className={`flex-[1] lg:text-start text-center pl-5 pr-5 lg:pl-5 lg:pr-10`}>
                     <div id="professionalSummary">
                         <p data-id="subject-header">Software Engineer</p>
-                        <p>I'm a <TextAnimation text="software engineer" animation='appearSlide' /> with a passion for building projects. I love to learn new things and work on challenging projects.</p>
+                        <div>I'm a <TextAnimation text="software engineer" animation='appearSlide' /> with a passion for building projects. I love to learn new things and work on challenging projects.</div>
                     </div>
                     <div id="skillsSummary">
                         <p data-id="subject-header">What am I good at?</p>
-                        <p>I strongly believe software engineers should be able to work on <TextAnimation text="any part of a project" animation='appearSlide' />, but I have a few areas of expertise:
-                        </p>
+                        <div>I strongly believe software engineers should be able to work on <TextAnimation text="any part of a project" animation='appearSlide' />, but I have a few areas of expertise:
+                        </div>
                     </div>
                     <div id="personalitySummary">
                         <p data-id="subject-header">Beyond the code.</p>
-                        <p>I'm a <TextAnimation text="nerd" animation='appearSlide' /> </p>
+                        <div>I'm a <TextAnimation text="nerd" animation='appearSlide' /> </div>
                     </div>
                     {/* NOTE: Maybe add something about currently into and/or favorite hackathon memory for more personality*/}
                 </div>

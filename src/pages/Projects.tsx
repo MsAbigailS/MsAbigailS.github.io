@@ -1,7 +1,7 @@
 import { useEffect, useState, useMemo } from 'react'
 import { createRoot } from 'react-dom/client'
 import projects from '../data/projects.json'
-import { Test } from '../stories/Test'
+import { ElementAnimation } from '../stories/ElementAnimation'
 import { useNavigate } from 'react-router-dom'
 import { Header } from "../stories/Header"
 import { Footer } from "../stories/Footer"
@@ -149,7 +149,9 @@ export default function Projects() {
         <div data-id="main">
             <Header left={<span onClick={goToHome}>Home</span>} right={<span>Resume</span>} />
 
-            <Test />
+            <ElementAnimation animation="tilt">
+                <Card />
+            </ElementAnimation>
 
             <h1 data-id="subject-header" className={`text-center mb-10`}>
                 Project Showcase
@@ -178,7 +180,8 @@ export default function Projects() {
                         <div key={index} className={`flex flex-row flex-wrap justify-center items-center`}>
                             <Card title={project.title} description={project.description} technologies={project.technologies}
                                 completed={project.demo} url={project.demo} complexity={project.complexity} challenges={project.challenges}
-                                awards={project.awards} />
+                            // awards={project.awards} />
+                            />
                         </div>
                     )
                 })}

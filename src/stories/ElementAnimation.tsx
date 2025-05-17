@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useMemo } from 'react';
 import type { ReactNode } from 'react';
 
 export type ElementAnimationProps = {
@@ -12,13 +12,20 @@ export type ElementAnimationProps = {
 
 export const ElementAnimation = ({
     animation,
-    children
+    children,
+    speed = 'medium'
 }: ElementAnimationProps) => {
     const [tilt, setTilt] = useState<{ x: number; y: number }>();
     const parentRef = useRef<HTMLDivElement>(null);
+    const maxRotation = 25
+    const speeds = {
+        'slow': 'duration-1000',
+        'medium': 'duration-500',
+        'fast': 'duration-200'
+    }
 
     // removing any margins from children
-    // ensures animation covers childred
+    // ensures animation covers childred fully
     useEffect(() => {
         if (!parentRef.current) return
 
@@ -36,33 +43,81 @@ export const ElementAnimation = ({
     // setting animation speed
     useEffect(() => {
         if (!parentRef.current) return
+        if (!parentRef.current.className.match('duration-')) {
+            parentRef.current.className += ` ${speeds[speed]}`
+        }
+    }, [speed])
 
-    })
+    // set dimensions before animating
+    const maxW = useMemo(() => {
+        if (!parentRef.current) return 0
+        return parentRef.current?.getBoundingClientRect().width
+    }, [parentRef?.current])
+    const maxH = useMemo(() => {
+        if (!parentRef.current) return 0
+        return parentRef.current?.getBoundingClientRect().height
+    }, [parentRef?.current])
+    const left = useMemo(() => {
+        if (!parentRef.current) return 0
+        return parentRef.current?.getBoundingClientRect().left
+    }, [parentRef?.current])
+    const top = useMemo(() => {
+        if (!parentRef.current) return 0
+        return parentRef.current?.getBoundingClientRect().top
+    }, [parentRef?.current])
 
     // tilt animations
     useEffect(() => {
         if (animation !== 'tilt' || !parentRef) return
-
         const handleMouseMove = (e: MouseEvent) => {
             if (!parentRef.current) return
 
-            // defining quad bounds
-            const x = e.clientX - parentRef.current.getBoundingClientRect().left
-            const y = e.clientY - parentRef.current.getBoundingClientRect().top
-            const maxWidth = parentRef.current.getBoundingClientRect().width
-            const maxHeight = parentRef.current.getBoundingClientRect().height
+            // user mouse pos
+            const x = e.clientX - left
+            const y = e.clientY - top
 
-            // identify if mouse in bounds & quad
-            // TODO: see if we can make tilt direct more apparent lol
-            if (x > 0 && x < maxWidth && y > 0 && y < maxHeight) {
-                if (x < maxWidth * 0.5 && y < maxHeight * 0.5) {
-                    setTilt({ x: -30, y: 30 }) // top left
-                } else if (x > maxWidth * 0.5 && y < maxHeight * 0.5) {
-                    setTilt({ x: -30, y: -30 }) // top right
-                } else if (x > maxWidth * 0.5 && y > maxHeight * 0.5) {
-                    setTilt({ x: 30, y: -30 }) // bottom right
-                } else if (x < maxWidth * 0.5 && y > maxHeight * 0.5) {
-                    setTilt({ x: 30, y: 30 }) // bottom left
+            // set relative pos
+            let halfWidth = (maxW * 0.5)
+            let halfHeight = (maxH * 0.5)
+            let yRotation = maxRotation / (parentRef.current?.getBoundingClientRect().width)
+            let xRotation = maxRotation / (parentRef.current?.getBoundingClientRect().height)
+            let yUnseenBounds = ((maxW) * (1 - Math.cos(yRotation)))
+            let xUnseenBounds = ((maxH) * (1 - Math.cos(xRotation)))
+
+            // setting tilt degrees
+            if (x > yUnseenBounds && x < (maxW - yUnseenBounds) && y > xUnseenBounds && y < (maxH - xUnseenBounds)) {
+                let xDistOrigin = 0
+                let yDistOrigin = 0
+
+                // determ relative dist and set degree tilt
+                if (x > halfWidth) {
+                    xDistOrigin = x - ((halfWidth) - yUnseenBounds)
+                } else {
+                    xDistOrigin = ((halfWidth) - yUnseenBounds) - x
+                }
+
+                yRotation = yRotation * xDistOrigin
+
+                if (y > halfHeight) {
+                    yDistOrigin = Math.round(y - ((halfHeight) - xUnseenBounds))
+                } else {
+                    yDistOrigin = Math.round(((halfHeight) - xUnseenBounds) - y)
+                }
+                xRotation = xRotation * yDistOrigin
+
+                // determining quad mouse in
+                if (x < halfWidth && y < halfHeight) {
+                    // top left
+                    setTilt({ x: -1 * xRotation, y: yRotation })
+                } else if (x > halfWidth && y < halfHeight) {
+                    // top right
+                    setTilt({ x: -1 * xRotation, y: -1 * yRotation })
+                } else if (x > halfWidth && y > halfHeight) {
+                    // bottom right
+                    setTilt({ x: xRotation, y: -1 * yRotation })
+                } else if (x < halfWidth && y > halfHeight) {
+                    // bottom left
+                    setTilt({ x: xRotation, y: yRotation })
                 }
             } else {
                 setTilt({ x: 0, y: 0 })
@@ -77,18 +132,16 @@ export const ElementAnimation = ({
         return () => {
             window.removeEventListener('mousemove', handleMouseMove)
         }
-    }, [animation, tilt]);
-
+    }, [parentRef, animation, tilt]);
 
     return (
         <div
             id="root"
             ref={parentRef}
             className={
-                `inline-flex w-fit perspective 
+                `inline-flex w-fit perspective
                 ${children === undefined ? 'size-10' : ''} 
-                
-                ${animation === 'tilt' ? 'preserve-3d transition-transform ease-in-out' : ''}`
+                ${animation === 'tilt' ? 'preserve-3d transition-transform ease-out duration-700' : ''}`
             }
         >
             {children}

@@ -149,7 +149,7 @@ export default function Projects() {
         <div data-id="main">
             <Header left={<span onClick={goToHome}>Home</span>} right={<span>Resume</span>} />
 
-            <ElementAnimation animation="tilt">
+            <ElementAnimation animation="tilt" speed='fast'>
                 <Card title="Project Showcase" description="A collection of my projects and their details." technologies={['React', 'TypeScript', 'Tailwind CSS']}
                     completed='2' url="sdf" complexity="Medium" challenges={['Challenge 1', 'Challenge 2']} />
             </ElementAnimation>

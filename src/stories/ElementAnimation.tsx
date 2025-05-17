@@ -141,7 +141,7 @@ export const ElementAnimation = ({
             className={
                 `inline-flex w-fit perspective
                 ${children === undefined ? 'size-10' : ''} 
-                ${animation === 'tilt' ? 'preserve-3d transition-transform ease-out duration-700' : ''}`
+                ${animation === 'tilt' ? 'preserve-3d transition-transform ease-out' : ''}`
             }
         >
             {children}

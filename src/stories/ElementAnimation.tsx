@@ -127,10 +127,23 @@ export const ElementAnimation = ({
             parentRef.current.style.transform = `rotateX(${tilt?.x}deg) rotateY(${tilt?.y}deg)`
         }
 
-        window.addEventListener('mousemove', handleMouseMove)
+        const handleMouseLeave = () => {
+            if (!parentRef.current) return
+            // rotate back to origin gradually
+            if (parentRef.current.style.transform.includes('rotateX') || parentRef.current.style.transform.includes('rotateY')) {
+                parentRef.current.style.transition = 'transform 0.5s ease-out'
+                parentRef.current.style.transform = `rotateX(0deg) rotateY(0deg)`
+            }
+        }
+
+        if (parentRef.current) {
+            parentRef.current.addEventListener('mousemove', handleMouseMove)
+            parentRef.current.addEventListener('mouseleave', handleMouseLeave)
+        }
 
         return () => {
-            window.removeEventListener('mousemove', handleMouseMove)
+            if (parentRef.current) parentRef.current.removeEventListener('mousemove', handleMouseMove)
+            if (parentRef.current) parentRef.current.removeEventListener('mouseleave', handleMouseLeave)
         }
     }, [parentRef, animation, tilt]);
 

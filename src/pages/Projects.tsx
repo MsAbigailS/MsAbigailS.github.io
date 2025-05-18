@@ -149,11 +149,6 @@ export default function Projects() {
         <div data-id="main">
             <Header left={<span onClick={goToHome}>Home</span>} right={<span>Resume</span>} />
 
-            <ElementAnimation animation="tilt" speed='medium'>
-                <Card title="Project Showcase" description="A collection of my projects and their details." technologies={['React', 'TypeScript', 'Tailwind CSS']}
-                    completed='2' url="sdf" complexity="Medium" challenges={['Challenge 1', 'Challenge 2']} />
-            </ElementAnimation>
-
             <h1 data-id="subject-header" className={`text-center mb-10`}>
                 Project Showcase
             </h1>
@@ -175,15 +170,15 @@ export default function Projects() {
                 {/* <input type="text" placeholder="Search..." className={`border-2 pl-3 pr-3 min-w-1/4 rounded-md outline-hidden `} /> */}
             </div>
 
-            <div id="projects" className={`flex flex-row flex-wrap justify-center items-center`}>
+            <div id="projects" className={`flex flex-row flex-wrap justify-center items-center *:p-2`}>
                 {projects.map((project, index) => {
                     return (
-                        <div key={index} className={`flex flex-row flex-wrap justify-center items-center`}>
+                        <ElementAnimation animation='tilt'>
                             <Card title={project.title} description={project.description} technologies={project.technologies}
                                 completed={project.demo} url={project.demo} complexity={project.complexity} challenges={project.challenges}
                             // awards={project.awards} />
                             />
-                        </div>
+                        </ElementAnimation>
                     )
                 })}
             </div>

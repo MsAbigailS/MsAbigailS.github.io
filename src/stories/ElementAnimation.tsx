@@ -85,7 +85,7 @@ export const ElementAnimation = ({
             let xUnseenBounds = ((maxH) * (1 - Math.cos(xRotation)))
 
             // setting tilt degrees
-            if (x > yUnseenBounds && x < (maxW - yUnseenBounds) && y > xUnseenBounds && y < (maxH - xUnseenBounds)) {
+            if (x > 0 && x < (maxW) && y > 0 && y < (maxH)) {
                 let xDistOrigin = 0
                 let yDistOrigin = 0
 
@@ -154,9 +154,20 @@ export const ElementAnimation = ({
             className={
                 `inline-flex w-fit perspective
                 ${children === undefined ? 'size-10' : ''} 
-                ${animation === 'tilt' ? 'preserve-3d transition-transform ease-out' : ''}`
+                ${animation === 'tilt' ? 'preserve-3d transition-transform ease-out' : ''}
+                ${animation === 'shine' ? 'relative' : ''}`
             }
         >
+            <div className={`${animation === 'shine' ?
+                `z-20 min-w-full min-h-full absolute bg-no-repeat
+                ease-in-out duration-1000
+                bg-[linear-gradient(45deg,transparent_25%,rgba(65,65,65,.2)_70%,transparent_75%,transparent_100%)]
+                bg-[length:250%_250%,100%_100%]
+                transition-[background-position_0s_ease] bg-[position:-100%_0,0_0] 
+                hover:bg-[position:150%_0,0_0]
+                `
+                :
+                'hidden'}`}></div>
             {children}
         </div>
     );

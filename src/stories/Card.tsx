@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { Tag } from './Tag';
 
 export interface CardProps {
@@ -42,6 +42,7 @@ export const Card = ({
         { key: 'Award 2', values: ['Award 2.1', 'Award 2.2'] }
     ],
 }: CardProps) => {
+    const [isFlipped, setIsFlipped] = useState(false);
     // card dimensions
     const cardDims = {
         card: 'min-h-98 max-h-98 min-w-75 max-w-75',
@@ -63,26 +64,30 @@ export const Card = ({
         return getComputedStyle(document.documentElement).getPropertyValue('--color-black').replace(/"/g, '')
     }, [])
 
+    // counting awards
+    const awardCount = useMemo(() => {
+        let count = 0
+        awards.forEach((award) => {
+            count += award.values.length;
+        });
+        return count
+    }, [awards])
+
+    // flipping card
+    function flip(e: React.MouseEvent) {
+    }
+
 
     return (
         <div id="card" className={`${cardDims.card} relative m-1.5 select-none`}>
-            {/* shine animation over card */}
-            <div id="cover"
-                className=
-                {`z-20 min-w-full min-h-full absolute bg-no-repeat 
-                    bg-[linear-gradient(45deg,transparent_25%,rgba(65,65,65,.2)_70%,transparent_75%,transparent_100%)] bg-[length:250%_250%,100%_100%] 
-                    transition-[background-position_0s_ease] bg-[position:-100%_0,0_0] hover:bg-[position:150%_0,0_0] hover:duration-[1000ms]
-                    `}
-            >
-            </div>
-
+            {/* inner lightening */}
             <div className={`absolute ${cardDims.inner} z-0 rounded-md p-2`}>
                 <div className={`min-w-full min-h-full z-0 absolute rounded-md bg-white opacity-50`}></div>
             </div>
 
             {/* main content of card */}
-            <div id="content" className={`min-w-full min-h-full shadow-md flex rounded-lg p-2`} style={{ backgroundColor: bgColor, color: txtColor }}>
-                <div className={`min-w-full min-h-full rounded-md justify-center items-centerflex flex-co p-2`} style={{ backgroundColor: bgColor }}>
+            <div id="content" className={` min-w-full min-h-full shadow-md flex rounded-lg p-2`} style={{ backgroundColor: bgColor, color: txtColor }}>
+                <div className={`${isFlipped ? 'hidden' : 'flex-co'} min-w-full min-h-full rounded-md justify-center items-centerflex  p-2`} style={{ backgroundColor: bgColor }}>
                     {/* upper half of card */}
                     < div className={`flex flex-col w-full max-h-40 min-h-40 relative z-10`}>
                         {/* top row */}
@@ -93,12 +98,7 @@ export const Card = ({
                             </div >
                             {/* awards */}
                             < div id="awards" className={`flex-[1] text-end`}>
-                                {awards.length}
-                                {/* {awards.map((award, index) => (
-                                    <div key={index} className={`flex pb-1 pt-1`}>
-                                        <p>{award}</p>
-                                    </div>
-                                ))} */}
+                                {awardCount}
                             </div >
                         </div >
                         {/* visual/demo */}

@@ -3,7 +3,7 @@ import { Tag } from './Tag';
 
 export interface CardProps {
     /** What color theme to use (if unselected, a random theme will be chosen (excluding white))*/
-    theme?: 'pink' | 'white' | 'blue' | 'green' | 'orange'
+    theme?: 'pink' | 'white' | 'blue' | 'green' | 'orange';
     /** What title to include */
     title?: string;
     /** What description to show */
@@ -22,9 +22,9 @@ export interface CardProps {
     complexity?: string;
     /** What challenges to show */
     challenges?: string[];
-    /** What awards to show (grantor, [award]) */
-    awards?: { [key: string]: string[] };
-}
+    /** What awards to show (array of key-value pairs) */
+    awards?: { key: string; values: string[] }[];
+};
 
 export const Card = ({
     theme,
@@ -37,7 +37,10 @@ export const Card = ({
     video,
     complexity,
     challenges,
-    awards = { ['Grantor']: ['Award1', 'Award2'] },
+    awards = [
+        { key: 'Award 1', values: ['Award 1.1', 'Award 1.2'] },
+        { key: 'Award 2', values: ['Award 2.1', 'Award 2.2'] }
+    ],
 }: CardProps) => {
     // card dimensions
     const cardDims = {
@@ -60,8 +63,9 @@ export const Card = ({
         return getComputedStyle(document.documentElement).getPropertyValue('--color-black').replace(/"/g, '')
     }, [])
 
+
     return (
-        <div id="card" className={`${cardDims.card} relative m-1.5`}>
+        <div id="card" className={`${cardDims.card} relative m-1.5 select-none`}>
             {/* shine animation over card */}
             <div id="cover"
                 className=
@@ -84,11 +88,12 @@ export const Card = ({
                         {/* top row */}
                         < div className={`min-h-8 max-h-8 flex flex-row`}>
                             {/* project title */}
-                            < div id="title" className={`flex-[4]`}>
+                            < div id="title" className={`flex-[4] font-bold`}>
                                 {title}
                             </div >
                             {/* awards */}
                             < div id="awards" className={`flex-[1] text-end`}>
+                                {awards.length}
                                 {/* {awards.map((award, index) => (
                                     <div key={index} className={`flex pb-1 pt-1`}>
                                         <p>{award}</p>
@@ -99,7 +104,7 @@ export const Card = ({
                         {/* visual/demo */}
                         < div className={`flex flex-col justify-items-center min-h-32 max-h-32 rounded-xs`} style={{ backgroundColor: bgColor, color: txtColor }}>
                             <div id="demoFrame" className={`overflow-hidden rounded-sm m-1 flex justify-center items-center min-h-full`}> {/* frame */}
-                                <img src={url} className={`max-h-full min-h-full`} />
+                                <img src={image} alt="demo cover/image" className={`max-h-full min-h-full`} />
                             </div>
                         </div >
                     </div >

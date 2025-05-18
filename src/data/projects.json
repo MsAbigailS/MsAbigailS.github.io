@@ -16,9 +16,11 @@
             "Ensuring responsive design within nested iframes."
         ],
         "pride": 4,
-        "awards": [
-            "Best Use of Google Cloud"
-        ]
+        "awards": {
+            "grantor": [
+                "Best Use of Google Cloud"
+            ]
+        }
     },
     {
         "title": "MedMate",
@@ -37,9 +39,11 @@
             "Ensuring data privacy and security for sensitive health information."
         ],
         "pride": 5,
-        "awards": [
-            "Best Use of AI"
-        ]
+        "awards": {
+            "grantor": [
+                "Best Use of AI"
+            ]
+        }
     },
     {
         "title": "Dunk Dynasty",
@@ -58,9 +62,11 @@
             "Creating an engaging user interface that updates dynamically during games."
         ],
         "pride": 4,
-        "awards": [
-            "Best Gaming Hack"
-        ]
+        "awards": {
+            "grantor": [
+                "Best Gaming Hack"
+            ]
+        }
     },
     {
         "title": "Model Maintenance",
@@ -79,9 +85,11 @@
             "Developing predictive models for various building maintenance scenarios."
         ],
         "pride": 5,
-        "awards": [
-            "Best Visualization"
-        ]
+        "awards": {
+            "grantor": [
+                "Best Visualization"
+            ]
+        }
     },
     {
         "title": "The Greenhouse Mission",
@@ -101,9 +109,11 @@
             "Integrating user-friendly interfaces for environmental impact feedback."
         ],
         "pride": 4,
-        "awards": [
-            "Best Sustainability Hack"
-        ]
+        "awards": {
+            "grantor": [
+                "Best Sustainability Hack"
+            ]
+        }
     },
     {
         "title": "Amelia",
@@ -124,9 +134,11 @@
             "Training a good model with mocked data was difficult due to how the data was generated."
         ],
         "pride": 5,
-        "awards": [
-            "Best AI Voice Assistant"
-        ]
+        "awards": {
+            "grantor": [
+                "Best Community Impact"
+            ]
+        }
     },
     {
         "title": "Redwood",
@@ -145,8 +157,10 @@
             "Developing community engagement features to encourage participation."
         ],
         "pride": 4,
-        "awards": [
-            "Best Community Impact"
-        ]
+        "awards": {
+            "grantor": [
+                "Best Community Impact"
+            ]
+        }
     }
 ]

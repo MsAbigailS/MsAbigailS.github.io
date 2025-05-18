@@ -159,7 +159,7 @@ export default function Projects() {
                     <div onClick={toggleList} className={`border-1 transition-colors ease-in-out duration-[300ms] pl-2 pr-2 
                         hover:cursor-pointer hover:bg-white hover:text-[#010102] min-w-1/10 rounded-sm text-center
                         tracking-widest`}>
-                        filter {/*{count}*/}
+                        filter: technology {/*{count}*/}
                     </div>
                     <div id="availableTechnologies" className={`hidden z-30 absolute bg-[#010102] justify-center items-center
                         text-zinc-400 rounded-lg shadow-lg shadow-[#010102]
@@ -173,12 +173,15 @@ export default function Projects() {
             <div id="projects" className={`flex flex-row flex-wrap justify-center items-center *:p-2`}>
                 {projects.map((project, index) => {
                     return (
-                        <ElementAnimation animation='tilt'>
-                            <Card title={project.title} description={project.description} technologies={project.technologies}
-                                completed={project.demo} url={project.demo} complexity={project.complexity} challenges={project.challenges}
-                            // awards={project.awards} />
-                            />
-                        </ElementAnimation>
+                        <div key={index}>
+                            <ElementAnimation animation='tilt'>
+                                <Card title={project.title} description={project.description} technologies={project.technologies}
+                                    completed={project.demo} url={project.demo} complexity={project.complexity} challenges={project.challenges}
+                                    image={project.img}
+                                    awards={project.awards} />
+                                {/* /> */}
+                            </ElementAnimation>
+                        </div>
                     )
                 })}
             </div>

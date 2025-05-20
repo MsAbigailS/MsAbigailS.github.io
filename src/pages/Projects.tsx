@@ -179,12 +179,10 @@ export default function Projects() {
                     return (
                         <div key={index}>
                             <ElementAnimation animation='tilt'>
-                                <ElementAnimation animation='shine'>
-                                    <Card title={project.title} description={project.description} technologies={project.technologies}
-                                        completed={project.demo} url={project.demo} complexity={project.complexity} challenges={project.challenges}
-                                        image={project.img}
-                                        awards={project.awards} />
-                                </ElementAnimation>
+                                <Card title={project.title} description={project.description} technologies={project.technologies}
+                                    completed={project.demo} url={project.demo} complexity={project.complexity} challenges={project.challenges}
+                                    image={project.img}
+                                    awards={project.awards} />
                             </ElementAnimation>
                         </div>
                     )

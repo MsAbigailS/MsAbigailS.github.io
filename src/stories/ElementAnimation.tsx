@@ -158,16 +158,18 @@ export const ElementAnimation = ({
                 ${animation === 'shine' ? 'relative' : ''}`
             }
         >
-            <div className={`${animation === 'shine' ?
-                `z-20 min-w-full min-h-full absolute bg-no-repeat
-                ease-in-out duration-1000
-                bg-[linear-gradient(45deg,transparent_25%,rgba(65,65,65,.2)_70%,transparent_75%,transparent_100%)]
-                bg-[length:250%_250%,100%_100%]
-                transition-[background-position_0s_ease] bg-[position:-100%_0,0_0] 
-                hover:bg-[position:150%_0,0_0]
+            <div className={`
+                ${animation === 'shine' ?
+                    `z-20 min-w-full min-h-full absolute bg-no-repeat
+                    ease-in-out duration-1000
+                    bg-[linear-gradient(45deg,transparent_60%,rgba(255,249,252,.2)_70%,transparent_75%,transparent_100%)]
+                    bg-[length:250%_250%,100%_100%]
+                    transition-[background-position_0s_ease] bg-[position:-100%_0,0_0] 
+                    hover:bg-[position:150%_0,0_0]
                 `
-                :
-                'hidden'}`}></div>
+                    :
+                    'hidden'}`}>
+            </div>
             {children}
         </div>
     );

@@ -1,4 +1,5 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useRef, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { ElementAnimation } from './ElementAnimation';
 import { Tag } from './Tag';
 
@@ -44,11 +45,26 @@ export const Card = ({
     ],
 }: CardProps) => {
     const [isFlipped, setIsFlipped] = useState(false);
+    const [pos, setPos] = useState({ x: 0, y: 0 });
+    const [activeSlide, setActiveSlide] = useState({ x: '', y: '' }); // amount needed to move
+    const cardRef = useRef<HTMLDivElement>(null);
     // card dimensions
     const cardDims = {
         card: 'min-h-98 max-h-98 min-w-75 max-w-75',
         inner: 'min-h-94 max-h-94 min-w-71 max-w-71'
     }
+
+    useEffect(() => {
+        if (!cardRef.current) return
+        setPos({
+            x: cardRef.current.getBoundingClientRect().x,
+            y: cardRef.current.getBoundingClientRect().y
+        })
+        setActiveSlide({
+            x: `-translate-x-[` + Math.round(cardRef.current.getBoundingClientRect().x).toString() + `px]`,
+            y: `translate-y-0`
+        })
+    }, [])
 
     // random select theme if no theme selected
     const colors = ['blue', 'green', 'orange', 'pink', 'red']
@@ -74,27 +90,24 @@ export const Card = ({
         return count
     }, [awards])
 
-    // flipping card
-    function flip(e: React.MouseEvent) {
-        e.preventDefault();
-        e.stopPropagation();
-        setIsFlipped(!isFlipped);
-        console.log('flipped');
+    const PopupPortal: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+        const portalRoot = typeof window !== 'undefined' ? document.body : null;
+        return portalRoot ? createPortal(children, portalRoot) : null;
     }
 
     return (
-        <div id="card" onClick={flip} className={`${cardDims.card} relative m-1.5 select-none`}>
-            <ElementAnimation animation='shine'>
+        <div id="card" onClick={() => setIsFlipped(!isFlipped)} ref={cardRef} className={`${cardDims.card} m-1.5 select-none`}>
+            < ElementAnimation animation='shine' >
                 {/* inner lightening */}
-                <div className={`absolute ${cardDims.inner} z-0 rounded-md p-2`}>
+                < div className={`absolute ${cardDims.inner} z-0 rounded-md p-2`}>
                     <div className={`min-w-full min-h-full z-0 absolute rounded-md bg-white opacity-50`}></div>
-                </div>
+                </div >
 
                 {/* main content of card */}
-                <div id="content" className={`min-w-full min-h-full shadow-md flex rounded-lg p-2`} style={{ backgroundColor: bgColor, color: txtColor }}>
+                < div id="content" className={`min-w-full min-h-full shadow-md flex rounded-lg p-2`} style={{ backgroundColor: bgColor, color: txtColor }}>
                     <div className={`flex-co min-w-full min-h-full rounded-md justify-center items-centerflex  p-2`} style={{ backgroundColor: bgColor }}>
                         {/* upper half of card */}
-                        < div className={`${isFlipped ? 'hidden' : 'flex flex-col'} w-full max-h-40 min-h-40 relative z-10`}>
+                        < div className={`flex flex-col w-full max-h-40 min-h-40 relative z-10`}>
                             {/* top row */}
                             < div className={`min-h-8 max-h-8 flex flex-row`}>
                                 {/* project title */}
@@ -115,7 +128,7 @@ export const Card = ({
                         </div >
 
                         {/* lower half of card */}
-                        < div className={`${isFlipped ? 'hidden' : 'flex'} flex-col w-full min-h-50 max-h-50 relative z-10`}>
+                        < div className={`flex-col w-full min-h-50 max-h-50 relative z-10`}>
                             {/* upper section */}
                             < div className={`flex-col min-h-42 max-h-42 items-center flex`}>
                                 {/* description */}
@@ -125,7 +138,7 @@ export const Card = ({
                                 </div >
                                 {/* technologies */}
                                 {/* TODO: Handle more than 3 items showing without messing with other apperances */}
-                                <div id="technologies" className={`w-full justify-center items-center min-h-22 flex flex-row flex-wrap overflow-hidden text-sm`}>
+                                <div id="technologies" className={`flex flex-row flex-wrap w-full justify-center items-center min-h-22 overflow-hidden text-sm`}>
                                     {technologies.map((tech, index) => (
                                         <div key={index} className={`flex pb-1 pt-1`}>
                                             <Tag label={tech} />
@@ -151,7 +164,67 @@ export const Card = ({
                             </div >
                         </div >
                     </div >
-                </div>
+                </div >
+
+                {/* detailed card that pops up when card selected */}
+                {isFlipped && (
+                    <PopupPortal>
+                        <div id="cardDetailed" className={`fixed inset-0 **:overflow-hidden flex z-50 justify-center items-center`}>
+                            {/* card */}
+                            <div className={`relative min-w-[75%] min-h-[75%] max-w-[75%] max-h-[75%] rounded-md shadow-lg`} style={{ backgroundColor: bgColor, color: txtColor }}>
+                                {/* inside border */}
+                                <div className={`absolute flex flex-col inset-2 rounded-md bg-white p-2 opacity-50 **:border-1`}>
+                                    <div id="upper" className={`flex items-center min-w-full max-w-full min-h-[10%]`}>
+                                        <p id="title" className={`text-2xl font-bold min-w-full`}>{title}</p>
+                                    </div>
+                                    <div id="lower" className={`flex flex-row min-h-[90%] min-w-full`}>
+                                        <div id="visuals" className={`inline-block min-w-[50%]`}>img</div>
+                                        <div id="text" className={`inline-block border-1 min-w-[50%] *:max-h-[33%]`}>
+
+                                            {awards.length > 0 && (
+                                                <div id="awards">
+                                                    <p>Awards</p>
+                                                    {
+                                                        awards.map((award, index) => (
+                                                            <div key={index}>
+                                                                {award.values.map((value, index) => (
+                                                                    <div key={index} className={`flex flex-row`}>
+                                                                        <div className={`flex-[1]`}>{award.key}</div>
+                                                                        <div className={`flex-[2]`}>{value}</div>
+                                                                    </div>
+                                                                ))}
+                                                            </div>
+                                                        ))
+                                                    }
+                                                </div>
+                                            )}
+
+                                            <div id="description">
+                                                <p>What's this about?</p>
+                                                <p>{description}</p>
+                                            </div>
+                                            <div id="technologies">
+                                                <p>What technologies were used?</p>
+                                                <div className={`flex flex-row flex-wrap w-full justify-center items-center min-h-22 overflow-hidden text-sm`}>
+                                                    {technologies.map((tech, index) => (
+                                                        <div key={index} className={`p-1`}>
+                                                            <Tag label={tech} />
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <p>Personal notes</p>
+                                                {/* TODO: update projects. json */}
+                                                <p>Lorem ipsum put this in projects.json</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </PopupPortal>
+                )}
             </ElementAnimation >
         </div >
     );

@@ -173,17 +173,22 @@ export const Card = ({
                             {/* card */}
                             <div className={`relative min-w-[75%] min-h-[75%] max-w-[75%] max-h-[75%] rounded-md shadow-lg`} style={{ backgroundColor: bgColor, color: txtColor }}>
                                 {/* inside border */}
-                                <div className={`absolute flex flex-col inset-2 rounded-md bg-white p-2 opacity-50 **:border-1`}>
+                                <div className={`absolute z-0 flex flex-col inset-2 rounded-md bg-white p-2 opacity-50`}>
+                                </div>
+
+                                <div id="content" className={`absolute z-1 inset-4 `}>
                                     <div id="upper" className={`flex items-center min-w-full max-w-full min-h-[10%]`}>
                                         <p id="title" className={`text-2xl font-bold min-w-full`}>{title}</p>
                                     </div>
                                     <div id="lower" className={`flex flex-row min-h-[90%] min-w-full`}>
-                                        <div id="visuals" className={`inline-block min-w-[50%]`}>img</div>
-                                        <div id="text" className={`inline-block border-1 min-w-[50%] *:max-h-[33%]`}>
+                                        <div id="visuals" className={`bg-white flex min-w-[50%] justify-center items-center overflow-hidden`}>
+                                            <img src={image} alt="demo cover/image" className={``} />
+                                        </div>
+                                        <div id="text" className={`inline-block min-w-[50%] *:max-h-[33%]`}>
 
                                             {awards.length > 0 && (
-                                                <div id="awards">
-                                                    <p>Awards</p>
+                                                <div id="awards" className={`text-lg`}>
+                                                    <p className={`font-bold`}>Awards</p>
                                                     {
                                                         awards.map((award, index) => (
                                                             <div key={index}>
@@ -200,11 +205,11 @@ export const Card = ({
                                             )}
 
                                             <div id="description">
-                                                <p>What's this about?</p>
+                                                <p className={`font-bold`}>What's this about?</p>
                                                 <p>{description}</p>
                                             </div>
                                             <div id="technologies">
-                                                <p>What technologies were used?</p>
+                                                <p className={`font-bold`}>What technologies were used?</p>
                                                 <div className={`flex flex-row flex-wrap w-full justify-center items-center min-h-22 overflow-hidden text-sm`}>
                                                     {technologies.map((tech, index) => (
                                                         <div key={index} className={`p-1`}>
@@ -213,10 +218,14 @@ export const Card = ({
                                                     ))}
                                                 </div>
                                             </div>
-                                            <div>
-                                                <p>Personal notes</p>
+                                            <div id="personalNotes">
+                                                <p className={`font-bold`}>Personal notes</p>
                                                 {/* TODO: update projects. json */}
                                                 <p>Lorem ipsum put this in projects.json</p>
+                                            </div>
+                                            <div id="additionalLinks">
+                                                <p className={`font-bold`}>Want to see more?</p>
+                                                <p className={`hover:cursor-pointer`}>links</p>
                                             </div>
                                         </div>
                                     </div>

@@ -27,6 +27,7 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
     args: {
         title: 'Card Title',
+        image: ['', '']
     },
 };
 
@@ -36,6 +37,7 @@ export const Project: Story = {
         title: 'Project Title',
         description: 'Project Description',
         technologies: ['React', 'TypeScript', 'Tailwind CSS'],
-        completed: '2023-01-01'
+        completed: '2023-01-01',
+        image: ['', '']
     }
 }

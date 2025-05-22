@@ -188,7 +188,7 @@ export default function Projects() {
                     )
                 })}
             </div>
-            <Footer />
+            {/* <Footer /> */}
         </div >
     )
 }

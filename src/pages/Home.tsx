@@ -132,10 +132,10 @@ export default function Home() {
             </div>
 
             {/* form */}
-            <div>
+            {/* <div>
                 Contact form
-            </div>
-            <Footer />
+            </div> */}
+            {/* <Footer /> */}
         </div >
     )
 }

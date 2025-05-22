@@ -176,15 +176,15 @@ export const Card = ({
                                 <div className={`absolute z-0 flex flex-col inset-2 rounded-md bg-white p-2 opacity-50`}>
                                 </div>
 
-                                <div id="content" className={`absolute z-1 inset-4 `}>
+                                <div id="content" className={`absolute z-1 inset-4`}>
                                     <div id="upper" className={`flex items-center min-w-full max-w-full min-h-[10%]`}>
                                         <p id="title" className={`text-2xl font-bold min-w-full`}>{title}</p>
                                     </div>
                                     <div id="lower" className={`flex flex-row min-h-[90%] min-w-full`}>
-                                        <div id="visuals" className={`bg-white flex min-w-[50%] justify-center items-center overflow-hidden`}>
+                                        <div id="visuals" className={`bg-white flex min-w-[50%] justify-center items-center overflow-hidden rounded-sm`}>
                                             <img src={image} alt="demo cover/image" className={``} />
                                         </div>
-                                        <div id="text" className={`inline-block min-w-[50%] *:max-h-[33%]`}>
+                                        <div id="text" className={`inline-block p-2 min-w-[50%] *:max-h-[33%] *:pt-2 *:pb-2`}>
 
                                             {awards.length > 0 && (
                                                 <div id="awards" className={`text-lg`}>
@@ -194,8 +194,7 @@ export const Card = ({
                                                             <div key={index}>
                                                                 {award.values.map((value, index) => (
                                                                     <div key={index} className={`flex flex-row`}>
-                                                                        <div className={`flex-[1]`}>{award.key}</div>
-                                                                        <div className={`flex-[2]`}>{value}</div>
+                                                                        <div className={`flex-[1]`}>{award.key} - {value}</div>
                                                                     </div>
                                                                 ))}
                                                             </div>

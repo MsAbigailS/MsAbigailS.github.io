@@ -29,7 +29,4 @@ I regularly update both the content and underlying code to reflect what I'm work
 
 ## 🛠 Deployment
 
-This site is deployed using [GitHub Pages](https://pages.github.com/) and built with Vite. Updates are automatically pushed to the `gh-pages` branch via the deploy script:
-
-```bash
-n
+This site is deployed using [GitHub Pages](https://pages.github.com/) and built with Vite.

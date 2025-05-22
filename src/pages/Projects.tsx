@@ -13,15 +13,15 @@ export default function Projects() {
 
     // setting up meta tag only on mount
     useEffect(() => {
-        document.title = "My Portfolio | Temporary Page"
+        document.title = "My Portfolio | Projects"
         const description = document.querySelector('meta[name="description"]')
 
         if (description) {
-            description.setAttribute('content', 'Temporary page')
+            description.setAttribute('content', 'Projects')
         } else {
             const meta = document.createElement('meta')
             meta.name = 'description'
-            meta.content = 'Temporary page'
+            meta.content = 'Projects'
             document.head.appendChild(meta)
         }
     }, [])
@@ -181,8 +181,8 @@ export default function Projects() {
                             <ElementAnimation animation='tilt'>
                                 <Card title={project.title} description={project.description} technologies={project.technologies}
                                     completed={project.demo} url={project.demo} complexity={project.complexity} challenges={project.challenges}
-                                    image={project.img}
-                                    awards={project.awards} />
+                                    image={project.imgs}
+                                    awards={project.awards} personalNotes={project.personalNotes} />
                             </ElementAnimation>
                         </div>
                     )

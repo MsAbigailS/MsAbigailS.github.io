@@ -94,20 +94,62 @@ export default function Home() {
                     <div id="skillsSummary">
                         <p data-id="subject-header">What am I good at?</p>
                         <div>I strongly believe software engineers should be able to work on <TextAnimation text="any part of a project" animation='appearSlide' />, but I have a few areas of expertise:
+                            <ul className="list-disc pl-6 mt-3">
+                                <li><strong>Full-Stack Development</strong>
+                                    <ul className="list-disc pl-6">
+                                        <li>Built and deployed end-to-end applications</li>
+                                        <li>Comfortable working across both front-end and back-end</li>
+                                    </ul>
+                                </li>
+
+                                <li><strong>Languages</strong>
+                                    <ul className="list-disc pl-6">
+                                        <li>JavaScript</li>
+                                        <li>TypeScript</li>
+                                        <li>Python</li>
+                                        <li>SQL</li>
+                                    </ul>
+                                </li>
+
+                                <li><strong>Front-End</strong>
+                                    <ul className="list-disc pl-6">
+                                        <li>React (custom components, hooks, state management)</li>
+                                        <li>Responsive and accessible UI design</li>
+                                        <li>Figma for design collaboration</li>
+                                    </ul>
+                                </li>
+
+                                <li><strong>Back-End</strong>
+                                    <ul className="list-disc pl-6">
+                                        <li>Python with Flask</li>
+                                        <li>RESTful API design and integration</li>
+                                        <li>Basic data modeling and SQL queries</li>
+                                    </ul>
+                                </li>
+
+                                <li><strong>Tooling & Workflow</strong>
+                                    <ul className="list-disc pl-6">
+                                        <li>Git & GitHub for version control</li>
+                                        <li>Agile development practices</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+
+
                         </div>
                     </div>
                     <div id="personalitySummary">
                         <p data-id="subject-header">Beyond the code.</p>
-                        <div>I'm a <TextAnimation text="nerd" animation='appearSlide' /> </div>
+                        <div>I'm a <TextAnimation text="nerd" animation='appearSlide' /> at heart. When I'm not coding, I'm usually playing video games, taking care of my growing collection of house plants, or trying to get some coffee. </div>
                     </div>
-                    {/* NOTE: Maybe add something about currently into and/or favorite hackathon memory for more personality*/}
                 </div>
             </div>
 
 
 
             {/* call to action */}
-            <div className={`mt-25 flex justify-center items-center`}>
+            <div className={`mt-25 pb-30 flex justify-center items-center`}>
                 <div data-id="subject-header" id="callToAction" onClick={gotoProjects} className={`relative rounded-xs overflow-hidden flex flex-col justify-center items-center hover:cursor-pointer group text-7xl`}>
                     {/* background color movement */}
                     <div className={`min-h-full translate-z-0 flex-grow justify-center items-center flex 

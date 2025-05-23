@@ -4,11 +4,14 @@ export interface TagProps {
     label?: string;
     /** What color theme to use */
     theme?: 'white' | 'blue' | 'green' | 'orange' | 'pink';
+    /** What size to use */
+    size?: 'small' | 'medium' | 'large';
 }
 
 export const Tag = ({
     label = 'Tag',
-    theme
+    theme,
+    size = 'medium'
 }: TagProps) => {
     const colors = ['blue', 'green', 'orange', 'pink']
     const bgColor = useMemo(() => {
@@ -24,7 +27,8 @@ export const Tag = ({
     }, [])
 
     return (
-        <div className={`shadow-sm rounded-lg pl-2 pr-2 pb-1 pt-1 ml-2 mr-2 w-auto h-auto`} style={{ backgroundColor: bgColor, color: txtColor }}>
+        <div className={`${size === 'medium' ? 'text-md' : size === 'small' ? 'text-sm' : 'text-lg'}
+            shadow-sm rounded-lg pl-2 pr-2 pb-1 pt-1 ml-2 mr-2 w-auto h-auto`} style={{ backgroundColor: bgColor, color: txtColor }}>
             {label}
         </div>
     );

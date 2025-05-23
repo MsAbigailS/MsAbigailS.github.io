@@ -182,7 +182,7 @@ export default function Projects() {
                                 <Card title={project.title} description={project.description} technologies={project.technologies}
                                     completed={project.demo} url={project.demo} complexity={project.complexity} challenges={project.challenges}
                                     image={project.imgs}
-                                    awards={project.awards} personalNotes={project.personalNotes} />
+                                    awards={project.awards} personalNotes={project.personalNotes} links={project.links} />
                             </ElementAnimation>
                         </div>
                     )

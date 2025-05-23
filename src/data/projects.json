@@ -1,35 +1,5 @@
 [
     {
-        "title": "Site-in-Site",
-        "description": "Site-in-Site is a browser extension that enables users to embed one website within another, facilitating seamless multitasking and enhanced productivity. The extension leverages modern web technologies to create a dynamic and interactive user experience.",
-        "technologies": [
-            "JavaScript",
-            "Chrome Extensions",
-            "HTML",
-            "CSS"
-        ],
-        "completed": "2023/10/08",
-        "demo": "https://devpost.com/software/site-in-site",
-        "imgs": [
-            "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/381/919/datas/gallery.jpg"
-        ],
-        "complexity": "Intermediate",
-        "challenges": [
-            "Implementing secure cross-origin communication between embedded sites.",
-            "Ensuring responsive design within nested iframes."
-        ],
-        "pride": 4,
-        "awards": [
-            {
-                "key": "grantor",
-                "values": [
-                    "Best Use of Google Cloud"
-                ]
-            }
-        ],
-        "personalNotes": "I will update this later"
-    },
-    {
         "title": "MedMate",
         "description": "MedMate is a personal health management application that utilizes AI to assist users in understanding their medical prescriptions and maintaining health records. The app features voice recording and summarization of doctor consultations, providing users with accessible and organized health information.",
         "technologies": [
@@ -41,7 +11,10 @@
         "completed": "2023/10/08",
         "demo": "https://devpost.com/software/healai-v7o852",
         "imgs": [
-            "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/438/468/datas/gallery.jpg"
+            {
+                "resource": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/438/468/datas/gallery.jpg",
+                "alt": "tempText"
+            }
         ],
         "complexity": "Intermediate",
         "challenges": [
@@ -51,73 +24,63 @@
         "pride": 5,
         "awards": [
             {
-                "key": "grantor",
+                "key": "Axxess Hackathon 2023",
                 "values": [
-                    "Best Use of AI"
+                    "1st Place Overall"
                 ]
             }
         ],
-        "personalNotes": "I will update this later"
+        "personalNotes": "One of my favorite hackathon projects. I learned a lot about mutli-tasking in a condensed time frame. I also learned a lot about the importance of user experience.",
+        "links": [
+            {
+                "name": "Demo",
+                "url": "https://devpost.com/software/healai-v7o852"
+            },
+            {
+                "name": "GitHub Repo",
+                "url": "https://github.com/NicholasZolton/AxxessHackathonApp2023"
+            }
+        ]
     },
     {
-        "title": "Dunk Dynasty",
-        "description": "Dunk Dynasty is an interactive platform that enhances the basketball viewing experience by allowing fans to place real-time bets on game events. The system uses AI to generate dynamic prompts and maintains a leaderboard to foster community engagement.",
+        "title": "Redwood",
+        "description": "Redwood is a platform that facilitates community-driven tree planting initiatives. It uses geolocation and community engagement tools to organize and track reforestation efforts, promoting environmental sustainability.",
         "technologies": [
-            "Python",
             "React",
-            "Firebase",
-            "Machine Learning"
+            "Node.js",
+            "MongoDB",
+            "Google Maps API"
         ],
         "completed": "2023/10/08",
-        "demo": "https://devpost.com/software/dunk-dynasty",
+        "demo": "https://devpost.com/software/redwood",
         "imgs": [
-            "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/455/962/datas/gallery.jpg"
+            {
+                "resource": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/666/863/datas/gallery.jpg",
+                "alt": "tempText"
+            },
+            {
+                "resource": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/666/863/datas/gallery.jpg",
+                "alt": "tempText"
+            }
         ],
         "complexity": "Intermediate",
         "challenges": [
-            "Developing real-time betting algorithms synchronized with live game data.",
-            "Creating an engaging user interface that updates dynamically during games."
+            "Integrating geolocation services for accurate tree planting tracking.",
+            "Developing community engagement features to encourage participation."
         ],
         "pride": 4,
-        "awards": [
+        "awards": [],
+        "personalNotes": "I'm proud of this full-stack project! By combining reconstructed algorithms to extract key concepts for a variety of use cases with dynamic, engaging UI, I was able to strengthen my full-stack development skills.",
+        "links": [
             {
-                "key": "grantor",
-                "values": [
-                    "Best Gaming Hack"
-                ]
-            }
-        ],
-        "personalNotes": "I will update this later"
-    },
-    {
-        "title": "Model Maintenance",
-        "description": "Model Maintenance is a 3D visualization tool designed to monitor and predict maintenance needs in building systems. By analyzing sensor data through machine learning models, it provides real-time insights and alerts for preventative maintenance.",
-        "technologies": [
-            "Three.js",
-            "Python",
-            "Flask",
-            "Machine Learning"
-        ],
-        "completed": "2023/10/08",
-        "demo": "https://devpost.com/software/model-maintenance",
-        "imgs": [
-            "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/595/363/datas/gallery.jpg"
-        ],
-        "complexity": "Advanced",
-        "challenges": [
-            "Processing and visualizing complex sensor data in a 3D environment.",
-            "Developing predictive models for various building maintenance scenarios."
-        ],
-        "pride": 5,
-        "awards": [
+                "name": "Demo",
+                "url": "https://devpost.com/software/redwood"
+            },
             {
-                "key": "grantor",
-                "values": [
-                    "Best Visualization"
-                ]
+                "name": "GitHub Repo",
+                "url": "https://github.com/hampster2018/HackPrinceton"
             }
-        ],
-        "personalNotes": "I will update this later"
+        ]
     },
     {
         "title": "The Greenhouse Mission",
@@ -131,7 +94,10 @@
         "completed": "2023/10/08",
         "demo": "https://devpost.com/software/the-greenhouse-mission",
         "imgs": [
-            "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/599/643/datas/gallery.jpg"
+            {
+                "resource": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/599/643/datas/gallery.jpg",
+                "alt": "tempText"
+            }
         ],
         "complexity": "Intermediate",
         "challenges": [
@@ -141,13 +107,24 @@
         "pride": 4,
         "awards": [
             {
-                "key": "grantor",
+                "key": "Hack Rice 2023",
                 "values": [
-                    "Best Sustainability Hack"
+                    "2nd Place SLB Challenge",
+                    "Best Tech Domain"
                 ]
             }
         ],
-        "personalNotes": "I will update this later"
+        "personalNotes": "This project took multiple twists and turns, but in the end, I'm proud of the final product. Sleep deprived from traveling to the hackathon and from working on the project, I learned the importance of clear and consistent communication with my team as roadblocks and solutions arrive.",
+        "links": [
+            {
+                "name": "Demo",
+                "url": "https://devpost.com/software/the-greenhouse-mission"
+            },
+            {
+                "name": "GitHub Repo",
+                "url": "https://github.com/hampster2018/HackRice"
+            }
+        ]
     },
     {
         "title": "Amelia",
@@ -163,7 +140,10 @@
         "completed": "2023/10/08",
         "demo": "https://devpost.com/software/blinkedin-mqo4rp",
         "imgs": [
-            "https://img.youtube.com/vi/UJ7v7CeDewk/hqdefault.jpg"
+            {
+                "resource": "https://img.youtube.com/vi/UJ7v7CeDewk/hqdefault.jpg",
+                "alt": "tempText"
+            }
         ],
         "complexity": "Intermediate",
         "challenges": [
@@ -173,50 +153,173 @@
         "pride": 5,
         "awards": [
             {
-                "key": "grantor",
+                "key": "Hack UTA",
                 "values": [
-                    "Best AI Voice Assistant"
+                    "2nd Place Overall"
                 ]
             }
         ],
-        "personalNotes": "I will update this later"
+        "personalNotes": "At the catalyst of prompt engineering, our team was able to create a product that was not only functional, but practical. I learned a lot about the impact prompt engineering has on the final product.",
+        "links": [
+            {
+                "name": "Demo",
+                "url": "https://devpost.com/software/blinkedin-mqo4rp"
+            },
+            {
+                "name": "GitHub Repo",
+                "url": "https://github.com/TimothyNaumov/HackUTA2023-Dashboard"
+            }
+        ]
     },
     {
-        "title": "Redwood",
-        "description": "Redwood is a platform that facilitates community-driven tree planting initiatives. It uses geolocation and community engagement tools to organize and track reforestation efforts, promoting environmental sustainability.",
+        "title": "Site-in-Site",
+        "description": "Site-in-Site is a browser extension that enables users to embed one website within another, facilitating seamless multitasking and enhanced productivity. The extension leverages modern web technologies to create a dynamic and interactive user experience.",
         "technologies": [
-            "React",
-            "Node.js",
-            "MongoDB",
-            "Google Maps API"
+            "JavaScript",
+            "Chrome Extensions",
+            "HTML",
+            "CSS"
         ],
         "completed": "2023/10/08",
-        "demo": "https://devpost.com/software/redwood",
+        "demo": "https://devpost.com/software/site-in-site",
         "imgs": [
-            "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/666/863/datas/gallery.jpg",
-            "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/666/863/datas/gallery.jpg"
+            {
+                "resource": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/381/919/datas/gallery.jpg",
+                "alt": "tempText"
+            }
         ],
         "complexity": "Intermediate",
         "challenges": [
-            "Integrating geolocation services for accurate tree planting tracking.",
-            "Developing community engagement features to encourage participation."
+            "Implementing secure cross-origin communication between embedded sites.",
+            "Ensuring responsive design within nested iframes."
         ],
         "pride": 4,
         "awards": [
             {
-                "key": "grantor",
+                "key": "WEHack UTD",
                 "values": [
-                    "Best Community Impact",
-                    "test"
-                ]
-            },
-            {
-                "key": "grantor",
-                "values": [
-                    "Best Use of Google Maps API"
+                    "2nd Place CBRE Challenge"
                 ]
             }
         ],
-        "personalNotes": "I will update this later"
+        "personalNotes": "One of my first hackathon projects! This was the day our team decided we would not repeat ideas and everyone had to learn something new. This was my first time using Svelte to create a responsive application.",
+        "links": [
+            {
+                "name": "Demo",
+                "url": "https://devpost.com/software/site-in-site"
+            },
+            {
+                "name": "GitHub Repo",
+                "url": "https://github.com/hampster2018/WEHack-2023"
+            }
+        ]
+    },
+    {
+        "title": "Dunk Dynasty",
+        "description": "Dunk Dynasty is an interactive platform that enhances the basketball viewing experience by allowing fans to place real-time bets on game events. The system uses AI to generate dynamic prompts and maintains a leaderboard to foster community engagement.",
+        "technologies": [
+            "Python",
+            "React",
+            "Firebase",
+            "Machine Learning"
+        ],
+        "completed": "2023/10/08",
+        "demo": "https://devpost.com/software/dunk-dynasty",
+        "imgs": [
+            {
+                "resource": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/455/962/datas/gallery.jpg",
+                "alt": "tempText"
+            }
+        ],
+        "complexity": "Intermediate",
+        "challenges": [
+            "Developing real-time betting algorithms synchronized with live game data.",
+            "Creating an engaging user interface that updates dynamically during games."
+        ],
+        "pride": 4,
+        "awards": [],
+        "personalNotes": "This project took a variety of twists and turns, but in the end, a cohesive produce was creted. This project was a great example of how scope creep can be avoided by clearly communicating with your team and recognizing the strengths and weaknesses of each member.",
+        "links": [
+            {
+                "name": "Demo",
+                "url": "https://devpost.com/software/dunk-dynasty"
+            },
+            {
+                "name": "GitHub Repo",
+                "url": "https://github.com/MsAbigailS/HackAI"
+            }
+        ]
+    },
+    {
+        "title": "Model Maintenance",
+        "description": "Model Maintenance is a 3D visualization tool designed to monitor and predict maintenance needs in building systems. By analyzing sensor data through machine learning models, it provides real-time insights and alerts for preventative maintenance.",
+        "technologies": [
+            "Three.js",
+            "Python",
+            "Flask",
+            "Machine Learning"
+        ],
+        "completed": "2023/10/08",
+        "demo": "https://devpost.com/software/model-maintenance",
+        "imgs": [
+            {
+                "resource": "ModelMaintenance1.jpg",
+                "alt": "3D representation of a building"
+            },
+            {
+                "resource": "ModelMaintenance10.jpg",
+                "alt": "3D representation dashboard"
+            },
+            {
+                "resource": "ModelMaintenance3.jpg",
+                "alt": "Dashboard 6"
+            },
+            {
+                "resource": "ModelMaintenance4.jpg",
+                "alt": "Dashboard 2"
+            },
+            {
+                "resource": "ModelMaintenance5.jpg",
+                "alt": "Dashboard 4"
+            },
+            {
+                "resource": "ModelMaintenance6.jpg",
+                "alt": "Dashboard 5"
+            },
+            {
+                "resource": "ModelMaintenance7.jpg",
+                "alt": "Dashboard 3"
+            },
+            {
+                "resource": "ModelMaintenance8.jpg",
+                "alt": "Dashboard 8"
+            },
+            {
+                "resource": "ModelMaintenance9.jpg",
+                "alt": "Dashboard 7"
+            },
+            {
+                "resource": "ModelMaintenance2.jpg",
+                "alt": "Dashboard 1"
+            }
+        ],
+        "complexity": "Advanced",
+        "challenges": [
+            "Processing and visualizing complex sensor data in a 3D environment.",
+            "Developing predictive models for various building maintenance scenarios."
+        ],
+        "pride": 5,
+        "awards": [],
+        "personalNotes": "Such a fun project! This project showcases the importance of data quality and the impact it has on the final product. This was also the first time I had used 3D modeling in a project.",
+        "links": [
+            {
+                "name": "Demo",
+                "url": "https://devpost.com/software/model-maintenance"
+            },
+            {
+                "name": "GitHub Repo",
+                "url": "https://github.com/MsAbigailS/HackSMU"
+            }
+        ]
     }
 ]

@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import { ElementAnimation } from './ElementAnimation';
 import { Tag } from './Tag';
 import { ImageCarousel } from './ImageCarousel';
+// < !--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
 
 export interface CardProps {
     /** What color theme to use (if unselected, a random theme will be chosen (excluding white))*/
@@ -17,8 +18,8 @@ export interface CardProps {
     completed?: string;
     /** What link to show */
     url?: string;
-    /** What cover image to inclue */
-    image: string[];
+    /** What cover image and description to inclue */
+    image: { resource: string; alt: string }[];
     /** What video to include */
     video?: string;
     /** What complexity to show */
@@ -29,6 +30,8 @@ export interface CardProps {
     awards?: { key: string; values: string[] }[];
     /** What personal notes to include */
     personalNotes?: string;
+    /** What additional links to include */
+    links?: { name: string; url: string }[];
 };
 
 export const Card = ({
@@ -46,7 +49,8 @@ export const Card = ({
         { key: 'Award 1', values: ['Award 1.1', 'Award 1.2'] },
         { key: 'Award 2', values: ['Award 2.1', 'Award 2.2'] }
     ],
-    personalNotes
+    personalNotes,
+    links = []
 }: CardProps) => {
     const [isFlipped, setIsFlipped] = useState(false);
     const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
@@ -83,7 +87,7 @@ export const Card = ({
     // limiting descriptions on preview
     useEffect(() => {
         if (!cardRef.current) return
-        const maxChars = 150
+        const maxChars = 120
         let descriptionDecon = description.substring(0, maxChars).split(' ').slice(0, -1).join(' ')
         const specialChars = ['.', ',', '!', '?', ':', ';']
         if (specialChars.includes(descriptionDecon.slice(-1))) {
@@ -116,10 +120,6 @@ export const Card = ({
         return count
     }, [awards])
 
-    useEffect(() => {
-        console.log('isFlipped: ', isFlipped)
-    }, [isFlipped])
-
     const PopupPortal: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         const portalRoot = typeof window !== 'undefined' ? document.body : null;
         return portalRoot ? createPortal(children, portalRoot) : null;
@@ -147,13 +147,21 @@ export const Card = ({
                                     </div >
                                     {/* awards */}
                                     < div id="awards" className={`flex-[1] text-end`}>
-                                        {awardCount}
+                                        {awardCount > 0 ?
+                                            <div className={`flex justify-end items-center overflow-hidden`}>
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" className={`size-7`}>
+                                                    <path fill="#010102" d="M400 0L176 0c-26.5 0-48.1 21.8-47.1 48.2c.2 5.3 .4 10.6 .7 15.8L24 64C10.7 64 0 74.7 0 88c0 92.6 33.5 157 78.5 200.7c44.3 43.1 98.3 64.8 138.1 75.8c23.4 6.5 39.4 26 39.4 45.6c0 20.9-17 37.9-37.9 37.9L192 448c-17.7 0-32 14.3-32 32s14.3 32 32 32l192 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-26.1 0C337 448 320 431 320 410.1c0-19.6 15.9-39.2 39.4-45.6c39.9-11 93.9-32.7 138.2-75.8C542.5 245 576 180.6 576 88c0-13.3-10.7-24-24-24L446.4 64c.3-5.2 .5-10.4 .7-15.8C448.1 21.8 426.5 0 400 0zM48.9 112l84.4 0c9.1 90.1 29.2 150.3 51.9 190.6c-24.9-11-50.8-26.5-73.2-48.3c-32-31.1-58-76-63-142.3zM464.1 254.3c-22.4 21.8-48.3 37.3-73.2 48.3c22.7-40.3 42.8-100.5 51.9-190.6l84.4 0c-5.1 66.3-31.1 111.2-63 142.3z" />
+                                                </svg>
+                                            </div>
+                                            :
+                                            ''
+                                        }
                                     </div >
                                 </div >
                                 {/* visual/demo */}
                                 < div className={`flex flex-col justify-items-center min-h-32 max-h-32 rounded-xs`} style={{ backgroundColor: bgColor, color: txtColor }}>
                                     <div id="demoFrame" className={`overflow-hidden rounded-sm m-1 flex justify-center items-center min-h-full`}> {/* frame */}
-                                        <img src={image[0]} alt="demo cover/image" className={`max-h-full min-h-full`} />
+                                        <img src={image[0].resource} alt="demo cover/image" className={`max-h-full min-h-full`} />
                                     </div>
                                 </div >
                             </div >
@@ -215,31 +223,33 @@ export const Card = ({
 
                                 <div id="content" className={`absolute z-1 inset-4`}>
                                     <div>Hey! This section is currently under construction, but feel free to checkout the progress I've made!</div>
-                                    <div id="upper" className={`flex items-center min-w-full max-w-full min-h-[10%]`}>
+                                    <div id="upper" className={`flex items-center min-w-full max-w-full min-h-[1%]`}>
                                         <div id="close" className={`flex justify-end items-center min-w-[100%] min-h-[100%]`}>
                                             <p onClick={() => setIsFlipped(!isFlipped)} className={`mr-2 text-xl text-gray-500 hover:text-gray-700 hover:cursor-pointer`}>
                                                 x
                                             </p>
                                         </div>
                                     </div>
-                                    <div id="lower" className={`flex flex-row min-h-[90%] min-w-full`}>
-                                        <div id="visuals" className={`bg-white flex min-w-[50%] justify-center items-center overflow-hidden rounded-sm`}>
-                                            {image ?
-                                                <ImageCarousel images={image} /> :
-                                                ''
-                                            }
+                                    <div id="lower" className={`flex flex-row items-center min-h-[90%] min-w-full`}>
+                                        <div className={`max-h-[50%] min-w-[50%] flex-col items-start`}>
+                                            <div id="visuals" className={`flex justify-center items-center overflow-hidden rounded-sm`}>
+                                                {image ?
+                                                    <ImageCarousel images={image} /> :
+                                                    ''
+                                                }
+                                            </div>
                                         </div>
                                         <div id="text" className={`inline-block p-2 min-w-[50%] *:max-h-[33%] *:pt-2 *:pb-2`}>
                                             <p id="title" className={`text-2xl underline font-bold min-w-[90%] max-w-[90%]`}>{title}</p>
                                             {awards.length > 0 && (
-                                                <div id="awards" className={`text-lg`}>
-                                                    <p className={`font-bold`}>Awards</p>
+                                                <div id="awards" className={``}>
+                                                    <p className={`font-bold text-lg`}>Awards</p>
                                                     {
                                                         awards.map((award, index) => (
                                                             <div key={index}>
                                                                 {award.values.map((value, index) => (
                                                                     <div key={index} className={`flex flex-row`}>
-                                                                        <div className={`flex-[1]`}>{award.key} - {value}</div>
+                                                                        <div className={`flex-[1] text-sm`}>{award.key} - {value}</div>
                                                                     </div>
                                                                 ))}
                                                             </div>
@@ -250,25 +260,31 @@ export const Card = ({
 
                                             <div id="description">
                                                 <p className={`font-bold text-lg`}>What's this about?</p>
-                                                <p>{description}</p>
+                                                <p className={`text-sm`}>{description}</p>
                                             </div>
                                             <div id="technologies">
                                                 <p className={`font-bold text-lg`}>What technologies were used?</p>
-                                                <div className={`flex flex-row flex-wrap w-full justify-center items-center min-h-22 overflow-hidden text-sm`}>
+                                                <div className={`flex flex-row flex-wrap w-full justify-center items-center min-h-15 overflow-hidden text-sm`}>
                                                     {technologies.map((tech, index) => (
-                                                        <div key={index} className={`p-1`}>
-                                                            <Tag label={tech} />
+                                                        <div key={index} className={`-p-2`}>
+                                                            <Tag label={tech} size="small" />
                                                         </div>
                                                     ))}
                                                 </div>
                                             </div>
                                             <div id="personalNotes">
                                                 <p className={`font-bold text-lg`}>Personal notes</p>
-                                                <p>{personalNotes}</p>
+                                                <p className={`text-sm`}>{personalNotes}</p>
                                             </div>
                                             <div id="additionalLinks">
                                                 <p className={`font-bold text-lg`}>Want to see more?</p>
-                                                <p className={`hover:cursor-pointer`}>links</p>
+                                                <div className={`hover:cursor-pointer`}>
+                                                    {links.map((link, index) => (
+                                                        <div key={index} className={`flex flex-row`}>
+                                                            <a href={link.url} target="_blank" className={`text-sm`}>{link.name}</a>
+                                                        </div>
+                                                    ))}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

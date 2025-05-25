@@ -48,7 +48,7 @@
 
   /* root of pages */
   [data-id="main"] {
-    @apply min-h-screen flex flex-col bg-[#010102] text-white font-assistant overflow-x-hidden;
+    @apply min-h-screen flex flex-col bg-[#010102] text-white font-assistant overflow-x-hidden overflow-y-auto overscroll-none;
   }
 
   /* subject headers */

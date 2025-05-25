@@ -104,6 +104,9 @@ export default function Projects() {
     const goToHome = () => {
         navigate('/')
     }
+    const goToResume = () => {
+        navigate('/resume')
+    }
 
     // toggling if list is visible
     function toggleList() {
@@ -147,13 +150,14 @@ export default function Projects() {
 
     return (
         <div data-id="main">
-            <Header left={<span onClick={goToHome}>Home</span>} right={<span>Resume</span>} />
+            <Header left={<span onClick={goToHome}>Home</span>} right={<span onClick={goToResume}>Resume</span>} />
 
             <h1 data-id="subject-header" className={`text-center mb-10`}>
                 Project Showcase
             </h1>
 
-            {/* TODO: Make filterable project page */}
+            <p className={`text-center mb-6 ml-6 mr-6`}>A showcase of sleepless nights, too much coffee, and a whole lot of code</p>
+
             <div className={`flex flex-row justify-center min-w-full max-w-full mb-10 *:ml-1 *:mr-1 *:select-none`}>
                 <div>
                     <div onClick={toggleList} className={`border-1 transition-colors ease-in-out duration-[300ms] pl-2 pr-2 
@@ -174,7 +178,7 @@ export default function Projects() {
                 {/* <input type="text" placeholder="Search..." className={`border-2 pl-3 pr-3 min-w-1/4 rounded-md outline-hidden `} /> */}
             </div>
 
-            <div id="projects" className={`flex flex-row flex-wrap justify-center items-center *:p-2`}>
+            <div id="projects" className={`mb-10 flex flex-row flex-wrap justify-center items-center *:p-2`}>
                 {projects.map((project, index) => {
                     return (
                         <div key={index}>

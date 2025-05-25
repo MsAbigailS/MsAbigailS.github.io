@@ -9,4 +9,10 @@ export default defineConfig({
     react(),
     tailwindcss()
   ],
+  build: {
+    target: 'esnext',
+    rollupOptions: {
+      external: ['fsevents']
+    },
+  }
 })

@@ -12,8 +12,68 @@
         "demo": "https://devpost.com/software/healai-v7o852",
         "imgs": [
             {
-                "resource": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/438/468/datas/gallery.jpg",
-                "alt": "tempText"
+                "resource": "MedMate1.jpg",
+                "alt": "Login page"
+            },
+            {
+                "resource": "MedMate2.jpg",
+                "alt": "Sign up page"
+            },
+            {
+                "resource": "MedMate3.jpg",
+                "alt": "Smart search"
+            },
+            {
+                "resource": "MedMate4.jpg",
+                "alt": "Smart search"
+            },
+            {
+                "resource": "MedMate5.jpg",
+                "alt": "Smart search"
+            },
+            {
+                "resource": "MedMate6.jpg",
+                "alt": "Welcome page"
+            },
+            {
+                "resource": "MedMate7.jpg",
+                "alt": "Smart recording"
+            },
+            {
+                "resource": "MedMate8.jpg",
+                "alt": "Smart recording"
+            },
+            {
+                "resource": "MedMate9.jpg",
+                "alt": "Smart recording"
+            },
+            {
+                "resource": "MedMate10.jpg",
+                "alt": "Smart recording"
+            },
+            {
+                "resource": "MedMate11.jpg",
+                "alt": "User profile"
+            },
+            {
+                "resource": "MedMate12.jpg",
+                "alt": "Calendar view"
+            },
+            {
+                "resource": "MedMate13.jpg",
+                "alt": "Prescription page"
+            },
+            {
+                "resource": "MedMate14.jpg",
+                "alt": "Adding a new prescription"
+            },
+            {
+                "resource": "MedMate15.jpg",
+                "alt": "Adding a new prescription"
+            },
+            {
+                "resource": "MedMate16.jpg",
+                "alt": "Personal notes"
             }
         ],
         "complexity": "Intermediate",
@@ -55,12 +115,52 @@
         "demo": "https://devpost.com/software/redwood",
         "imgs": [
             {
-                "resource": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/666/863/datas/gallery.jpg",
-                "alt": "tempText"
+                "resource": "Redwood1.jpg",
+                "alt": "Homepage"
             },
             {
-                "resource": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/666/863/datas/gallery.jpg",
-                "alt": "tempText"
+                "resource": "Redwood2.jpg",
+                "alt": "Uploading material"
+            },
+            {
+                "resource": "Redwood3.jpg",
+                "alt": "Selecting material"
+            },
+            {
+                "resource": "Redwood4.jpg",
+                "alt": "Generating learning tree"
+            },
+            {
+                "resource": "Redwood5.jpg",
+                "alt": "Tree populated and initial prompt"
+            },
+            {
+                "resource": "Redwood6.jpg",
+                "alt": "Zooming into tree"
+            },
+            {
+                "resource": "Redwood7.jpg",
+                "alt": "Searching for node for ease of access"
+            },
+            {
+                "resource": "Redwood8.jpg",
+                "alt": "Node located"
+            },
+            {
+                "resource": "Redwood9.jpg",
+                "alt": "Double clicking on node to show summary and tutor"
+            },
+            {
+                "resource": "Redwood10.jpg",
+                "alt": "Asking first question"
+            },
+            {
+                "resource": "Redwood11.jpg",
+                "alt": "Asking second question"
+            },
+            {
+                "resource": "Redwood12.jpg",
+                "alt": "After clicking 'I Understand' button"
             }
         ],
         "complexity": "Intermediate",
@@ -95,8 +195,60 @@
         "demo": "https://devpost.com/software/the-greenhouse-mission",
         "imgs": [
             {
-                "resource": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/599/643/datas/gallery.jpg",
-                "alt": "tempText"
+                "resource": "GreenhouseMission1.jpg",
+                "alt": "Login page"
+            },
+            {
+                "resource": "GreenhouseMission2.jpg",
+                "alt": "Calendar"
+            },
+            {
+                "resource": "GreenhouseMission3.jpg",
+                "alt": "Leaderboard"
+            },
+            {
+                "resource": "GreenhouseMission4.jpg",
+                "alt": "Current points and inspiration message"
+            },
+            {
+                "resource": "GreenhouseMission5.jpg",
+                "alt": "Heatmap for success"
+            },
+            {
+                "resource": "GreenhouseMission6.jpg",
+                "alt": "Weekly points distribution"
+            },
+            {
+                "resource": "GreenhouseMission7.jpg",
+                "alt": "To-do list"
+            },
+            {
+                "resource": "GreenhouseMission8.jpg",
+                "alt": "To-do list"
+            },
+            {
+                "resource": "GreenhouseMission9.jpg",
+                "alt": "Donation page"
+            },
+            {
+                "resource": "GreenhouseMission10.jpg",
+                "alt": "Smarthome page"
+            },
+            {
+                "resource": "GreenhouseMission11.jpg",
+                "alt": "Event 1"
+            },
+            {
+                "resource": "GreenhouseMission12.jpg",
+                "alt": "Event 2"
+            },
+            {
+                "resource": "GreenhouseMission13.jpg",
+                "alt": "Event 3"
+            },
+            {
+                "resource": "GreenhouseMission14.jpg",
+                "alt": "Awarding points"
             }
         ],
         "complexity": "Intermediate",
@@ -141,8 +293,16 @@
         "demo": "https://devpost.com/software/blinkedin-mqo4rp",
         "imgs": [
             {
-                "resource": "https://img.youtube.com/vi/UJ7v7CeDewk/hqdefault.jpg",
-                "alt": "tempText"
+                "resource": "Amelia1.jpg",
+                "alt": "Dashboard"
+            },
+            {
+                "resource": "Amelia2.jpg",
+                "alt": "Text message notifications"
+            },
+            {
+                "resource": "Amelia3.jpg",
+                "alt": "AI assistant console output"
             }
         ],
         "complexity": "Intermediate",
@@ -184,8 +344,12 @@
         "demo": "https://devpost.com/software/site-in-site",
         "imgs": [
             {
-                "resource": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/381/919/datas/gallery.jpg",
-                "alt": "tempText"
+                "resource": "Site-in-Site1.jpg",
+                "alt": "Summary page"
+            },
+            {
+                "resource": "Site-in-Site2.jpg",
+                "alt": "Home page"
             }
         ],
         "complexity": "Intermediate",
@@ -227,8 +391,48 @@
         "demo": "https://devpost.com/software/dunk-dynasty",
         "imgs": [
             {
-                "resource": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/455/962/datas/gallery.jpg",
-                "alt": "tempText"
+                "resource": "DunkDynasty1.jpg",
+                "alt": "Home page for a given user"
+            },
+            {
+                "resource": "DunkDynasty2.jpg",
+                "alt": "Admin console"
+            },
+            {
+                "resource": "DunkDynasty3.jpg",
+                "alt": "Assisting new basketball fans with basketball terms"
+            },
+            {
+                "resource": "DunkDynasty4.jpg",
+                "alt": "Betting screen"
+            },
+            {
+                "resource": "DunkDynasty5.jpg",
+                "alt": "Example of user placing a bet"
+            },
+            {
+                "resource": "DunkDynasty6.jpg",
+                "alt": "When a user skips a bet they get an animation"
+            },
+            {
+                "resource": "DunkDynasty7.jpg",
+                "alt": "Options for a user when choosing a bet"
+            },
+            {
+                "resource": "DunkDynasty8.jpg",
+                "alt": "Leadership for points"
+            },
+            {
+                "resource": "DunkDynasty9.jpg",
+                "alt": "Players can trade their points for merch"
+            },
+            {
+                "resource": "DunkDynasty10.jpg",
+                "alt": "Buying merch"
+            },
+            {
+                "resource": "DunkDynasty11.jpg",
+                "alt": "Once a user gets a swag item"
             }
         ],
         "complexity": "Intermediate",

@@ -27,7 +27,10 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
     args: {
         title: 'Card Title',
-        image: ['', '']
+        image: [{
+            "resource": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/455/962/datas/gallery.jpg",
+            "alt": "tempText"
+        }]
     },
 };
 
@@ -38,6 +41,9 @@ export const Project: Story = {
         description: 'Project Description',
         technologies: ['React', 'TypeScript', 'Tailwind CSS'],
         completed: '2023-01-01',
-        image: ['', '']
+        image: [{
+            "resource": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/455/962/datas/gallery.jpg",
+            "alt": "tempText"
+        }]
     }
 }

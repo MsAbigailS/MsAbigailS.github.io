@@ -56,6 +56,10 @@ export const Card = ({
     const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
     const [pos, setPos] = useState({ x: 0, y: 0 });
     const [activeSlide, setActiveSlide] = useState({ x: '', y: '' }); // amount needed to move
+    const imageMap = import.meta.glob('../assets/*.{jpg,png,jpeg}', {
+        eager: true,
+        import: 'default',
+    });
     const cardRef = useRef<HTMLDivElement>(null);
     // card dimensions
     const cardDims = {
@@ -161,7 +165,7 @@ export const Card = ({
                                 {/* visual/demo */}
                                 < div className={`flex flex-col justify-items-center min-h-32 max-h-32 rounded-xs`} style={{ backgroundColor: bgColor, color: txtColor }}>
                                     <div id="demoFrame" className={`overflow-hidden rounded-sm m-1 flex justify-center items-center min-h-full`}> {/* frame */}
-                                        <img src={image[0].resource} alt="demo cover/image" className={`max-h-full min-h-full`} />
+                                        <img src={imageMap[`../assets/${image[0].resource}`] as string} alt="demo cover/image" className={`max-h-full min-h-full`} />
                                     </div>
                                 </div >
                             </div >
@@ -281,7 +285,7 @@ export const Card = ({
                                                 <div className={`hover:cursor-pointer`}>
                                                     {links.map((link, index) => (
                                                         <div key={index} className={`flex flex-row`}>
-                                                            <a href={link.url} target="_blank" className={`text-sm`}>{link.name}</a>
+                                                            <a href={link.url} target="_blank" className={`text-sm text-blue-800 hover:bold`}>{link.name}</a>
                                                         </div>
                                                     ))}
                                                 </div>
@@ -294,6 +298,77 @@ export const Card = ({
                     </div>
                 </PopupPortal >
 
+            )
+            }
+
+            {/* detailed card that pops up when card selected */}
+            {isFlipped && isMobile && (
+                <PopupPortal>
+                    <div id="mobileCard" className={`fixed inset-0 overflow-scroll-y flex z-50 justify-center items-center`} >
+                        <div id="cardDetailed" className={`fixed inset-0 flex z-50 justify-center items-center`}>
+                            {/* card */}
+                            <div className={`relative min-w-[90%] min-h-[90%] max-w-[90%] max-h-[90%] rounded-md shadow-lg`} style={{ backgroundColor: bgColor, color: txtColor }}>
+                                {/* inside border */}
+                                <div className={`absolute z-0 flex flex-col inset-2 rounded-md bg-white p-2 opacity-50`}>
+                                </div>
+
+
+                                {/* content */}
+                                <div id="content" className="absolute z-1 inset-4 overflow-auto max-h-[100%]">
+                                    <div id="upper" className={`flex flex-row max-h-[10%]`}>
+                                        <p id="disclaimer" className={`text-center text-sm`}>
+                                            This section is currently under construction, but feel free to checkout the progress I've made!
+                                        </p>
+
+                                        <div id="close" className={`flex justify-end items-center min-w-[10%]`}>
+                                            <p onClick={() => setIsFlipped(!isFlipped)} className={`mr-2 text-xl`}>
+                                                x
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div id="lower" className={`max-h-[90%] flex flex-col items-center`}>
+                                        <p id="title" className={`text-2xl underline font-bold min-w-[100%] max-w-[100%]`}>{title}</p>
+                                        <div id="visuals" className={`flex justify-center items-center overflow-hidden rounded-sm`}>
+                                            {image ?
+                                                <ImageCarousel images={image} size="small" /> :
+                                                ''
+                                            }
+                                        </div>
+                                        <div id="description">
+                                            <p className={`font-bold text-lg`}>What's this about?</p>
+                                            <p className={`text-sm`}>{description}</p>
+                                        </div>
+                                        <div id="technologies">
+                                            <div className={`flex flex-row flex-wrap w-full justify-center items-center min-h-15 overflow-hidden text-sm`}>
+                                                {technologies.map((tech, index) => (
+                                                    <div key={index} className={`-p-2`}>
+                                                        <Tag label={tech} size="small" />
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                        <div id="personalNotes">
+                                            <p className={`font-bold text-lg`}>Personal notes</p>
+                                            <p className={`text-sm`}>{personalNotes}</p>
+                                        </div>
+                                        <div id="additionalLinks">
+                                            <p className={`font-bold text-lg`}>Want to see more?</p>
+                                            <div className={`hover:cursor-pointer`}>
+                                                {links.map((link, index) => (
+                                                    <div key={index} className={`flex flex-row`}>
+                                                        <a href={link.url} target="_blank" className={`text-sm text-blue-800 hover:bold`}>{link.name}</a>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </PopupPortal>
             )
             }
 

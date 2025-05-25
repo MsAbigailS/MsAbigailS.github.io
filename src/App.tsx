@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Home from './pages/Home'
 import Projects from './pages/Projects'
+import Resume from './pages/Resume'
 import { useState } from 'react'
 import { Header } from './stories/Header'
 import { Footer } from './stories/Footer'
@@ -16,7 +17,6 @@ const ScrollToTop: React.FC<React.PropsWithChildren<{}>> = (props) => {
     }, 10)
   }, [location])
 
-  console.log('ScrollToTop', location.pathname)
   return <>
     {props.children}
   </>
@@ -27,10 +27,11 @@ function App() {
     <Router>
       <ScrollToTop>
         {/* all pages */}
-        <div className="min-h-screen flex flex-col">
+        <div className="min-h-screen flex flex-col bg-[#010102]">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/projects" element={<Projects />} />
+            <Route path="/resume" element={<Resume />} />
           </Routes>
         </div>
       </ScrollToTop>

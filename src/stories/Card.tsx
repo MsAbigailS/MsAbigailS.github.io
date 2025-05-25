@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import { ElementAnimation } from './ElementAnimation';
 import { Tag } from './Tag';
 import { ImageCarousel } from './ImageCarousel';
+import { Popup } from './Popup';
 // < !--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
 
 export interface CardProps {
@@ -125,9 +126,12 @@ export const Card = ({
     }, [awards])
 
     const PopupPortal: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+        const [mounted, setMounted] = useState(false);
+        const [visible, setVisible] = useState(false);
         const portalRoot = typeof window !== 'undefined' ? document.body : null;
         return portalRoot ? createPortal(children, portalRoot) : null;
     }
+
 
     return (
         <div id="card" ref={cardRef} className={`${cardDims.card} m-1.5 select-none`}>
@@ -212,12 +216,21 @@ export const Card = ({
                 </ElementAnimation >
             </div>
 
+            {/* {isFlipped && (
+                <Popup />
+            )} */}
+
+
+
+
+
+
+
             {/* detailed card that pops up when card selected */}
             {isFlipped && !isMobile && (
 
                 <PopupPortal>
-                    <div className={`transition-all duration-[300ms] ease-in-out 
-                        ${isFlipped ? 'opacity-100' : 'opacity-0'}`}>
+                    <div className={``}>
                         <div id="cardDetailed" className={`fixed inset-0 **:overflow-hidden flex z-50 justify-center items-center`}>
                             {/* card */}
                             <div className={`relative min-w-[75%] min-h-[75%] max-w-[75%] max-h-[75%] rounded-md shadow-lg`} style={{ backgroundColor: bgColor, color: txtColor }}>
@@ -226,23 +239,24 @@ export const Card = ({
                                 </div>
 
                                 <div id="content" className={`absolute z-1 inset-4`}>
-                                    <div>Hey! This section is currently under construction, but feel free to checkout the progress I've made!</div>
-                                    <div id="upper" className={`flex items-center min-w-full max-w-full min-h-[1%]`}>
+                                    <p id="disclaimer" className={`text-center text-sm`}>
+                                        This section is currently under construction, but feel free to checkout the progress I've made!
+                                    </p>
+                                    {/* closing card */}
+                                    <div id="upper" className={`flex items-center min-w-full max-w-full max-h-[5%] min-h-[5%]`}>
                                         <div id="close" className={`flex justify-end items-center min-w-[100%] min-h-[100%]`}>
                                             <p onClick={() => setIsFlipped(!isFlipped)} className={`mr-2 text-xl text-gray-500 hover:text-gray-700 hover:cursor-pointer`}>
                                                 x
                                             </p>
                                         </div>
                                     </div>
-                                    <div id="lower" className={`flex flex-row items-center min-h-[90%] min-w-full`}>
-                                        <div className={`max-h-[50%] min-w-[50%] flex-col items-start`}>
-                                            <div id="visuals" className={`flex justify-center items-center overflow-hidden rounded-sm`}>
-                                                {image ?
-                                                    <ImageCarousel images={image} /> :
-                                                    ''
-                                                }
-                                            </div>
-                                        </div>
+
+                                    {/* main content */}
+                                    <div id="lower" className={`flex flex-row items-center max-h-[95%] min-h-[95%]`}>
+                                        {image ?
+                                            <ImageCarousel images={image} /> :
+                                            ''
+                                        }
                                         <div id="text" className={`inline-block p-2 min-w-[50%] *:max-h-[33%] *:pt-2 *:pb-2`}>
                                             <p id="title" className={`text-2xl underline font-bold min-w-[90%] max-w-[90%]`}>{title}</p>
                                             {awards.length > 0 && (
@@ -302,7 +316,7 @@ export const Card = ({
             }
 
             {/* detailed card that pops up when card selected */}
-            {isFlipped && isMobile && (
+            {isFlipped && isMobile && false && (
                 <PopupPortal>
                     <div id="mobileCard" className={`fixed inset-0 overflow-scroll-y flex z-50 justify-center items-center`} >
                         <div id="cardDetailed" className={`fixed inset-0 flex z-50 justify-center items-center`}>

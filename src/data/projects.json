@@ -196,59 +196,59 @@
         "imgs": [
             {
                 "resource": "GreenhouseMission1.jpg",
-                "alt": "Login page"
+                "alt": "0 Login page"
             },
             {
                 "resource": "GreenhouseMission2.jpg",
-                "alt": "Calendar"
+                "alt": "1 Calendar"
             },
             {
                 "resource": "GreenhouseMission3.jpg",
-                "alt": "Leaderboard"
+                "alt": "2 Leaderboard"
             },
             {
                 "resource": "GreenhouseMission4.jpg",
-                "alt": "Current points and inspiration message"
+                "alt": "3 Current points and inspiration message"
             },
             {
                 "resource": "GreenhouseMission5.jpg",
-                "alt": "Heatmap for success"
+                "alt": "4 Heatmap for success"
             },
             {
                 "resource": "GreenhouseMission6.jpg",
-                "alt": "Weekly points distribution"
+                "alt": "5 Weekly points distribution"
             },
             {
                 "resource": "GreenhouseMission7.jpg",
-                "alt": "To-do list"
+                "alt": "6 To-do list"
             },
             {
                 "resource": "GreenhouseMission8.jpg",
-                "alt": "To-do list"
+                "alt": "7 To-do list"
             },
             {
                 "resource": "GreenhouseMission9.jpg",
-                "alt": "Donation page"
+                "alt": "8 Donation page"
             },
             {
                 "resource": "GreenhouseMission10.jpg",
-                "alt": "Smarthome page"
+                "alt": "9 Smarthome page"
             },
             {
                 "resource": "GreenhouseMission11.jpg",
-                "alt": "Event 1"
+                "alt": "10 Event 1"
             },
             {
                 "resource": "GreenhouseMission12.jpg",
-                "alt": "Event 2"
+                "alt": "11 Event 2"
             },
             {
                 "resource": "GreenhouseMission13.jpg",
-                "alt": "Event 3"
+                "alt": "12 Event 3"
             },
             {
                 "resource": "GreenhouseMission14.jpg",
-                "alt": "Awarding points"
+                "alt": "13 Awarding points"
             }
         ],
         "complexity": "Intermediate",

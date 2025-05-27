@@ -3,9 +3,9 @@ import { useNavigate } from 'react-router-dom'
 import heroImg from '../assets/standing.png'
 import aboutMeImg from '../assets/typing.png'
 import { useVisible } from '../hooks/useVisible'
-import { Header } from "../stories/Header"
-import { Footer } from "../stories/Footer"
-import { TextAnimation } from '../stories/TextAnimation'
+import { Header } from "../stories/ui/Header"
+import { Footer } from "../stories/ui/Footer"
+import { TextAnimation } from '../stories/ui/TextAnimation'
 
 export default function Home() {
     // setting up meta tag only on mount

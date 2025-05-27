@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { useVisible } from '../hooks/useVisible'
+import { useVisible } from '../../hooks/useVisible'
 
 export interface TextAnimationProps {
     /** Is this the principal call to action on the page? */

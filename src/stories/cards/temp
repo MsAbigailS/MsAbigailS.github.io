@@ -1,12 +1,10 @@
 import { useMemo, useState, useRef, useEffect } from 'react';
+import { ImageCarousel } from '../ui/ImageCarousel';
 import { createPortal } from 'react-dom';
-import { ElementAnimation } from './ElementAnimation';
-import { Tag } from './Tag';
-import { ImageCarousel } from './ImageCarousel';
-import { Popup } from './Popup';
-// < !--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+import { ElementAnimation } from '../ui/ElementAnimation';
+import { Tag } from '../ui/Tag';
 
-export interface CardProps {
+export interface ProjectCardProps {
     /** What color theme to use (if unselected, a random theme will be chosen (excluding white))*/
     theme?: 'pink' | 'white' | 'blue' | 'green' | 'orange';
     /** What title to include */
@@ -35,7 +33,7 @@ export interface CardProps {
     links?: { name: string; url: string }[];
 };
 
-export const Card = ({
+export const ProjectCard = ({
     theme,
     title = 'Card Title',
     description = 'Card Description',
@@ -52,7 +50,7 @@ export const Card = ({
     ],
     personalNotes,
     links = []
-}: CardProps) => {
+}: ProjectCardProps) => {
     const [isFlipped, setIsFlipped] = useState(false);
     const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
     const [pos, setPos] = useState({ x: 0, y: 0 });
@@ -131,8 +129,6 @@ export const Card = ({
         const portalRoot = typeof window !== 'undefined' ? document.body : null;
         return portalRoot ? createPortal(children, portalRoot) : null;
     }
-
-
     return (
         <div id="card" ref={cardRef} className={`${cardDims.card} m-1.5 select-none`}>
             <div onClick={() => setIsFlipped(!isFlipped)}>
@@ -215,16 +211,6 @@ export const Card = ({
                     </div >
                 </ElementAnimation >
             </div>
-
-            {/* {isFlipped && (
-                <Popup />
-            )} */}
-
-
-
-
-
-
 
             {/* detailed card that pops up when card selected */}
             {isFlipped && !isMobile && (

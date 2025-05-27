@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { Header } from "../stories/Header"
+import { Header } from "../stories/ui/Header"
 
 export default function Resume() {
     const navigate = useNavigate()

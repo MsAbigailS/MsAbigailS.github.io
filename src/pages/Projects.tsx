@@ -1,11 +1,12 @@
 import { useEffect, useState, useMemo } from 'react'
 import { createRoot } from 'react-dom/client'
 import projects from '../data/projects.json'
-import { ElementAnimation } from '../stories/ElementAnimation'
+import { ElementAnimation } from '../stories/ui/ElementAnimation'
 import { useNavigate } from 'react-router-dom'
-import { Header } from "../stories/Header"
-import { Footer } from "../stories/Footer"
-import { Card } from "../stories/Card"
+import { Header } from "../stories/ui/Header"
+import { Footer } from "../stories/ui/Footer"
+import { Card } from "../stories/ui/Card"
+import { ProjectCard } from '../stories/cards/ProjectCard'
 
 export default function Projects() {
     const [count, setCount] = useState(0)
@@ -180,15 +181,31 @@ export default function Projects() {
 
             <div id="projects" className={`mb-10 flex flex-row flex-wrap justify-center items-center *:p-2`}>
                 {projects.map((project, index) => {
+                    // return (
+                    //     <div key={index}>
+                    //         <ElementAnimation animation='tilt'>
+                    //             <Card title={project.title} description={project.description} technologies={project.technologies}
+                    //                 completed={project.demo} url={project.demo} complexity={project.complexity} challenges={project.challenges}
+                    //                 image={project.imgs}
+                    //                 awards={project.awards} personalNotes={project.personalNotes} links={project.links} />
+                    //         </ElementAnimation>
+                    //     </div>
+                    // )
                     return (
-                        <div key={index}>
-                            <ElementAnimation animation='tilt'>
-                                <Card title={project.title} description={project.description} technologies={project.technologies}
-                                    completed={project.demo} url={project.demo} complexity={project.complexity} challenges={project.challenges}
-                                    image={project.imgs}
-                                    awards={project.awards} personalNotes={project.personalNotes} links={project.links} />
-                            </ElementAnimation>
-                        </div>
+                        <ProjectCard
+                            key={index}
+                            title={project.title}
+                            description={project.description}
+                            technologies={project.technologies}
+                            completed={project.demo}
+                            url={project.demo}
+                            complexity={project.complexity}
+                            challenges={project.challenges}
+                            image={project.imgs}
+                            awards={project.awards}
+                            personalNotes={project.personalNotes}
+                            links={project.links}
+                        />
                     )
                 })}
             </div>

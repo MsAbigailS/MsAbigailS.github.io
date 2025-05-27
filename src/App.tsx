@@ -5,8 +5,8 @@ import Home from './pages/Home'
 import Projects from './pages/Projects'
 import Resume from './pages/Resume'
 import { useState } from 'react'
-import { Header } from './stories/Header'
-import { Footer } from './stories/Footer'
+import { Header } from './stories/ui/Header'
+import { Footer } from './stories/ui/Footer'
 
 // forcing webpage to start at top w/ nav
 const ScrollToTop: React.FC<React.PropsWithChildren<{}>> = (props) => {

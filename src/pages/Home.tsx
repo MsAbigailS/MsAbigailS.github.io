@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import heroImg from '../assets/standing.png'
-import aboutMeImg from '../assets/typing.png'
+import { AboutMe } from '../stories/ui/AboutMe'
 import { useVisible } from '../hooks/useVisible'
 import { Header } from "../stories/ui/Header"
 import { Footer } from "../stories/ui/Footer"
@@ -89,70 +89,9 @@ export default function Home() {
                 </div>
             </div>
 
-            {/* About me */}
+
             <div data-id="about" ref={amoutMe} className={`flex flex-col-reverse lg:flex-row justify-center items-center ease-in-out transition-opacity duration-1000  ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-                <div className={`flex-[1]`}>
-                    <img src={aboutMeImg} alt="aboutMeImg" className="lg:h-160 lg:flex hidden" />
-                </div>
-                <div className={`flex-[1] lg:text-start text-center pl-5 pr-5 lg:pl-5 lg:pr-10`}>
-                    <div id="professionalSummary">
-                        <p data-id="subject-header">Software Engineer</p>
-                        <div>I'm a <TextAnimation text="software engineer" animation='appearSlide' /> with a passion for building projects. I love to learn new things and work on challenging projects.</div>
-                    </div>
-                    <div id="skillsSummary">
-                        <p data-id="subject-header">What am I good at?</p>
-                        <div>I strongly believe software engineers should be able to work on <TextAnimation text="any part of a project" animation='appearSlide' />, but I have a few areas of expertise:
-                            <ul className="pl-4 sm:pl-6 mt-3 space-y-2 text-sm sm:text-base list-outside">
-                                <li>
-                                    <strong className="block mb-1 text-base sm:text-lg">Full-Stack Development</strong>
-                                    <ul className="list-disc list-inside space-y-1 text-gray-300">
-                                        <li>Built and deployed end-to-end applications</li>
-                                        <li>Comfortable working across both front-end and back-end</li>
-                                    </ul>
-                                </li>
-
-                                <li><strong>Languages</strong>
-                                    <ul className="list-disc list-inside space-y-1 text-gray-300">
-                                        <li>JavaScript</li>
-                                        <li>TypeScript</li>
-                                        <li>Python</li>
-                                        <li>SQL</li>
-                                    </ul>
-                                </li>
-
-                                <li><strong>Front-End</strong>
-                                    <ul className="list-disc list-inside space-y-1 text-gray-300">
-                                        <li>React (custom components, hooks, state management)</li>
-                                        <li>Responsive and accessible UI design</li>
-                                        <li>Figma for design collaboration</li>
-                                    </ul>
-                                </li>
-
-                                <li><strong>Back-End</strong>
-                                    <ul className="list-disc list-inside space-y-1 text-gray-300">
-                                        <li>Python with Flask</li>
-                                        <li>RESTful API design and integration</li>
-                                        <li>Basic data modeling and SQL queries</li>
-                                    </ul>
-                                </li>
-
-                                <li><strong>Tooling & Workflow</strong>
-                                    <ul className="list-disc list-inside space-y-1 text-gray-300">
-                                        <li>Git & GitHub for version control</li>
-                                        <li>Agile development practices</li>
-                                    </ul>
-                                </li>
-                            </ul>
-
-
-
-                        </div>
-                    </div>
-                    <div id="personalitySummary">
-                        <p data-id="subject-header">Beyond the code.</p>
-                        <div>I'm a <TextAnimation text="nerd" animation='appearSlide' /> at heart. When I'm not coding, I'm usually playing video games, taking care of my growing collection of house plants, or trying to get some coffee. </div>
-                    </div>
-                </div>
+                <AboutMe />
             </div>
 
 

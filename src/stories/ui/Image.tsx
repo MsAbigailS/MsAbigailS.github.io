@@ -11,6 +11,11 @@ export const Image = ({
     fit = 'object-contain'
 }: ImageProps) => {
 
+    // removing everything before last /
+    image.resource = useMemo(() => {
+        return image.resource.split('/').pop() || '';
+    }, [image.resource]);
+
     // dynamic import images
     const imageMap = import.meta.glob('../../assets/*.{jpg,png,jpeg}', {
         eager: true,

@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 
 export type ElementAnimationProps = {
     /** Which animation to use */
-    animation: 'tilt' | 'shine'
+    animation: ('tilt' | 'shine')[];
     /** What element(s) to animate */
     children?: ReactNode
     /** What speed the animation plays at */
@@ -68,7 +68,7 @@ export const ElementAnimation = ({
 
     // tilt animations
     useEffect(() => {
-        if (animation !== 'tilt' || !parentRef) return
+        if (!animation.includes('tilt') || !parentRef) return
         const handleMouseMove = (e: MouseEvent) => {
             if (!parentRef.current) return
 
@@ -154,12 +154,12 @@ export const ElementAnimation = ({
             className={
                 `inline-flex w-fit perspective
                 ${children === undefined ? 'size-10' : ''} 
-                ${animation === 'tilt' ? 'preserve-3d transition-transform ease-out' : ''}
-                ${animation === 'shine' ? 'relative' : ''}`
+                ${animation.includes('tilt') ? 'preserve-3d transition-transform ease-out' : ''}
+                ${animation.includes('shine') ? 'relative' : ''}`
             }
         >
             <div className={`
-                ${animation === 'shine' ?
+                ${animation.includes('shine') ?
                     `z-20 min-w-full min-h-full absolute bg-no-repeat
                     ease-in-out duration-1000
                     bg-[linear-gradient(45deg,transparent_60%,rgba(255,249,252,.2)_70%,transparent_75%,transparent_100%)]

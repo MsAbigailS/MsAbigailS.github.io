@@ -7,6 +7,8 @@ import { Header } from "../stories/ui/Header"
 import { Footer } from "../stories/ui/Footer"
 import { Card } from "../stories/ui/Card"
 import { ProjectCard } from '../stories/cards/ProjectCard'
+import { List } from '../stories/ui/List'
+import { ProjectList } from '../stories/lists/ProjectList'
 
 export default function Projects() {
     const [count, setCount] = useState(0)
@@ -179,7 +181,12 @@ export default function Projects() {
                 {/* <input type="text" placeholder="Search..." className={`border-2 pl-3 pr-3 min-w-1/4 rounded-md outline-hidden `} /> */}
             </div>
 
-            <div id="projects" className={`mb-10 flex flex-row flex-wrap justify-center items-center *:p-2`}>
+
+            <ProjectList />
+
+
+
+            {/* <div id="projects" className={`mb-10 flex flex-row flex-wrap justify-center items-center *:p-2`}>
                 {projects.map((project, index) => {
                     // return (
                     //     <div key={index}>
@@ -208,7 +215,7 @@ export default function Projects() {
                         />
                     )
                 })}
-            </div>
+            </div> */}
             {/* <Footer /> */}
         </div >
     )

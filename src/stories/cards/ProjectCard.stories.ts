@@ -19,13 +19,19 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
     args: {
-        title: 'Project Title',
-        description: 'Project Description',
-        technologies: ['React', 'TypeScript', 'Tailwind CSS'],
-        completed: '2023-01-01',
-        image: [{
-            "resource": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/455/962/datas/gallery.jpg",
-            "alt": "tempText"
-        }]
+        project: {
+            title: 'Project Title',
+            description: 'Project Description',
+            technologies: ['React', 'TypeScript', 'Tailwind CSS'],
+            completed: '2023-01-01',
+            imgs: [{
+                "resource": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/455/962/datas/gallery.jpg",
+                "alt": "tempText"
+            }],
+            challenges: [],
+            awards: [],
+            personalNotes: '',
+            links: []
+        }
     }
 };

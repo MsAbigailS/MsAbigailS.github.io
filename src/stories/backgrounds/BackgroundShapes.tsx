@@ -2,13 +2,15 @@ import { useMemo } from 'react';
 import { Shape } from '../ui/Shape';
 
 export interface BackgroundShapesProps {
-    shapes?: ('circle' | 'square' | 'triangle')[];
+    shapes?: ('circle')[];
     density?: 'low' | 'medium' | 'high';
+    sizes?: ('small' | 'medium' | 'large')[];
 }
 
 export const BackgroundShapes = ({
     shapes = ['circle'],
-    density = 'medium'
+    density = 'medium',
+    sizes = ['large']
 }: BackgroundShapesProps) => {
     const dataId = 'background-shapes';
 
@@ -30,7 +32,7 @@ export const BackgroundShapes = ({
     return (
         <div
             data-id={dataId}
-            className={`absolute min-w-full min-h-full border-2 border-pink-500`}
+            className={`absolute min-w-full min-h-full overflow-hidden`}
         >
             {Array.from({ length: densityLimit }).map((_, index) => {
                 const pos = randomizePosition();
@@ -38,7 +40,7 @@ export const BackgroundShapes = ({
                 return (
                     <div
                         key={index}
-                        className={`border-2 absolute`}
+                        className={`absolute`}
                         style={
                             {
                                 top: pos.top,
@@ -50,7 +52,8 @@ export const BackgroundShapes = ({
                         <Shape
                             shape='circle'
                             bgColor='bg-[#BF8B85]'
-                            size='medium'
+                            size={sizes[0]}
+                            gradient={true}
                         />
                     </div>
                 )

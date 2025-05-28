@@ -26,7 +26,7 @@ export const ProjectPage = ({
     return (
         <div
             data-id={dataId}
-            className={`text-white p-6 `}
+            className={`text-white overflow-hidden`}
         >
 
             <BackgroundShapes shapes={['circle']} density='low' />
@@ -38,9 +38,9 @@ export const ProjectPage = ({
             {/* <div data-id="subject-header">
                 Explore my project
             </div> */}
-
-            {/* <ProjectCardExpanded project={project} /> */}
-
+            <div className={`p-6`}>
+                <ProjectCardExpanded project={project} />
+            </div>
 
         </div>
     );

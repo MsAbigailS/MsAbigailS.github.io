@@ -4,14 +4,16 @@ export interface ShapeProps {
     shape?: 'circle'
     bgColor?: string;
     size?: 'small' | 'medium' | 'large';
-    randomSize?: boolean
+    randomSize?: boolean;
+    gradient?: boolean;
 }
 
 export const Shape = ({
     shape = 'circle',
     bgColor = 'bg-red-500',
     size = 'small',
-    randomSize = false
+    randomSize = false,
+    gradient = false
 }: ShapeProps) => {
     const dataId = 'shape';
 
@@ -22,7 +24,8 @@ export const Shape = ({
     return (
         <div
             data-id={dataId}
-            className={`${shape === 'circle' ? 'rounded-full' : ''} ${bgColor} ${dim}`}
+            className={`${shape === 'circle' ? 'rounded-full' : ''} ${bgColor} ${dim} 
+            ${gradient ? 'bg-gradient-to-r from-blue-500 to-purple-500' : ''}`}
         >
         </div>
     );

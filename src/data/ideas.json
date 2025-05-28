@@ -48,5 +48,10 @@
         "title": "Documenting Website Progress",
         "status": "Pending",
         "priority": "Low"
+    },
+    {
+        "title": "Contact Form",
+        "status": "Not Started",
+        "priority": "Medium"
     }
 ]

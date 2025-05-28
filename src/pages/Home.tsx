@@ -72,10 +72,7 @@ export default function Home() {
     const comingSoonVisible = useVisible(comingSoon)
 
     return (
-        // <div data-id="main" className={`perspective-10 relative`}>
         <div data-id="main">
-            {/* <div id="cursor" className={`absolute translate-z-5 min-h-50 min-w-50 bg-purple-800 translate-x-[-50%] translate-y-[-50%] rounded-full pointer-events-none blur-xl opacity-25`}>
-            </div> */}
 
             {/* Hero/initial view */}
             <div className={`translate-z-2 h-screen flex flex-col overflow-hidden`}>
@@ -89,11 +86,14 @@ export default function Home() {
                 </div>
             </div>
 
-
-            <div data-id="about" ref={amoutMe} className={`flex flex-col-reverse lg:flex-row justify-center items-center ease-in-out transition-opacity duration-1000  ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+            {/* About me */}
+            <div
+                data-id="about"
+                ref={amoutMe}
+                className={`ease-in-out transition-opacity duration-1000
+                ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
                 <AboutMe />
             </div>
-
 
 
             {/* call to action */}
@@ -115,32 +115,33 @@ export default function Home() {
                     {/* text that shows */}
 
                     <div className={`absolute mix-blend-difference 
-                        duration-[700ms] ease-in-out text-center`}>
+                        duration-[700ms] ease-in-out text-center`}
+                    >
                         Want to see my projects?
                     </div>
                 </div>
             </div>
 
+            {/* coming soon */}
             <div
                 data-id="coming-soon"
                 ref={comingSoon}
-                className={`flex flex-col justify-center items-center text-center p-10 ease-in-out transition-opacity duration-1000  ${comingSoonVisible ? 'opacity-100' : 'opacity-0'}`}
+                className={`flex flex-col justify-center items-center text-center p-10 ease-in-out 
+                    transition-opacity duration-1000  ${comingSoonVisible ? 'opacity-100' : 'opacity-0'}`}
             >
                 <p data-id="subject-header">Coming Soon</p>
-                <div>This website is a <span><TextAnimation text="living work in progress" animation='appearSlide' />.</span></div>
+                <div>
+                    This website is a
+                    <span>
+                        <TextAnimation text="living work in progress" animation='appearSlide' />
+                        .
+                    </span>
+                </div>
                 <IdeaList
                     // limit={4}
                     status={['In Progress', 'Pending']}
                 />
             </div>
-
-
-
-            {/* form */}
-            {/* <div>
-                Contact form
-            </div> */}
-            {/* <Footer /> */}
         </div >
     )
 }

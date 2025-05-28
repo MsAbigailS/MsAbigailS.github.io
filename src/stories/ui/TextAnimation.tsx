@@ -24,7 +24,7 @@ export const TextAnimation = ({
 
     return (
         <div className={` inline-block`}>
-            <div ref={animatedText} className={`relative rounded-xs overflow-hidden flex flex-col justify-center items-center hover:cursor-pointer group 
+            <div ref={animatedText} className={`relative rounded-xs overflow-hidden flex flex-col justify-center items-center group 
                 ${size === 'small' ? 'text-sm' : size === 'medium' ? 'text-md' : size === 'large' ? 'text-lg' : size}`}>
                 {/* background color movement */}
                 <div className={`min-h-full translate-z-0 flex-grow justify-center items-center flex 

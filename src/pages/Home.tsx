@@ -6,6 +6,7 @@ import { useVisible } from '../hooks/useVisible'
 import { Header } from "../stories/ui/Header"
 import { Footer } from "../stories/ui/Footer"
 import { TextAnimation } from '../stories/ui/TextAnimation'
+import { IdeaList } from '../stories/lists/IdeaList'
 
 export default function Home() {
     // setting up meta tag only on mount
@@ -64,7 +65,11 @@ export default function Home() {
 
     // visibility control for animations
     const amoutMe = useRef<HTMLDivElement | null>(null)
+    const projectLink = useRef<HTMLDivElement | null>(null)
+    const comingSoon = useRef<HTMLDivElement | null>(null)
     const isVisible = useVisible(amoutMe)
+    const projectVisible = useVisible(projectLink)
+    const comingSoonVisible = useVisible(comingSoon)
 
     return (
         // <div data-id="main" className={`perspective-10 relative`}>
@@ -97,16 +102,17 @@ export default function Home() {
                     <div id="skillsSummary">
                         <p data-id="subject-header">What am I good at?</p>
                         <div>I strongly believe software engineers should be able to work on <TextAnimation text="any part of a project" animation='appearSlide' />, but I have a few areas of expertise:
-                            <ul className="list-disc pl-6 mt-3">
-                                <li><strong>Full-Stack Development</strong>
-                                    <ul className="list-disc pl-6">
+                            <ul className="pl-4 sm:pl-6 mt-3 space-y-2 text-sm sm:text-base list-outside">
+                                <li>
+                                    <strong className="block mb-1 text-base sm:text-lg">Full-Stack Development</strong>
+                                    <ul className="list-disc list-inside space-y-1 text-gray-300">
                                         <li>Built and deployed end-to-end applications</li>
                                         <li>Comfortable working across both front-end and back-end</li>
                                     </ul>
                                 </li>
 
                                 <li><strong>Languages</strong>
-                                    <ul className="list-disc pl-6">
+                                    <ul className="list-disc list-inside space-y-1 text-gray-300">
                                         <li>JavaScript</li>
                                         <li>TypeScript</li>
                                         <li>Python</li>
@@ -115,7 +121,7 @@ export default function Home() {
                                 </li>
 
                                 <li><strong>Front-End</strong>
-                                    <ul className="list-disc pl-6">
+                                    <ul className="list-disc list-inside space-y-1 text-gray-300">
                                         <li>React (custom components, hooks, state management)</li>
                                         <li>Responsive and accessible UI design</li>
                                         <li>Figma for design collaboration</li>
@@ -123,7 +129,7 @@ export default function Home() {
                                 </li>
 
                                 <li><strong>Back-End</strong>
-                                    <ul className="list-disc pl-6">
+                                    <ul className="list-disc list-inside space-y-1 text-gray-300">
                                         <li>Python with Flask</li>
                                         <li>RESTful API design and integration</li>
                                         <li>Basic data modeling and SQL queries</li>
@@ -131,7 +137,7 @@ export default function Home() {
                                 </li>
 
                                 <li><strong>Tooling & Workflow</strong>
-                                    <ul className="list-disc pl-6">
+                                    <ul className="list-disc list-inside space-y-1 text-gray-300">
                                         <li>Git & GitHub for version control</li>
                                         <li>Agile development practices</li>
                                     </ul>
@@ -152,7 +158,7 @@ export default function Home() {
 
 
             {/* call to action */}
-            <div className={`mt-25 pb-30 flex justify-center items-center`}>
+            <div ref={projectLink} className={`mt-25 pb-30 flex justify-center items-center ease-in-out transition-opacity duration-1000  ${projectVisible ? 'opacity-100' : 'opacity-0'}`}>
                 <div data-id="subject-header" id="callToAction" onClick={gotoProjects} className={`relative rounded-xs overflow-hidden flex flex-col justify-center items-center hover:cursor-pointer group text-7xl`}>
                     {/* background color movement */}
                     <div className={`min-h-full translate-z-0 flex-grow justify-center items-center flex 
@@ -175,6 +181,21 @@ export default function Home() {
                     </div>
                 </div>
             </div>
+
+            <div
+                data-id="coming-soon"
+                ref={comingSoon}
+                className={`flex flex-col justify-center items-center text-center p-10 ease-in-out transition-opacity duration-1000  ${comingSoonVisible ? 'opacity-100' : 'opacity-0'}`}
+            >
+                <p data-id="subject-header">Coming Soon</p>
+                <div>This website is a <span><TextAnimation text="living work in progress" animation='appearSlide' />.</span></div>
+                <IdeaList
+                    // limit={4}
+                    status={['In Progress', 'Pending']}
+                />
+            </div>
+
+
 
             {/* form */}
             {/* <div>

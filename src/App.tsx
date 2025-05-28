@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import Home from './pages/Home'
 import Projects from './pages/Projects'
 import Resume from './pages/Resume'
+import Project from './pages/Project'
 import { useState } from 'react'
 import { Header } from './stories/ui/Header'
 import { Footer } from './stories/ui/Footer'
@@ -31,6 +32,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/projects" element={<Projects />} />
+            <Route path="/projects/:slug" element={<Project />} />
             <Route path="/resume" element={<Resume />} />
           </Routes>
         </div>

@@ -21,7 +21,7 @@ export const Image = ({
         <img
             src={imageMap[`../../assets/${image.resource}`] as string}
             alt="demo cover/image"
-            className={`w-full h-full ${fit} rounded-sm`}
+            className={`w-full h-full ${fit} rounded-md`}
         />
     );
 };

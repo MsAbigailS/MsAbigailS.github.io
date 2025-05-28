@@ -20,6 +20,6 @@ type Story = StoryObj<typeof meta>;
 // default animation
 export const Primary: Story = {
     args: {
-        animation: 'tilt'
+        animation: ['tilt']
     },
 }

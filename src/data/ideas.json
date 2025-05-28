@@ -1,0 +1,52 @@
+[
+    {
+        "title": "Lazy Loading",
+        "status": "In Progress",
+        "priority": "Medium"
+    },
+    {
+        "title": "Advanced Animations",
+        "status": "In Progress",
+        "priority": "Medium"
+    },
+    {
+        "title": "Re-Enable Project Filtering",
+        "status": "In Progress",
+        "priority": "High"
+    },
+    {
+        "title": "SEO Optimization",
+        "status": "Pending",
+        "priority": "Low"
+    },
+    {
+        "title": "Automated Testing",
+        "status": "Pending",
+        "priority": "Medium"
+    },
+    {
+        "title": "Resume Page",
+        "status": "Pending",
+        "priority": "Low"
+    },
+    {
+        "title": "Modular Architecture Refinement",
+        "status": "In Progress",
+        "priority": "High"
+    },
+    {
+        "title": "Maintainability Improvements",
+        "status": "In Progress",
+        "priority": "Medium"
+    },
+    {
+        "title": "Mobile Responsiveness",
+        "status": "In Progress",
+        "priority": "High"
+    },
+    {
+        "title": "Documenting Website Progress",
+        "status": "Pending",
+        "priority": "Low"
+    }
+]

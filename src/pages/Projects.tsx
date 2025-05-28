@@ -166,10 +166,9 @@ export default function Projects() {
                     <div onClick={toggleList} className={`border-1 transition-colors ease-in-out duration-[300ms] pl-2 pr-2 
                         hover:cursor-pointer hover:bg-white hover:text-[#010102] min-w-1/10 rounded-sm text-center
                         tracking-widest`}>
-                        filter: technology
+                        filter: technology (disabled)
                         <span>
                             {count > 0 ? ` (${count})` : ''}
-
                         </span>
                     </div>
                     <div id="availableTechnologies" className={`hidden z-30 absolute bg-[#010102] justify-center items-center

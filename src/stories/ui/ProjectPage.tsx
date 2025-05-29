@@ -9,10 +9,12 @@ import { BackgroundShapes } from '../backgrounds/BackgroundShapes';
 
 export interface ProjectPageProps {
     project: Project;
+    color?: string; // ideally this would be color of card on project page
 }
 
 export const ProjectPage = ({
-    project
+    project,
+    color
 }: ProjectPageProps) => {
     const dataId = 'project-page';
 
@@ -23,23 +25,39 @@ export const ProjectPage = ({
 
     const subheader = `text-lg font-semibold`;
 
+    let backgroundDensity: 'low' | 'medium' | 'high';
+    let size: 'small' | 'medium' | 'large' = 'large';
+
+    if (window.innerWidth < 768) {
+        size = 'medium';
+        backgroundDensity = 'medium';
+    } else if (window.innerWidth < 1024) {
+        backgroundDensity = 'medium';
+        size = 'medium';
+    } else {
+        size = 'large';
+        backgroundDensity = 'high';
+    }
+
     return (
         <div
             data-id={dataId}
             className={`text-white overflow-hidden`}
         >
+            {/* <p className={`border rounded-sm m-10 p-5`}>Heads up! This page is under construction, feel free to checkout the current progress.</p> */}
 
-            <BackgroundShapes shapes={['circle']} density='low' />
+            <div className="opacity-20">
+                <BackgroundShapes
+                    shapes={['circle']}
+                    density={backgroundDensity}
+                    sizes={[size]}
+                />
+            </div>
 
             <Header left={<span onClick={goToProjects}>Projects</span>} right={<span onClick={goToProjects}>Close</span>} />
 
-            {/* <p className={`border rounded-sm m-10 p-5`}>Heads up! This page is under construction, feel free to checkout the current progress.</p> */}
-
-            {/* <div data-id="subject-header">
-                Explore my project
-            </div> */}
             <div className={`p-6`}>
-                <ProjectCardExpanded project={project} />
+                <ProjectCardExpanded project={project} color={color} />
             </div>
 
         </div>

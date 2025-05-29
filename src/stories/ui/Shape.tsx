@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { complementaryColor, hexToRgba, rgbaToHex } from '../helpers/colors';
 
 export interface ShapeProps {
     shape?: 'circle'
@@ -21,11 +22,22 @@ export const Shape = ({
         return size === 'small' ? 'size-10' : size === 'medium' ? 'size-25' : size === 'large' ? 'size-50' : size;
     }, [size]);
 
+    bgColor = useMemo(() => {
+        if (gradient) {
+            // let endColor = `[${rgbaToHex(complementaryColor(bgColor.replace('bg-[', '').replace(']', '')))}]`
+            // bgColor = `bg-gradient-to-bl from-${bgColor} to-${endColor}`;
+            return bgColor
+        }
+        return bgColor;
+    }, [bgColor, gradient]);
+
+
     return (
         <div
             data-id={dataId}
-            className={`${shape === 'circle' ? 'rounded-full' : ''} ${bgColor} ${dim} 
-            ${gradient ? 'bg-gradient-to-r from-blue-500 to-purple-500' : ''}`}
+            className={`${shape === 'circle' ? 'rounded-full *:rounded-full' : ''} ${bgColor} 
+            ${dim}  
+            ${gradient ? `${bgColor}` : ''}`}
         >
         </div>
     );

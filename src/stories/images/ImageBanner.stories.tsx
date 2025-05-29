@@ -19,5 +19,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
     args: {
+        image: { "resource": "link", "alt": "alt text" },
+        text: 'Sample banner text'
     }
 };

@@ -1,20 +1,32 @@
 
 import type { Project } from '../../types/project';
-import { useNavigate } from 'react-router-dom'
+import { data, useNavigate } from 'react-router-dom'
+import { Card } from '../ui/Card';
 import { Image } from '../ui/Image';
 import { TagList } from '../lists/TagList';
 import { Header } from '../ui/Header';
 import { ImageBanner } from '../images/ImageBanner';
+import { brighten } from '../helpers/colors';
+import { GlassCard } from './GlassCard';
+import { Tag } from '../ui/Tag';
 
 
 export interface ProjectCardExpandedProps {
     project: Project;
+    color?: string; // ideally this would be color of card on project page
 }
 
 export const ProjectCardExpanded = ({
-    project
+    project,
+    color
 }: ProjectCardExpandedProps) => {
     const dataId = 'project-card-expanded';
+    let shadow = '';
+
+    if (color) {
+        shadow = `shadow-[${color}]`;
+        color = `${color}`;
+    }
 
     const navigate = useNavigate()
     const goToProjects = () => {
@@ -25,109 +37,123 @@ export const ProjectCardExpanded = ({
     const card = `text-white rounded-xl border-white border-2 p-6`
 
     return (
-        <div
-            data-id={dataId}
-            className="
-    relative
-    p-6
-    rounded-lg
-    border
-    border-white/20
-    bg-[rgba(121,65,58,0.15)]  /* your accent with opacity */
-    backdrop-blur-lg
-    shadow-lg
-    shadow-[rgba(191,139,133,0.25)]
-    text-white
-    mx-auto
-  "
-        >
-
-            {/* <ImageBanner image={project.imgs[0]} text={project.title} /> */}
-
+        <Card>
             <div
-                data-id="subject-header"
-                className={`font-inknut rounded-xl p-6 bg-white text-gray-950 shadow-white border-white border-2`}
+                data-id={dataId}
+                className="flex flex-col lg:flex-row gap-6 px-4 py-10 font-assistant"
             >
-                {project.title}
-            </div>
+                {/* left */}
+                <div data-id={`${dataId}-left`} className="lg:w-1/3 space-y-4 relative">
+                    <div
+                        data-id={`${dataId}-upper`}
+                    >
+                        <div className="relative">
+                            <GlassCard>
+                                <h2
+                                    data-id={`${dataId}-title`}
+                                    className="text-3xl font-bold mb-5"
+                                >
+                                    {project.title}
+                                </h2>
+                                <TagList
+                                    tags={project.technologies}
+                                />
+                                <div
+                                    data-id={`${dataId}-links`}
+                                    className="pt-2 space-y-1 flex flex-col mt-5"
+                                >
+                                    {project.links.map((link, index) => (
+                                        <a
+                                            href={link.url}
+                                            key={index}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            data-id={`${dataId}-link-${index}`}
+                                            className="z-10 underline text-blue-200 
+                                            hover:text-blue-300 
+                                            hover:cursor-pointer 
+                                            self-start
+                                            transition-colors"
+                                        >
+                                            {link.name}
+                                        </a>
+                                    ))}
+                                </div>
+                            </GlassCard>
 
-
-
-
-            <div data-id={`${dataId}-body`}
-                className={`flex lg:flex-row flex-col *:p-6`}
-            >
-                <div
-                    data-id={`${dataId}-left`}
-                    className={`flex justify-center items-center lg:w-[40%]`}
-                >
-                    <div data-id={`${dataId}-image`} className={`lg:size-120 md:size-96 size-72`}>
-                        <p>More images will go here</p>
-                        <Image image={project.imgs[0]} fit='object-contain' />
-                    </div>
-                </div>
-                <div
-                    data-id={`${dataId}-right`}
-                    className={`lg:w-[60%] `}
-                >
-
-                    {project.awards && project.awards.length > 0 ?
-                        (
-                            <div data-id={`${dataId}-awards`}>
-                                <p className={subheader}>Awards</p>
-                                {project.awards.map((award, index) => (
-                                    <div
-                                        key={index}
-                                        data-id={`${dataId}-award-${index}`}
-                                    >
-                                        {award.key}: {award.values.join(', ')}
-                                    </div>
-                                ))}
+                            <div
+                                data-id={`${dataId}-decoration-shift`}
+                                className={`absolute top-1 left-1 w-full h-full opacity-50 pointer-events-none`}
+                            >
+                                <GlassCard />
                             </div>
-                        )
-                        :
-                        null
-                    }
-
+                        </div>
+                    </div>
 
                     <div
-                        data-id={`${dataId}-description`}
+                        data-id={`${dataId}-lower`}
                     >
-                        <p className={subheader}>Description</p>
-                        {project.description}
-                    </div>
+                        <div className="relative">
+                            <GlassCard>
+                                <div
+                                    data-id={`${dataId}-description`}
+                                    className="text-md m-4"
+                                >
+                                    {project.description}
+                                </div>
+                            </GlassCard>
 
-                    <div data-id={`${dataId}-technologies`}>
-                        <p className={subheader}>Technologies</p>
-                        <TagList tags={project.technologies} />
-                    </div>
-
-                    <div data-id={`${dataId}-demos`}>
-                        <p className={subheader}>Demos + More</p>
-                        {project.links.map((link, index) => (
                             <div
-                                key={index}
-                                data-id={`${dataId}-link-${index}`}
-                                className={`text-blue-400 hover:underline`}
+                                data-id={`${dataId}-decoration-shift`}
+                                className={`absolute top-1 left-1 w-full h-full opacity-50 pointer-events-none`}
                             >
-                                <a href={link.url} target="_blank" rel="noopener noreferrer">
-                                    {link.name}
-                                </a>
+                                <GlassCard />
                             </div>
-                        ))}
+                        </div>
                     </div>
 
-                    {project.personalNotes && project.personalNotes.length > 0 ? (
-                        <div data-id={`${dataId}-personal-notes`}>
-                            <p className={subheader}>Personal Notes</p>
-                            {project.personalNotes ? project.personalNotes : 'No personal notes available.'}
+
+                </div>
+
+                {/* right */}
+                <div
+                    data-id={`${dataId}-right`}
+                    className="lg:w-2/3 space-y-6 relative"
+                >
+                    <div
+                        className="relative"
+                    >
+                        <GlassCard>
+                            <div
+                                data-id={`${dataId}-images`}
+                                className="rounded-lg overflow-hidden mb-4 text-center text-gray-200"
+                            >
+                                <p className="text-gray-400 italic text-sm mb-5">(Imagine an image gallery here instead of static image)</p>
+                                <Image image={project.imgs[0]} fit="object-cover" />
+                                <p
+                                    className="text-center p-2 text-sm text-gray-400"
+                                >
+                                    {project.imgs[0].alt || 'Project Image'}
+                                </p>
+                            </div>
+                            <p
+                                data-id={`${dataId}-personal-notes`}
+                                className="text-sm m-5 sm:m-2"
+                            >
+                                {project.personalNotes}
+                            </p>
+                        </GlassCard>
+
+                        <div
+                            data-id={`${dataId}-decoration-shift`}
+                            className={`absolute top-1 left-1 w-full h-full opacity-50`}
+                        >
+                            <GlassCard />
                         </div>
-                    )
-                        :
-                        null
-                    }
+                    </div>
+
                 </div>
             </div>
-        </div>
+        </Card >
     );
 };

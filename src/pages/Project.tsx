@@ -12,8 +12,10 @@ export default function Project() {
     }
 
     return (
-        <div data-id="project-page">
-            <ProjectPage project={project} />
+        <div
+            data-id="project-page"
+        >
+            <ProjectPage project={project} color='rgba(191,139,133,0.25)' />
         </div >
     )
 }

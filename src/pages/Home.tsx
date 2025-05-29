@@ -31,6 +31,9 @@ export default function Home() {
     const goToResume = () => {
         navigate('/Resume')
     }
+    const goToBuildlog = () => {
+        navigate('/build-log')
+    }
 
     const el = document.getElementById('cursor')
 
@@ -118,6 +121,31 @@ export default function Home() {
                         duration-[700ms] ease-in-out text-center`}
                     >
                         Want to see my projects?
+                    </div>
+                </div>
+            </div>
+
+            <div ref={projectLink} className={`mt-25 pb-30 flex justify-center items-center ease-in-out transition-opacity duration-1000  ${projectVisible ? 'opacity-100' : 'opacity-0'}`}>
+                <div data-id="subject-header" id="callToAction" onClick={goToBuildlog} className={`relative rounded-xs overflow-hidden flex flex-col justify-center items-center hover:cursor-pointer group text-7xl`}>
+                    {/* background color movement */}
+                    <div className={`min-h-full translate-z-0 flex-grow justify-center items-center flex 
+                        text-white
+                        p-2
+                        bg-gradient-to-r from-white to-white
+                        translate-x-[-102%]
+                        transition-all
+                        group-hover:translate-x-[0%]
+                        duration-[700ms] ease-in-out
+                        text-center
+                        `}>
+                        What about my progress?
+                    </div>
+                    {/* text that shows */}
+
+                    <div className={`absolute mix-blend-difference 
+                        duration-[700ms] ease-in-out text-center`}
+                    >
+                        What about my progress?
                     </div>
                 </div>
             </div>

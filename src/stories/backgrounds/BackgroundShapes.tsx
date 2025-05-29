@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import { Shape } from '../ui/Shape';
+import { randomPosition, randomEvenDistributedPositions } from '../helpers/positions';
 
 export interface BackgroundShapesProps {
     shapes?: ('circle')[];
@@ -15,39 +16,39 @@ export const BackgroundShapes = ({
     const dataId = 'background-shapes';
 
     const densityLimit = useMemo(() => {
-        if (density === 'low') return 5;
-        if (density === 'medium') return 10;
-        if (density === 'high') return 20;
+        if (density === 'low') return Math.floor(Math.random() * 2) + 2;
+        if (density === 'medium') return Math.floor(Math.random() * 2) + 10;
+        if (density === 'high') return Math.floor(Math.random() * 2) + 20;
         return 10;
     }, [density])
 
-    // randomizing shape location on screen
-    const randomizePosition = () => {
-        return {
-            top: `${Math.floor(Math.random() * window.innerHeight)}px`,
-            left: `${Math.floor(Math.random() * window.innerWidth)}px`
-        }
-    }
+    const pos = useMemo(() => {
+        return randomEvenDistributedPositions(densityLimit, screen.availHeight, screen.availWidth);
+    }, [window]);
 
     return (
         <div
             data-id={dataId}
-            className={`absolute min-w-full min-h-full overflow-hidden`}
+            className={`absolute min-w-full min-h-full overflow-hidden pointer-events-none`}
         >
             {Array.from({ length: densityLimit }).map((_, index) => {
-                const pos = randomizePosition();
-                console.log(`Shape ${index + 1} position: ${pos}`);
+
                 return (
+
                     <div
                         key={index}
-                        className={`absolute`}
-                        style={
-                            {
-                                top: pos.top,
-                                left: pos.left,
+                        className={`absolute ${pos[index].top} ${pos[index].left}
+                            ${Math.floor(Math.random() * 2) % 3 === 0 ? 'animate-float-slow opacity-50 blur-[2px] scale-75'
+                                : Math.floor(Math.random() * 2) % 3 === 0 ? 'animate-float-medium opacity-70 blur-[1px] scale-90'
+                                    : 'animate-float-medium opacity-90 scale-100'
 
-                            }
-                        }
+                            } 
+
+                            pointer-events-none`}
+                        style={{
+                            top: pos[index].top,
+                            left: pos[index].left
+                        }}
                     >
                         <Shape
                             shape='circle'

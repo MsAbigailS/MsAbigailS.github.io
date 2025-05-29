@@ -11,7 +11,7 @@ export const AboutMe = ({
 }: AboutMeProps) => {
     const dataId = 'about-me';
     const aboutMeImg = {
-        "resource": imageSource as string,
+        "resource": 'typing.png',
         "alt": "About me image"
     }
 

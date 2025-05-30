@@ -100,7 +100,7 @@ export default function Home() {
 
 
             {/* call to action */}
-            <div ref={projectLink} className={`mt-25 pb-30 flex justify-center items-center ease-in-out transition-opacity duration-1000  ${projectVisible ? 'opacity-100' : 'opacity-0'}`}>
+            <div ref={projectLink} className={`mt-50 pb-30 flex justify-center items-center ease-in-out transition-opacity duration-1000  ${projectVisible ? 'opacity-100' : 'opacity-0'}`}>
                 <div data-id="subject-header" id="callToAction" onClick={gotoProjects} className={`relative rounded-xs overflow-hidden flex flex-col justify-center items-center hover:cursor-pointer group text-7xl`}>
                     {/* background color movement */}
                     <div className={`min-h-full translate-z-0 flex-grow justify-center items-center flex 

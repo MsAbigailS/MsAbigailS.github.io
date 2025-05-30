@@ -22,7 +22,7 @@ export default function BuildLog() {
             bg-linear-30 from-[#468186]/80 to-blue-500/10"
         >
 
-            <Header left={<span onClick={goToHome}>Projects</span>} right={<span onClick={goToResume}>Resume</span>} />
+            <Header left={<span onClick={goToHome}>Home</span>} right={<span onClick={goToResume}>Resume</span>} />
 
             <ConstructionNotice />
 

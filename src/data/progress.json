@@ -1,6 +1,6 @@
 [
     {
-        "date": "2025-05-28",
+        "date": "2025-05-27",
         "time": "18:00",
         "summary": "Initial project setup completed.",
         "updates": [
@@ -9,19 +9,19 @@
                 "description": "The homepage.",
                 "images": [
                     {
-                        "resource": "Buildlog_05_28_2025_Homepage_1.png",
+                        "resource": "Buildlog_05_27_2025_Homepage_1.png",
                         "alt": "Hero section of homepage"
                     },
                     {
-                        "resource": "Buildlog_05_28_2025_Homepage_2.png",
+                        "resource": "Buildlog_05_27_2025_Homepage_2.png",
                         "alt": "About me section"
                     },
                     {
-                        "resource": "Buildlog_05_28_2025_Homepage_3.png",
+                        "resource": "Buildlog_05_27_2025_Homepage_3.png",
                         "alt": "Call to action and coming soon section"
                     },
                     {
-                        "resource": "Buildlog_05_28_2025_Homepage_4.png",
+                        "resource": "Buildlog_05_27_2025_Homepage_4.png",
                         "alt": "End of coming soon"
                     }
                 ],
@@ -32,11 +32,11 @@
                 "description": "The project gallery page.",
                 "images": [
                     {
-                        "resource": "Buildlog_05_28_2025_Projects_2.png",
+                        "resource": "Buildlog_05_27_2025_Projects_2.png",
                         "alt": "The project gallery"
                     },
                     {
-                        "resource": "Buildlog_05_28_2025_Projects_1.png",
+                        "resource": "Buildlog_05_27_2025_Projects_1.png",
                         "alt": "The project gallery"
                     }
                 ],
@@ -47,7 +47,7 @@
                 "description": "The project details page.",
                 "images": [
                     {
-                        "resource": "Buildlog_05_28_2025_Project_Details_1.png",
+                        "resource": "Buildlog_05_27_2025_Project_Details_1.png",
                         "alt": "The project details page"
                     }
                 ],
@@ -56,27 +56,49 @@
         ]
     },
     {
-        "date": "2025-05-29",
+        "date": "2025-05-28",
         "time": "18:00",
-        "summary": "Added the project details page.",
+        "summary": "Updated project details page with initial design.",
         "updates": [
             {
-                "type": "Added",
-                "description": "The project details page.",
+                "type": "Updated",
+                "description": "Implemented the initial design for the project details page.",
                 "images": [
                     {
-                        "resource": "Buildlog_05_29_2025_Project_Details_2.png",
+                        "resource": "Buildlog_05_28_2025_Project_Details_1.png",
                         "alt": "The project details page"
                     }
                 ],
-                "personalNotes": "I added a section for the project details page that includes a gallery of images and a text section for the description. I also added a section for the project updates, which will be used to track the progress of the project."
+                "personalNotes": "My initial design was inspired by note taking apps like Notion where key information is isolated to its own container. I also wanted to try creating a glass effect for my cards on this page. This was a good start, but needed to be improved on."
+            },
+            {
+                "type": "Updated",
+                "description": "Included a way to access progress page.",
+                "images": [
+                    {
+                        "resource": "Buildlog_05_28_2025_Homepage_1.png",
+                        "alt": "The home page with link to progress page"
+                    }
+                ],
+                "personalNotes": "I wanted to make the progress map clearly accessible without taking up space in the header. I decided to repeat what I had done with the project gallery link on the homepage."
+            },
+            {
+                "type": "Added",
+                "description": "Added a build log page.",
+                "images": [
+                    {
+                        "resource": "Buildlog_05_28_2025_Buildlog_1.png",
+                        "alt": "The build log page"
+                    }
+                ],
+                "personalNotes": "Created the build log page and set up routing."
             }
         ]
     },
     {
-        "date": "2025-05-30",
+        "date": "2025-05-29",
         "time": "18:00",
-        "summary": "Added the project updates section.",
+        "summary": "Focused mainly on implementing the project detail page and adding more cohesive UI.",
         "updates": [
             {
                 "type": "Added",

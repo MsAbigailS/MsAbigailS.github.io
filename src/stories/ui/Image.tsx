@@ -17,7 +17,7 @@ export const Image = ({
     }, [image.resource]);
 
     // dynamic import images
-    const imageMap = import.meta.glob('../../assets/*.{jpg,png,jpeg}', {
+    const imageMap = import.meta.glob('../../assets/*.{jpg,png,jpeg,gif}', {
         eager: true,
         import: 'default',
     });
@@ -26,7 +26,7 @@ export const Image = ({
         <img
             src={imageMap[`../../assets/${image.resource}`] as string}
             alt={image.alt || 'Image'}
-            className={`w-full h-full ${fit} rounded-md`}
+            className={`w-full h-full max-h-150 max-w-150 ${fit} rounded-md`}
         />
     );
 };

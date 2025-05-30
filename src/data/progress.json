@@ -9,6 +9,10 @@
                 "description": "The homepage.",
                 "images": [
                     {
+                        "resource": "Buildlog_05_27_2025_Homepage_Video.gif",
+                        "alt": "The homepage with a dark theme"
+                    },
+                    {
                         "resource": "Buildlog_05_27_2025_Homepage_1.png",
                         "alt": "Hero section of homepage"
                     },
@@ -31,6 +35,10 @@
                 "type": "Added",
                 "description": "The project gallery page.",
                 "images": [
+                    {
+                        "resource": "Buildlog_05_27_2025_Projects_Video.gif",
+                        "alt": "The project gallery and card effects"
+                    },
                     {
                         "resource": "Buildlog_05_27_2025_Projects_2.png",
                         "alt": "The project gallery"
@@ -101,15 +109,72 @@
         "summary": "Focused mainly on implementing the project detail page and adding more cohesive UI.",
         "updates": [
             {
-                "type": "Added",
-                "description": "The project updates section.",
+                "type": "Updated",
+                "description": "Buildlog page.",
                 "images": [
                     {
-                        "resource": "Buildlog_05_30_2025_Project_Updates_1.png",
+                        "resource": "Buildlog_05_29_2025_Buildlog_Video.gif",
+                        "alt": "The project details page"
+                    },
+                    {
+                        "resource": "Buildlog_05_29_2025_Buildlog_1.png",
                         "alt": "The project updates section"
+                    },
+                    {
+                        "resource": "Buildlog_05_29_2025_Buildlog_2.png",
+                        "alt": "The project details page"
                     }
                 ],
-                "personalNotes": "I added a section for the project updates, which will be used to track the progress of the project. I also added a section for the project details page that includes a gallery of images and a text section for the description."
+                "personalNotes": "I've added my updates as glass cards that appear from my most recent update to my first update. I also wanted to showcase the glass effect of my cards and add depth, so I added in a linear gradient to the background."
+            },
+            {
+                "type": "Updated",
+                "description": "Project details page.",
+                "images": [
+                    {
+                        "resource": "Buildlog_05_29_2025_Project_Details_Video.gif",
+                        "alt": "The project details page"
+                    },
+                    {
+                        "resource": "Buildlog_05_29_2025_Project_Details_1.png",
+                        "alt": "The project details page"
+                    }
+                ],
+                "personalNotes": "I wanted to make the project details page more cohesive as a whole by balancing my elements and utilizing depth. The glass effect of the cards is exemplified by the parallax effect of the gently moving cirlces in the background."
+            },
+            {
+                "type": "Updated",
+                "description": "Updated the homepage to have depth.",
+                "images": [
+                    {
+                        "resource": "Buildlog_05_29_2025_Homepage_1.png",
+                        "alt": "The homepage with a linear gradient background"
+                    },
+                    {
+                        "resource": "Buildlog_05_29_2025_Homepage_2.png",
+                        "alt": "The homepage with a linear gradient background"
+                    },
+                    {
+                        "resource": "Buildlog_05_29_2025_Homepage_3.png",
+                        "alt": "The homepage with a linear gradient background (with hover effect triggered, but not finished)"
+                    }
+                ],
+                "personalNotes": "In an effort to improve the UI for my homepage, I've added in a gradient."
+            },
+            {
+                "type": "Updated",
+                "description": "Project gallery page now has linear gradient background.",
+                "images": [
+                    {
+                        "resource": "Buildlog_05_29_2025_Projects_1.png",
+                        "alt": "The project gallery with a linear gradient background"
+                    },
+                    {
+                        "resource": "Buildlog_05_29_2025_Projects_2.png",
+                        "alt": "The project gallery with a linear gradient background"
+                    }
+                ],
+                "personalNotes": ""
             }
         ]
     }

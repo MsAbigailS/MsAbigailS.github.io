@@ -24,7 +24,7 @@ export default function BuildLog() {
 
             <Header left={<span onClick={goToHome}>Home</span>} right={<span onClick={goToResume}>Resume</span>} />
 
-            <ConstructionNotice />
+            {/* <ConstructionNotice /> */}
 
             <BuildLogList />
 

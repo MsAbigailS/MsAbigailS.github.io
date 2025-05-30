@@ -42,7 +42,7 @@ export const ProjectPage = ({
     return (
         <div
             data-id={dataId}
-            className={`text-white h-full bg-linear-to-t from-[#BF8B85]/20 to-transparent`}
+            className={`text-white h-[100%] min-h-screen bg-linear-to-t from-[#BF8B85]/20 to-transparent`}
         >
 
 

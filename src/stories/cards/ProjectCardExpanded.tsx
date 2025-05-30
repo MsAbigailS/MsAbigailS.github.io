@@ -131,7 +131,9 @@ export const ProjectCardExpanded = ({
                                 className="rounded-lg overflow-hidden mb-4 text-center text-gray-200"
                             >
                                 <p className="text-gray-400 italic text-sm mb-5">(Imagine an image gallery here instead of static image)</p>
-                                <Image image={project.imgs[0]} fit="object-cover" />
+                                <div className={`max-h-500 flex justify-center items-center`}>
+                                    <Image image={project.imgs[0]} fit="object-contain" />
+                                </div>
                                 <p
                                     className="text-center p-2 text-sm text-gray-400"
                                 >

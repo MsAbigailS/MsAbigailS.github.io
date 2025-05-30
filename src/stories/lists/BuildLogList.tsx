@@ -15,7 +15,7 @@ export const BuildLogList = ({
         <List>
             <div
                 id={dataId}
-                className="flex flex-col items-center lg:w-[50%] w-full mx-auto max-w-screen-md"
+                className="flex flex-col-reverse items-center lg:w-[50%] w-full mx-auto max-w-screen-md"
             >
 
 
@@ -24,6 +24,7 @@ export const BuildLogList = ({
                         key={index}
                         className={`m-6`}
                     >
+                        <h1 className={"italic text-lg"}>{item.date}</h1>
                         <BuildLogCard
                             buildItem={item}
                         />

@@ -6,7 +6,7 @@ import { TagList } from '../lists/TagList';
 import { Header } from '../ui/Header';
 import { ProjectCardExpanded } from '../cards/ProjectCardExpanded';
 import { BackgroundShapes } from '../backgrounds/BackgroundShapes';
-
+import { ConstructionNotice } from '../ui/ConstructionNotice';
 export interface ProjectPageProps {
     project: Project;
     color?: string; // ideally this would be color of card on project page
@@ -30,7 +30,7 @@ export const ProjectPage = ({
 
     if (window.innerWidth < 768) {
         size = 'medium';
-        backgroundDensity = 'medium';
+        backgroundDensity = 'high';
     } else if (window.innerWidth < 1024) {
         backgroundDensity = 'medium';
         size = 'medium';
@@ -42,9 +42,9 @@ export const ProjectPage = ({
     return (
         <div
             data-id={dataId}
-            className={`text-white overflow-hidden`}
+            className={`text-white h-full bg-linear-to-t from-[#BF8B85]/20 to-transparent`}
         >
-            {/* <p className={`border rounded-sm m-10 p-5`}>Heads up! This page is under construction, feel free to checkout the current progress.</p> */}
+
 
             <div className="opacity-20">
                 <BackgroundShapes

@@ -1,16 +1,33 @@
-
+import { ConstructionNotice } from "../stories/ui/ConstructionNotice"
+import { BuildLogList } from "../stories/lists/BuildLogList"
+import { Header } from "../stories/ui/Header"
+import { useNavigate } from 'react-router-dom'
 
 export default function BuildLog() {
-
+    const navigate = useNavigate()
+    const goToHome = () => {
+        navigate('/')
+    }
+    const goToResume = () => {
+        navigate('/Resume')
+    }
+    const goToBuildlog = () => {
+        navigate('/build-log')
+    }
 
     return (
         <div
             data-id="build-log-page"
-            className="text-white p-6"
+            className="animate-fade-in animation-delay-300 text-white
+            bg-linear-30 from-[#468186]/80 to-blue-500/10"
         >
-            <p className={`border rounded-sm m-10 p-5`}>Heads up! This page is under construction, feel free to checkout the current progress.</p>
 
-            Here is where I will include photos and videos documenting my progress!
+            <Header left={<span onClick={goToHome}>Projects</span>} right={<span onClick={goToResume}>Resume</span>} />
+
+            <ConstructionNotice />
+
+            <BuildLogList />
+
         </div >
     )
 }

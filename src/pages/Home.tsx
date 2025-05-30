@@ -75,7 +75,7 @@ export default function Home() {
     const comingSoonVisible = useVisible(comingSoon)
 
     return (
-        <div data-id="main">
+        <div data-id="main" className="animate-fade-in animation-delay-300 bg-linear-30 from-[#468186]/10 to-blue-500/10">
 
             {/* Hero/initial view */}
             <div className={`translate-z-2 h-screen flex flex-col overflow-hidden`}>

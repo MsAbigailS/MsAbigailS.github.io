@@ -9,6 +9,7 @@ import { ImageBanner } from '../images/ImageBanner';
 import { brighten } from '../helpers/colors';
 import { GlassCard } from './GlassCard';
 import { Tag } from '../ui/Tag';
+import { ConstructionNotice } from '../ui/ConstructionNotice';
 
 
 export interface ProjectCardExpandedProps {
@@ -38,6 +39,7 @@ export const ProjectCardExpanded = ({
 
     return (
         <Card>
+
             <div
                 data-id={dataId}
                 className="flex flex-col lg:flex-row gap-6 px-4 py-10 font-assistant"
@@ -51,7 +53,7 @@ export const ProjectCardExpanded = ({
                             <GlassCard>
                                 <h2
                                     data-id={`${dataId}-title`}
-                                    className="text-3xl font-bold mb-5"
+                                    className="text-3xl font-bold mb-5 lg:text-start text-center"
                                 >
                                     {project.title}
                                 </h2>
@@ -60,7 +62,7 @@ export const ProjectCardExpanded = ({
                                 />
                                 <div
                                     data-id={`${dataId}-links`}
-                                    className="pt-2 space-y-1 flex flex-col mt-5"
+                                    className="pt-2 space-y-1 flex flex-row justify-around mt-5"
                                 >
                                     {project.links.map((link, index) => (
                                         <a
@@ -112,7 +114,7 @@ export const ProjectCardExpanded = ({
                         </div>
                     </div>
 
-
+                    <ConstructionNotice />
                 </div>
 
                 {/* right */}

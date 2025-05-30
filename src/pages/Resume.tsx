@@ -10,7 +10,7 @@ export default function Resume() {
         navigate('/resume')
     }
     return (
-        <div data-id="main">
+        <div data-id="main" className="animate-fade-in animation-delay-300">
             <Header left={<span onClick={goToHome}>Home</span>} right={<span onClick={goToResume}>Resume</span>} />
             This page is under construction. Please check back later.
         </div >

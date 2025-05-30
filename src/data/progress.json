@@ -1,0 +1,94 @@
+[
+    {
+        "date": "2025-05-28",
+        "time": "18:00",
+        "summary": "Initial project setup completed.",
+        "updates": [
+            {
+                "type": "Added",
+                "description": "The homepage.",
+                "images": [
+                    {
+                        "resource": "Buildlog_05_28_2025_Homepage_1.png",
+                        "alt": "Hero section of homepage"
+                    },
+                    {
+                        "resource": "Buildlog_05_28_2025_Homepage_2.png",
+                        "alt": "About me section"
+                    },
+                    {
+                        "resource": "Buildlog_05_28_2025_Homepage_3.png",
+                        "alt": "Call to action and coming soon section"
+                    },
+                    {
+                        "resource": "Buildlog_05_28_2025_Homepage_4.png",
+                        "alt": "End of coming soon"
+                    }
+                ],
+                "personalNotes": "My home page! I've always wanted to work with a dark UI, so I decided to go with a dark theme for my website. The hero section is the first thing you see when you visit the site, and I wanted it to be visually striking. The about me section is a brief introduction to who I am, and the call to action is a prompt for visitors to check out my projects. The coming soon section is a placeholder for future content."
+            },
+            {
+                "type": "Added",
+                "description": "The project gallery page.",
+                "images": [
+                    {
+                        "resource": "Buildlog_05_28_2025_Projects_2.png",
+                        "alt": "The project gallery"
+                    },
+                    {
+                        "resource": "Buildlog_05_28_2025_Projects_1.png",
+                        "alt": "The project gallery"
+                    }
+                ],
+                "personalNotes": "I knew I wanted to have a project gallery on my website. In terms of design card, I was inspired by Pokemon trading cards which have a clear title in the upper left, a main image in the upper half, and text details in the lower half. I decided to go a bit further and have the cards tilt away from the cursor when hovered as well have a gliding shine effect."
+            },
+            {
+                "type": "Added",
+                "description": "The project details page.",
+                "images": [
+                    {
+                        "resource": "Buildlog_05_28_2025_Project_Details_1.png",
+                        "alt": "The project details page"
+                    }
+                ],
+                "personalNotes": "I wish I had this idea for a build log earlier, because I spent some time trying to make the project cards from my gallery flip and grow to take up majority of the page while maintaing a cohesive UI. I ended up scrapping that idea and just making a simple details page with a header, a gallery of images, and a text section for the description. This is the initial skeleton."
+            }
+        ]
+    },
+    {
+        "date": "2025-05-29",
+        "time": "18:00",
+        "summary": "Added the project details page.",
+        "updates": [
+            {
+                "type": "Added",
+                "description": "The project details page.",
+                "images": [
+                    {
+                        "resource": "Buildlog_05_29_2025_Project_Details_2.png",
+                        "alt": "The project details page"
+                    }
+                ],
+                "personalNotes": "I added a section for the project details page that includes a gallery of images and a text section for the description. I also added a section for the project updates, which will be used to track the progress of the project."
+            }
+        ]
+    },
+    {
+        "date": "2025-05-30",
+        "time": "18:00",
+        "summary": "Added the project updates section.",
+        "updates": [
+            {
+                "type": "Added",
+                "description": "The project updates section.",
+                "images": [
+                    {
+                        "resource": "Buildlog_05_30_2025_Project_Updates_1.png",
+                        "alt": "The project updates section"
+                    }
+                ],
+                "personalNotes": "I added a section for the project updates, which will be used to track the progress of the project. I also added a section for the project details page that includes a gallery of images and a text section for the description."
+            }
+        ]
+    }
+]

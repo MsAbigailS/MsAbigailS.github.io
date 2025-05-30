@@ -21,7 +21,7 @@ export const ProjectList = (
         <List>
             <div
                 data-id="project-list"
-                className={`grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 justify-items-center gap-6 p-12`}>
+                className={`grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 justify-items-center gap-6 p-12`}>
                 {projects.map((project, index) => (
                     <div key={index}>
                         <ProjectCard project={project} />

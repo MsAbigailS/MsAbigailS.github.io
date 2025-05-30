@@ -60,6 +60,7 @@ export const ProjectCard = ({
 
     return (
         <Card>
+
             <div onClick={goToProject}>
                 <ElementAnimation animation={['tilt']}>
                     <ElementAnimation animation={['shine']}>

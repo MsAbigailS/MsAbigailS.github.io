@@ -29,7 +29,7 @@ export const BackgroundShapes = ({
     return (
         <div
             data-id={dataId}
-            className={`absolute min-w-full min-h-full overflow-hidden pointer-events-none`}
+            className={`fixed inset-0 overflow-hidden pointer-events-none`}
         >
             {Array.from({ length: densityLimit }).map((_, index) => {
 

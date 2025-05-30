@@ -152,7 +152,7 @@ export default function Projects() {
     }
 
     return (
-        <div data-id="main">
+        <div data-id="main" className="animate-fade-in animation-delay-300 bg-linear-30 from-[#468186]/30 to-blue-500/15">
             <Header left={<span onClick={goToHome}>Home</span>} right={<span onClick={goToResume}>Resume</span>} />
 
             <h1 data-id="subject-header" className={`text-center mb-10`}>
@@ -182,40 +182,6 @@ export default function Projects() {
 
 
             <ProjectList />
-
-
-
-            {/* <div id="projects" className={`mb-10 flex flex-row flex-wrap justify-center items-center *:p-2`}>
-                {projects.map((project, index) => {
-                    // return (
-                    //     <div key={index}>
-                    //         <ElementAnimation animation='tilt'>
-                    //             <Card title={project.title} description={project.description} technologies={project.technologies}
-                    //                 completed={project.demo} url={project.demo} complexity={project.complexity} challenges={project.challenges}
-                    //                 image={project.imgs}
-                    //                 awards={project.awards} personalNotes={project.personalNotes} links={project.links} />
-                    //         </ElementAnimation>
-                    //     </div>
-                    // )
-                    return (
-                        <ProjectCard
-                            key={index}
-                            title={project.title}
-                            description={project.description}
-                            technologies={project.technologies}
-                            completed={project.demo}
-                            url={project.demo}
-                            complexity={project.complexity}
-                            challenges={project.challenges}
-                            image={project.imgs}
-                            awards={project.awards}
-                            personalNotes={project.personalNotes}
-                            links={project.links}
-                        />
-                    )
-                })}
-            </div> */}
-            {/* <Footer /> */}
         </div >
     )
 }

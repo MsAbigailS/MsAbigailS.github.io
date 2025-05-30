@@ -14,6 +14,7 @@ export default function Project() {
     return (
         <div
             data-id="project-page"
+            className="animate-fade-in animation-delay-300 bg-linear-30 from-[#468186]/10 to-blue-500/10"
         >
             <ProjectPage project={project} color='rgba(191,139,133,0.25)' />
         </div >

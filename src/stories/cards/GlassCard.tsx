@@ -41,8 +41,6 @@ export const GlassCard = ({
                     bg-cover mix-blend-overlay"
                 ></div>
 
-                {/* <div className="absolute inset-0 z-0 pointer-events-none opacity-7 bg-[url('https://media.istockphoto.com/id/1484130495/vector/shiny-metal-texture-silver-or-stainless-steel-background.jpg?s=612x612&w=0&k=20&c=l-At27ry22KvWByVTGGgIEn5xMWTmVktrnxbTWaO_bQ=')] bg-cover mix-blend-overlay"></div> */}
-
                 {/* Top border glow */}
                 <div className="absolute top-0 left-0 h-[5px] w-1/3 bg-white/20 blur-sm rounded-tl z-20 animate-pulse-slow"></div>
 

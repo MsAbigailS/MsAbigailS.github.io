@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { ConstructionNotice } from "../stories/ui/ConstructionNotice"
 import { BuildLogList } from "../stories/lists/BuildLogList"
 import { Header } from "../stories/ui/Header"
@@ -5,6 +6,20 @@ import { useNavigate } from 'react-router-dom'
 
 export default function BuildLog() {
     const navigate = useNavigate()
+    // setting up meta tag only on mount
+    useEffect(() => {
+        document.title = "My Portfolio | Build Log"
+        const description = document.querySelector('meta[name="description"]')
+
+        if (description) {
+            description.setAttribute('content', 'Build Log')
+        } else {
+            const meta = document.createElement('meta')
+            meta.name = 'description'
+            meta.content = 'Build Log'
+            document.head.appendChild(meta)
+        }
+    }, [])
     const goToHome = () => {
         navigate('/')
     }

@@ -7,6 +7,8 @@ import { Header } from "../stories/ui/Header"
 import { Footer } from "../stories/ui/Footer"
 import { TextAnimation } from '../stories/ui/TextAnimation'
 import { IdeaList } from '../stories/lists/IdeaList'
+import { GlassCard } from '../stories/cards/GlassCard'
+import { ElementAnimation } from '../stories/ui/ElementAnimation'
 
 export default function Home() {
     // setting up meta tag only on mount
@@ -100,8 +102,9 @@ export default function Home() {
 
 
             {/* call to action */}
-            <div ref={projectLink} className={`mt-50 pb-30 flex justify-center items-center ease-in-out transition-opacity duration-1000  ${projectVisible ? 'opacity-100' : 'opacity-0'}`}>
-                <div data-id="subject-header" id="callToAction" onClick={gotoProjects} className={`relative rounded-xs overflow-hidden flex flex-col justify-center items-center hover:cursor-pointer group text-7xl`}>
+
+            <div ref={projectLink} className={`mt-50 mb-30 flex justify-center items-center ease-in-out transition-opacity duration-1000  ${projectVisible ? 'opacity-100' : 'opacity-0'}`}>
+                <div data-id="subject-header" id="callToAction" onClick={gotoProjects} className={`relative p-2 border-1 border-white-500 hover:border-white rounded-lg overflow-hidden flex flex-col justify-center items-center hover:cursor-pointer group text-7xl`}>
                     {/* background color movement */}
                     <div className={`min-h-full translate-z-0 flex-grow justify-center items-center flex 
                         text-white
@@ -111,22 +114,84 @@ export default function Home() {
                         transition-all
                         group-hover:translate-x-[0%]
                         duration-[700ms] ease-in-out
-                        text-center
+                        text-center 
                         `}>
-                        Want to see my projects?
+
+                        Explore My Projects
+
                     </div>
                     {/* text that shows */}
 
                     <div className={`absolute mix-blend-difference 
                         duration-[700ms] ease-in-out text-center`}
                     >
-                        Want to see my projects?
+                        <div
+                            className={` `}
+                        >
+                            Explore My Projects
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div ref={projectLink} className={`mt-25 pb-30 flex justify-center items-center ease-in-out transition-opacity duration-1000  ${projectVisible ? 'opacity-100' : 'opacity-0'}`}>
-                <div data-id="subject-header" id="callToAction" onClick={goToBuildlog} className={`relative rounded-xs overflow-hidden flex flex-col justify-center items-center hover:cursor-pointer group text-7xl`}>
+
+
+            {/* what is this website */}
+            <div
+                className={`p-2 md:pt-10 flex justify-center items-center`}
+            >
+                <ElementAnimation
+                    animation={['shine']}
+                    speed="slow"
+                >
+
+                    <div
+                        className={`rounded-lg hover:ring-2 hover:ring-blue-200/20 
+                            transition-all duration-300 ease-in-out
+                            shadow-lg shadow-gray-500/15`}
+                    >
+
+                        <GlassCard>
+
+                            <div
+                                data-id="subject-header"
+                                className={`text-center text-5xl italic`}
+                            >
+                                About This Website
+                            </div>
+
+                            <div
+                                className={`flex flex-col text-xl **:p-2 font-assistant`}
+                            >
+
+                                This site is my personal playground — a space where I document what I’m learning, building, and exploring as a developer.
+
+
+
+                                <div
+                                    className={`text-md mt-2`}
+                                >
+                                    You'll find...
+                                    <ul>
+                                        <li>🧩 Projects that showcase my work, from polished apps to experimental ideas</li>
+
+                                        <li>🔄 Progress logs where I track daily updates and learning milestones</li>
+
+                                        <li>🛠️ Technical breakdowns and notes from hands-on problem solving</li>
+
+                                        <li>🎨 Explorations in UI/UX, animation, and creative development</li>
+                                    </ul>
+                                </div>
+                                This isn’t just a portfolio — it’s a living archive of my growth, challenges, and curiosity. I built it for reflection, experimentation, and to share with anyone interested in the journey of building things from scratch.
+                            </div>
+
+                        </GlassCard>
+                    </div>
+                </ElementAnimation>
+            </div>
+
+            <div className={`mt-50 mb-30 flex justify-center items-center ease-in-out transition-opacity duration-1000 `}>
+                <div data-id="subject-header" id="callToAction" onClick={goToBuildlog} className={`relative p-2 border-1 border-white-500 hover:border-white rounded-lg overflow-hidden flex flex-col justify-center items-center hover:cursor-pointer group text-7xl`}>
                     {/* background color movement */}
                     <div className={`min-h-full translate-z-0 flex-grow justify-center items-center flex 
                         text-white
@@ -136,19 +201,26 @@ export default function Home() {
                         transition-all
                         group-hover:translate-x-[0%]
                         duration-[700ms] ease-in-out
-                        text-center
+                        text-center 
                         `}>
-                        What about my progress?
+
+                        View My Build Log
+
                     </div>
                     {/* text that shows */}
 
                     <div className={`absolute mix-blend-difference 
                         duration-[700ms] ease-in-out text-center`}
                     >
-                        What about my progress?
+                        <div
+                            className={` `}
+                        >
+                            View My Build Log
+                        </div>
                     </div>
                 </div>
             </div>
+
 
             {/* coming soon */}
             <div
@@ -165,6 +237,8 @@ export default function Home() {
                         .
                     </span>
                 </div>
+
+
                 <IdeaList
                     // limit={4}
                     status={['In Progress', 'Pending']}

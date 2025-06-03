@@ -177,5 +177,31 @@
                 "personalNotes": ""
             }
         ]
+    },
+    {
+        "date": "2025-05-30",
+        "time": "18:00",
+        "summary": "Focused on rounding out homepage UI.",
+        "updates": [
+            {
+                "type": "Updated",
+                "description": "Home page",
+                "images": [
+                    {
+                        "resource": "Buildlog_05_30_2025_Home_Video.gif",
+                        "alt": "The homepage with glass cards and new spacing"
+                    },
+                    {
+                        "resource": "Buildlog_05_30_2025_Homepage_1.png",
+                        "alt": "The about me section"
+                    },
+                    {
+                        "resource": "Buildlog_05_30_2025_Homepage_2.png",
+                        "alt": "View projects, summary, and build log"
+                    }
+                ],
+                "personalNotes": "I've put the about me text inside of a glass card, made my \"Explore My Projects\" and \"View My Build Log\" look clickable, and added and about for the home page."
+            }
+        ]
     }
 ]

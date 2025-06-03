@@ -203,5 +203,23 @@
                 "personalNotes": "I've put the about me text inside of a glass card, made my \"Explore My Projects\" and \"View My Build Log\" look clickable, and added and about for the home page."
             }
         ]
+    },
+    {
+        "date": "2025-06-03",
+        "time": "18:00",
+        "summary": "Embedded resume on resume page.",
+        "updates": [
+            {
+                "type": "Updated",
+                "description": "Resume page",
+                "images": [
+                    {
+                        "resource": "Buildlog_06_03_2025_Resume_1.png",
+                        "alt": "The resume page with an embedded PDF"
+                    }
+                ],
+                "personalNotes": "This was something I'm glad I finally finished! After reviewing my resume and deciding on a final draft, I embedded it to my website."
+            }
+        ]
     }
 ]

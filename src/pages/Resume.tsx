@@ -7,13 +7,17 @@ export default function Resume() {
     const goToHome = () => {
         navigate('/')
     }
-    const goToResume = () => {
-        navigate('/resume')
+    const goToProjects = () => {
+        navigate('/projects')
     }
     return (
-        <div data-id="main" className="animate-fade-in animation-delay-300 h-screen">
-            <Header left={<span onClick={goToHome}>Home</span>} right={<span onClick={goToResume}>Resume</span>} />
-            <embed src={resume} type="application/pdf" width="100%" height="100%" />
+        <div data-id="main" className="animate-fade-in animation-delay-300 h-screen bg-linear-30 from-[#468186]/10 to-blue-500/10">
+            <Header left={<span onClick={goToHome}>Home</span>} right={<span onClick={goToProjects}>Projects</span>} />
+            <div
+                className="h-full"
+            >
+                <embed src={resume} type="application/pdf" width="100%" height="100%" />
+            </div>
         </div >
     )
 }

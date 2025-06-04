@@ -10,6 +10,7 @@ import { brighten } from '../helpers/colors';
 import { GlassCard } from './GlassCard';
 import { Tag } from '../ui/Tag';
 import { ConstructionNotice } from '../ui/ConstructionNotice';
+import { ImageCarousel } from '../ui/ImageCarousel';
 
 
 export interface ProjectCardExpandedProps {
@@ -93,13 +94,13 @@ export const ProjectCardExpanded = ({
                     </div>
 
                     <div
-                        data-id={`${dataId}-lower`}
+                        data-id={`${dataId}-middle`}
                     >
                         <div className="relative">
                             <GlassCard>
                                 <div
                                     data-id={`${dataId}-description`}
-                                    className="text-md m-4"
+                                    className="text-md m-4 text-center"
                                 >
                                     {project.description}
                                 </div>
@@ -114,7 +115,35 @@ export const ProjectCardExpanded = ({
                         </div>
                     </div>
 
-                    <ConstructionNotice />
+                    <div
+                        data-id={`${dataId}-lower`}
+                    >
+                        <div className="relative">
+                            <GlassCard>
+                                <h2
+                                    data-id={`${dataId}-title`}
+                                    className="text-2xl font-bold mb-5 lg:text-start text-center"
+                                >
+                                    Personal Notes
+                                </h2>
+                                <div
+                                    data-id={`${dataId}-description`}
+                                    className="text-md m-4 text-center"
+                                >
+                                    {project.personalNotes}
+                                </div>
+                            </GlassCard>
+
+                            <div
+                                data-id={`${dataId}-decoration-shift`}
+                                className={`absolute top-1 left-1 w-full h-full opacity-50 pointer-events-none`}
+                            >
+                                <GlassCard />
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* <ConstructionNotice /> */}
                 </div>
 
                 {/* right */}
@@ -128,29 +157,16 @@ export const ProjectCardExpanded = ({
                         <GlassCard>
                             <div
                                 data-id={`${dataId}-images`}
-                                className="rounded-lg overflow-hidden mb-4 text-center text-gray-200"
+                                className="z-75 rounded-lg overflow-hidden mb-4 text-center text-gray-200"
                             >
-                                <p className="text-gray-400 italic text-sm mb-5">(Imagine an image gallery here instead of static image)</p>
-                                <div className={`max-h-500 flex justify-center items-center`}>
-                                    <Image image={project.imgs[0]} fit="object-contain" />
-                                </div>
-                                <p
-                                    className="text-center p-2 text-sm text-gray-400"
-                                >
-                                    {project.imgs[0].alt || 'Project Image'}
-                                </p>
+                                <ImageCarousel images={project.imgs} />
                             </div>
-                            <p
-                                data-id={`${dataId}-personal-notes`}
-                                className="text-sm m-5 sm:m-2"
-                            >
-                                {project.personalNotes}
-                            </p>
                         </GlassCard>
+
 
                         <div
                             data-id={`${dataId}-decoration-shift`}
-                            className={`absolute top-1 left-1 w-full h-full opacity-50`}
+                            className={`absolute top-1 left-1 w-full h-full opacity-50 pointer-events-none`}
                         >
                             <GlassCard />
                         </div>

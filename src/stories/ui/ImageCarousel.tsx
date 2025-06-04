@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { preview } from 'vite';
+import { Image } from '../ui/Image';
 
 export interface ImageCarouselProps {
     /** What images to include */
@@ -12,63 +13,99 @@ export const ImageCarousel = ({
     images,
     size = 'large'
 }: ImageCarouselProps) => {
-    const [index, setIndex] = React.useState(0);
+    const [currIndex, setCurrentIndex] = React.useState(0);
+    const mainWindow = useRef<HTMLDivElement | null>(null);
+    const previewWindow = useRef<HTMLDivElement | null>(null);
 
-    // setting main image to selected image
-    function changeImage(e: React.MouseEvent<HTMLElement>) {
-        // getting selected element
-        const target = e.target as HTMLDivElement;
-        const image = document.getElementById("mainImage") as HTMLImageElement;
-        const desc = document.getElementById("mainDescription") as HTMLParagraphElement;
 
-        console.log(target);
+    // rotates images based on k
+    function rotateImages() {
+        if (!mainWindow.current) return;
 
-        // getting image
-        const img = imageMap[`../assets/${images[parseInt(target.dataset.key!)].resource}`];
-
-        // updating main window w/ clicked image
-        if (image) {
-            image.src = img as string;
-            image.alt = images[parseInt(target.dataset.key!)].alt;
-        }
-        if (desc) {
-            desc.innerText = images[parseInt(target.dataset.key!)].alt;
-        }
+        console.log(mainWindow.current?.children[0]);
     }
 
-    const imageMap = import.meta.glob('../assets/*.{jpg,png,jpeg}', {
-        eager: true,
-        import: 'default',
-    });
 
     return (
         <div id="imageCarousel" className={`flex flex-col justify-center items-center`}>
-
-            {/* main image */}
-            <div id="mainWindow" className={`flex flex-col w-full justify-center items-center`}>
-                <div id="mainImageBackground" className={`flex justify-center items-center w-full bg-gray-300 rounded-lg`}>
-                    <img id="mainImage" src={imageMap[`../assets/${images[0].resource}`] as string} alt="carouselImage" className={`shadow-lg max-h-100 rounded-md object-contain`} />
+            <div
+                ref={mainWindow}
+                className={`flex flex-col justify-center 
+                    items-center ${size === 'large' ? 'w-full' : 'w-1/2'} 
+                    *:text-gray-200 *:italic p-2`}
+            >
+                <div
+                    className={`border-2 size-50 md:size-100 lg:size-120 bg-white/90 rounded-md overflow-hidden`}
+                >
+                    <Image
+                        image={images[currIndex]}
+                        fit="object-contain"
+                    />
                 </div>
-                <p id="mainDescription" className={`flex justify-center items-center text-md min-w-full overflow-hidden text-gray-800`}>{images[0].alt}</p>
+                <p>{images[currIndex].alt}</p>
             </div>
 
-            {/* previews */}
-            <div id="previewWindow" className={`w-full flex flex-row justify-center`}>
-                {images.map((image, index) => {
-                    // if (index > 3) return null;
-                    const img = imageMap[`../assets/${image.resource}`];
-                    if (!img || typeof img !== 'string') return null;
-                    return (
-                        <div className={`flex flex-row justify-center m-1 items-center rounded-sm *:text-center *:size-[100%] *:hover:opacity-50 *:hover:cursor-pointer *:hover:bg-gray-200`}
-                            key={index}
+            <div
+                ref={previewWindow}
+                className="z-50 hover:cursor-pointer"
+            >
+                {images.length < 3 ? (
+                    <div
+                        className="flex flex-row *:m-2 *:rounded-sm *:bg-white/90 *:hover:cursor-pointer *:hover:bg-white"
+                    >
+                        {images.map((image, index) => (
+                            <div
+                                key={index}
+                                onClick={() => setCurrentIndex((prev) => index)}
+                                className={`size-20 md:size-30 lg:size-50`}
+                            >
+                                <Image
+                                    image={image}
+                                    fit="object-contain"
+                                />
+                            </div>
+                        ))}
+                    </div>
+                ) : (
+                    <div
+                        className="flex flex-row  *:m-2 *:rounded-sm *:bg-white/90 *:hover:cursor-pointer *:hover:bg-white"
+                    >
+                        <div
+                            onClick={() => setCurrentIndex((prev) => (prev + 1) % images.length)}
+                            className={`size-20 md:size-30 lg:size-50`}
 
-                            onClick={changeImage}
                         >
-                            <img data-key={index} src={img} alt='placeholder' />
+                            <Image
+                                image={images[(currIndex + 1) % images.length]}
+                                fit="object-contain"
+                            />
                         </div>
-                    )
-                })}
+                        <div
+                            className={`size-20 md:size-30 lg:size-50`}
+
+                            onClick={() => setCurrentIndex((prev) => (prev + 2) % images.length)}
+                        >
+                            <Image
+                                image={images[(currIndex + 2) % images.length]}
+                                fit="object-contain"
+                            />
+                        </div>
+                        <div
+                            className={`size-20 md:size-30 lg:size-50`}
+
+                            onClick={() => setCurrentIndex((prev) => (prev + 3) % images.length)}
+                        >
+                            <Image
+                                image={images[(currIndex + 3) % images.length]}
+                                fit="object-contain"
+                            />
+                        </div>
+                    </div>
+
+                )}
             </div>
+
+            {/* <button className="z-50 hover:cursor-pointer" onClick={() => setCurrentIndex((prev) => (prev + 1) % images.length)}>click</button> */}
         </div>
     );
 };

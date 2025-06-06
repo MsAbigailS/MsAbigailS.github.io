@@ -1,5 +1,162 @@
 [
     {
+        "title": "Job Application Tracker",
+        "description": "This Job Application Tracker uses MongoDB, Vue, Vite, Axios, and Bootstrap to store, retrieve, and show user job applications in a simple, clean hub. Inspired by my own job search, this application allows users to track their job applications while also allowing me to work on my own skills.",
+        "technologies": [
+            "MongoDB",
+            "Vue",
+            "Vite",
+            "Bootstrap",
+            "Axios",
+            "Figma"
+        ],
+        "completed": "In Progress",
+        "demo": "https://github.com/MsAbigailS/JobTracker",
+        "imgs": [
+            {
+                "resource": "jobTracker/Buildlog_06_05_2025_Client_1.png",
+                "alt": "Initial client-side test"
+            },
+            {
+                "resource": "jobTracker/Buildlog_06_05_2025_Client_Axios_1.png",
+                "alt": "Axios to connect client to server"
+            },
+            {
+                "resource": "jobTracker/Buildlog_06_05_2025_Figma_1.png",
+                "alt": "Figma MVP"
+            },
+            {
+                "resource": "jobTracker/Buildlog_06_05_2025_Figma_Components_1.png",
+                "alt": "Figma MVP Components"
+            },
+            {
+                "resource": "jobTracker/Buildlog_06_05_2025_Figma_Desktop_1.png",
+                "alt": "Figma MVP Desktop"
+            },
+            {
+                "resource": "jobTracker/Buildlog_06_05_2025_Figma_Desktop_2.png",
+                "alt": "Figma MVP Desktop"
+            },
+            {
+                "resource": "jobTracker/Buildlog_06_05_2025_Figma_Mobile_1.png",
+                "alt": "Figma MVP Mobile"
+            },
+            {
+                "resource": "jobTracker/Buildlog_06_05_2025_Figma_Mobile_2.png",
+                "alt": "Figma MVP Mobile"
+            },
+            {
+                "resource": "jobTracker/Buildlog_06_05_2025_Server_MongoDB_2.png",
+                "alt": "MongoDB cluster snapshot"
+            },
+            {
+                "resource": "jobTracker/Buildlog_06_05_2025_Server_Schema_1.png",
+                "alt": "Mongoose schema to control MongoDB documents"
+            }
+        ],
+        "complexity": "Beginner",
+        "challenges": [
+            ""
+        ],
+        "pride": 2,
+        "awards": [],
+        "personalNotes": "I was interested in revisiting MongoDB and Vue, and in the midst of applying to jobs and becoming frustrated with how other applications would not allow me the flexibility to add in the notes and fields I wanted to track, I decided to create my own job application tracker. This way I would be able to explore MongoDB and Vue while also creating a solution to my problem.",
+        "links": [
+            {
+                "name": "GitHub Repo",
+                "url": "https://github.com/MsAbigailS/JobTracker"
+            }
+        ],
+        "buildLog": [
+            {
+                "date": "2025/06/05",
+                "time": "22:00",
+                "summary": "Setup and tested server and client connection. Also started working on Figma MVP design.",
+                "updates": [
+                    {
+                        "type": "Added",
+                        "description": "Created a MongoDB cluster. Thank goodness for free tiers.",
+                        "images": [
+                            {
+                                "resource": "jobTracker/Buildlog_06_05_2025_Server_MongoDB_2.png",
+                                "alt": "MongoDB cluster snapshot"
+                            }
+                        ],
+                        "personalNotes": "It had been awhile since I had used MongoDB, so it took a minute to learn where everything was on the website. This is a great reminder that you have to keep up with these technologies."
+                    },
+                    {
+                        "type": "Added",
+                        "description": "Created Jobs table schema using Mongoose.",
+                        "images": [
+                            {
+                                "resource": "jobTracker/Buildlog_06_05_2025_Server_Schema_1.png",
+                                "alt": "Snapshot of schema definition"
+                            }
+                        ],
+                        "personalNotes": "Even though MongoDB is schema-less, I still wanted control over the data for the jobs table. One reason I decided to make this project was because I wanted to be able to track my applications with the information I wanted, which changed between applications (i.e. saving cover letters, saving written responses, etc.), but I decided to go with schema control because I know there are values I'm always going to want to track, such as the role name, the company, location, and more. As I progress in this project, I can take advantage of the schema-less nature of MongoDB to add in new fields as I need them."
+                    },
+                    {
+                        "type": "Added",
+                        "description": "Pushed some test data via local server terminal.",
+                        "images": [
+                            {
+                                "resource": "jobTracker/Buildlog_06_05_2025_Server_MongoDB_2.png",
+                                "alt": "Snapshot of test data"
+                            }
+                        ],
+                        "personalNotes": "As always, I needed to test that my server was connecting to MongoDB correctly, so I did so by using my server to push some test data."
+                    },
+                    {
+                        "type": "Added",
+                        "description": "Setup my client-side Vue app and connected to server-side using Axios.",
+                        "images": [
+                            {
+                                "resource": "jobTracker/Buildlog_06_05_2025_Client_1.png",
+                                "alt": "Snapshot of rendered table pulling from MongoDB"
+                            }
+                        ],
+                        "personalNotes": "I decided to use Vue + Vite + Bootstrap to strengthen my coding arsenal. I'm a huge fan of React, but I know Vue is loved for a reason, so I figured this is a great time to get some Vue experience in. Here I'm just checking that my client-side is communicating with my server-side."
+                    },
+                    {
+                        "type": "Added",
+                        "description": "Created a Figma MVP design.",
+                        "images": [
+                            {
+                                "resource": "jobTracker/Buildlog_JobTracker_06_05_2025_Mobile_Video.gif",
+                                "alt": "Gif of Figma MVP Mobile transitions"
+                            },
+                            {
+                                "resource": "jobTracker/Buildlog_JobTracker_06_05_2025_Desktop_Video.gif",
+                                "alt": "Gif of Figma MVP Desktop transitions"
+                            },
+                            {
+                                "resource": "jobTracker/Buildlog_06_05_2025_Figma_Components_1.png",
+                                "alt": "Snapshot of Figma MVP components"
+                            },
+                            {
+                                "resource": "jobTracker/Buildlog_06_05_2025_Figma_Desktop_1.png",
+                                "alt": "Snapshot of Figma MVP Desktop design"
+                            },
+                            {
+                                "resource": "jobTracker/Buildlog_06_05_2025_Figma_Desktop_2.png",
+                                "alt": "Snapshot of Figma MVP Desktop design"
+                            },
+                            {
+                                "resource": "jobTracker/Buildlog_06_05_2025_Figma_Mobile_1.png",
+                                "alt": "Snapshot of Figma MVP Mobile design"
+                            },
+                            {
+                                "resource": "jobTracker/Buildlog_06_05_2025_Figma_Mobile_2.png",
+                                "alt": "Snapshot of Figma MVP Mobile design"
+                            }
+                        ],
+                        "personalNotes": "I decided to use Figma to design the MVP front-end for this project. I knew at the least I wanted to be able to read and write data."
+                    }
+                ]
+            }
+        ]
+    },
+    {
         "title": "MedMate",
         "description": "MedMate is a personal health management application that utilizes AI to assist users in understanding their medical prescriptions and maintaining health records. The app features voice recording and summarization of doctor consultations, providing users with accessible and organized health information.",
         "technologies": [
@@ -100,7 +257,8 @@
                 "name": "GitHub Repo",
                 "url": "https://github.com/NicholasZolton/AxxessHackathonApp2023"
             }
-        ]
+        ],
+        "buildLog": null
     },
     {
         "title": "Redwood",
@@ -180,7 +338,8 @@
                 "name": "GitHub Repo",
                 "url": "https://github.com/hampster2018/HackPrinceton"
             }
-        ]
+        ],
+        "buildLog": null
     },
     {
         "title": "The Greenhouse Mission",
@@ -276,7 +435,8 @@
                 "name": "GitHub Repo",
                 "url": "https://github.com/hampster2018/HackRice"
             }
-        ]
+        ],
+        "buildLog": null
     },
     {
         "title": "Amelia",
@@ -329,7 +489,8 @@
                 "name": "GitHub Repo",
                 "url": "https://github.com/TimothyNaumov/HackUTA2023-Dashboard"
             }
-        ]
+        ],
+        "buildLog": null
     },
     {
         "title": "Site-in-Site",
@@ -376,7 +537,8 @@
                 "name": "GitHub Repo",
                 "url": "https://github.com/hampster2018/WEHack-2023"
             }
-        ]
+        ],
+        "buildLog": null
     },
     {
         "title": "Dunk Dynasty",
@@ -452,7 +614,8 @@
                 "name": "GitHub Repo",
                 "url": "https://github.com/MsAbigailS/HackAI"
             }
-        ]
+        ],
+        "buildLog": null
     },
     {
         "title": "Model Maintenance",
@@ -524,6 +687,7 @@
                 "name": "GitHub Repo",
                 "url": "https://github.com/MsAbigailS/HackSMU"
             }
-        ]
+        ],
+        "buildLog": null
     }
 ]

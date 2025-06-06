@@ -3,32 +3,14 @@ import { ConstructionNotice } from "../stories/ui/ConstructionNotice"
 import { BuildLogList } from "../stories/lists/BuildLogList"
 import { Header } from "../stories/ui/Header"
 import { useNavigate } from 'react-router-dom'
+import { routes } from '../stories/helpers/routing'
+import { setMeta } from '../stories/helpers/routing'
 
 export default function BuildLog() {
-    const navigate = useNavigate()
     // setting up meta tag only on mount
     useEffect(() => {
-        document.title = "My Portfolio | Build Log"
-        const description = document.querySelector('meta[name="description"]')
-
-        if (description) {
-            description.setAttribute('content', 'Build Log')
-        } else {
-            const meta = document.createElement('meta')
-            meta.name = 'description'
-            meta.content = 'Build Log'
-            document.head.appendChild(meta)
-        }
+        setMeta('Build Log', `A showcase of the development process for my website.`)
     }, [])
-    const goToHome = () => {
-        navigate('/')
-    }
-    const goToResume = () => {
-        navigate('/Resume')
-    }
-    const goToBuildlog = () => {
-        navigate('/build-log')
-    }
 
     return (
         <div
@@ -37,9 +19,7 @@ export default function BuildLog() {
             bg-linear-30 from-[#468186]/80 to-blue-500/10"
         >
 
-            <Header left={<span onClick={goToHome}>Home</span>} right={<span onClick={goToResume}>Resume</span>} />
-
-            {/* <ConstructionNotice /> */}
+            <Header left={"Home"} right={"Resume"} />
 
             <BuildLogList />
 

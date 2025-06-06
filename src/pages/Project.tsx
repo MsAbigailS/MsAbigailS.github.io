@@ -2,25 +2,17 @@ import { useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import type { Project } from '../types/project';
 import projectData from '../data/projects.json';
-import { ProjectPage } from '../stories/ui/ProjectPage';
+import { ProjectPage } from '../stories/pages/ProjectPage';
+import { setMeta } from '../stories/helpers/routing';
 
 export default function Project() {
     const { slug } = useParams();
     const project: Project | undefined = projectData.find(p => p.title.replace(/\s+/g, '-') === slug);
     // setting up meta tag only on mount
     useEffect(() => {
-        document.title = "My Portfolio | Project Details"
-        const description = document.querySelector('meta[name="description"]')
-
-        if (description) {
-            description.setAttribute('content', 'Project Details')
-        } else {
-            const meta = document.createElement('meta')
-            meta.name = 'description'
-            meta.content = 'Project Details'
-            document.head.appendChild(meta)
-        }
+        setMeta(project?.title ?? 'Project', `The details surrounding this project.`)
     }, [])
+
     if (!project) {
         return <div className="text-white">Project not found</div>;
     }

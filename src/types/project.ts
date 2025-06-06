@@ -1,3 +1,5 @@
+import type { BuildLog } from "../types/buildlog";
+
 export interface Project {
     title: string;
     description: string;
@@ -8,6 +10,7 @@ export interface Project {
     awards: awards[] | null;
     personalNotes: string;
     links: links[];
+    buildLog?: BuildLog[] | null;
 }
 
 export type awards = {

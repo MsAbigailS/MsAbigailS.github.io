@@ -8,7 +8,7 @@ import { TagList } from '../lists/TagList';
 import { Image } from '../ui/Image';
 import type { Project } from '../../types/project';
 import { hexToRgba, lighten } from '../helpers/colors';
-import { ProjectPage } from '../ui/ProjectPage';
+import { ProjectPage } from '../pages/ProjectPage';
 import { useNavigate } from 'react-router-dom'
 
 export interface ProjectCardProps {

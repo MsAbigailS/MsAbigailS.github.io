@@ -1,5 +1,6 @@
 
 import type { Project } from '../../types/project';
+import { ProjectBuildLogPage } from '../pages/ProjectBuildLogPage';
 import { data, useNavigate } from 'react-router-dom'
 import { Card } from '../ui/Card';
 import { Image } from '../ui/Image';
@@ -34,6 +35,9 @@ export const ProjectCardExpanded = ({
     const goToProjects = () => {
         navigate(`/projects`)
     }
+    const goToProjectBuildLog = () => {
+        navigate(`/projects/${project.title.replace(/\s+/g, '-')}/buildlog`)
+    }
 
     const subheader = `font-inknut rounded-md bg-white text-gray-950 border-white border-2 inline-block p-2`;
     const card = `text-white rounded-xl border-white border-2 p-6`
@@ -48,7 +52,7 @@ export const ProjectCardExpanded = ({
                 {/* left */}
                 <div data-id={`${dataId}-left`} className="lg:w-1/3 space-y-4 relative">
                     <div
-                        data-id={`${dataId}-upper`}
+                        data-id={`${dataId}-top`}
                     >
                         <div className="relative">
                             <GlassCard>
@@ -94,7 +98,7 @@ export const ProjectCardExpanded = ({
                     </div>
 
                     <div
-                        data-id={`${dataId}-middle`}
+                        data-id={`${dataId}-upper`}
                     >
                         <div className="relative">
                             <GlassCard>
@@ -143,7 +147,45 @@ export const ProjectCardExpanded = ({
                         </div>
                     </div>
 
-                    {/* <ConstructionNotice /> */}
+                    {project.buildLog ? (
+                        <div
+                            data-id={`${dataId}-bottom`}
+                        >
+                            <div className="relative">
+                                <GlassCard>
+                                    <div
+                                        data-id={`${dataId}-build-log`}
+                                        className="pt-2 space-y-1 flex flex-row justify-around"
+                                    >
+                                        {project.buildLog ? (
+                                            <button
+                                                data-id={`${dataId}-build-log`}
+                                                onClick={goToProjectBuildLog}
+                                                className="z-10 border-1 p-5 rounded-md shadow-md 
+                                    hover:text-blue-300
+                                    ease-in-out duration-300 
+                                    hover:cursor-pointer 
+                                    self-start
+                                    transition-colors"
+                                            >
+                                                View Build Log
+                                            </button>
+                                        ) : null}
+                                    </div>
+                                </GlassCard>
+
+                                <div
+                                    data-id={`${dataId}-decoration-shift`}
+                                    className={`absolute top-1 left-1 w-full h-full opacity-50 pointer-events-none`}
+                                >
+                                    <GlassCard />
+                                </div>
+                            </div>
+                        </div>
+                    ) : null
+                    }
+
+
                 </div>
 
                 {/* right */}
@@ -173,7 +215,7 @@ export const ProjectCardExpanded = ({
                     </div>
 
                 </div>
-            </div>
+            </div >
         </Card >
     );
 };

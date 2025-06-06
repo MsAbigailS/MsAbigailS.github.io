@@ -6,6 +6,7 @@ import Projects from './pages/Projects'
 import Resume from './pages/Resume'
 import Project from './pages/Project'
 import BuildLog from './pages/BuildLog'
+import ProjectBuildLog from './pages/ProjectBuildLog'
 import { useState } from 'react'
 import { Header } from './stories/ui/Header'
 import { Footer } from './stories/ui/Footer'
@@ -36,6 +37,7 @@ function App() {
             <Route path="/projects/:slug" element={<Project />} />
             <Route path="/resume" element={<Resume />} />
             <Route path="/build-log" element={<BuildLog />} />
+            <Route path="/projects/:slug/buildlog" element={<ProjectBuildLog />} />
           </Routes>
         </div>
       </ScrollToTop>

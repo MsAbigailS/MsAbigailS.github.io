@@ -13,11 +13,12 @@ export const Image = ({
 
     // removing everything before last /
     image.resource = useMemo(() => {
-        return image.resource.split('/').pop() || '';
+        // return image.resource.split('/').pop() || '';
+        return image.resource
     }, [image.resource]);
 
     // dynamic import images
-    const imageMap = import.meta.glob('../../assets/*.{jpg,png,jpeg,gif}', {
+    const imageMap = import.meta.glob('../../assets/**/*.{jpg,png,jpeg,gif}', {
         eager: true,
         import: 'default',
     });

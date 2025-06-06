@@ -17,15 +17,6 @@ export const ImageCarousel = ({
     const mainWindow = useRef<HTMLDivElement | null>(null);
     const previewWindow = useRef<HTMLDivElement | null>(null);
 
-
-    // rotates images based on k
-    function rotateImages() {
-        if (!mainWindow.current) return;
-
-        console.log(mainWindow.current?.children[0]);
-    }
-
-
     return (
         <div id="imageCarousel" className={`flex flex-col justify-center items-center`}>
             <div

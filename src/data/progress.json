@@ -219,6 +219,23 @@
                     }
                 ],
                 "personalNotes": "This was something I'm glad I finally finished! After reviewing my resume and deciding on a final draft, I embedded it to my website."
+            },
+            {
+                "type": "Updated",
+                "description": "Created and implemented image carousel.",
+                "images": [
+                    {
+                        "resource": "Buildlog_06_03_2025_Project_Details_Video.gif",
+                        "alt": "The project detail page with image carousel"
+                    }
+                ],
+                "personalNotes": "Proof that sometimes you just need to take a break! What I tried to implement after hours of coding, I was able to implement in a few minutes after taking a break."
+            },
+            {
+                "type": "Fixed",
+                "description": "Updated meta tags for pages.",
+                "images": [],
+                "personalNotes": "I realized my meta tags weren't updating for the page."
             }
         ]
     }

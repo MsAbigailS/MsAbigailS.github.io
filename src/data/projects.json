@@ -153,6 +153,24 @@
                         "personalNotes": "I decided to use Figma to design the MVP front-end for this project. I knew at the least I wanted to be able to read and write data."
                     }
                 ]
+            },
+            {
+                "date": "2025/06/07",
+                "time": "22:00",
+                "summary": "Implemented Figma MVP and setup adding job.",
+                "updates": [
+                    {
+                        "type": "Updated",
+                        "description": "Implemented Figma MVP components.",
+                        "images": [
+                            {
+                                "resource": "jobTracker/Buildlog_JobTracker_06_06_2025_Mobile_Video.gif",
+                                "alt": "MVP implementation"
+                            }
+                        ],
+                        "personalNotes": "Going from React + Tailwind CSS to Vue + Bootstrap definitely slowed down my development, but it was a nice challenge. I can see why some devs love bootstrap, especially since it takes a lot of the setup for common components out. My goal here was to setup my MVP with working connections to MongoDB. My next goal is to have strict inputs for adding a job."
+                    }
+                ]
             }
         ]
     },

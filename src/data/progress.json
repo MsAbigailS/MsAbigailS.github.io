@@ -238,5 +238,35 @@
                 "personalNotes": "I realized my meta tags weren't updating for the page."
             }
         ]
+    },
+    {
+        "date": "2025-06-08",
+        "time": "18:00",
+        "summary": "Re-enabled project filter.",
+        "updates": [
+            {
+                "type": "Fixed",
+                "description": "Re-enabled project filter",
+                "images": [
+                    {
+                        "resource": "Buildlog_06_08_2025_Desktop_Filter_Video.gif",
+                        "alt": "Mobile view of filter enabled"
+                    },
+                    {
+                        "resource": "Buildlog_06_08_2025_Desktop_Filter_Video.gif",
+                        "alt": "Desktop view of filter enabled"
+                    },
+                    {
+                        "resource": "Buildlog_06_08_2025_Mobile_Filter_Disabled_Video.gif",
+                        "alt": "Mobile view before fix"
+                    },
+                    {
+                        "resource": "Buildlog_06_08_2025_Desktop_Filter_Disabled_Video.gif",
+                        "alt": "Desktop view before fix"
+                    }
+                ],
+                "personalNotes": "I finally had some time to fix my filter!"
+            }
+        ]
     }
 ]

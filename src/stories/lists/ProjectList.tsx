@@ -56,15 +56,16 @@ export const ProjectList = (
         const handleClickOutside = (event: MouseEvent) => {
             if (toggleListRef.current && !toggleListRef.current.contains(event.target as Node)) {
                 setIsOpen(false);
+                const el = document.getElementById('availableTechnologies')
+                if (!el) { return }
+                el.className = el.className.replace('block', 'hidden')
             }
         };
 
         if (isOpen) {
             document.addEventListener('mousedown', handleClickOutside);
-
         } else {
             document.removeEventListener('mousedown', handleClickOutside);
-            toggleList()
         }
 
         return () => {
@@ -76,6 +77,7 @@ export const ProjectList = (
     function toggleList() {
         const el = document.getElementById('availableTechnologies')
         if (!el) return
+        console.log('flip')
         if (el.className.includes('hidden')) {
             setIsOpen(true)
             el.className = el.className.replace('hidden', 'block')
@@ -121,7 +123,10 @@ export const ProjectList = (
                 className={`flex flex-row justify-center min-w-full 
                 max-w-full mb-10 *:ml-1 *:mr-1 *:select-none`}
             >
-                <div className="relative">
+                <div
+                    className="relative"
+                    ref={toggleListRef}
+                >
                     {/* filter button */}
                     <div
                         onClick={toggleList}
@@ -134,7 +139,6 @@ export const ProjectList = (
                     </div>
                     {/* list dropdown */}
                     <div
-                        ref={toggleListRef}
                         id="availableTechnologies"
                         className={`
                             hidden absolute top-full mt-2 z-30 bg-[#010102] rounded-lg shadow-lg shadow-[#010102]

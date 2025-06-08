@@ -23,6 +23,8 @@ export const Image = ({
         import: 'default',
     });
 
+    // console.log()
+
     return (
         <img
             src={imageMap[`../../assets/${image.resource}`] as string}

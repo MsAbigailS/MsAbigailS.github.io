@@ -155,7 +155,7 @@
                 ]
             },
             {
-                "date": "2025/06/07",
+                "date": "2025/06/06",
                 "time": "22:00",
                 "summary": "Implemented Figma MVP and setup adding job.",
                 "updates": [
@@ -169,6 +169,39 @@
                             }
                         ],
                         "personalNotes": "Going from React + Tailwind CSS to Vue + Bootstrap definitely slowed down my development, but it was a nice challenge. I can see why some devs love bootstrap, especially since it takes a lot of the setup for common components out. My goal here was to setup my MVP with working connections to MongoDB. My next goal is to have strict inputs for adding a job."
+                    }
+                ]
+            },
+            {
+                "date": "2025/06/07",
+                "time": "22:00",
+                "summary": "Implemented data validation and transitions.",
+                "updates": [
+                    {
+                        "type": "Updated + Fixed",
+                        "description": "Implemented data validation and created table view on desktop.",
+                        "images": [
+                            {
+                                "resource": "jobTracker/Buildlog_JobTracker_06_07_2025_Desktop_Video.gif",
+                                "alt": "Desktop view"
+                            },
+                            {
+                                "resource": "jobTracker/Buildlog_JobTracker_06_07_2025_Mobile_Video.gif",
+                                "alt": "Mobile view"
+                            }
+                        ],
+                        "personalNotes": "Late last night, I decided to turn of Co-Pilot, and honestly, my development speed has increased. I implemented data validation for input to facilitate a match between user input values and the Mongoose schema. I also re-evaluated my design choice to use the same cards between mobile and desktop and realized my original idea of having two different components geared towards different view ports would be the best approach. I also fixed my page to pull the jobs after posting a new job to show the newly added document in the UI."
+                    },
+                    {
+                        "type": "Updated",
+                        "description": "Implemented transitions.",
+                        "images": [
+                            {
+                                "resource": "jobTracker/Buildlog_JobTracker_06_07_2025_Mobile_Transitions_Video.gif",
+                                "alt": "Transitions on mobile"
+                            }
+                        ],
+                        "personalNotes": "I love a good transition, and even now I felt the need to implement at least a simple one to have the card for adding a job appear and have the view scroll back to the top of the page when cancelling an add."
                     }
                 ]
             }

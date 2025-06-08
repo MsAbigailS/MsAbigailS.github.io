@@ -15,6 +15,7 @@ export interface ProjectCardProps {
     /** What color theme to use (if unselected, a random theme will be chosen (excluding white))*/
     theme?: 'pink' | 'white' | 'blue' | 'green' | 'orange';
     project: Project;
+    filter?: String[];
 };
 
 export const ProjectCard = ({
@@ -29,7 +30,8 @@ export const ProjectCard = ({
         awards: null,
         personalNotes: '',
         links: []
-    }
+    },
+    filter
 }: ProjectCardProps) => {
     const cardRef = useRef<HTMLDivElement>(null);
     const dataId = 'project-card';
@@ -60,14 +62,14 @@ export const ProjectCard = ({
 
     return (
         <Card>
-
             <div onClick={goToProject}>
                 <ElementAnimation animation={['tilt']}>
                     <ElementAnimation animation={['shine']}>
                         <div
+                            id={`${dataId}-${project.title}`}
                             data-id={dataId}
                             className={`p-2 rounded-lg flex flex-col justify-center 
-                        items-center text-center max-w-[400px]`}
+                                items-center text-center max-w-[400px]`}
                             style={{ backgroundColor: bgColor, color: txtColor }}
                         >
                             <div

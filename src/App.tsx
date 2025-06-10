@@ -1,15 +1,18 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import Home from './pages/Home'
 import Projects from './pages/Projects'
 import Resume from './pages/Resume'
 import Project from './pages/Project'
 import BuildLog from './pages/BuildLog'
 import ProjectBuildLog from './pages/ProjectBuildLog'
-import { useState } from 'react'
-import { Header } from './stories/ui/Header'
-import { Footer } from './stories/ui/Footer'
+
+// Extend the Window interface to include gtag
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
 
 // forcing webpage to start at top w/ nav
 const ScrollToTop: React.FC<React.PropsWithChildren<{}>> = (props) => {
@@ -25,9 +28,27 @@ const ScrollToTop: React.FC<React.PropsWithChildren<{}>> = (props) => {
   </>
 }
 
+// Google Analytics Page Tracking
+const TrackPageViews: React.FC = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'page_view', {
+        page_path: location.pathname,
+        page_location: window.location.href,
+        page_title: document.title,
+      });
+    }
+  }, [location]);
+
+  return null;
+};
+
 function App() {
   return (
     <Router>
+      <TrackPageViews />
       <ScrollToTop>
         {/* all pages */}
         <div className="min-h-screen flex flex-col bg-[#010102]">

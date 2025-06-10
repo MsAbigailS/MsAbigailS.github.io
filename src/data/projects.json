@@ -204,6 +204,32 @@
                         "personalNotes": "I love a good transition, and even now I felt the need to implement at least a simple one to have the card for adding a job appear and have the view scroll back to the top of the page when cancelling an add."
                     }
                 ]
+            },
+            {
+                "date": "2025/06/09",
+                "time": "22:00",
+                "summary": "Created full card view and edit features.",
+                "updates": [
+                    {
+                        "type": "Updated",
+                        "description": "Implemented full card view and edit features.",
+                        "images": [
+                            {
+                                "resource": "jobTracker/Buildlog_JobTracker_06_09_2025_Desktop_Video.gif",
+                                "alt": "Desktop view"
+                            },
+                            {
+                                "resource": "jobTracker/Buildlog_JobTracker_06_09_2025_Mobile_Video.gif",
+                                "alt": "Mobile view"
+                            },
+                            {
+                                "resource": "jobTracker/Buildlog_JobTracker_06_09_2025_Mobile_Network_Video.gif",
+                                "alt": "Mobile view showing API success"
+                            }
+                        ],
+                        "personalNotes": "I decided to create a view to show all fields of an application using a modal setup. I also decided to implement updating documents, also as a modal. There are some things I can do to make this more efficient, but that will be for tomorrow!"
+                    }
+                ]
             }
         ]
     },

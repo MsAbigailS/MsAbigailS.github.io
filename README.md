@@ -16,6 +16,7 @@ This is my personal website — a consistently evolving project that showcases e
 ---
 
 ## 🚀 About the Project
+![Status](https://img.shields.io/badge/status-in--progress-yellow)
 
 This site serves as:
 
@@ -30,3 +31,11 @@ I regularly update both the content and underlying code to reflect what I'm work
 ## 🛠 Deployment
 
 This site is deployed using [GitHub Pages](https://pages.github.com/) and built with Vite.
+
+---
+
+## ✨ Snapshots
+![](./src/assets/Buildlog_06_09_2025_Home_Video.gif)
+![](./src/assets/Buildlog_06_08_2025_Desktop_Filter_Video.gif)
+![](./src/assets/Buildlog_06_08_2025_Mobile_Filter_Video.gif)
+![](./src/assets/Buildlog_06_09_2025_Buildlog_Video.gif)

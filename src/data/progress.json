@@ -268,5 +268,18 @@
                 "personalNotes": "I finally had some time to fix my filter!"
             }
         ]
+    },
+    {
+        "date": "2025-06-10",
+        "time": "18:00",
+        "summary": "Fixed 404 routing issue caused by SPA + Github Pages.",
+        "updates": [
+            {
+                "type": "Fixed",
+                "description": "Fixed 404 routing issue caused by SPA + Github Pages",
+                "images": [],
+                "personalNotes": "This was something I wanted to fix for a hot minute. Github pages does not play friendly with routing for SPA, but by including a 404.html in public/ with some extration and transformations in my App.tsx, I was able to have direct routing with actual 404s re-routing to the home page."
+            }
+        ]
     }
 ]

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Redirecting...</title>
+    <script>
+        const path = location.pathname;
+        const query = location.search;
+        const hash = location.hash;
+        const destination = `/#${path}${query}${hash}`;
+        location.replace(destination);
+    </script>
+</head>
+
+<body>
+    <p>Redirecting...</p>
+</body>
+
+</html>

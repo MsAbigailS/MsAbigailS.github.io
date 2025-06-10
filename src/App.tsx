@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate, useNavigate, replace } from 'react-router-dom'
 import { useEffect } from 'react'
 import Home from './pages/Home'
 import Projects from './pages/Projects'
@@ -41,13 +41,28 @@ const TrackPageViews: React.FC = () => {
       });
     }
   }, [location]);
-
   return null;
 };
+
+// 404 routing
+const Redirector: React.FC = () => {
+  const nav = useNavigate()
+  const loc = useLocation()
+
+  useEffect(() => {
+    const hash = window.location.hash
+    if (hash.startsWith('#/')) {
+      const path = hash.slice(1);
+      nav(path, { replace: true });
+    }
+  }, [loc])
+  return null;
+}
 
 function App() {
   return (
     <Router>
+      <Redirector />
       <TrackPageViews />
       <ScrollToTop>
         {/* all pages */}
@@ -59,6 +74,7 @@ function App() {
             <Route path="/resume" element={<Resume />} />
             <Route path="/build-log" element={<BuildLog />} />
             <Route path="/projects/:slug/buildlog" element={<ProjectBuildLog />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </div>
       </ScrollToTop>

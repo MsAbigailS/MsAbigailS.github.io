@@ -2,9 +2,19 @@
 <html>
 
 <head>
-    <meta http-equiv="refresh" content="0; URL=/" />
+    <meta charset="UTF-8" />
+    <title>Redirecting...</title>
+    <script>
+        const path = location.pathname;
+        const query = location.search;
+        const hash = location.hash;
+        const destination = `/#${path}${query}${hash}`;
+        location.replace(destination);
+    </script>
 </head>
 
-<body></body>
+<body>
+    <p>Redirecting...</p>
+</body>
 
 </html>

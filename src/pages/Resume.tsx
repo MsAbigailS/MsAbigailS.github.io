@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { Header } from "../stories/ui/Header"
 import resume from '../assets/Abigail_Smith_Resume.pdf'
 import { setMeta } from '../stories/helpers/routing'
+import { StickyHeader } from '../stories/headers/StickyHeader'
 
 export default function Resume() {
     // setting up meta tag only on mount
@@ -10,11 +11,17 @@ export default function Resume() {
         setMeta('Resume', `My resume.`)
     }, [])
 
+    const navigate = useNavigate()
+
     return (
         <div data-id="main" className="animate-fade-in animation-delay-300 h-screen bg-linear-30 from-[#468186]/10 to-blue-500/10">
-            <Header left={'Home'} right={'Projects'} />
+            <StickyHeader routes={[
+                { text: 'Home', route: '#projects', nav: () => navigate('/') },
+                { text: 'Log', route: '#buildlog', nav: () => navigate('/build-log') },
+                { text: 'Resume', route: '#resume', nav: () => navigate('/resume') }
+            ]} />
             <div
-                className={`flex justify-center items-center`}
+                className={`flex mt-50 justify-center items-center`}
             >
                 <a
                     href={resume}

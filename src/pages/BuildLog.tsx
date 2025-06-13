@@ -5,12 +5,15 @@ import { Header } from "../stories/ui/Header"
 import { useNavigate } from 'react-router-dom'
 import { routes } from '../stories/helpers/routing'
 import { setMeta } from '../stories/helpers/routing'
+import { StickyHeader } from '../stories/headers/StickyHeader'
 
 export default function BuildLog() {
     // setting up meta tag only on mount
     useEffect(() => {
         setMeta('Build Log', `A showcase of the development process for my website.`)
     }, [])
+
+    const navigate = useNavigate()
 
     return (
         <div
@@ -19,10 +22,15 @@ export default function BuildLog() {
             bg-linear-30 from-[#468186]/80 to-blue-500/10"
         >
 
-            <Header left={"Home"} right={"Resume"} />
+            <StickyHeader routes={[
+                { text: 'Home', route: '#home', nav: () => navigate('/') },
+                { text: 'Projects', route: '#projects', nav: () => navigate('/projects') },
+                { text: 'Resume', route: '#resume', nav: () => navigate('/resume') }
+            ]} />
 
-            <BuildLogList />
-
+            <div className="pt-40">
+                <BuildLogList />
+            </div>
         </div >
     )
 }

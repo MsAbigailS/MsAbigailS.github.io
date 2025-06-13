@@ -11,6 +11,8 @@ import { GlassCard } from '../stories/cards/GlassCard'
 import { ElementAnimation } from '../stories/ui/ElementAnimation'
 import { setMeta } from '../stories/helpers/routing'
 import { Image } from '../stories/ui/Image'
+import { Hero } from '../stories/home/Hero'
+import { StickyHeader } from '../stories/headers/StickyHeader'
 
 export default function Home() {
     const navigate = useNavigate()
@@ -24,8 +26,6 @@ export default function Home() {
             Here you can find my projects, resume, and build log.
             Explore my work and learn more about me as a developer.`)
     }, [])
-
-
 
     const el = document.getElementById('cursor')
 
@@ -62,55 +62,59 @@ export default function Home() {
     const amoutMe = useRef<HTMLDivElement | null>(null)
     const projectLink = useRef<HTMLDivElement | null>(null)
     const comingSoon = useRef<HTMLDivElement | null>(null)
+    const buildlogRef = useRef<HTMLDivElement | null>(null)
+    const aboutWebsite = useRef<HTMLDivElement | null>(null)
     const isVisible = useVisible(amoutMe)
     const projectVisible = useVisible(projectLink)
     const comingSoonVisible = useVisible(comingSoon)
 
+    const handleNavClick = (route: string) => {
+        let element
+        if (route === '#buildlog' && buildlogRef.current) {
+            element = buildlogRef.current;
+        } else if (route === '#projects' && projectLink.current) {
+            element = projectLink.current
+        } else if (route === '#aboutWebsite' && aboutWebsite.current) {
+            element = aboutWebsite.current
+        } else if (!element) {
+            return
+        }
+
+        const elementTop = element.getBoundingClientRect().top + window.scrollY;
+        const offset = window.innerHeight / 2 - element.offsetHeight / 2;
+
+        window.scrollTo({
+            top: elementTop - offset,
+            behavior: 'smooth',
+        });
+    }
+
     return (
         <div
             data-id="main"
-            className="animate-fade-in animation-delay-300 
-            bg-linear-30 from-[#468186]/10 to-blue-500/10"
+            className="animate-fade-in animation-delay-300 p-6
+            bg-linear-30 from-[#468186]/10 to-blue-500/10
+            max-w-screen overflow-x-hidden"
         >
-            {/* header */}
-            <Header left={'Projects'} right={'Resume'} />
-
-            {/* Hero/initial view */}
-            <div
-                data-id="hero"
-                className={`translate-z-2 h-screen flex flex-col overflow-hidden`}
-            >
-                <div
-                    className="flex lg:flex-grow lg:flex-row flex-col 
-                    justify-center items-center w-full h-full"
-                >
-                    {/* text */}
-                    <div
-                        className="flex flex-col justify-center items-center"
-                    >
-                        <div className="text-9xl font-inknut p-6">Abigail</div>
-                        <div className="font-assistant text-2xl pb-6">Welcome to my website!</div>
-                    </div>
-                    {/* image */}
-                    <div
-                        data-id="hero-image"
-                        className="h-80 pt-6 pl-6"
-                    >
-                        <Image
-                            image={{ 'resource': 'standing.png', 'alt': 'hero image' }}
-                            fit='object-contain'
-                        />
-                    </div>
-                </div>
+            <div>
+                <StickyHeader routes={[
+                    { text: 'Projects', route: '#projects', nav: handleNavClick },
+                    { text: 'About', route: '#aboutWebsite', nav: handleNavClick },
+                    { text: 'Log', route: '#buildlog', nav: handleNavClick },
+                    { text: 'Resume', route: '#resume', nav: goToResume }
+                ]} />
+            </div>
+            <div>
+                <Hero />
             </div>
 
             {/* About me */}
             <div
                 data-id="about"
                 ref={amoutMe}
-                className={`ease-in-out transition-opacity duration-1000
+                className={`ease-in-out transition-opacity duration-1000 mt-10
                 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-                <AboutMe />
+                {/* <AboutMe /> */}
             </div>
 
 
@@ -135,6 +139,7 @@ export default function Home() {
 
             {/* what is this website */}
             <div
+                ref={aboutWebsite}
                 className={`p-2 md:pt-10 flex justify-center items-center pl-10 pr-10`}
             >
                 <ElementAnimation
@@ -190,6 +195,7 @@ export default function Home() {
             {/* build log link */}
             <div className={`mt-50 mb-30 flex justify-center items-center ease-in-out transition-opacity duration-1000 `}>
                 <div
+                    ref={buildlogRef}
                     data-id="subject-header"
                     id="callToAction"
                     onClick={goToBuildlog}

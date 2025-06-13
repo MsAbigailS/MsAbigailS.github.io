@@ -3,6 +3,8 @@ import { Image } from "./Image";
 import imageSource from '../../assets/typing.png';
 import { GlassCard } from "../cards/GlassCard";
 import { ElementAnimation } from "./ElementAnimation";
+import { BubbleCard } from '../cards/BubbleCard'
+import { ListCard } from '../cards/ListCard'
 export interface AboutMeProps {
 
 }
@@ -19,118 +21,46 @@ export const AboutMe = ({
     const listFormat = "list-disc list-inside space-y-1 text-gray-300"
 
     return (
-
-        <div
-            data-id={dataId}
-            className={`flex flex-col-reverse lg:flex-row justify-center items-center ease-in-out transition-opacity duration-1000 `
-            }
-        >
-            {/* image */}
-            <div
-                className={`flex-[1] pt-50 md:pt-0 hidden lg:flex`}
-                data-id={`${dataId}-image`}
-            >
-                <Image image={aboutMeImg} fit={'object-contain'} />
-            </div>
-
-            {/* text */}
-
-            <div
-                data-id={`${dataId}-text`}
-                className={`flex-[1] lg:text-start justify-center items-center flex
-                    text-center pl-5 pr-5 lg:pl-5 lg:pr-10`}
-            >
-                <ElementAnimation
-                    animation={['shine']}
-                    speed="slow"
-                >
+        <div>
+            <div className="relative">
+                <div className="border-2 *:absolute size-100 *:h-70 *:w-70">
+                    <div
+                        className="rotate-z-5 translate-y-70 z-5"
+                    >
+                        <ListCard
+                            title="Languages"
+                            svg={(<svg className="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m8 8-4 4 4 4m8 0 4-4-4-4m-2-3-4 14" />
+                            </svg>
+                            )}
+                            items={["TypeScript", "JavaScript", "Python", "+ more"]}
+                        />
+                    </div>
 
                     <div
-                        className={`rounded-lg hover:ring-2 hover:ring-blue-200/20 
-                            transition-all duration-300 ease-in-out
-                            shadow-lg shadow-gray-500/15`}
+                        className="-rotate-z-5 translate-x-50 z-4"
                     >
-                        <GlassCard>
-                            <div
-                                className={`*:pb-10`}
-                            >
-                                <div data-id={`${dataId}-summary`}>
-                                    <p data-id="subject-header">Software Engineer</p>
-                                    <div>
-                                        I'm a
-                                        <TextAnimation text="software engineer" animation='appearSlide' />
-                                        with a passion for building projects. I love to learn new things and work
-                                        on challenging projects.
-                                    </div>
-                                </div>
-
-                                <div data-id={`${dataId}-skills`}>
-                                    <p data-id="subject-header">What am I good at?</p>
-                                    <div>
-                                        I strongly believe software engineers should be able to work on
-                                        <TextAnimation text="any part of a project" animation='appearSlide' />
-                                        , but I have a few areas of expertise:
-                                        <ul
-                                            data-id={`${dataId}-skills-list`}
-                                            className="pl-4 sm:pl-6 mt-3 space-y-2 text-sm sm:text-base list-outside"
-                                        >
-                                            <li>
-                                                <strong className="block mb-1 text-base sm:text-lg">Full-Stack Development</strong>
-                                                <ul className="list-disc list-inside space-y-1 text-gray-300">
-                                                    <li>Built and deployed end-to-end applications</li>
-                                                    <li>Comfortable working across both front-end and back-end</li>
-                                                </ul>
-                                            </li>
-
-                                            <li>
-                                                <strong>Languages</strong>
-                                                <ul className={listFormat}>
-                                                    <li>JavaScript</li>
-                                                    <li>TypeScript</li>
-                                                    <li>Python</li>
-                                                    <li>SQL</li>
-                                                </ul>
-                                            </li>
-
-                                            <li>
-                                                <strong>Front-End</strong>
-                                                <ul className={listFormat}>
-                                                    <li>React (custom components, hooks, state management)</li>
-                                                    <li>Responsive and accessible UI design</li>
-                                                    <li>Figma for design collaboration</li>
-                                                </ul>
-                                            </li>
-
-                                            <li><strong>Back-End</strong>
-                                                <ul className={listFormat}>
-                                                    <li>Python with Flask</li>
-                                                    <li>RESTful API design and integration</li>
-                                                    <li>Basic data modeling and SQL queries</li>
-                                                </ul>
-                                            </li>
-
-                                            <li><strong>Tooling & Workflow</strong>
-                                                <ul className={listFormat}>
-                                                    <li>Git & GitHub for version control</li>
-                                                    <li>Agile development practices</li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div data-id={`${dataId}-personal-summary`}>
-                                    <p data-id="subject-header">Beyond the code.</p>
-                                    <div>
-                                        I'm a
-                                        <TextAnimation text="nerd" animation='appearSlide' />
-                                        at heart. When I'm not coding, I'm usually playing video games, taking care of my growing collection of house plants, or trying to get some coffee.
-                                    </div>
-                                </div>
-                            </div>
-                        </GlassCard>
+                        <ListCard
+                            title="Back-End"
+                            items={["REST API", "item2", "item3", "+ more"]}
+                        />
                     </div>
-                </ElementAnimation>
+
+                    <div
+                        className="z-3 translate-x-100 translate-y-20 rotate-z-2 hover:z-99"
+                    >
+                        <ListCard
+                            title="Front-End"
+                            items={["UI/UX", "item2", "item3", "+ more"]}
+                        />
+                    </div>
+                </div>
+
+                <BubbleCard>
+                    Beyond the Code
+                    I'm a nerd at heart! When I'm not coding, I'm usually playing video grames, taking care of my growing plant collection, or trying to get my hands on some coffee.
+                </BubbleCard>
             </div>
-        </div >
+        </div>
     );
 };

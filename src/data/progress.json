@@ -281,5 +281,18 @@
                 "personalNotes": "This was something I wanted to fix for a hot minute. Github pages does not play friendly with routing for SPA, but by including a 404.html in public/ with some extration and transformations in my App.tsx, I was able to have direct routing with actual 404s re-routing to the home page."
             }
         ]
+    },
+    {
+        "date": "2025-06-12",
+        "time": "18:00",
+        "summary": "Completely overhauled the home page UI and navbar across website.",
+        "updates": [
+            {
+                "type": "Update",
+                "description": "So many updated!",
+                "images": [],
+                "personalNotes": "These were changes I've been wanting to do for awhile! I completely overhauled the hero section for the home page to include a tag pile animation that I am super proud of. I also redesigned my header/navbar across the website. Lastly I also added new card components, modified my glass card component, and changed the layout structure for my project gallery. To be honest, it is VERY late while I'm writing this, and since taking pictures and recording gifs takes a awhile, I'm going to save that for the morning."
+            }
+        ]
     }
 ]

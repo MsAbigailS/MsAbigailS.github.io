@@ -48,6 +48,24 @@ export function lighten(rgba: string): string {
     return `rgba(${r}, ${g}, ${b}, ${a})`;
 }
 
+export function darken(rgba: string): string {
+    const match = rgba.match(/rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)(?:\s*,\s*([\d.]+))?\s*\)/);
+
+    if (!match) return rgba;
+
+    let r = parseInt(match[1]);
+    let g = parseInt(match[2]);
+    let b = parseInt(match[3]);
+    let a = match[4] ? parseFloat(match[4]) : 1;
+
+    // darkening the color by decreasing RGB values
+    r = Math.min(255, r - 30);
+    g = Math.min(255, g - 30);
+    b = Math.min(255, b - 30);
+
+    return `rgba(${r}, ${g}, ${b}, ${a})`;
+}
+
 export function brighten(rgba: string): string {
     const match = rgba.match(/rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)(?:\s*,\s*([\d.]+))?\s*\)/);
 

@@ -230,6 +230,28 @@
                         "personalNotes": "I decided to create a view to show all fields of an application using a modal setup. I also decided to implement updating documents, also as a modal. There are some things I can do to make this more efficient, but that will be for tomorrow!"
                     }
                 ]
+            },
+            {
+                "date": "2025/06/10",
+                "time": "22:00",
+                "summary": "Abstracted out input logic and improved validation.",
+                "updates": [
+                    {
+                        "type": "Updated",
+                        "description": "Abstracted out input logic and improved validation, implmented deletes, and created status badges.",
+                        "images": [
+                            {
+                                "resource": "jobTracker/Buildlog_JobTracker_06_10_2025_Desktop_Video.gif",
+                                "alt": "Desktop view"
+                            },
+                            {
+                                "resource": "jobTracker/Buildlog_JobTracker_06_10_2025_Mobile_Video.gif",
+                                "alt": "Mobile view"
+                            }
+                        ],
+                        "personalNotes": "In making things more efficient, I abstracted out some repetative logic for my inputs, reducing redundancy. With this, I also improved validation for editing an application by resetting a value if the input becomes blank to what it had originally be (i.e. if an application had role \"SWE II\" and the user types, but changes their mind and clears the field, the original role of \"SWE II\" will be honored. There's some more cleanup to be done here, but it shouldn't be difficult. I also decided to change which information would be shown on the summary level. I also implemented a delete feature for applications and created badges for status."
+                    }
+                ]
             }
         ]
     },

@@ -8,7 +8,7 @@ export interface GlassCardProps {
 }
 
 export const GlassCard = ({
-    color = 'rgba(191,139,133,0.15)',
+    color = 'rgba(191,139,133,0)',
     children
 }: GlassCardProps) => {
 
@@ -25,8 +25,7 @@ export const GlassCard = ({
                 data-id={dataId}
                 className={
                     `relative p-6 rounded-lg border border-white/20  
-                    backdrop-blur-lg shadow-lg text-white mx-auto
-                    shadow-[0_4px_30px_rgba(191,139,133,0.3)]
+                    backdrop-blur-lg text-white mx-auto
                     h-full w-full
                     transition-all duration-300 ease-in-out
                     overflow-hidden
@@ -45,18 +44,18 @@ export const GlassCard = ({
                 <div className="absolute top-0 left-0 h-[5px] w-1/3 bg-white/20 blur-sm rounded-tl z-20 animate-pulse-slow"></div>
 
                 {/* Left border glow */}
-                <div className="absolute top-0 left-0 w-[5px] h-1/2 bg-white/20 blur-sm rounded-tl z-20 animate-pulse-slow"></div>
+                <div className="absolute top-0 left-0 w-[5px] h-1/2 bg-white/10 blur-sm rounded-tl z-20 animate-pulse-slow"></div>
 
 
                 <div
                     className={`absolute inset-0 bg-radial 
-                    from-transparent from-80% to-white/7`}
+                    from-transparent from-70% to-white/7`}
                 ></div>
 
                 <div
                     data-id={`${dataId}-diagonal-shine`}
                     className="absolute inset-0 bg-linear-135 from-white/10 
-                    to-blue-500/10 z-0  rounded-lg"
+                    to-blue-500/10 z-0 rounded-lg"
                 ></div>
 
                 {children}

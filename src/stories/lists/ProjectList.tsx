@@ -155,7 +155,7 @@ export const ProjectList = (
             <div
                 id="projects"
                 data-id="project-list"
-                className={`grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 justify-items-center gap-6 p-12`}
+                className={`grid lg:grid-cols-2 grid-cols-1 justify-items-center gap-6 `}
             >
                 {projects.map((project, index) => {
                     let isVisible: boolean

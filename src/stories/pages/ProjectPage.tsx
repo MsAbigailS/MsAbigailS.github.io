@@ -7,6 +7,7 @@ import { Header } from '../ui/Header';
 import { ProjectCardExpanded } from '../cards/ProjectCardExpanded';
 import { BackgroundShapes } from '../backgrounds/BackgroundShapes';
 import { ConstructionNotice } from '../ui/ConstructionNotice';
+import { StickyHeader } from '../headers/StickyHeader'
 export interface ProjectPageProps {
     project: Project;
     color?: string; // ideally this would be color of card on project page
@@ -17,11 +18,6 @@ export const ProjectPage = ({
     color
 }: ProjectPageProps) => {
     const dataId = 'project-page';
-
-    const navigate = useNavigate()
-    const goToProjects = () => {
-        navigate(`/projects`)
-    }
 
     const subheader = `text-lg font-semibold`;
 
@@ -54,9 +50,7 @@ export const ProjectPage = ({
                 />
             </div>
 
-            <Header left={'Projects'} right={<div onClick={goToProjects}>Close</div>} />
-
-            <div className={`p-6`}>
+            <div className={`p-6 mt-30`}>
                 <ProjectCardExpanded project={project} color={color} />
             </div>
 

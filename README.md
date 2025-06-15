@@ -36,8 +36,8 @@ This site is deployed using [GitHub Pages](https://pages.github.com/) and built 
 
 ## ✨ Snapshots
 ![](./src/assets/buildLog/Home_06_14_2025_Desktop_Video.gif)
-![](./src/assets/buildLog/Home_06_14_2025_Desktop_Video.gif)
+![](./src/assets/buildLog/Home_06_14_2025_Mobile_Video.gif)
 ![](./src/assets/buildLog/Projects_06_14_2025_Desktop_Video.gif)
-![](./src/assets/buildLog/Projects_06_14_2025_Desktop_Video.gif)
+![](./src/assets/buildLog/Projects_06_14_2025_Mobile_Video.gif)
 ![](./src/assets/buildLog/Project_Details_06_14_2025_Desktop_Video.gif)
 ![](./src/assets/buildLog/Project_Details_06_14_2025_Mobile_Video.gif)

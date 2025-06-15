@@ -66,16 +66,17 @@ export const TagCard = ({
                     {/* svg */}
                     <SVG
                         svg={svg}
+                        size={size}
                     />
 
                     {/* text */}
                     <span
                         className={`
-                        ${size === 'md' ? 'text-lg mr-2' : size === 'sm' ? 'text-md mr-2' : 'text-4xl lg:text-4xl xl:text-5xl'}    
+                        ${size === 'md' ? 'text-sm mr-2' : size === 'sm' ? 'text-md md:text-lg mr-2' : size === 'lg' ? 'text-2xl lg:text-4xl' : 'text-4xl lg:text-4xl xl:text-5xl'}    
                         font-medium font-manrope
                         ${color?.indexOf('white') !== -1 ? 'text-gray-950' : 'bg-gradient-to-t from-gray-900/80 to-gray-800/80 text-transparent bg-clip-text '}
-                        
-                        opacity-90 text-nowrap`}
+                        text-nowrap
+                        opacity-90`}
                     >
                         {text}
                     </span>

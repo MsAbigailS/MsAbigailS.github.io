@@ -22,6 +22,7 @@ export const BubbleCard = ({
                         `${shadowSize === 'md' ? 'shadow-md' : 'shadow-lg'}`
                     }
                 shadow-gray-50/10 border border-gray-400/10
+                
                 border-t-gray-300/5
                 flex flex-col`}
             >

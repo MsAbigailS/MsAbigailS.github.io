@@ -1,13 +1,14 @@
 [
     {
         "title": "Job Application Tracker",
-        "description": "This Job Application Tracker uses MongoDB, Vue, Vite, Axios, and Bootstrap to store, retrieve, and show user job applications in a simple, clean hub. Inspired by my own job search, this application allows users to track their job applications while also allowing me to work on my own skills.",
+        "description": "This Job Application Tracker uses MongoDB, Express, Vue, Vite, Axios, and Bootstrap to store, retrieve, and show user job applications in a simple, clean hub. Inspired by my own job search, this application allows users to track their job applications while also allowing me to work on my own skills.",
         "summary": "Job application tracker",
         "technologies": [
             "MongoDB",
             "Vue",
             "Vite",
             "Bootstrap",
+            "Express",
             "Axios",
             "Figma"
         ],
@@ -21,10 +22,6 @@
             {
                 "resource": "jobTracker/Buildlog_06_05_2025_Client_Axios_1.png",
                 "alt": "Axios to connect client to server"
-            },
-            {
-                "resource": "jobTracker/Buildlog_06_05_2025_Figma_1.png",
-                "alt": "Figma MVP"
             },
             {
                 "resource": "jobTracker/Buildlog_06_05_2025_Figma_Components_1.png",
@@ -55,11 +52,9 @@
                 "alt": "Mongoose schema to control MongoDB documents"
             }
         ],
-        "complexity": "Beginner",
         "challenges": [
-            ""
+            "Switching from React + Tailwind CSS to Vue + Bootstrap was an adjustment, but it illuminated the strengths of each combination"
         ],
-        "pride": 2,
         "awards": [],
         "personalNotes": "I was interested in revisiting MongoDB and Vue, and in the midst of applying to jobs and becoming frustrated with how other applications would not allow me the flexibility to add in the notes and fields I wanted to track, I decided to create my own job application tracker. This way I would be able to explore MongoDB and Vue while also creating a solution to my problem.",
         "links": [
@@ -254,7 +249,27 @@
                     }
                 ]
             }
-        ]
+        ],
+        "caseStudy": {
+            "overview": "This project is a web app designed to help users keep track of their job applications. Built using TypeScript, Vue, and MongoDB, it helps users clearly keep track of their job applications with the ability to create custom fields (i.e. track which resume was used, cover letters, and more)",
+            "problem": "Traditional methods for keeping track of job applications, such as spreadsheets and word documents, are unwieldy and lack scalability to include the features users may want to track.",
+            "solution": "To address this, I built a SPA with Vue + Express, allowing users to add and manage job applications through a clean interface. Vue + Bootstrap were chosen for fast, interactive UI while Express handles backend logic to MongoDB.",
+            "keyFeatures": [
+                "Add new job application entries",
+                "Edit job application entries",
+                "Remove job application entires",
+                "Summary table and cards for job application entires",
+                "Expanded cards for job application entires"
+            ],
+            "outcomes": [],
+            "lessons": [
+                {
+                    "challenge": "Adjusting to Vue + Bootstrap after working with React + Tailwind CSS for so long",
+                    "lesson": "The contrast helped solidify the strengthes of Vue + Bootstrap vs React + Tailwind CSS."
+                }
+            ],
+            "conclusion": ""
+        }
     },
     {
         "title": "MedMate",
@@ -359,17 +374,44 @@
                 "url": "https://github.com/NicholasZolton/AxxessHackathonApp2023"
             }
         ],
-        "buildLog": null
+        "buildLog": null,
+        "caseStudy": {
+            "overview": "This project is a React Native mobile application using Expo Go designed to help users keep gain control over their medical needs. Built using React, Flask, and OpenAI, it helps users translate and summarize audio from appointments, summarize prescription risks, and reminds users to take their medication",
+            "problem": "Often patients leave medical visits forgetting the exact details discussed or simply need help understanding their medications' risks. We decided to create and all-in-one stop to solve these issues.",
+            "solution": "This project summarizes key talking points from doctor conversations using AI, provides clear explanations of prescribed medications, and oofers a prescription tracker. By using Expo Go, we were able to make this application fit in user's pockets.",
+            "keyFeatures": [
+                "AI summarization of conversations with doctors",
+                "AI translation between 40+ languages",
+                "Prescription explanations",
+                "Prescription reminders"
+            ],
+            "outcomes": [
+                "🏆 Winner Overall at Axxess Hackathon 2023",
+                "Successfully built MVP in 16 hours",
+                "Learned more about Expo Go",
+                "Created a cool tool to help others manage their health"
+            ],
+            "lessons": [
+                {
+                    "challenge": "Originally, the goal was to use RFID to help track medical records, but the project goal's pivoted in response to hardware issues",
+                    "lesson": "Resillience in the face of change."
+                }
+            ],
+            "conclusion": "This project enhanced my skills in mobile-first development, AI integration, and fast-paced problem-solving under time constraints."
+        }
     },
     {
         "title": "Redwood",
-        "description": "Redwood is a platform that facilitates community-driven tree planting initiatives. It uses geolocation and community engagement tools to organize and track reforestation efforts, promoting environmental sustainability.",
+        "description": "Redwood is a web app that transforms academic materials and PDFs into interactive learning trees. Users can upload textbooks or papers as PDFs and see how concepts build on each other while exploring further with an AI chat assistant focused on the material presented.",
         "summary": "EdTech application",
         "technologies": [
-            "React",
+            "Svelte",
             "Node.js",
-            "MongoDB",
-            "Google Maps API"
+            "Python",
+            "TypeScript",
+            "OpenAI",
+            "Spacy",
+            "FAST API"
         ],
         "completed": "2023/10/08",
         "demo": "https://devpost.com/software/redwood",
@@ -424,10 +466,7 @@
             }
         ],
         "complexity": "Intermediate",
-        "challenges": [
-            "Integrating geolocation services for accurate tree planting tracking.",
-            "Developing community engagement features to encourage participation."
-        ],
+        "challenges": [],
         "pride": 4,
         "awards": [],
         "personalNotes": "I'm proud of this full-stack project! By combining reconstructed algorithms to extract key concepts for a variety of use cases with dynamic, engaging UI, I was able to strengthen my full-stack development skills.",
@@ -441,7 +480,34 @@
                 "url": "https://github.com/hampster2018/HackPrinceton"
             }
         ],
-        "buildLog": null
+        "buildLog": null,
+        "caseStudy": {
+            "overview": "Redwood is a web app that transforms academic materials and PDFs into interactive learning trees. Users can upload textbooks or papers as PDFs and see how concepts build on each other while exploring further with an AI chat assistant focused on the material presented.",
+            "problem": "Academic texts are rich and overwhelming. Users looking to learn should not be hindered by the complexity of a given text.",
+            "solution": "This project extracts key terms and builds a directed learning graph, helping users visualize the progress of concepts.",
+            "keyFeatures": [
+                "Learning tree visualization",
+                "Interactive learning tree nodes",
+                "Search and zoom feature to quickly find concepts",
+                "Ability to mark concepts as 'learned'",
+                "Color coordination to distinguish 'learned' from 'still learning' concepts",
+                "Summarization and AI tutor",
+                "Study schedule generator"
+            ],
+            "outcomes": [
+                "🏆 Runner up at HackPrinceton 2023",
+                "Successfully deployed the app via Amplify",
+                "Fully functional MVP build in 48 hours",
+                "Enabled interactive learning from PDF materials"
+            ],
+            "lessons": [
+                {
+                    "challenge": "Scaling keyword extraction for large documents; limited by GPU power",
+                    "lesson": "Reduced some overhead by using Docker and loaned GPU online, but system limitations can still shape algorithm design"
+                }
+            ],
+            "conclusion": "This project enhanced my skills in data processing pipelines, AI/NLP integration, and interactive graph UIs."
+        }
     },
     {
         "title": "The Greenhouse Mission",
@@ -451,7 +517,9 @@
             "React Native",
             "Python",
             "Flask",
-            "AI Scheduling Algorithms"
+            "Svelte",
+            "JavaScript",
+            "Jupyter Notebook"
         ],
         "completed": "2023/10/08",
         "demo": "https://devpost.com/software/the-greenhouse-mission",
@@ -539,7 +607,30 @@
                 "url": "https://github.com/hampster2018/HackRice"
             }
         ],
-        "buildLog": null
+        "buildLog": null,
+        "caseStudy": {
+            "overview": "This project is a mobile application using Expo Go that helps users reduce their carbon footprint by optimizing daily tasks. Utilizing AI, it intelligently schedules activites like shopping and laundry during times that minimize environmental impact.",
+            "problem": "Sustainability requires a plan, but often times users don't realize that the timing of their daily routine has an impact on their emission footprint.",
+            "solution": "This project recommends optimal times for daily tasks using an AI-powered scheduler that considers energy usage, carbon cost, and user availability. It presents a simple, actionable plan and tracks environmental impact by rewarding the user for achieving environmental goals.",
+            "keyFeatures": [
+                "Smart scheduling with AI-suggested timing for everyday tasks",
+                "Impact tracking via points that users can trade",
+                "Visual reminders via dashboard of upcoming tasks",
+                "Voice input for creating plans"
+            ],
+            "outcomes": [
+                "🏆 2nd Place in SLB Challenge at Hack Rice 2023",
+                "🏆 1st Place for Best Tech Domain",
+                "Motivated sustainable actions for users"
+            ],
+            "lessons": [
+                {
+                    "challenge": "Building a reliable AI scheduler on a tight timeline",
+                    "lesson": "Balancing data complexity with mobile UI simplicity requires exploring meaningful datasets and translating key concepts to UI components."
+                }
+            ],
+            "conclusion": "This project enhanced my skills in AI-driven scheduling and UX-focused sustainability design."
+        }
     },
     {
         "title": "Amelia",
@@ -594,17 +685,47 @@
                 "url": "https://github.com/TimothyNaumov/HackUTA2023-Dashboard"
             }
         ],
-        "buildLog": null
+        "buildLog": null,
+        "caseStudy": {
+            "overview": "This project is a preventative maintenance assistant for your vehicle. By combining driver behavior data with predictive modeling, Amelia detects when vehicle components are due for attention before something goes wrong. Through AI-generated alerts and a conversation phone call with Amelia, this project helps users stay on top of critical vehicle maintenance.",
+            "problem": "Preventative maintenance is not significantly cheaper than repairs, but improves driver safety in the long run; however, most drivers are unaware of how their driving impacts the maintenance requirements for their vehicle.",
+            "solution": "This project features two core capailities. First, it provides real-time maintenance alerts by analyzing post-drive data to predict possible maintenance needs. Second, Amelia will send a text to the user inviting them to give her a call. Once on the line, Amelia will explain the issue and recommend maintenance based on user vehicle.",
+            "keyFeatures": [
+                "Predictive modeling based on driving data",
+                "Maintenance countdown estimates",
+                "Personalized alerts sent via SMS",
+                "Voice hotline powered by GPT + ElevenLabs",
+                "Feedback loop to log maintenance for future model predictions"
+            ],
+            "outcomes": [
+                "🏆 2nd Place Overall at HackUTA 2023",
+                "Built a fully functional E2E system",
+                "AI-enhanced voice support provides natural, educational feedback",
+                "Delivered product in 18 hours"
+            ],
+            "lessons": [
+                {
+                    "challenge": "Google Voice would not suppoprt answering-machine-style automation",
+                    "lesson": "Engineered a virtual audio stream to Whisper."
+                }
+            ],
+            "conclusion": "This project enhanced my skills working with real-time audio, integrating AI voice services, and designing meaningful automation for real-world problems."
+        }
     },
     {
         "title": "Site-in-Site",
         "description": "Site-in-Site is a browser extension that enables users to embed one website within another, facilitating seamless multitasking and enhanced productivity. The extension leverages modern web technologies to create a dynamic and interactive user experience.",
         "summary": "",
         "technologies": [
+            "Flask",
+            "Google Maps API",
+            "R",
+            "Svelte",
+            "TensorFlow",
             "JavaScript",
-            "Chrome Extensions",
-            "HTML",
-            "CSS"
+            "Python",
+            "TypeScript",
+            "Jupyter Notebook"
         ],
         "completed": "2023/10/08",
         "demo": "https://devpost.com/software/site-in-site",
@@ -643,17 +764,43 @@
                 "url": "https://github.com/hampster2018/WEHack-2023"
             }
         ],
-        "buildLog": null
+        "buildLog": null,
+        "caseStudy": {
+            "overview": "This project is a SPA real estate tool that makes investment insights accessible to both newcomers and experts. Powered by a custom-trained ML model, it allows users to quickly estimate the value of selected properties - or even input their own - and receive an instant valuation based on local income and housing data",
+            "problem": "The real estate market is a quick-moving industry where individuals with limited real estate experience may become overwhelmed trying to understand the value of a property.",
+            "solution": "This project empowers users to choose a city and view investment-recommended properties on a map, receive an instant summary and valuation of each property, and enter custom property details for real-time ML-based price predictions.",
+            "keyFeatures": [
+                "Google Maps integration with ML-selected properties",
+                "Instant value estimation via in-house machine learning model",
+                "Property form for custom user input",
+                "Responsive frontend build with Svelte",
+                "Live model prediction via Flask"
+            ],
+            "outcomes": [
+                "🏆 2nd Place CBRE Challenge at WEHack 2023",
+                "Built a fully functional, data-driven MVP in 24 hours"
+            ],
+            "lessons": [
+                {
+                    "challenge": "Small dataset with regional bias",
+                    "lesson": "The value of data cleansing and dimensionality reduction."
+                }
+            ],
+            "conclusion": "This project provided hands-on experience turing raw data into actionable, real-world insights through ML."
+        }
     },
     {
         "title": "Dunk Dynasty",
         "description": "Dunk Dynasty is an interactive platform that enhances the basketball viewing experience by allowing fans to place real-time bets on game events. The system uses AI to generate dynamic prompts and maintains a leaderboard to foster community engagement.",
         "summary": "",
         "technologies": [
+            "AWS",
+            "Flask",
             "Python",
+            "JavaScript",
             "React",
-            "Firebase",
-            "Machine Learning"
+            "Svelte",
+            "TensorFlow"
         ],
         "completed": "2023/10/08",
         "demo": "https://devpost.com/software/dunk-dynasty",
@@ -721,7 +868,31 @@
                 "url": "https://github.com/MsAbigailS/HackAI"
             }
         ],
-        "buildLog": null
+        "buildLog": null,
+        "caseStudy": {
+            "overview": "This project is a multi-layered sports engagement app that gamifies live basketball games through AI-powered bets and community interactions. Users earn and wager digital points on live or pre-game predictions. Backed by a classification neural network and generative AI, this app creates a dynamic, data-driven betting experience integrated with merch rewards.",
+            "problem": "Fans often predict game events informally -- like MVPs or scoring leaders -- but lack a structured way to participate in real-time while earning rewards.",
+            "solution": "This project empowers users to earn digital points, enter two types of bets (pre-game and live) with assistance from a neural net providing win probabilities, and a built in chatbot to help all viewers understand the game better.",
+            "keyFeatures": [
+                "AI-generated bet prompts",
+                "Classification neural net predicts game outcomes in real-time",
+                "User friendly chatbot geared towards helping everyone understand the game",
+                "Point system for swag redemption and leaderboard",
+                "Admin and user applications to control when betting takes place"
+            ],
+            "outcomes": [
+                "Completed full integration between three tech stacks",
+                "Built a working MVP in 24 hours",
+                "Enabled an experience that enhances the game rather than distract from it"
+            ],
+            "lessons": [
+                {
+                    "challenge": "Scope creep",
+                    "lesson": "Prioritize features due."
+                }
+            ],
+            "conclusion": "This project enhanced my skills in working across tech stacks for the same project and on developing neural networks."
+        }
     },
     {
         "title": "Model Maintenance",
@@ -731,7 +902,9 @@
             "Three.js",
             "Python",
             "Flask",
-            "Machine Learning"
+            "Machine Learning",
+            "Jupyter Notebook",
+            "Svelte"
         ],
         "completed": "2023/10/08",
         "demo": "https://devpost.com/software/model-maintenance",
@@ -795,6 +968,30 @@
                 "url": "https://github.com/MsAbigailS/HackSMU"
             }
         ],
-        "buildLog": null
+        "buildLog": null,
+        "caseStudy": {
+            "overview": "This project is a smart building monitoring platform that leverages immersive 3D models and machine learning to optimize facility maintenance. It enables real-time insights into critical system like elevators and HVAC systems by visualizing failure points and prioritizing tasks.",
+            "problem": "Maintaining large buildings involves tracking dozens of systems and responding to issues in a timely manner. Traditional systems fail to offer visual feedback nor effectively prioritize tasks.",
+            "solution": "This project empowers users to visualize system status via 3D models, prioritize tasks based on severity, recieve SMS alerts when issues are detected, and provides a pipeline-styles ticketing page for workflow management.",
+            "keyFeatures": [
+                "Dynamic 3D visualization of the building, updated in real-time",
+                "Predictie maintenance via ML-based fault detection",
+                "SMS alerts for urgent issues and maintenance reminders",
+                "Service pipeline interface for tracking and managing maintenance tasks"
+            ],
+            "outcomes": [
+                "Successfully built and deployed a model tailored to HVAC/elevator diagnostics",
+                "Created an immersive and intuitive 3D system representation via Blender",
+                "Developed a full-stack solution that improves real-time response to equipment failures",
+                "First-time experience working with both ML and 3D modeling in a unified platform"
+            ],
+            "lessons": [
+                {
+                    "challenge": "Limited real-world HVAC/elevator data",
+                    "lesson": "Required use of legacy datasets and extensive cleaning + refinement."
+                }
+            ],
+            "conclusion": "This project enhanced my skills in combining data driven notifications with 3D models."
+        }
     }
 ]

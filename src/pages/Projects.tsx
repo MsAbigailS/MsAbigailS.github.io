@@ -12,6 +12,7 @@ import { setMeta } from '../stories/helpers/routing'
 import { ProjectList } from '../stories/lists/ProjectList'
 import { StickyHeader } from '../stories/headers/StickyHeader'
 import { BubbleCard } from '../stories/cards/BubbleCard'
+import { GradientText } from '../stories/text/GradientText'
 
 export default function Projects() {
 
@@ -25,7 +26,7 @@ export default function Projects() {
 
 
     return (
-        <div data-id="main" className="animate-fade-in animation-delay-300 bg-linear-30 from-[#468186]/30 to-blue-500/15">
+        <div data-id="main" className="animate-fade-in animation-delay-300 bg-linear-30 from-blue-500/15 to-blue-500/15">
             <StickyHeader routes={[
                 { text: 'Home', route: '#projects', nav: () => navigate('/') },
                 { text: 'Log', route: '#buildlog', nav: () => navigate('/build-log') },
@@ -35,9 +36,16 @@ export default function Projects() {
             <div className="m-6">
                 <BubbleCard>
 
-                    <h1 data-id="subject-header" className={`text-center mb-10 mt-55`}>
-                        Project Showcase
-                    </h1>
+                    <div
+                        className="w-full flex items-center justify-center text-center h-full text-6xl md:text-8xl mb-10 mt-35"
+                    >
+                        <GradientText
+                            text="Project Showcase"
+                            primaryColor="from-gray-100/100"
+                            secondaryColor="white"
+                            weight="font-bold"
+                        />
+                    </div>
 
                     <p className={`text-center mb-6 ml-6 mr-6`}>A showcase of sleepless nights, too much coffee, and a whole lot of code</p>
 

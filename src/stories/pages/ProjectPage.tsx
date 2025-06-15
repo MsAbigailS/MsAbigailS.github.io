@@ -38,11 +38,11 @@ export const ProjectPage = ({
     return (
         <div
             data-id={dataId}
-            className={`text-white h-[100%] min-h-screen bg-linear-to-t from-[#BF8B85]/20 to-transparent`}
+            className={`text-white h-[100%] min-h-screen`}
         >
 
 
-            <div className="opacity-20">
+            <div className="opacity-0">
                 <BackgroundShapes
                     shapes={['circle']}
                     density={backgroundDensity}
@@ -51,7 +51,7 @@ export const ProjectPage = ({
             </div>
 
             <div className={`p-6 mt-30`}>
-                <ProjectCardExpanded project={project} color={color} />
+                <ProjectCardExpanded project={project} />
             </div>
 
         </div>

@@ -56,7 +56,7 @@ export const StickyHeader = ({
                 {routes.map(({ text, route, nav }) => (
                     <div
                         key={text}
-                        onClick={() => { nav?.(route); console.log('clicked') }}
+                        onClick={() => { nav?.(route)}}
                     >
                         {text}
                     </div>

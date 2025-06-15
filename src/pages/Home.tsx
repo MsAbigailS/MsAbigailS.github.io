@@ -106,7 +106,6 @@ export default function Home() {
                 <StickyHeader routes={[
                     { text: 'Projects', route: '#projects', nav: handleNavClick },
                     { text: 'About', route: '#aboutWebsite', nav: handleNavClick },
-                    { text: 'Log', route: '#buildlog', nav: handleNavClick },
                     { text: 'Resume', route: '#resume', nav: goToResume }
                 ]} />
             </div>

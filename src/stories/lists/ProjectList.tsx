@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from 'react'
 import { List } from '../ui/List';
 import { ProjectCard } from '../cards/ProjectCard';
+import { ProjectCardDetailed } from '../cards/ProjectCardDetailed';
 import type { Project } from '../../types/project';
 import projectData from '../../data/projects.json';
 
@@ -127,7 +128,7 @@ export const ProjectList = (
                     ref={toggleListRef}
                 >
                     {/* filter button */}
-                    <div
+                    {/* <div
                         onClick={toggleList}
                         className={`border-1 transition-colors ease-in-out duration-[300ms] pl-2 pr-2 
                             hover:cursor-pointer hover:bg-white hover:text-[#010102] min-w-1/10 rounded-sm text-center
@@ -135,7 +136,7 @@ export const ProjectList = (
                     >
                         filter: technology
                         <span> {count > 0 ? ` (${count})` : ''}</span>
-                    </div>
+                    </div> */}
                     {/* list dropdown */}
                     <div
                         id="availableTechnologies"
@@ -154,7 +155,7 @@ export const ProjectList = (
             <div
                 id="projects"
                 data-id="project-list"
-                className={`grid lg:grid-cols-2 grid-cols-1 justify-items-center gap-6 `}
+                className={`grid grid-cols-1 justify-items-center gap-6 `}
             >
                 {projects.map((project, index) => {
                     let isVisible: boolean
@@ -163,9 +164,13 @@ export const ProjectList = (
                     return (
                         <div
                             key={index}
-                            className={`${isVisible ? 'block' : 'hidden'}`}
+                            className={`w-full`}
                         >
-                            <ProjectCard project={project} />
+                            <ProjectCardDetailed
+                                project={projectData[index]}
+                                index={index}
+                            />
+                            {/* <ProjectCard project={project} /> */}
                         </div>
                     );
                 })}

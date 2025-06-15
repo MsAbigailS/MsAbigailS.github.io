@@ -12,6 +12,7 @@ export interface Project {
     personalNotes: string;
     links: links[];
     buildLog?: BuildLog[] | null;
+    caseStudy?: caseStudy | null;
 }
 
 export type awards = {
@@ -27,4 +28,19 @@ export type links = {
 export type images = {
     resource: string;
     alt: string;
+}
+
+export type lesson = {
+    challenge: string;
+    lesson: string;
+};
+
+export type caseStudy = {
+    overview: string;
+    problem: string;
+    solution: string;
+    keyFeatures: string[];
+    outcomes: string[];
+    lessons: lesson[];
+    conclusion: string;
 }

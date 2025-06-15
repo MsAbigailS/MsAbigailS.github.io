@@ -77,7 +77,6 @@ export const ProjectList = (
     function toggleList() {
         const el = document.getElementById('availableTechnologies')
         if (!el) return
-        console.log('flip')
         if (el.className.includes('hidden')) {
             setIsOpen(true)
             el.className = el.className.replace('hidden', 'block')

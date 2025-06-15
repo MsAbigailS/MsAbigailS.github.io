@@ -21,6 +21,7 @@ export const Primary: Story = {
     args: {
         project: {
             title: 'Sample Project',
+            summary: "Sample project summary",
             description: 'This is a sample project description.',
             technologies: ['React', 'TypeScript', 'Storybook'],
             completed: '2023-10-01',

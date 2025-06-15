@@ -23,7 +23,7 @@ export const TextAnimation = ({
     const isVisible = useVisible(animatedText)
 
     return (
-        <div className={` inline-block`}>
+        <div className={`inline-block`}>
             <div
                 ref={animatedText}
                 className={`relative rounded-xs overflow-hidden flex 

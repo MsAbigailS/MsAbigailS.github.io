@@ -13,6 +13,12 @@ import { setMeta } from '../stories/helpers/routing'
 import { Image } from '../stories/ui/Image'
 import { Hero } from '../stories/home/Hero'
 import { StickyHeader } from '../stories/headers/StickyHeader'
+import { BubbleProjectCard } from '../stories/cards/BubbleProjectCard'
+import { BubbleCard } from '../stories/cards/BubbleCard'
+import { Projects } from '../stories/home/Projects'
+import { svgs } from '../utils/maps/svgMap'
+import { Purpose } from '../stories/home/Purpose'
+import { GradientText } from '../stories/text/GradientText'
 
 export default function Home() {
     const navigate = useNavigate()
@@ -84,7 +90,7 @@ export default function Home() {
         const offset = window.innerHeight / 2 - element.offsetHeight / 2;
 
         window.scrollTo({
-            top: elementTop - offset,
+            top: element.getBoundingClientRect().top + window.scrollY - 20,
             behavior: 'smooth',
         });
     }
@@ -93,7 +99,7 @@ export default function Home() {
         <div
             data-id="main"
             className="animate-fade-in animation-delay-300 p-6
-            bg-linear-30 from-[#468186]/10 to-blue-500/10
+            bg-linear-30 from-blue-500/10 to-blue-500/10
             max-w-screen overflow-x-hidden"
         >
             <div>
@@ -109,106 +115,18 @@ export default function Home() {
             </div>
 
             {/* About me */}
-            <div
+            {/* <div
                 data-id="about"
                 ref={amoutMe}
                 className={`ease-in-out transition-opacity duration-1000 mt-10
                 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-                {/* <AboutMe /> */}
-            </div>
+                <AboutMe />
+            </div> */}
 
 
-            {/* projects link */}
-            <div ref={projectLink} className={`mt-50 mb-30 flex justify-center items-center ease-in-out transition-opacity duration-1000  ${projectVisible ? 'opacity-100' : 'opacity-0'}`}>
-                <div
-                    data-id="subject-header"
-                    id="callToAction"
-                    onClick={gotoProjects}
-                    className={`relative m-2 p-2 border-1 border-white-500 text-white
-                    hover:border-white rounded-lg overflow-hidden flex flex-col
-                    justify-center items-center hover:cursor-pointer`}
-                >
-                    <TextAnimation
-                        text="View My Projects"
-                        animation='hoverSlide'
-                    />
-                </div>
-            </div>
+            <span ref={projectLink}><Projects /></span>
+            <span ref={aboutWebsite}><Purpose /></span>
 
-
-
-            {/* what is this website */}
-            <div
-                ref={aboutWebsite}
-                className={`p-2 md:pt-10 flex justify-center items-center pl-10 pr-10`}
-            >
-                <ElementAnimation
-                    animation={['shine']}
-                    speed="slow"
-                >
-
-                    <div
-                        className={`rounded-lg hover:ring-2 hover:ring-blue-200/20 
-                            transition-all duration-300 ease-in-out
-                            shadow-lg shadow-gray-500/15 `}
-                    >
-
-                        <GlassCard>
-
-                            <div
-                                data-id="subject-header"
-                                className={`text-center text-5xl italic`}
-                            >
-                                About This Website
-                            </div>
-
-                            <div
-                                className={`flex flex-col text-xl **:p-2 font-assistant`}
-                            >
-
-                                This site is my personal playground — a space where I document what I’m learning, building, and exploring as a developer.
-
-
-
-                                <div
-                                    className={`text-md mt-2`}
-                                >
-                                    You'll find...
-                                    <ul>
-                                        <li>🧩 Projects that showcase my work, from polished apps to experimental ideas</li>
-
-                                        <li>🔄 Progress logs where I track daily updates and learning milestones</li>
-
-                                        <li>🛠️ Technical breakdowns and notes from hands-on problem solving</li>
-
-                                        <li>🎨 Explorations in UI/UX, animation, and creative development</li>
-                                    </ul>
-                                </div>
-                                This isn’t just a portfolio — it’s a living archive of my growth, challenges, and curiosity. I built it for reflection, experimentation, and to share with anyone interested in the journey of building things from scratch.
-                            </div>
-
-                        </GlassCard>
-                    </div>
-                </ElementAnimation>
-            </div>
-
-            {/* build log link */}
-            <div className={`mt-50 mb-30 flex justify-center items-center ease-in-out transition-opacity duration-1000 `}>
-                <div
-                    ref={buildlogRef}
-                    data-id="subject-header"
-                    id="callToAction"
-                    onClick={goToBuildlog}
-                    className={`relative p-2 border-1 border-white-500 hover:border-white 
-                    rounded-lg overflow-hidden flex flex-col justify-center items-center
-                    hover:cursor-pointer`}
-                >
-                    <TextAnimation
-                        text="View My Build Log"
-                        animation='hoverSlide'
-                    />
-                </div>
-            </div>
 
 
             {/* coming soon */}
@@ -216,14 +134,23 @@ export default function Home() {
                 data-id="coming-soon"
                 ref={comingSoon}
                 className={`flex flex-col justify-center items-center text-center p-10 ease-in-out 
-                    transition-opacity duration-1000  ${comingSoonVisible ? 'opacity-100' : 'opacity-0'}`}
+                    transition-opacity duration-1000`}
             >
-                <p data-id="subject-header">Coming Soon</p>
-                <div>
+                <div
+                    className="w-full flex items-center justify-center text-start md:text-center h-full text-6xl md:text-8xl mb-10 mt-25"
+                >
+                    <GradientText
+                        text="Current Goals"
+                        primaryColor="from-gray-100/100"
+                        secondaryColor="white"
+                        weight="font-bold"
+                    />
+                </div>
+                <div className="font-manrope">
                     This website is a
                     <span>
                         <TextAnimation text="living work in progress" animation='appearSlide' />
-                        .
+                        , so here are some of the things I'm working on (granted I remember to check things off 😅)
                     </span>
                 </div>
 

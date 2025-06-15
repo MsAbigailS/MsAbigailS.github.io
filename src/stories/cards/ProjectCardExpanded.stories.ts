@@ -21,6 +21,7 @@ export const Primary: Story = {
     args: {
         project: {
             title: 'Project Title',
+            summary: 'Project Summary',
             description: 'Project Description',
             technologies: ['React', 'TypeScript', 'Tailwind CSS'],
             completed: '2023-01-01',

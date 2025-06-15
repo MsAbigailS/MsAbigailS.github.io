@@ -28,15 +28,15 @@ export const IdeaList = (
                         .slice(0, limit)
                         .map((idea, index) => (
                             <div key={index} className="pb-2 pt-2">
-                                <div className="shadow-md p-6">
+                                <div className="p-6">
                                     <h3 className="text-white border-b-2 text-xl font-semibold">{idea.title}</h3>
                                     <p className="text-gray-600">Status: {idea.status}</p>
                                 </div>
                             </div>
                         ))
                     }
-                    <div className="shadow-md p-6">
-                        <h3 className="text-white">... and everything else along the way</h3>
+                    <div className="p-6">
+                        <h3 className="text-white font-manrope">... and everything else along the way</h3>
                     </div>
                 </div>
             </List>

@@ -31,31 +31,25 @@ export const GlassCard = ({
                     overflow-hidden
                     `
                 }
-                style={{ backgroundColor: color || 'rgba(0,0,0,0.15)' }}
+            // style={{ backgroundColor: color || 'rgba(0,0,0,0.15)' }}
             >
 
-                <div
-                    className="absolute inset-0 z-0 opacity-5 
-                    bg-[url('https://t4.ftcdn.net/jpg/02/99/47/75/360_F_299477563_cdcjnsMv6oM3AUZzzvx9RKByDCsXiryB.jpg')]
-                    bg-cover mix-blend-overlay"
-                ></div>
-
                 {/* Top border glow */}
-                <div className="absolute top-0 left-0 h-[5px] w-1/3 bg-white/20 blur-sm rounded-tl z-20 animate-pulse-slow"></div>
+                <div className="absolute top-0 left-0 h-[5px] w-1/3 bg-white/5 blur-sm rounded-tl z-20 animate-pulse-slow"></div>
 
                 {/* Left border glow */}
-                <div className="absolute top-0 left-0 w-[5px] h-1/2 bg-white/10 blur-sm rounded-tl z-20 animate-pulse-slow"></div>
+                <div className="absolute top-0 left-0 w-[5px] h-1/2 bg-white/5 blur-sm rounded-tl z-20 animate-pulse-slow"></div>
 
 
                 <div
                     className={`absolute inset-0 bg-radial 
-                    from-transparent from-70% to-white/7`}
+                    from-transparent from-95% to-white/5`}
                 ></div>
 
                 <div
                     data-id={`${dataId}-diagonal-shine`}
-                    className="absolute inset-0 bg-linear-135 from-white/10 
-                    to-blue-500/10 z-0 rounded-lg"
+                    className="absolute inset-0 
+                    bg-gradient-to-br from-white/5 via-blue-300/5 to-blue-500/5 z-0 rounded-lg"
                 ></div>
 
                 {children}

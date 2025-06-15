@@ -2,6 +2,7 @@
     {
         "title": "Job Application Tracker",
         "description": "This Job Application Tracker uses MongoDB, Vue, Vite, Axios, and Bootstrap to store, retrieve, and show user job applications in a simple, clean hub. Inspired by my own job search, this application allows users to track their job applications while also allowing me to work on my own skills.",
+        "summary": "Job application tracker",
         "technologies": [
             "MongoDB",
             "Vue",
@@ -258,11 +259,12 @@
     {
         "title": "MedMate",
         "description": "MedMate is a personal health management application that utilizes AI to assist users in understanding their medical prescriptions and maintaining health records. The app features voice recording and summarization of doctor consultations, providing users with accessible and organized health information.",
+        "summary": "Health management application",
         "technologies": [
             "React Native",
             "Python",
             "Flask",
-            "GPT-3.5"
+            "GPT"
         ],
         "completed": "2023/10/08",
         "demo": "https://devpost.com/software/healai-v7o852",
@@ -362,6 +364,7 @@
     {
         "title": "Redwood",
         "description": "Redwood is a platform that facilitates community-driven tree planting initiatives. It uses geolocation and community engagement tools to organize and track reforestation efforts, promoting environmental sustainability.",
+        "summary": "EdTech application",
         "technologies": [
             "React",
             "Node.js",
@@ -443,6 +446,7 @@
     {
         "title": "The Greenhouse Mission",
         "description": "The Greenhouse Mission is a mobile application that assists users in reducing their carbon footprint by optimizing daily tasks. Utilizing AI, it schedules activities like shopping and laundry during times that minimize environmental impact.",
+        "summary": "",
         "technologies": [
             "React Native",
             "Python",
@@ -540,8 +544,9 @@
     {
         "title": "Amelia",
         "description": "Amelia is an automated voice assistant that proactively notifies users about their vehicle's maintenance needs. By combining road data with AI voice technologies, it makes preventative car care accessible through natural voice interactions, ensuring users stay safe and informed without lifting a finger.",
+        "summary": "",
         "technologies": [
-            "ChatGPT",
+            "GPT",
             "ElevenLabs",
             "Google Voice",
             "Python",
@@ -594,6 +599,7 @@
     {
         "title": "Site-in-Site",
         "description": "Site-in-Site is a browser extension that enables users to embed one website within another, facilitating seamless multitasking and enhanced productivity. The extension leverages modern web technologies to create a dynamic and interactive user experience.",
+        "summary": "",
         "technologies": [
             "JavaScript",
             "Chrome Extensions",
@@ -642,6 +648,7 @@
     {
         "title": "Dunk Dynasty",
         "description": "Dunk Dynasty is an interactive platform that enhances the basketball viewing experience by allowing fans to place real-time bets on game events. The system uses AI to generate dynamic prompts and maintains a leaderboard to foster community engagement.",
+        "summary": "",
         "technologies": [
             "Python",
             "React",
@@ -719,6 +726,7 @@
     {
         "title": "Model Maintenance",
         "description": "Model Maintenance is a 3D visualization tool designed to monitor and predict maintenance needs in building systems. By analyzing sensor data through machine learning models, it provides real-time insights and alerts for preventative maintenance.",
+        "summary": "",
         "technologies": [
             "Three.js",
             "Python",

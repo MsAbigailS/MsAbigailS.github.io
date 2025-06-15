@@ -94,3 +94,25 @@ export function complementaryColor(hex: string): string {
     let alpha = matches[3] ? parseFloat(matches[3]) : 1;
     return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 }
+
+export function colorsPicker(size: number): string[] {
+    if (size === 0) {
+        console.log("WARNING: Unable to select colors, size provided is 0")
+        return []
+    }
+
+    let colors: string[] = []
+    let availableColors = ['--color-pink', '--color-green', '--color-orange', '--color-blue', '--color-purple']
+    let left = 0
+    let prevIndex = -1
+    while (left < size) {
+        let selectedIndex = Math.floor(Math.random() * availableColors.length)
+        if (prevIndex !== selectedIndex) {
+            let selectedColor = getComputedStyle(document.documentElement).getPropertyValue(availableColors[selectedIndex])
+            colors.push(selectedColor)
+            prevIndex = selectedIndex
+            left += 1
+        }
+    }
+    return colors
+}

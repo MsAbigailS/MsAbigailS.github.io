@@ -290,7 +290,40 @@
             {
                 "type": "Update",
                 "description": "So many updated!",
-                "images": [],
+                "images": [
+                    {
+                        "resource": "buildLog/Home_06_12_2025_Desktop_Video.gif",
+                        "alt": "Home page, desktop view"
+                    },
+                    {
+                        "resource": "buildLog/Home_06_12_2025_Mobile_Video.gif",
+                        "alt": "Home page, mobile view"
+                    },
+                    {
+                        "resource": "buildLog/Component_Navbar_06_12_2025_Desktop_Video.gif",
+                        "alt": "Updated navbar, desktop view"
+                    },
+                    {
+                        "resource": "buildLog/Component_Navbar_06_12_2025_Mobile_Video.gif",
+                        "alt": "Updated navbar, mobile view"
+                    },
+                    {
+                        "resource": "buildLog/Project_Gallery_06_12_2025_Desktop_Video.gif",
+                        "alt": "Updated project gallery, desktop view"
+                    },
+                    {
+                        "resource": "buildLog/Project_Gallery_06_12_2025_Mobile_Video.gif",
+                        "alt": "Updated project gallery, mobile view"
+                    },
+                    {
+                        "resource": "buildLog/Project_Details_06_12_2025_Desktop_Video.gif",
+                        "alt": "Updated project build page, desktop view"
+                    },
+                    {
+                        "resource": "buildLog/Project_Details_06_12_2025_Mobile_Video.gif",
+                        "alt": "Updated project build page, mobile view"
+                    }
+                ],
                 "personalNotes": "These were changes I've been wanting to do for awhile! I completely overhauled the hero section for the home page to include a tag pile animation that I am super proud of. I also redesigned my header/navbar across the website. Lastly I also added new card components, modified my glass card component, and changed the layout structure for my project gallery. To be honest, it is VERY late while I'm writing this, and since taking pictures and recording gifs takes a awhile, I'm going to save that for the morning."
             }
         ]

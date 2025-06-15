@@ -3,20 +3,18 @@
 @import "tailwindcss";
 
 :root {
-  --color-pink: "#BF8B85";
+  --color-pink: "#F4E1E4";
   /*C4939A*/
-  --color-green: "#82846D";
-  /*65743A*/
-  --color-orange: "#468186";
+  --color-green: "#EFFBF1";
+  --color-orange: "#FDDED8";
   /* #B87D4B */
-  --color-blue: "#468186";
+  --color-blue: "#D6E4FF";
   --color-blue-dark: "#2A4E50";
   --color-blue-light: "#5CA4A9";
   /* #1C6E8C */
   --color-black: "#010102";
   --color-red: "#766C7F";
-  --color-purple: "#292137";
-
+  --color-purple: "#EBDEF8";
 }
 
 @theme {
@@ -133,5 +131,49 @@
 
   .animate-fade-in {
     animation: fade-in 0.5s ease-in-out forwards;
+  }
+
+  @keyframes swing-in {
+
+    0% {
+      opacity: 0;
+      transform: rotateX(90deg);
+    }
+
+    40% {
+      transform: rotateX(0deg)
+    }
+
+    65% {
+      transform: rotateX(-25deg);
+    }
+
+    85% {
+      transform: rotateX(10deg)
+    }
+
+    100% {
+      opacity: 1;
+      transform: rotateX(0deg)
+    }
+  }
+
+  @keyframes swing-out {
+    0% {
+      opacity: 100;
+    }
+
+    100% {
+      opacity: 0;
+      transform: rotateX(90deg);
+    }
+  }
+
+  .animate-swing-in {
+    animation: swing-in 1s ease-in-out forwards;
+  }
+
+  .animate-swing-out {
+    animation: swing-out 1s ease-in-out forwards;
   }
 }

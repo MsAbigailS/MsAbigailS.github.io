@@ -3,6 +3,7 @@ import type { BuildLog } from "../types/buildlog";
 export interface Project {
     title: string;
     description: string;
+    summary: string;
     technologies: string[];
     completed: string | null;
     imgs: images[];

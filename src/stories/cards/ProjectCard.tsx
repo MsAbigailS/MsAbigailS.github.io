@@ -23,6 +23,7 @@ export const ProjectCard = ({
     project = {
         title: 'Default Project Title',
         description: 'Default project description.',
+        summary: 'Default summary',
         technologies: [],
         completed: null,
         imgs: [],

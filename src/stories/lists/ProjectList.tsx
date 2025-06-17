@@ -1,180 +1,95 @@
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState, useRef, useMemo } from 'react'
 import { List } from '../ui/List';
 import { ProjectCard } from '../cards/ProjectCard';
 import { ProjectCardDetailed } from '../cards/ProjectCardDetailed';
 import type { Project } from '../../types/project';
 import projectData from '../../data/projects.json';
+import { useDispatch, useSelector } from 'react-redux';
+import type { RootState } from '../../redux/store';
+import { addFilter, removeFilter } from '../../redux/filters/filtersSlice'
 
 export interface ProjectListProps {
-    projects?: Project[];
+    projects: Project[];
 }
 
 export const ProjectList = (
     {
-        projects = projectData
+        projects
     }: ProjectListProps) => {
 
-    // tracker for technology filter
-    const [count, setCount] = useState(0)
-    const [selectedTech, setSelectedTech] = useState<string[]>([])
-    const [isOpen, setIsOpen] = useState(false)
-    const toggleListRef = useRef<HTMLDivElement | null>(null)
+    // redux
+    const dispatch = useDispatch();
+    const activeFilters = useSelector((state: RootState) => state.filters.techStack)
 
-    // creating tech filter list by
-    // taking all techs from projects.json
-    // and adding to pg
-    useEffect(() => {
-        const list = document.getElementById('availableTechnologies')
+    // getting all technologies
+    const allTags = Array.from(
+        Array.from(new Set(projects.flatMap(project => project.technologies))).sort()
+    )
 
-        if (!list) return
-
-        if (list.childElementCount > 0) { list.innerHTML = '' } // no technologies -> empty list
-
-
-        let technologies: Map<string, number> = new Map()
-        projects.forEach(project => {
-            project.technologies.forEach(technology => {
-                if (technologies.has(technology)) {
-                    technologies.set(technology, technologies.get(technology)! + 1)
-
-                } else {
-                    technologies.set(technology, 1)
-                }
-            })
-        });
-        technologies = new Map([...technologies.entries()].sort())
-        technologies.forEach((value, key) => {
-            const div = document.createElement('div')
-            div.addEventListener('click', (e) => {
-                filterSelection(e as unknown as React.MouseEvent<HTMLElement>)
-            })
-            div.innerText = key
-            list?.appendChild(div)
-        })
-    }, [])
-
-    useEffect(() => {
-        const handleClickOutside = (event: MouseEvent) => {
-            if (toggleListRef.current && !toggleListRef.current.contains(event.target as Node)) {
-                setIsOpen(false);
-                const el = document.getElementById('availableTechnologies')
-                if (!el) { return }
-                el.className = el.className.replace('block', 'hidden')
-            }
-        };
-
-        if (isOpen) {
-            document.addEventListener('mousedown', handleClickOutside);
+    // projects that have at least one of selected technologies
+    const filteredProjects = useMemo(() => {
+        if (activeFilters.length === 0) {
+            return projects;
         } else {
-            document.removeEventListener('mousedown', handleClickOutside);
+            return projects.filter(project =>
+                activeFilters.some(tag => project.technologies.includes(tag))
+            );
         }
-
-        return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
-        };
-    }, [isOpen])
-
-    // toggling if list is visible
-    function toggleList() {
-        const el = document.getElementById('availableTechnologies')
-        if (!el) return
-        if (el.className.includes('hidden')) {
-            setIsOpen(true)
-            el.className = el.className.replace('hidden', 'block')
-        } else {
-            setIsOpen(false)
-            el.className = el.className.replace('block', 'hidden')
-        }
-    }
-
-    // filter selection
-    function filterSelection(e: React.MouseEvent<HTMLElement>) {
-        if (!e.currentTarget) return
-
-        if ((e.currentTarget as HTMLElement).className.includes('bg-gray-700')) {
-            // de-selecting
-            (e.currentTarget as HTMLElement).className = (e.currentTarget as HTMLElement).className.replace(' bg-gray-700 text-white', ' text-zinc-400')
-            setCount(count => count - 1)
-            setSelectedTech(selectedTech => {
-                if (selectedTech.includes((e.currentTarget as HTMLElement).textContent ?? '')) {
-                    return selectedTech.filter(item => item !== (e.currentTarget as HTMLElement).textContent)
-                } else {
-                    return selectedTech
-                }
-            })
-        } else {
-            // selecting
-            (e.currentTarget as HTMLElement).className += ' bg-gray-700 text-white';
-            setCount(count => count + 1)
-            setSelectedTech(selectedTech => {
-                if (selectedTech.includes((e.currentTarget as HTMLElement).textContent ?? '')) {
-                    return selectedTech
-                } else {
-                    return [...selectedTech, (e.currentTarget as HTMLElement).textContent ?? '']
-                }
-            })
-        }
-    }
+    }, [projects, activeFilters]);
 
     return (
         <List>
-            {/* page filter */}
-            <div
-                className={`flex flex-row justify-center min-w-full 
-                max-w-full mb-10 *:ml-1 *:mr-1 *:select-none`}
-            >
+            {/* filter */}
+            <div id="project-filter">
                 <div
-                    className="relative"
-                    ref={toggleListRef}
+                    id="technology-filter"
+                    className='flex flex-wrap justify-center items-center gap-4'
                 >
-                    {/* filter button */}
-                    {/* <div
-                        onClick={toggleList}
-                        className={`border-1 transition-colors ease-in-out duration-[300ms] pl-2 pr-2 
-                            hover:cursor-pointer hover:bg-white hover:text-[#010102] min-w-1/10 rounded-sm text-center
-                            tracking-widest`}
-                    >
-                        filter: technology
-                        <span> {count > 0 ? ` (${count})` : ''}</span>
-                    </div> */}
-                    {/* list dropdown */}
-                    <div
-                        id="availableTechnologies"
-                        className={`
-                            hidden absolute top-full mt-2 z-30 bg-[#010102] rounded-lg shadow-lg shadow-[#010102]
-                            text-zinc-400 flex-col max-h-[60vh] overflow-y-auto
-                            *:min-w-full *:hover:cursor-pointer *:hover:text-white
-                            *:ease-in-out *:duration-100 *:transition-all *:pl-5 *:pr-5 *:pt-1 *:pb-1
-                          `}
-                    >
-                    </div>
+                    {allTags.map(tag => {
+                        let isActive = activeFilters.includes(tag)
+                        return (
+                            <button
+                                key={tag}
+                                className={`border rounded-md 
+                                    p-2 
+                                    shadow-sm 
+                                    font-manrope
+                                    text-sm
+                                    ${isActive ?
+                                        'bg-gray-50/90 text-gray-950 border-gray-950 inset-ring-1 inset-ring-gray-950'
+                                        :
+                                        'text-white bg-transparent border-white shadow-gray-50/50 border-b-2'}`}
+                                onClick={() => { dispatch(isActive ? removeFilter(tag) : addFilter(tag)) }}
+                            >
+                                {tag}
+                            </button>
+                        )
+                    })}
                 </div>
             </div>
 
             {/* project cards/gallery */}
             <div
-                id="projects"
-                data-id="project-list"
+                id="project-gallery"
                 className={`grid grid-cols-1 justify-items-center gap-6 `}
             >
-                {projects.map((project, index) => {
-                    let isVisible: boolean
-                    if (selectedTech.length == 0) { isVisible = true }
-                    else { isVisible = project.technologies.some(tech => selectedTech.includes(tech)); }
+
+                {filteredProjects.map((project, index) => {
                     return (
                         <div
+                            id="project-gallery-element"
                             key={index}
                             className={`w-full`}
+
                         >
                             <ProjectCardDetailed
-                                project={projectData[index]}
+                                project={project}
                                 index={index}
                             />
-                            {/* <ProjectCard project={project} /> */}
                         </div>
                     );
                 })}
             </div>
-        </List>
+        </List >
     );
 };

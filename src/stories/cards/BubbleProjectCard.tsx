@@ -58,7 +58,11 @@ export const BubbleProjectCard = ({
                         {project.technologies.map((tech, index) => {
 
                             return (
-                                <div className="*:text-md" key={index}>
+                                <div
+                                    id={`${project.title}-technology-tag-${tech}`}
+                                    className="*:text-md"
+                                    key={index}
+                                >
                                     <TagCard
                                         text={tech}
                                         svg={tech}

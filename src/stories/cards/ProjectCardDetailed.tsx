@@ -121,9 +121,9 @@ export const ProjectCardDetailed = ({
                     className={`transition-all duration-500 delay-200 ease-in-out
                         w-full
                         ${visible ?
-                            'translate-x-0 rotate-z-0 opacity-100 rounded-4xl'
+                            'translate-x-0 rotate-z-0 rotate-y-0 opacity-100 rounded-4xl'
                             :
-                            `${index % 2 == 0 ? 'translate-x-20 rotate-z-20 md:translate-x-0 md:rotate-z-0 opacity-0' : '-translate-x-20 -rotate-z-20 md:translate-x-0 md:rotate-z-0 opacity-0'}`}`}
+                            `${index % 2 == 0 ? 'translate-x-20 rotate-z-20 rotate-y-50 md:translate-x-0 md:rotate-z-0 opacity-0' : '-translate-x-20 -rotate-z-20 -rotate-y-50 md:translate-x-0 md:rotate-z-0 opacity-0'}`}`}
                 >
                     <BubbleCard>
                         <div className="flex mix-blend-color-burn justify-center items-center">

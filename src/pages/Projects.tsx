@@ -35,7 +35,6 @@ export default function Projects() {
 
             <div className="m-6">
                 <BubbleCard>
-
                     <div
                         className="w-full flex items-center justify-center text-center h-full text-6xl md:text-8xl mb-10 mt-35"
                     >
@@ -47,9 +46,13 @@ export default function Projects() {
                         />
                     </div>
 
-                    <p className={`text-center mb-6 ml-6 mr-6`}>A showcase of sleepless nights, too much coffee, and a whole lot of code</p>
+                    <p
+                        className={`text-center mb-6 ml-6 mr-6 font-manrope`}
+                    >
+                        A showcase of sleepless nights, too much coffee, and a whole lot of code
+                    </p>
 
-                    <ProjectList />
+                    <ProjectList projects={projects} />
                 </BubbleCard>
             </div>
         </div >

@@ -33,6 +33,7 @@ export const SVG = ({
 
     return (
         <span
+            id={`svg-${svg}`}
             className={`[mask-image:linear-gradient(to_top,rgba(13,28,43,1),rgba(24,42,57,0.3))]
                     [mask-size:100%]
                     [mask-repeat:no-repeat]

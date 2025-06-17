@@ -20,7 +20,7 @@ export const SVG = ({
     // getting svg
     const mappedSVG = useMemo(() => {
         return mapSvgIcon(svg)
-    }, [])
+    }, [svg])
 
     // determing invert status based on SVG source
     useEffect(() => {

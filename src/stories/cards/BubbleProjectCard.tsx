@@ -22,6 +22,9 @@ export const BubbleProjectCard = ({
     const [tagColors, setTagColors] = useState<string[]>([])
     const [trimmedDescription, setTrimmedDescription] = useState<string>('')
 
+    const tagList = []
+
+
     const navigate = useNavigate()
 
     // getting non-repeating colors for tags
@@ -31,7 +34,7 @@ export const BubbleProjectCard = ({
             colors[index] = `bg-[${color.substring(1, color.length - 1)}]`
         })
         setTagColors(colors)
-    }, [])
+    }, [project])
 
 
     return (

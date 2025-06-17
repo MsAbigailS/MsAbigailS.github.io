@@ -1,4 +1,4 @@
-import { Children, useMemo } from 'react';
+import { Children, useMemo, useState } from 'react';
 import { Card } from '../ui/Card';
 import { SVG } from '../ui/SVG';
 import { darken, hexToRgba, rgbaToHex } from '../helpers/colors'
@@ -26,11 +26,6 @@ export const TagCard = ({
     flip = false,
     position = 'middle'
 }: TagCardProps) => {
-
-    let colorTrim = useMemo(() => {
-        return color?.substring(4, color.length - 1)
-    }, [])
-
     return (
         <Card>
             <div

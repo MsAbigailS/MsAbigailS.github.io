@@ -1,13 +1,13 @@
 import { useEffect, useState, useMemo } from 'react'
 import { createRoot } from 'react-dom/client'
 import projects from '../data/projects.json'
-import { ElementAnimation } from '../stories/ui/ElementAnimation'
+import { ElementAnimation } from '../stories/animation/ElementAnimation'
 import { useNavigate } from 'react-router-dom'
 import { Header } from "../stories/ui/Header"
 import { Footer } from "../stories/ui/Footer"
 import { Card } from "../stories/ui/Card"
 import { ProjectCard } from '../stories/cards/ProjectCard'
-import { List } from '../stories/ui/List'
+import { List } from '../stories/lists/List'
 import { setMeta } from '../stories/helpers/routing'
 import { ProjectList } from '../stories/lists/ProjectList'
 import { StickyHeader } from '../stories/headers/StickyHeader'

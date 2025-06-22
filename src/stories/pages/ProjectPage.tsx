@@ -1,7 +1,7 @@
 
 import type { Project } from '../../types/project';
 import { useNavigate } from 'react-router-dom'
-import { Image } from '../ui/Image';
+import { Image } from '../images/Image';
 import { TagList } from '../lists/TagList';
 import { Header } from '../ui/Header';
 import { ProjectCardExpanded } from '../cards/ProjectCardExpanded';

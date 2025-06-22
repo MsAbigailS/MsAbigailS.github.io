@@ -1,6 +1,5 @@
 import { useEffect, useState, useRef, useMemo } from 'react'
-import { List } from '../ui/List';
-import { ProjectCard } from '../cards/ProjectCard';
+import { List } from './List';
 import { ProjectCardDetailed } from '../cards/ProjectCardDetailed';
 import type { Project } from '../../types/project';
 import projectData from '../../data/projects.json';
@@ -43,7 +42,7 @@ export const ProjectList = (
             <div id="project-filter">
                 <div
                     id="technology-filter"
-                    className='flex flex-wrap justify-center items-center gap-4'
+                    className='flex flex-wrap justify-center items-center gap-4 mb-3'
                 >
                     {allTags.map(tag => {
                         let isActive = activeFilters.includes(tag)

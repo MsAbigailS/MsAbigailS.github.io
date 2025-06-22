@@ -1,5 +1,5 @@
 import { Children, useMemo, useEffect } from 'react';
-import { Card } from '../ui/Card';
+import { Card } from '../cards/Card';
 import { SVG } from '../ui/SVG';
 import { darken, hexToRgba, rgbaToHex } from '../helpers/colors'
 

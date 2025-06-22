@@ -7,7 +7,7 @@ import projectData from '../../data/projects.json';
 import { TagCard } from './TagCard';
 import { Tag } from '../ui/Tag';
 import { SVG } from '../ui/SVG'
-import { Image } from '../ui/Image'
+import { Image } from '../images/Image'
 import { useVisible } from '../../hooks/useVisible'
 import { BubbleProjectCard } from './BubbleProjectCard';
 import { mapSvgIcon } from '../../utils/maps/svgMap';

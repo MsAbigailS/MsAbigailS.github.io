@@ -1,5 +1,5 @@
 import { Children, useMemo, useState } from 'react';
-import { Card } from '../ui/Card';
+import { Card } from './Card';
 import { SVG } from '../ui/SVG';
 import { darken, hexToRgba, rgbaToHex } from '../helpers/colors'
 
@@ -56,6 +56,7 @@ export const TagCard = ({
                             'mix-blend-color-burn'}
                             w-full
                             ${flip ? 'flex-row-reverse' : ''}
+                            ${svg ? '' : 'hidden'}
                             `}
                 >
                     {/* svg */}

@@ -1,9 +1,9 @@
 import { useState, useEffect, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { Card } from '../ui/Card'
+import { Card } from '../cards/Card'
 import { ProjectCardDetailed } from '../cards/ProjectCardDetailed'
 import { TagCard } from '../cards/TagCard';
-import { TextAnimation } from '../ui/TextAnimation';
+import { TextAnimation } from '../animation/TextAnimation';
 import { BubbleCard } from '../cards/BubbleCard';
 import type { Project } from '../../types/project';
 import projectData from '../../data/projects.json';

@@ -1,5 +1,5 @@
 
-import { List } from '../ui/List';
+import { List } from './List';
 import type { Idea } from '../../types/ideas';
 import ideasData from '../../data/ideas.json';
 export interface IdeaListProps {

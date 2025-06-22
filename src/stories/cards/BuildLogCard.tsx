@@ -1,5 +1,5 @@
 import type { BuildLog } from "../../types/buildlog";
-import { Image } from "../ui/Image"
+import { Image } from "../images/Image"
 import { GlassCard } from "../cards/GlassCard";
 
 export interface BuildLogCardProps {

@@ -1,5 +1,5 @@
 import { Children, useMemo } from 'react';
-import { Card } from '../ui/Card';
+import { Card } from './Card';
 import { SVG } from '../ui/SVG'
 
 export interface ListCardProps {

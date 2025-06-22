@@ -5,7 +5,7 @@ import type { Project } from '../../types/project';
 import { ProjectBuildLogPage } from '../pages/ProjectBuildLogPage';
 import { data, useNavigate } from 'react-router-dom'
 import { Card } from '../ui/Card';
-import { Image } from '../ui/Image';
+import { Image } from '../images/Image';
 import { TagList } from '../lists/TagList';
 import { Header } from '../ui/Header';
 import { ImageBanner } from '../images/ImageBanner';
@@ -13,10 +13,10 @@ import { brighten } from '../helpers/colors';
 import { GlassCard } from './GlassCard';
 import { Tag } from '../ui/Tag';
 import { ConstructionNotice } from '../ui/ConstructionNotice';
-import { ImageCarousel } from '../ui/ImageCarousel';
+import { ImageCarousel } from '../images/ImageCarousel';
 import { GradientText } from '../text/GradientText';
 import { TagCard } from './TagCard';
-import { TextAnimation } from '../ui/TextAnimation';
+import { TextAnimation } from '../animation/TextAnimation';
 import { SVG } from '../ui/SVG';
 import { BubbleCard } from './BubbleCard';
 

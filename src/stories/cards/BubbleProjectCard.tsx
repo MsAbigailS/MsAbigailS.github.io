@@ -19,13 +19,10 @@ export const BubbleProjectCard = ({
     project
 }: BubbleProjectCardProps) => {
 
-    const [tagColors, setTagColors] = useState<string[]>([])
-    const [trimmedDescription, setTrimmedDescription] = useState<string>('')
-
-    const tagList = []
-
-
     const navigate = useNavigate()
+
+    // colors for each technology tag
+    const [tagColors, setTagColors] = useState<string[]>([])
 
     // getting non-repeating colors for tags
     useEffect(() => {
@@ -35,7 +32,6 @@ export const BubbleProjectCard = ({
         })
         setTagColors(colors)
     }, [project])
-
 
     return (
         <BubbleCard

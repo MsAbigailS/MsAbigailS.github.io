@@ -1,8 +1,3 @@
-import { TextAnimation } from "./TextAnimation";
-import { Image } from "./Image";
-import imageSource from '../../assets/typing.png';
-import { GlassCard } from "../cards/GlassCard";
-import { ElementAnimation } from "./ElementAnimation";
 import { BubbleCard } from '../cards/BubbleCard'
 import { ListCard } from '../cards/ListCard'
 export interface AboutMeProps {
@@ -12,13 +7,7 @@ export interface AboutMeProps {
 export const AboutMe = ({
 
 }: AboutMeProps) => {
-    const dataId = 'about-me';
-    const aboutMeImg = {
-        "resource": 'typing.png',
-        "alt": "About me image"
-    }
 
-    const listFormat = "list-disc list-inside space-y-1 text-gray-300"
 
     return (
         <div>

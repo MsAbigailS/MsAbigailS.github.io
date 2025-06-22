@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom"
 import { GradientText } from "../text/GradientText"
-import { ElementAnimation } from "../ui/ElementAnimation"
+import { ElementAnimation } from "../animation/ElementAnimation"
 import { GlassCard } from "../cards/GlassCard"
-import { TextAnimation } from "../ui/TextAnimation"
+import { TextAnimation } from "../animation/TextAnimation"
 export interface PurposeProps {
 
 }

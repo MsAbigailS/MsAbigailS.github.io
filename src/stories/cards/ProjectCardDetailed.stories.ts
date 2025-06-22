@@ -1,18 +1,18 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
 
-import { ProjectCard } from './ProjectCard';
+import { ProjectCardDetailed } from './ProjectCardDetailed';
 
 const meta = {
-    title: 'UI/Cards/ProjectCard',
-    component: ProjectCard,
+    title: 'UI/Cards/ProjectCardDetailed',
+    component: ProjectCardDetailed,
     parameters: {
         layout: 'centered',
     },
     tags: ['autodocs'],
     argTypes: {
     }
-} satisfies Meta<typeof ProjectCard>;
+} satisfies Meta<typeof ProjectCardDetailed>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -21,8 +21,8 @@ export const Primary: Story = {
     args: {
         project: {
             title: 'Project Title',
+            summary: 'Project Summary',
             description: 'Project Description',
-            summary: "Project summary",
             technologies: ['React', 'TypeScript', 'Tailwind CSS'],
             completed: '2023-01-01',
             imgs: [{

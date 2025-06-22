@@ -1,24 +1,25 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
-import { BackgroundShapes } from './BackgroundShapes';
+
+import { ListCard } from './ListCard';
 
 const meta = {
-    title: 'UI/BackgroundShapes',
-    component: BackgroundShapes,
+    title: 'UI/Cards/ListCard',
+    component: ListCard,
     parameters: {
         layout: 'centered',
     },
     tags: ['autodocs'],
     argTypes: {
-    },
-} satisfies Meta<typeof BackgroundShapes>;
+    }
+} satisfies Meta<typeof ListCard>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// default card
 export const Primary: Story = {
     args: {
-
-    },
+        title: "sample title",
+        items: ["Sample Item #1", "Sample Items #2"]
+    }
 };

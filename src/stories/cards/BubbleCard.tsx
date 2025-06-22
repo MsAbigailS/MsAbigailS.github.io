@@ -1,5 +1,5 @@
 import { Children, useMemo } from 'react';
-import { Card } from '../ui/Card';
+import { Card } from './Card';
 
 export interface BubbleCardProps {
     children: React.ReactNode;

@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
 
 import { Image } from './Image';
 
@@ -20,7 +20,7 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
     args: {
         image: {
-            resource: 'demo.jpg',
+            resource: 'ModelMaintenance10.jpg',
             alt: 'Demo Image',
         },
         fit: 'object-cover',

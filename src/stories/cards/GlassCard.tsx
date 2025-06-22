@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { complementaryColor, hexToRgba, rgbaToHex } from '../helpers/colors';
-import { Card } from '../ui/Card';
+import { Card } from './Card';
 
 export interface GlassCardProps {
     color?: string;

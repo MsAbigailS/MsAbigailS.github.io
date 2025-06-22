@@ -1,4 +1,4 @@
-import { List } from '../ui/List';
+import { List } from './List';
 import buildLog from "../../data/progress.json"
 import type { BuildLog } from "../../types/buildlog";
 import { BuildLogCard } from "../../stories/cards/BuildLogCard"

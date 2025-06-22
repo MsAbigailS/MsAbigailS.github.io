@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { preview } from 'vite';
-import { Image } from '../ui/Image';
+import { Image } from './Image';
 
 export interface ImageCarouselProps {
     /** What images to include */

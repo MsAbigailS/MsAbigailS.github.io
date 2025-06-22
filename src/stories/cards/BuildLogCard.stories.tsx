@@ -1,13 +1,18 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
 
 import { BuildLogCard } from './BuildLogCard';
 
 const meta = {
-    title: 'UI/BuildLogCard',
+    title: 'UI/cards/BuildLogCard',
     component: BuildLogCard,
     parameters: {
         layout: 'centered',
+        docs: {
+            description: {
+                component: "This component showcases the details for a buildlog entry. This card has a glass effect with white text that works best on dark backgrounds."
+            }
+        }
     },
     tags: ['autodocs'],
     argTypes: {
@@ -26,8 +31,8 @@ export const Primary: Story = {
             updates: [
                 {
                     type: 'Added',
-                    description: 'Added new feature X',
-                    images: [],
+                    description: 'Sample description',
+                    images: [{ resource: 'buildLog/Projects_06_14_2025_Desktop_Video.gif', alt: "Alt text acts as subtitle" }],
                     videos: [],
                     personalNotes: 'Excited about this feature!'
                 }

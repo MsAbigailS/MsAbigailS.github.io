@@ -1,4 +1,4 @@
-import { Image } from '../ui/Image'
+import { Image } from '../images/Image'
 import { BubbleCard } from '../cards/BubbleCard'
 import { Pile } from '../animation/Pile'
 export interface HeroProps {

@@ -1,4 +1,4 @@
-import { List } from '../ui/List';
+import { List } from './List';
 import { Tag } from '../ui/Tag';
 
 export interface TagListProps {

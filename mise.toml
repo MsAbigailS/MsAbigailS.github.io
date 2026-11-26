@@ -1,0 +1,11 @@
+[tools]
+bun = "1.4.5"
+
+[tasks.start]
+description = "Start the frontend container at http://localhost:8080"
+run = "docker compose up -d --build"
+
+[tasks.setup]
+description=""
+dir = "./frontend"
+run = ["bun audit", "bun install", "bun outdated"]

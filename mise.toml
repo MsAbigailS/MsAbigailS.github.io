@@ -8,7 +8,8 @@ run = "docker compose up -d --build"
 [tasks.setup]
 description=""
 dir = "./frontend"
-run = ["bun audit", "bun install", "bun outdated"]
+run = ["bun audit", "bun install", "bun outdated", "bun update --interactive"]
+
 
 [tasks.lint]
 description = "Check formatting, lint rules, imports, and types"

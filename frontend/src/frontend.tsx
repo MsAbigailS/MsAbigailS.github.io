@@ -7,7 +7,7 @@
 
 import React from "react";
 import { createRoot, type Root } from "react-dom/client";
-import { App } from "./App.tsx";
+import { App } from "@/App.tsx";
 
 const elem = document.getElementById("root");
 if (!elem) {

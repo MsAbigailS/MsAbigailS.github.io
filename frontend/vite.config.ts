@@ -9,7 +9,7 @@ export default defineConfig({
 	root: source,
 	plugins: [react(), tailwindcss()],
 	resolve: {
-		alias: { "@": source },
+		tsconfigPaths: true,
 	},
 	server: {
 		proxy: { "/api": "http://localhost:3000" },

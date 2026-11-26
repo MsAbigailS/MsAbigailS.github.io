@@ -3,6 +3,11 @@ import type { Config } from "tailwindcss";
 export default {
 	theme: {
 		extend: {
+			colors: {
+				background: {
+					default: "#000000",
+				},
+			},
 			spacing: {
 				gutter: "clamp(1rem, 4vw, 3rem)",
 				section: "clamp(3rem, 8vw, 6rem)",

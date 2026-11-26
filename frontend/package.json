@@ -12,7 +12,10 @@
 		"build": "bun run build.ts",
 		"build:vite": "bun --bun vite build",
 		"preview:vite": "bun --bun vite preview",
-		"typecheck": "bun check"
+		"typecheck": "bun check",
+		"test": "bun --bun vitest run --project storybook",
+		"storybook": "storybook dev -p 6006",
+		"build-storybook": "storybook build"
 	},
 	"dependencies": {
 		"@base-ui/react": "^1.9.0",
@@ -40,7 +43,18 @@
 		"knip": "^6.48.0",
 		"tailwindcss": "^4.1.11",
 		"typescript": "^7.0.2",
-		"vite": "^8.3.8"
+		"vite": "^8.3.8",
+		"storybook": "10.6.9",
+		"@storybook/react-vite": "10.6.9",
+		"@chromatic-com/storybook": "latest",
+		"@storybook/addon-vitest": "10.6.9",
+		"@storybook/addon-a11y": "10.6.9",
+		"@storybook/addon-docs": "10.6.9",
+		"@storybook/addon-onboarding": "10.6.9",
+		"vitest": "latest",
+		"@vitest/browser-playwright": "latest",
+		"@vitest/coverage-v8": "latest",
+		"playwright": "latest"
 	},
 	"peerDependencies": {
 		"typescript": "^7"

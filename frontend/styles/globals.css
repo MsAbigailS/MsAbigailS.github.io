@@ -1,8 +1,9 @@
-@import "tailwindcss";
+@import "tailwindcss" source("../src");
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/geist";
 
+@config "../tailwind.config.ts";
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -49,6 +50,16 @@
 }
 
 :root {
+	--spacing-gutter: theme("spacing.gutter");
+	--spacing-section: theme("spacing.section");
+	--container-content: theme("maxWidth.content");
+	--container-reading: theme("maxWidth.reading");
+	--text-body: theme("fontSize.body");
+	--text-body--line-height: theme("fontSize.body[1].lineHeight");
+	--text-heading: theme("fontSize.heading");
+	--text-heading--line-height: theme("fontSize.heading[1].lineHeight");
+	--text-display: theme("fontSize.display");
+	--text-display--line-height: theme("fontSize.display[1].lineHeight");
 	--radius: 0.625rem;
 	--background: oklch(1 0 0);
 	--foreground: oklch(0.145 0 0);

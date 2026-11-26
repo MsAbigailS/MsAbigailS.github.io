@@ -21,6 +21,12 @@
 		"enabled": true,
 		"rules": {
 			"preset": "all",
+			"correctness": {
+				"noUnknownFunction": {
+					"level": "error",
+					"options": { "ignore": ["theme"] }
+				}
+			},
 			"suspicious": {
 				"noUntrustedLicenses": "info"
 			}
@@ -69,7 +75,14 @@
 			}
 		},
 		{
-			"includes": ["vite.config.ts"],
+			"includes": [
+				"tailwind.config.ts",
+				"vite.config.ts",
+				"vitest.config.ts",
+				".storybook/*.ts",
+				".storybook/*.tsx",
+				"src/**/*.stories.ts"
+			],
 			"linter": {
 				"rules": {
 					"style": {

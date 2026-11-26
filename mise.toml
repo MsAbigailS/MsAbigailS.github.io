@@ -1,17 +1,39 @@
 [tools]
 bun = "1.4.5"
+codex = "latest"
 
 [tasks.start]
 description = "Start the frontend container at http://localhost:8080"
 run = "docker compose up -d --build"
 
 [tasks.setup]
-description=""
+description = "Install, audit, and interactively update frontend dependencies, then install Chromium"
 dir = "./frontend"
-run = ["bun audit", "bun install", "bun outdated", "bun update --interactive"]
+raw = true
+run = [
+  "bun install --frozen-lockfile",
+  "bun audit || echo 'Review the audit output above before selecting updates.' >&2",
+  "bun outdated",
+  "bun update --interactive",
+  "bun --bun playwright install chromium",
+]
 
+[tasks.audit-deps]
+description = "Check locked dependencies for known advisories"
+dir = "./frontend"
+run = "bun audit"
+
+[tasks.test]
+description = "Run Storybook tests in headless Chromium"
+dir = "./frontend"
+run = "bun run test"
+
+[tasks.build]
+description = "Build the static portfolio with Vite"
+dir = "./frontend"
+run = "bun run build:vite"
 
 [tasks.lint]
-description = "Check formatting, lint rules, imports, and types"
+description = "Check formatting, lint rules, types, and unused code"
 dir = "./frontend"
 run = ["bun run lint", "bun run typecheck", "bun run knip"]

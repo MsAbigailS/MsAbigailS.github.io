@@ -1,0 +1,82 @@
+{
+	"$schema": "https://biomejs.dev/schemas/2.6.8/schema.json",
+	"vcs": {
+		"enabled": true,
+		"clientKind": "git",
+		"useIgnoreFile": true
+	},
+	"files": {
+		"includes": ["**", "!!**/dist", "!!**/dist-vite"]
+	},
+	"formatter": {
+		"enabled": true,
+		"indentStyle": "tab"
+	},
+	"css": {
+		"parser": {
+			"tailwindDirectives": true
+		}
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"preset": "all",
+			"suspicious": {
+				"noUntrustedLicenses": "info"
+			}
+		},
+		"domains": {
+			"astro": "none",
+			"drizzle": "none",
+			"next": "none",
+			"playwright": "none",
+			"qwik": "none",
+			"reactNative": "none",
+			"solid": "none",
+			"svelte": "none",
+			"tanstackQuery": "none",
+			"test": "none",
+			"turborepo": "none",
+			"vue": "none",
+			"react": "all",
+			"tailwind": "all",
+			"types": "all",
+			"project": "all"
+		}
+	},
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "double"
+		}
+	},
+	"assist": {
+		"enabled": true,
+		"actions": {
+			"source": {
+				"organizeImports": "on"
+			}
+		}
+	},
+	"overrides": [
+		{
+			"includes": ["build.ts", "vite.config.ts", "src/index.ts"],
+			"linter": {
+				"rules": {
+					"correctness": {
+						"noNodejsModules": "off"
+					}
+				}
+			}
+		},
+		{
+			"includes": ["vite.config.ts"],
+			"linter": {
+				"rules": {
+					"style": {
+						"noDefaultExport": "off"
+					}
+				}
+			}
+		}
+	]
+}

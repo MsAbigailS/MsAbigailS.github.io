@@ -1,42 +1,49 @@
 import "@/index.css";
-import Lanyard from "@/components/Lanyard.jsx";
+import { Trash2 } from "lucide-react";
 import AnimatedContent from "@/components/AnimatedContent.jsx";
-
+import PillNav from "@/components/PillNav";
+import { ExperienceSection } from "@/components/sections/ExperienceSection";
+import { Hero } from "@/components/sections/Hero";
 export function App() {
 	return (
-		<AnimatedContent
-			distance={120}
-			direction="vertical"
-			duration={1.6}
-			ease="elastic.out(1, 0.55)"
-			blur={0}
-			stagger={0.08}
-			threshold={0.1}
-		>
-			<div className="border border-red-500 max-w-full max-h-screen">
-				<Lanyard
-					frontImage="https://honors.utdallas.edu/files/2024/01/abigail-smith-b9dfc8b909c4b04f.webp"
-					backImage="/card-back.png"
-					strapImage="/band.png"
-					imageFit="cover"
-					cardColor="#ffffff"
-					orientation="portrait"
-					finish="glossy"
-					cornerRadius={0.3}
-					size={0.56}
-					anchor="center"
-					strapLength={0.5}
-					strapColor="#111111"
-					strapWidth={0.65}
-					metal="silver"
-					gravity={0.7}
-					damping={0.1}
-					elasticity={0.25}
-					breeze={1}
-					interactive
+		<div className="mx-auto max-w-content pb-card-inset">
+			<header className="relative z-10 flex min-h-15 items-center justify-center py-2">
+				<PillNav
+					logo={<Trash2 />}
+					logoAlt="Company"
+					items={[
+						{ label: "About", href: "/" },
+						{ label: "Experience", href: "/experience" },
+						{ label: "Projects", href: "/projects" },
+						{ label: "Awards", href: "/awards" },
+					]}
+					activeHref="/"
+					itemStyle="plain"
+					hoverEffect="glide"
+					indicator="pill"
+					layout="split"
+					surface="glass"
+					size="md"
+					bounce={0.37}
+					stretch={0.5}
+					collapse="auto"
 					intro
 				/>
-			</div>
-		</AnimatedContent>
+			</header>
+
+			<AnimatedContent
+				className="mt-[clamp(2rem,4.4vw,4.125rem)] grid gap-section"
+				distance={120}
+				direction="vertical"
+				duration={1.6}
+				ease="elastic.out(1, 0.55)"
+				blur={0}
+				stagger={0.08}
+				threshold={0.1}
+			>
+				<Hero />
+				<ExperienceSection />
+			</AnimatedContent>
+		</div>
 	);
 }

@@ -1,11 +1,25 @@
 @import "../styles/globals.css";
 
 @layer base {
-	:root {
-		@apply font-sans;
+	body {
+		@apply m-0 px-gutter font-inter text-text-primary bg-background-primary tracking-tight;
 	}
 
-	body {
-		@apply bg-background-default;
+	.title {
+		@apply font-serif font-bold tracking-tight;
+	}
+
+	.sub-title {
+		@apply font-serif font-semibold tracking-tight;
+	}
+
+	.tech-title {
+		@apply font-mono uppercase tracking-tighter;
+	}
+}
+
+@layer utilities {
+	.card {
+		@apply rounded-2xl bg-background-secondary p-card-inset text-inherit;
 	}
 }

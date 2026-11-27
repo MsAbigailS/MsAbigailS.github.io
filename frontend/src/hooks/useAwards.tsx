@@ -1,7 +1,13 @@
 import { awards } from "@/data/Awards";
 
-export const useAwards = (): typeof awards => {
+type AwardsResp = {
+	awards: typeof awards;
+	total: Number;
+};
+
+export const useAwards = (): AwardsResp => {
 	return {
-		...awards,
+		awards: awards,
+		total: awards.length,
 	};
 };

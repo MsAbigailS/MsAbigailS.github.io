@@ -1,9 +1,10 @@
 import type { ReactNode } from "react";
-import AnimatedContent from "@/components/AnimatedContent.jsx";
+import AnimatedContent from "@/components/AnimatedContent.tsx";
 
 interface SectionProps {
-	readonly title: string;
 	readonly children: ReactNode;
+	readonly title?: string;
+	readonly subtitle?: string;
 }
 
 export const Section = (props: SectionProps) => (
@@ -21,9 +22,11 @@ export const Section = (props: SectionProps) => (
 		onComplete={undefined}
 		onDisappearanceComplete={undefined}
 		style={undefined}
+		once={false}
 	>
 		<section className="grid gap-5 lg:gap-7">
-			<h2 className="tech-title text-accent text-sm">{props.title}</h2>
+			<h2 className="tech-title text-accent text-sm">{props.subtitle}</h2>
+			<h2 className="title text-text-primary text-4xl">{props.title}</h2>
 			{props.children}
 		</section>
 	</AnimatedContent>

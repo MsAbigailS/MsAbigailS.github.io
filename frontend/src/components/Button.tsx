@@ -1,6 +1,6 @@
 import { LoaderCircle, type LucideIcon } from "lucide-react";
 import type { ComponentProps, MouseEventHandler } from "react";
-import SpecularButton from "@/components/SpecularButton.jsx";
+import SpecularButton from "@/components/SpecularButton.tsx";
 import { Button as StyledButton } from "@/components/ui/button.tsx";
 
 const accentAppearance = {
@@ -17,6 +17,7 @@ export type ButtonVariant =
 
 export interface ButtonProps {
 	label: string;
+	aria: string;
 	icon?: LucideIcon;
 	variant?: ButtonVariant;
 	size?: "sm" | "md" | "lg";
@@ -33,6 +34,7 @@ export function Button({
 	onClick,
 	isLoading = false,
 	isDisabled = false,
+	aria,
 }: ButtonProps) {
 	const Icon = isLoading ? LoaderCircle : icon;
 	const content = (
@@ -66,6 +68,7 @@ export function Button({
 				shineFade={22}
 				thickness={1}
 				glow={0}
+				aria-label={aria}
 			>
 				{content}
 			</SpecularButton>
@@ -78,6 +81,7 @@ export function Button({
 			type="button"
 			variant={variant}
 			size={size === "md" ? "default" : size}
+			aria-label={aria}
 		>
 			{content}
 		</StyledButton>

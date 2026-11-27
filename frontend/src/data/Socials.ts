@@ -20,7 +20,7 @@ export const socials: Social[] = [
 		icon: GitFork,
 		variant: "accent",
 		link: {
-			url: "ABC",
+			url: "https://github.com/MsAbigailS",
 			anchor: "GitHub",
 		},
 	},
@@ -28,7 +28,7 @@ export const socials: Social[] = [
 		name: "LinkedIn",
 		icon: BriefcaseBusiness,
 		link: {
-			url: "ABC",
+			url: "https://www.linkedin.com/in/abigail-smith-computer-science",
 			anchor: "LinkedIn",
 		},
 	},

@@ -1,22 +1,14 @@
-import { Monogram } from "@/components/Monogram.tsx";
+import { ExperienceCard } from "@/components/experience/ExperienceCard.tsx";
 import { Section } from "@/components/sections/Section.tsx";
-import { Card } from "@/components/ui/card.tsx";
 import { useExperiences } from "@/hooks/useExperience.tsx";
 
 export const ExperienceSection = () => {
-	const experience: ReturnType<typeof useExperiences> = useExperiences();
+	const experiences: ReturnType<typeof useExperiences> = useExperiences();
+
 	return (
-		<Section title="Experience">
-			{experience.experience.map((value) => (
-				<Card
-					key={value.company.name}
-					className="card flex-row items-center gap-4 border border-text-primary/10"
-				>
-					{value.company.name.length > 0 ? (
-						<Monogram monogram={value.company.name.charAt(0)} />
-					) : null}
-					{value.company.name}
-				</Card>
+		<Section title="Experience" subtitle="career">
+			{experiences.experience.map((entry) => (
+				<ExperienceCard key={entry.company.name} experience={entry} />
 			))}
 		</Section>
 	);

@@ -2,14 +2,68 @@
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useLayoutEffect, useRef } from "react";
+import {
+	type CSSProperties,
+	type HTMLAttributes,
+	type ReactNode,
+	useEffect,
+	useLayoutEffect,
+	useRef,
+} from "react";
 
 gsap.registerPlugin(ScrollTrigger);
+
+export type AnimatedContentWipe =
+	| "none"
+	| "up"
+	| "down"
+	| "left"
+	| "right"
+	| "center";
+export type AnimatedContentStaggerFrom =
+	| "start"
+	| "end"
+	| "center"
+	| "edges"
+	| "random";
+
+export interface AnimatedContentProps
+	extends Omit<HTMLAttributes<HTMLDivElement>, "onAnimationStart"> {
+	children?: ReactNode;
+	container?: Element | string | null;
+	distance?: number;
+	direction?: "vertical" | "horizontal";
+	reverse?: boolean;
+	duration?: number;
+	ease?: string;
+	initialOpacity?: number;
+	animateOpacity?: boolean;
+	scale?: number;
+	blur?: number;
+	rotate?: number;
+	tilt?: number;
+	wipe?: AnimatedContentWipe;
+	threshold?: number;
+	delay?: number;
+	stagger?: number;
+	staggerFrom?: AnimatedContentStaggerFrom;
+	trigger?: "scroll" | "mount";
+	once?: boolean;
+	scrub?: boolean | number;
+	disappearAfter?: number;
+	disappearDuration?: number;
+	disappearEase?: string;
+	onStart?: () => void;
+	onComplete?: () => void;
+	onDisappearanceComplete?: () => void;
+	className?: string;
+	style?: CSSProperties;
+}
 
 const useIsomorphicLayoutEffect =
 	typeof window === "undefined" ? useEffect : useLayoutEffect;
 
-const WIPES = {
+const WIPES: Record<string, string> = {
 	up: "linear-gradient(to top, #000 calc(var(--ac-wipe) * 140% - 40%), transparent calc(var(--ac-wipe) * 140%))",
 	down: "linear-gradient(to bottom, #000 calc(var(--ac-wipe) * 140% - 40%), transparent calc(var(--ac-wipe) * 140%))",
 	left: "linear-gradient(to left, #000 calc(var(--ac-wipe) * 140% - 40%), transparent calc(var(--ac-wipe) * 140%))",
@@ -50,8 +104,8 @@ const AnimatedContent = ({
 	className = "",
 	style,
 	...props
-}) => {
-	const ref = useRef(null);
+}: AnimatedContentProps) => {
+	const ref = useRef<HTMLDivElement>(null);
 	const callbacksRef = useRef({ onStart, onComplete, onDisappearanceComplete });
 	callbacksRef.current = { onStart, onComplete, onDisappearanceComplete };
 
@@ -59,7 +113,7 @@ const AnimatedContent = ({
 		const el = ref.current;
 		if (!el) return;
 
-		let scroller =
+		let scroller: Element | string | null =
 			container || document.getElementById("snap-main-container") || null;
 		if (typeof scroller === "string")
 			scroller = document.querySelector(scroller);
@@ -68,7 +122,7 @@ const AnimatedContent = ({
 			window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false;
 
 		const ctx = gsap.context(() => {
-			const targets =
+			const targets: Element[] =
 				stagger > 0 && el.children.length ? Array.from(el.children) : [el];
 			const horizontal = direction === "horizontal";
 			const axis = horizontal ? "x" : "y";
@@ -82,12 +136,12 @@ const AnimatedContent = ({
 				return;
 			}
 
-			const from = {
+			const from: gsap.TweenVars = {
 				[axis]: distance * sign,
 				scale,
 				opacity: animateOpacity ? initialOpacity : 1,
 			};
-			const to = {
+			const to: gsap.TweenVars = {
 				[axis]: 0,
 				scale: 1,
 				opacity: 1,
@@ -128,7 +182,7 @@ const AnimatedContent = ({
 
 			const disappear = () => {
 				if (disappearAfter <= 0) return;
-				const out = {
+				const out: gsap.TweenVars = {
 					[axis]: -distance * sign,
 					scale: 0.8,
 					opacity: animateOpacity ? initialOpacity : 0,
@@ -218,8 +272,8 @@ const AnimatedContent = ({
 	return (
 		<div
 			ref={ref}
-			className={className}
-			style={{ visibility: "hidden", ...style }}
+			className={["invisible", className].filter(Boolean).join(" ")}
+			style={style}
 			{...props}
 		>
 			{children}

@@ -70,6 +70,7 @@ export const Page: React.FC = () => {
 					<span className="tip">Tip</span> Adjust the width of the canvas with
 					the{" "}
 					<svg
+						aria-hidden="true"
 						width="10"
 						height="10"
 						viewBox="0 0 12 12"

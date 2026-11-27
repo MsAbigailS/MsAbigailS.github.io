@@ -28,6 +28,10 @@ const Footer = (props: { actions: ReturnType<typeof useSocials> }) => (
 				label={value.name}
 				icon={value.icon}
 				variant={value.variant}
+				onClick={() => {
+					window.open(value.link.url, "_blank", "noopener,noreferrer");
+				}}
+				aria={`open ${value.link.anchor}`}
 				size="md"
 			/>
 		))}
@@ -42,10 +46,12 @@ export const HeroCard = () => {
 		<Card
 			variant="spotlight"
 			size="md"
+			shape="rectangle"
+			orientation="landscape"
 			header={<Header me={me} />}
 			footer={<Footer actions={socials} />}
 		>
-			<div>
+			<div className="h-full flex flex-col items-start justify-center">
 				<h1 className="title text-display">{me.name}</h1>
 				<p className="sub-title mt-2.5 text-2xl text-accent lg:text-3xl">
 					{me.title}

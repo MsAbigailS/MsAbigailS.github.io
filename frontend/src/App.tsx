@@ -1,34 +1,38 @@
 import "@/index.css";
 import { Trash2 } from "lucide-react";
 import AnimatedContent from "@/components/AnimatedContent.jsx";
-import PillNav from "@/components/PillNav";
-import { ExperienceSection } from "@/components/sections/ExperienceSection";
-import { Hero } from "@/components/sections/Hero";
+import PillNav from "@/components/PillNav.jsx";
+import { ExperienceSection } from "@/components/sections/ExperienceSection.tsx";
+import { Hero } from "@/components/sections/Hero.tsx";
 export function App() {
 	return (
 		<div className="mx-auto max-w-content pb-card-inset">
 			<header className="relative z-10 flex min-h-15 items-center justify-center py-2">
-				<PillNav
-					logo={<Trash2 />}
-					logoAlt="Company"
-					items={[
-						{ label: "About", href: "/" },
-						{ label: "Experience", href: "/experience" },
-						{ label: "Projects", href: "/projects" },
-						{ label: "Awards", href: "/awards" },
-					]}
-					activeHref="/"
-					itemStyle="plain"
-					hoverEffect="glide"
-					indicator="pill"
-					layout="split"
-					surface="glass"
-					size="md"
-					bounce={0.37}
-					stretch={0.5}
-					collapse="auto"
-					intro
-				/>
+				{/* <span className="*:bg-background-primary">
+					<PillNav
+						logo={<Trash2 />}
+						logoAlt="Company"
+						items={[
+							{ label: "About", href: "/" },
+							{ label: "Experience", href: "/experience" },
+							{ label: "Projects", href: "/projects" },
+							{ label: "Awards", href: "/awards" },
+						]}
+						activeHref="/"
+						itemStyle="plain"
+						hoverEffect="glide"
+						indicator="pill"
+						layout="split"
+						surface="glass"
+						size="md"
+						bounce={0.37}
+						stretch={0.5}
+						collapse="auto"
+						barColor="bg-background-primary"
+						textColor="text-text-primary"
+						intro
+					/>
+				</span> */}
 			</header>
 
 			<AnimatedContent

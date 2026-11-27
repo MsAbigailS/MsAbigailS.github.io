@@ -1,13 +1,11 @@
-import { socials } from "@/data/Socials";
+import { socials } from "@/data/Socials.ts";
 
 type SocialsResp = {
 	socials: typeof socials;
-	total: Number;
+	total: number;
 };
 
-export const useSocials = (): SocialsResp => {
-	return {
-		socials: socials,
-		total: socials.length,
-	};
-};
+export const useSocials = (): SocialsResp => ({
+	socials,
+	total: socials.length,
+});

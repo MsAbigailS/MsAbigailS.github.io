@@ -1,5 +1,3 @@
-import { me } from "@/data/Me";
+import { me } from "@/data/Me.ts";
 
-export const useMe = (): typeof me => {
-	return { ...me };
-};
+export const useMe = (): typeof me => ({ ...me });

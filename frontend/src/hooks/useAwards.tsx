@@ -1,13 +1,11 @@
-import { awards } from "@/data/Awards";
+import { awards } from "@/data/Awards.ts";
 
 type AwardsResp = {
 	awards: typeof awards;
-	total: Number;
+	total: number;
 };
 
-export const useAwards = (): AwardsResp => {
-	return {
-		awards: awards,
-		total: awards.length,
-	};
-};
+export const useAwards = (): AwardsResp => ({
+	awards,
+	total: awards.length,
+});

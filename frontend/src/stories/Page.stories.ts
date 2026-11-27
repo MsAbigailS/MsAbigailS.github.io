@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { expect, userEvent, within } from "storybook/test";
 
-import { Page } from "./Page";
+import { Page } from "./Page.tsx";
 
 const meta = {
 	title: "Example/Page",
@@ -22,12 +22,12 @@ export const LoggedOut: Story = {};
 export const LoggedIn: Story = {
 	play: async ({ canvasElement }) => {
 		const canvas = within(canvasElement);
-		const loginButton = canvas.getByRole("button", { name: /Log in/i });
+		const loginButton = canvas.getByRole("button", { name: /Log in/iu });
 		await expect(loginButton).toBeInTheDocument();
 		await userEvent.click(loginButton);
 		await expect(loginButton).not.toBeInTheDocument();
 
-		const logoutButton = canvas.getByRole("button", { name: /Log out/i });
+		const logoutButton = canvas.getByRole("button", { name: /Log out/iu });
 		await expect(logoutButton).toBeInTheDocument();
 	},
 };

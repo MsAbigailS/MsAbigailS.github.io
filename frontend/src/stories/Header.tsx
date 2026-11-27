@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Button } from "./Button";
+import { Button } from "./Button.tsx";
 import "./header.css";
 
 type User = {
@@ -58,7 +58,7 @@ export const Header = ({
 					<>
 						<Button size="small" onClick={onLogin} label="Log in" />
 						<Button
-							primary
+							primary={true}
 							size="small"
 							onClick={onCreateAccount}
 							label="Sign up"

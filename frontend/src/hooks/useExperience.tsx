@@ -1,13 +1,11 @@
-import { experiences } from "@/data/Experience";
+import { experiences } from "@/data/Experience.ts";
 
 type ExperienceResp = {
 	experience: typeof experiences;
-	total: Number;
+	total: number;
 };
 
-export const useExperiences = (): ExperienceResp => {
-	return {
-		experience: experiences,
-		total: experiences.length,
-	};
-};
+export const useExperiences = (): ExperienceResp => ({
+	experience: experiences,
+	total: experiences.length,
+});

@@ -1,7 +1,7 @@
-import { Monogram } from "@/components/Monogram";
-import { Section } from "@/components/sections/Section";
-import { Card } from "@/components/ui/card";
-import { useExperiences } from "@/hooks/useExperience";
+import { Monogram } from "@/components/Monogram.tsx";
+import { Section } from "@/components/sections/Section.tsx";
+import { Card } from "@/components/ui/card.tsx";
+import { useExperiences } from "@/hooks/useExperience.tsx";
 
 export const ExperienceSection = () => {
 	const experience: ReturnType<typeof useExperiences> = useExperiences();

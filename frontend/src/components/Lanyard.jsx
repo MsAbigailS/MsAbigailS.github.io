@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
-import * as THREE from "three";
+import * as Three from "three";
 
 import "./Lanyard.css";
 
@@ -187,10 +187,10 @@ const parseColor = (value, fallback) => {
 		ctx.fillStyle = value;
 		const resolved = ctx.fillStyle;
 		if (resolved.startsWith("#")) {
-			const n = parseInt(resolved.slice(1), 16);
+			const n = Number.parseInt(resolved.slice(1), 16);
 			return [((n >> 16) & 255) / 255, ((n >> 8) & 255) / 255, (n & 255) / 255];
 		}
-		const parts = resolved.match(/[\d.]+/g);
+		const parts = resolved.match(/[\d.]+/gu);
 		if (!parts || parts.length < 3) return fallback;
 		return [
 			Number(parts[0]) / 255,
@@ -209,11 +209,11 @@ const toCss = (rgb, alpha = 1) =>
 const seeded = (start) => {
 	let state = start >>> 0;
 	return () => {
-		state = (state + 0x6d2b79f5) >>> 0;
+		state = (state + 0x6d_2b_79_f5) >>> 0;
 		let t = state;
 		t = Math.imul(t ^ (t >>> 15), t | 1);
 		t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
-		return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+		return ((t ^ (t >>> 14)) >>> 0) / 4_294_967_296;
 	};
 };
 
@@ -268,7 +268,7 @@ const cardLayout = (orientation, cornerRadius) => {
 
 const buildCardGeometry = (layout) => {
 	const { width, height, radius, slot } = layout;
-	const outline = new THREE.Shape();
+	const outline = new Three.Shape();
 	traceRoundedRect(
 		outline,
 		-width / 2 + BEVEL,
@@ -277,7 +277,7 @@ const buildCardGeometry = (layout) => {
 		height - BEVEL * 2,
 		Math.max(radius - BEVEL, 0.005),
 	);
-	const hole = new THREE.Path();
+	const hole = new Three.Path();
 	traceRoundedRect(
 		hole,
 		-slot.width / 2 - BEVEL,
@@ -287,7 +287,7 @@ const buildCardGeometry = (layout) => {
 		slot.height / 2 + BEVEL,
 	);
 	outline.holes.push(hole);
-	const body = new THREE.ExtrudeGeometry(outline, {
+	const body = new Three.ExtrudeGeometry(outline, {
 		depth: THICKNESS,
 		bevelEnabled: true,
 		bevelThickness: BEVEL,
@@ -296,7 +296,7 @@ const buildCardGeometry = (layout) => {
 		curveSegments: 24,
 	});
 	body.translate(0, 0, -THICKNESS / 2);
-	const face = new THREE.ShapeGeometry(outline, 24);
+	const face = new Three.ShapeGeometry(outline, 24);
 	const position = face.getAttribute("position");
 	const uv = face.getAttribute("uv");
 	for (let i = 0; i < position.count; i++) {
@@ -311,7 +311,7 @@ const buildCardGeometry = (layout) => {
 };
 
 const buildClampGeometry = (width) => {
-	const shape = new THREE.Shape();
+	const shape = new Three.Shape();
 	const w = width * 1.16;
 	traceRoundedRect(
 		shape,
@@ -321,7 +321,7 @@ const buildClampGeometry = (width) => {
 		CLAMP_BODY - 0.028,
 		0.024,
 	);
-	const geometry = new THREE.ExtrudeGeometry(shape, {
+	const geometry = new Three.ExtrudeGeometry(shape, {
 		depth: 0.02,
 		bevelEnabled: true,
 		bevelThickness: 0.014,
@@ -335,18 +335,18 @@ const buildClampGeometry = (width) => {
 
 const buildBandGeometry = (count) => {
 	const columns = BAND_COLUMNS.length;
-	const geometry = new THREE.BufferGeometry();
+	const geometry = new Three.BufferGeometry();
 	geometry.setAttribute(
 		"position",
-		new THREE.BufferAttribute(new Float32Array(count * columns * 3), 3),
+		new Three.BufferAttribute(new Float32Array(count * columns * 3), 3),
 	);
 	geometry.setAttribute(
 		"normal",
-		new THREE.BufferAttribute(new Float32Array(count * columns * 3), 3),
+		new Three.BufferAttribute(new Float32Array(count * columns * 3), 3),
 	);
 	geometry.setAttribute(
 		"uv",
-		new THREE.BufferAttribute(new Float32Array(count * columns * 2), 2),
+		new Three.BufferAttribute(new Float32Array(count * columns * 2), 2),
 	);
 	const index = [];
 	for (let i = 0; i < count - 1; i++) {
@@ -360,17 +360,17 @@ const buildBandGeometry = (count) => {
 };
 
 const buildEnvironment = (renderer) => {
-	const scene = new THREE.Scene();
-	scene.background = new THREE.Color(0.035, 0.035, 0.04);
-	const geometry = new THREE.PlaneGeometry(1, 1);
+	const scene = new Three.Scene();
+	scene.background = new Three.Color(0.035, 0.035, 0.04);
+	const geometry = new Three.PlaneGeometry(1, 1);
 	const materials = [];
 	const panel = (intensity, position, scale, rotation = 0) => {
-		const material = new THREE.MeshBasicMaterial({
-			color: new THREE.Color(intensity, intensity, intensity),
-			side: THREE.DoubleSide,
+		const material = new Three.MeshBasicMaterial({
+			color: new Three.Color(intensity, intensity, intensity),
+			side: Three.DoubleSide,
 		});
 		materials.push(material);
-		const mesh = new THREE.Mesh(geometry, material);
+		const mesh = new Three.Mesh(geometry, material);
 		mesh.position.set(...position);
 		mesh.scale.set(scale[0], scale[1], 1);
 		mesh.lookAt(0, 0, 0);
@@ -385,7 +385,7 @@ const buildEnvironment = (renderer) => {
 	panel(1.4, [0, 6, -6], [12, 4]);
 	panel(0.5, [0, -7, 1], [16, 6]);
 	panel(0.9, [8, 0, -2], [4, 10]);
-	const pmrem = new THREE.PMREMGenerator(renderer);
+	const pmrem = new Three.PMREMGenerator(renderer);
 	const target = pmrem.fromScene(scene, 0.035);
 	pmrem.dispose();
 	geometry.dispose();
@@ -394,8 +394,8 @@ const buildEnvironment = (renderer) => {
 };
 
 const makeCanvasTexture = (canvas, anisotropy) => {
-	const texture = new THREE.CanvasTexture(canvas);
-	texture.colorSpace = THREE.SRGBColorSpace;
+	const texture = new Three.CanvasTexture(canvas);
+	texture.colorSpace = Three.SRGBColorSpace;
 	texture.anisotropy = anisotropy;
 	return texture;
 };
@@ -406,7 +406,7 @@ const buildGrainTexture = () => {
 	canvas.width = size;
 	canvas.height = size;
 	const ctx = canvas.getContext("2d");
-	if (!ctx) return new THREE.CanvasTexture(canvas);
+	if (!ctx) return new Three.CanvasTexture(canvas);
 	const random = seeded(7);
 	const field = Float32Array.from({ length: size * size }, () => random());
 	const height = (x, y) => {
@@ -431,9 +431,9 @@ const buildGrainTexture = () => {
 		}
 	}
 	ctx.putImageData(image, 0, 0);
-	const texture = new THREE.CanvasTexture(canvas);
-	texture.wrapS = THREE.RepeatWrapping;
-	texture.wrapT = THREE.RepeatWrapping;
+	const texture = new Three.CanvasTexture(canvas);
+	texture.wrapS = Three.RepeatWrapping;
+	texture.wrapT = Three.RepeatWrapping;
 	texture.repeat.set(5, 7);
 	return texture;
 };
@@ -476,11 +476,11 @@ const buildWeaveTexture = () => {
 			data[i + 3] = 255;
 		}
 	}
-	const texture = new THREE.DataTexture(data, size, size);
-	texture.wrapS = THREE.RepeatWrapping;
-	texture.wrapT = THREE.RepeatWrapping;
-	texture.magFilter = THREE.LinearFilter;
-	texture.minFilter = THREE.LinearMipmapLinearFilter;
+	const texture = new Three.DataTexture(data, size, size);
+	texture.wrapS = Three.RepeatWrapping;
+	texture.wrapT = Three.RepeatWrapping;
+	texture.magFilter = Three.LinearFilter;
+	texture.minFilter = Three.LinearMipmapLinearFilter;
 	texture.generateMipmaps = true;
 	texture.needsUpdate = true;
 	return texture;
@@ -536,7 +536,7 @@ const paintStrap = (canvas, image, color) => {
 
 const createSimulation = () => {
 	const vectors = () =>
-		Array.from({ length: JOINTS + 1 }, () => new THREE.Vector3());
+		Array.from({ length: JOINTS + 1 }, () => new Three.Vector3());
 	return {
 		nodes: vectors(),
 		previous: vectors(),
@@ -544,17 +544,17 @@ const createSimulation = () => {
 		lengths: new Float64Array(JOINTS),
 		impulses: new Float64Array(JOINTS),
 		rest: 1,
-		anchor: new THREE.Vector3(),
+		anchor: new Three.Vector3(),
 		body: {
-			position: new THREE.Vector3(),
-			previous: new THREE.Vector3(),
-			velocity: new THREE.Vector3(),
-			quaternion: new THREE.Quaternion(),
-			previousQuaternion: new THREE.Quaternion(),
-			angular: new THREE.Vector3(),
+			position: new Three.Vector3(),
+			previous: new Three.Vector3(),
+			velocity: new Three.Vector3(),
+			quaternion: new Three.Quaternion(),
+			previousQuaternion: new Three.Quaternion(),
+			angular: new Three.Vector3(),
 			mass: 1,
-			inverseInertia: new THREE.Vector3(1, 1, 1),
-			hang: new THREE.Vector3(),
+			inverseInertia: new Three.Vector3(1, 1, 1),
+			hang: new Three.Vector3(),
 		},
 		grab: null,
 		turn: 0,
@@ -565,16 +565,16 @@ const createSimulation = () => {
 };
 
 const scratch = {
-	a: new THREE.Vector3(),
-	b: new THREE.Vector3(),
-	c: new THREE.Vector3(),
-	d: new THREE.Vector3(),
-	e: new THREE.Vector3(),
-	f: new THREE.Vector3(),
-	g: new THREE.Vector3(),
-	pin: new THREE.Vector3(),
-	q: new THREE.Quaternion(),
-	r: new THREE.Quaternion(),
+	a: new Three.Vector3(),
+	b: new Three.Vector3(),
+	c: new Three.Vector3(),
+	d: new Three.Vector3(),
+	e: new Three.Vector3(),
+	f: new Three.Vector3(),
+	g: new Three.Vector3(),
+	pin: new Three.Vector3(),
+	q: new Three.Quaternion(),
+	r: new Three.Quaternion(),
 };
 
 const applyInverseInertia = (body, vector, out) => {
@@ -661,7 +661,7 @@ const placeHanging = (sim, layout, intro) => {
 	}
 	body.quaternion.identity();
 	if (intro)
-		body.quaternion.setFromAxisAngle(new THREE.Vector3(0, 0, 1), Math.PI / 2);
+		body.quaternion.setFromAxisAngle(new Three.Vector3(0, 0, 1), Math.PI / 2);
 	body.hang.set(0, layout.hangY, 0);
 	const offset = scratch.a.copy(body.hang).applyQuaternion(body.quaternion);
 	body.position.copy(nodes[JOINTS]).sub(offset);
@@ -885,21 +885,21 @@ const Lanyard = ({
 	useEffect(() => {
 		const container = containerRef.current;
 		const surface = surfaceRef.current;
-		if (!container || !surface) return undefined;
+		if (!(container && surface)) return;
 
 		let renderer;
 		try {
-			renderer = new THREE.WebGLRenderer({
+			renderer = new Three.WebGLRenderer({
 				antialias: true,
 				alpha: true,
 				powerPreference: "high-performance",
 			});
 		} catch {
-			return undefined;
+			return;
 		}
-		renderer.setClearColor(0x000000, 0);
-		renderer.outputColorSpace = THREE.SRGBColorSpace;
-		renderer.toneMapping = THREE.NeutralToneMapping;
+		renderer.setClearColor(0x00_00_00, 0);
+		renderer.outputColorSpace = Three.SRGBColorSpace;
+		renderer.toneMapping = Three.NeutralToneMapping;
 		renderer.toneMappingExposure = 1;
 		const canvas = renderer.domElement;
 		canvas.className = "lanyard-canvas";
@@ -910,13 +910,13 @@ const Lanyard = ({
 		const badgeTarget = badgeRef.current;
 
 		const anisotropy = Math.min(8, renderer.capabilities.getMaxAnisotropy());
-		const scene = new THREE.Scene();
+		const scene = new Three.Scene();
 		const environment = buildEnvironment(renderer);
 		scene.environment = environment.texture;
-		const camera = new THREE.PerspectiveCamera(FOV, 1, 0.1, 200);
-		const keyLight = new THREE.DirectionalLight(0xffffff, 1.6);
+		const camera = new Three.PerspectiveCamera(FOV, 1, 0.1, 200);
+		const keyLight = new Three.DirectionalLight(0xff_ff_ff, 1.6);
 		keyLight.position.set(-2.5, 4, 6);
-		const fillLight = new THREE.DirectionalLight(0xffffff, 0.35);
+		const fillLight = new Three.DirectionalLight(0xff_ff_ff, 0.35);
 		fillLight.position.set(3, -1, 4);
 		scene.add(keyLight, fillLight);
 
@@ -928,16 +928,16 @@ const Lanyard = ({
 		const frontTexture = makeCanvasTexture(frontCanvas, anisotropy);
 		const backTexture = makeCanvasTexture(backCanvas, anisotropy);
 		const strapTexture = makeCanvasTexture(strapCanvas, anisotropy);
-		strapTexture.wrapS = THREE.ClampToEdgeWrapping;
-		strapTexture.wrapT = THREE.RepeatWrapping;
+		strapTexture.wrapS = Three.ClampToEdgeWrapping;
+		strapTexture.wrapT = Three.RepeatWrapping;
 		const grain = buildGrainTexture();
 		const weave = buildWeaveTexture();
 		const foilUniforms = {
 			foilStrength: { value: 0 },
 			foilAspect: { value: 1.4 },
-			foilKey: { value: new THREE.Vector3() },
-			foilFill: { value: new THREE.Vector3() },
-			foilTop: { value: new THREE.Vector3() },
+			foilKey: { value: new Three.Vector3() },
+			foilFill: { value: new Three.Vector3() },
+			foilTop: { value: new Three.Vector3() },
 		};
 		const injectFoil = (shader) => {
 			Object.assign(shader.uniforms, foilUniforms);
@@ -958,37 +958,37 @@ const Lanyard = ({
 				);
 		};
 
-		const frontMaterial = new THREE.MeshPhysicalMaterial({
+		const frontMaterial = new Three.MeshPhysicalMaterial({
 			map: frontTexture,
 			normalMap: grain,
-			normalScale: new THREE.Vector2(0.06, 0.06),
+			normalScale: new Three.Vector2(0.06, 0.06),
 		});
-		const backMaterial = new THREE.MeshPhysicalMaterial({
+		const backMaterial = new Three.MeshPhysicalMaterial({
 			map: backTexture,
 			normalMap: grain,
-			normalScale: new THREE.Vector2(0.06, 0.06),
+			normalScale: new Three.Vector2(0.06, 0.06),
 		});
 		frontMaterial.onBeforeCompile = injectFoil;
 		backMaterial.onBeforeCompile = injectFoil;
-		const edgeMaterial = new THREE.MeshPhysicalMaterial();
-		const metalMaterial = new THREE.MeshStandardMaterial({ metalness: 1 });
-		const bandMaterial = new THREE.MeshPhysicalMaterial({
+		const edgeMaterial = new Three.MeshPhysicalMaterial();
+		const metalMaterial = new Three.MeshStandardMaterial({ metalness: 1 });
+		const bandMaterial = new Three.MeshPhysicalMaterial({
 			map: strapTexture,
 			normalMap: weave,
-			normalScale: new THREE.Vector2(0.7, 0.7),
+			normalScale: new Three.Vector2(0.7, 0.7),
 			roughness: 0.68,
 			sheen: 1,
 			sheenRoughness: 0.42,
-			sheenColor: new THREE.Color(0.32, 0.32, 0.34),
-			side: THREE.DoubleSide,
+			sheenColor: new Three.Color(0.32, 0.32, 0.34),
+			side: Three.DoubleSide,
 		});
 
-		const cardGroup = new THREE.Group();
-		const bodyMesh = new THREE.Mesh(undefined, edgeMaterial);
-		const frontMesh = new THREE.Mesh(undefined, frontMaterial);
-		const backMesh = new THREE.Mesh(undefined, backMaterial);
-		const ring = new THREE.Mesh(
-			new THREE.TorusGeometry(RING_RADIUS, RING_TUBE, 18, 72),
+		const cardGroup = new Three.Group();
+		const bodyMesh = new Three.Mesh(undefined, edgeMaterial);
+		const frontMesh = new Three.Mesh(undefined, frontMaterial);
+		const backMesh = new Three.Mesh(undefined, backMaterial);
+		const ring = new Three.Mesh(
+			new Three.TorusGeometry(RING_RADIUS, RING_TUBE, 18, 72),
 			metalMaterial,
 		);
 		ring.rotation.y = Math.PI / 2 - 0.7;
@@ -996,18 +996,18 @@ const Lanyard = ({
 		scene.add(cardGroup);
 
 		const bandGeometry = buildBandGeometry(SAMPLES);
-		const band = new THREE.Mesh(bandGeometry, bandMaterial);
+		const band = new Three.Mesh(bandGeometry, bandMaterial);
 		band.frustumCulled = false;
 		scene.add(band);
 
-		const clampGroup = new THREE.Group();
-		const clampMesh = new THREE.Mesh(
+		const clampGroup = new Three.Group();
+		const clampMesh = new Three.Mesh(
 			buildClampGeometry(STRAP_WIDTH),
 			metalMaterial,
 		);
 		clampMesh.position.y = EYELET_RADIUS + CLAMP_BODY / 2 - 0.004;
-		const eyelet = new THREE.Mesh(
-			new THREE.TorusGeometry(EYELET_RADIUS, 0.0105, 14, 40),
+		const eyelet = new Three.Mesh(
+			new Three.TorusGeometry(EYELET_RADIUS, 0.0105, 14, 40),
 			metalMaterial,
 		);
 		clampGroup.add(clampMesh, eyelet);
@@ -1015,9 +1015,9 @@ const Lanyard = ({
 
 		const sim = createSimulation();
 		const controls = [];
-		const mouth = new THREE.Vector3();
-		const tuck = new THREE.Vector3();
-		const curve = new THREE.CatmullRomCurve3(controls, false, "centripetal");
+		const mouth = new Three.Vector3();
+		const tuck = new Three.Vector3();
+		const curve = new Three.CatmullRomCurve3(controls, false, "centripetal");
 		const view = { width: 1, height: 1 };
 		const viewport = { width: 1, height: 1 };
 		let layout = cardLayout("portrait", 0.3);
@@ -1174,7 +1174,7 @@ const Lanyard = ({
 				card[0] * 0.92,
 				card[1] * 0.92,
 				card[2] * 0.92,
-				THREE.SRGBColorSpace,
+				Three.SRGBColorSpace,
 			);
 			edgeMaterial.roughness = Math.min(finish.roughness, 0.35);
 			edgeMaterial.metalness = finish.metalness;
@@ -1200,17 +1200,17 @@ const Lanyard = ({
 			start();
 		};
 
-		const points = Array.from({ length: SAMPLES }, () => new THREE.Vector3());
-		const sides = Array.from({ length: SAMPLES }, () => new THREE.Vector3());
+		const points = Array.from({ length: SAMPLES }, () => new Three.Vector3());
+		const sides = Array.from({ length: SAMPLES }, () => new Three.Vector3());
 		const bends = BAND_BEND.map((angle) => [Math.cos(angle), Math.sin(angle)]);
 		const work = {
-			tangent: new THREE.Vector3(),
-			toCamera: new THREE.Vector3(),
-			basis: new THREE.Matrix4(),
-			up: new THREE.Vector3(),
-			across: new THREE.Vector3(),
-			facing: new THREE.Vector3(),
-			end: new THREE.Vector3(),
+			tangent: new Three.Vector3(),
+			toCamera: new Three.Vector3(),
+			basis: new Three.Matrix4(),
+			up: new Three.Vector3(),
+			across: new Three.Vector3(),
+			facing: new Three.Vector3(),
+			end: new Three.Vector3(),
 		};
 
 		const updateBand = () => {
@@ -1240,8 +1240,7 @@ const Lanyard = ({
 			const restLength = sim.rest * JOINTS;
 			const repeats = restLength / (strapScale * tileRatio);
 			const width =
-				strapScale /
-				Math.pow(Math.max(1, length / Math.max(restLength, 0.001)), 0.35);
+				strapScale / Math.max(1, length / Math.max(restLength, 0.001)) ** 0.35;
 			const { tangent, toCamera, across, facing } = work;
 			for (let i = 0; i < SAMPLES; i++) {
 				tangent.subVectors(
@@ -1256,8 +1255,7 @@ const Lanyard = ({
 					side.copy(i > 0 ? sides[i - 1] : scratch.a.set(1, 0, 0));
 				side.normalize();
 				if (i > 0 && side.dot(sides[i - 1]) < 0) side.negate();
-				const angle =
-					-sim.twist * Math.pow(Math.min(1, i / (SAMPLES - 1) / held), 1.3);
+				const angle = -sim.twist * Math.min(1, i / (SAMPLES - 1) / held) ** 1.3;
 				facing.crossVectors(tangent, side);
 				across
 					.copy(side)
@@ -1300,12 +1298,12 @@ const Lanyard = ({
 			clampGroup.position.copy(hang);
 		};
 
-		const projected = new THREE.Vector3();
+		const projected = new Three.Vector3();
 		const screenPoint = (point) => {
 			projected.copy(point).project(camera);
 			return `${((projected.x + 1) * viewport.width) / 2},${((1 - projected.y) * viewport.height) / 2}`;
 		};
-		const corner = new THREE.Vector3();
+		const corner = new Three.Vector3();
 		const corners = [
 			[-1, 1],
 			[1, 1],
@@ -1329,7 +1327,7 @@ const Lanyard = ({
 			strap.push(screenPoint(tuck), screenPoint(sim.nodes[JOINTS]));
 			strapTarget.setAttribute("points", strap.join(" "));
 			const viewHeight =
-				2 * camera.position.z * Math.tan(THREE.MathUtils.degToRad(FOV / 2));
+				2 * camera.position.z * Math.tan(Three.MathUtils.degToRad(FOV / 2));
 			strapTarget.setAttribute(
 				"stroke-width",
 				Math.max(24, (strapScale * view.height) / viewHeight),
@@ -1368,8 +1366,8 @@ const Lanyard = ({
 				stiffness: weight * 10 * JOINTS,
 				spring: weight * mix(0.1, 0.4, springy) * JOINTS,
 				bandDamping: weight * mix(0.3, 0.08, springy) * JOINTS,
-				linearDrag: 0.25 * Math.pow(16, settle),
-				angularDrag: 0.5 * Math.pow(12, settle),
+				linearDrag: 0.25 * 16 ** settle,
+				angularDrag: 0.5 * 12 ** settle,
 				air: 0.15,
 				broadside: 0.5,
 				spinAir: 0.03,
@@ -1415,8 +1413,8 @@ const Lanyard = ({
 			raf = requestAnimationFrame(tick);
 		};
 
-		const raycaster = new THREE.Raycaster();
-		const pointer = new THREE.Vector2();
+		const raycaster = new Three.Raycaster();
+		const pointer = new Three.Vector2();
 
 		const toPointer = (event) => {
 			const rect = canvas.getBoundingClientRect();
@@ -1427,8 +1425,8 @@ const Lanyard = ({
 			raycaster.setFromCamera(pointer, camera);
 		};
 
-		const dragPlane = new THREE.Plane(new THREE.Vector3(0, 0, 1));
-		const dragOffset = new THREE.Vector3();
+		const dragPlane = new Three.Plane(new Three.Vector3(0, 0, 1));
+		const dragOffset = new Three.Vector3();
 		const closestStrapJoint = () => {
 			// The first node is the fixed anchor. The last is attached to the badge.
 			let closest = 1;
@@ -1467,7 +1465,7 @@ const Lanyard = ({
 			dragPlane.constant = -origin.z;
 			const point = raycaster.ray.intersectPlane(
 				dragPlane,
-				new THREE.Vector3(),
+				new Three.Vector3(),
 			);
 			if (!point) return;
 			const grip = isBadge ? point : origin;

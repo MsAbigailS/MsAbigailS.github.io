@@ -1,4 +1,4 @@
-import { type Link } from "@/types/Link";
+import type { Link } from "@/types/Link.ts";
 
 type Role = {
 	title: string;

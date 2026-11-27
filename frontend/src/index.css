@@ -6,7 +6,7 @@
 	}
 
 	.title {
-		@apply font-serif font-bold tracking-tight;
+		@apply font-serif font-semibold tracking-tight;
 	}
 
 	.sub-title {

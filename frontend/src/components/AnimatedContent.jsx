@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useLayoutEffect, useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const useIsomorphicLayoutEffect =
-	typeof window !== "undefined" ? useLayoutEffect : useEffect;
+	typeof window === "undefined" ? useEffect : useLayoutEffect;
 
 const WIPES = {
 	up: "linear-gradient(to top, #000 calc(var(--ac-wipe) * 140% - 40%), transparent calc(var(--ac-wipe) * 140%))",
@@ -57,7 +57,7 @@ const AnimatedContent = ({
 
 	useIsomorphicLayoutEffect(() => {
 		const el = ref.current;
-		if (!el) return undefined;
+		if (!el) return;
 
 		let scroller =
 			container || document.getElementById("snap-main-container") || null;

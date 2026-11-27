@@ -1,8 +1,8 @@
-import { Button } from "@/components/Button";
-import Lanyard from "@/components/Lanyard";
-import { Card } from "@/components/ui/card";
-import { useMe } from "@/hooks/useMe";
-import { useSocials } from "@/hooks/useSocials";
+import { Button } from "@/components/Button.tsx";
+import Lanyard from "@/components/Lanyard.jsx";
+import { Card } from "@/components/ui/card.tsx";
+import { useMe } from "@/hooks/useMe.tsx";
+import { useSocials } from "@/hooks/useSocials.tsx";
 
 export const Hero = () => {
 	const me: ReturnType<typeof useMe> = useMe();
@@ -21,9 +21,7 @@ export const Hero = () => {
 				</div>
 
 				<div>
-					<h1 id="hero-name" className="title text-display">
-						{me.name}
-					</h1>
+					<h1 className="title text-display">{me.name}</h1>
 					<p className="sub-title mt-2.5 text-2xl text-accent lg:text-3xl">
 						{me.title}
 					</p>
@@ -54,7 +52,7 @@ export const Hero = () => {
 					orientation="portrait"
 					finish="glossy"
 					cornerRadius={0.3}
-					size={0.56}
+					size={0.8}
 					anchor="center"
 					style={{ position: "absolute", inset: 0 }}
 					strapLength={0.5}
@@ -65,9 +63,9 @@ export const Hero = () => {
 					damping={0.1}
 					elasticity={0.25}
 					breeze={1}
-					interactive
-					overlay
-					intro
+					interactive={true}
+					overlay={true}
+					intro={true}
 				/>
 			</div>
 		</section>

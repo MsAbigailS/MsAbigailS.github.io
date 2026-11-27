@@ -35,7 +35,7 @@ Use Tailwind v4 utility classes in components and stories under `src/`. The port
 | Design token  | Utilities                                                                   | Usage                                                                                   |
 | ------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
 | Page spacing  | `px-gutter`, `py-section`                                                   | Responsive page gutters and vertical section padding                                    |
-| Content width | `max-w-content`, `max-w-reading`                                            | An 82.5rem page column or a 65ch reading column                                            |
+| Content width | `max-w-content`, `max-w-reading`                                            | An 82.5rem page column or a 65ch reading column                                         |
 | Font family   | `font-sans`, `font-inter`, `font-serif`, `font-mono`                        | Geist (default), Inter, Newsreader, and JetBrains Mono for code, respectively.          |
 | Type sizes    | `text-body`, `text-heading`, `text-display`                                 | Body copy, section headings, and page titles, each with its own line height             |
 | Theme colors  | `bg-background`, `text-foreground`, `bg-primary`, `text-primary-foreground` | Pair each surface with its foreground. Apply `.dark` to an ancestor to switch palettes. |

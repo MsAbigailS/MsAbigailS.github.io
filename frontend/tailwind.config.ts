@@ -30,10 +30,7 @@ export default {
 			fontSize: {
 				body: ["1rem", { lineHeight: "1.5" }],
 				heading: ["clamp(1.5rem, 1rem + 2vw, 2.5rem)", { lineHeight: "1.2" }],
-				display: [
-					"clamp(2.5rem, 4.15vw, 3.875rem)",
-					{ lineHeight: "1.05" },
-				],
+				display: ["clamp(2.5rem, 4.15vw, 3.875rem)", { lineHeight: "1.05" }],
 			},
 		},
 	},

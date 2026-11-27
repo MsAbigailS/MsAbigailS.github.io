@@ -11,7 +11,7 @@ export const DynamicHero = () => (
 			orientation="portrait"
 			finish="glossy"
 			cornerRadius={0.3}
-			size={0.8}
+			size={1}
 			anchor="center"
 			style={{ position: "absolute", inset: 0 }}
 			strapLength={0.5}
@@ -24,6 +24,7 @@ export const DynamicHero = () => (
 			breeze={1}
 			interactive={true}
 			overlay={true}
+			attachToPageTop={true}
 			intro={true}
 		/>
 	</div>

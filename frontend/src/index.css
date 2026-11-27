@@ -2,7 +2,7 @@
 
 @layer base {
 	body {
-		@apply m-0 px-gutter font-inter text-text-primary bg-background-primary tracking-tight;
+		@apply mx-auto max-w-content pb-card-inset m-0 px-gutter font-inter text-text-primary bg-background-primary tracking-tight;
 	}
 
 	.title {
@@ -15,6 +15,14 @@
 
 	.tech-title {
 		@apply font-mono uppercase tracking-tighter;
+	}
+
+	.section {
+		@apply grid grid-cols-12 gap-4 lg:gap-7;
+	}
+
+	.tag {
+		@apply font-serif font-thin;
 	}
 }
 

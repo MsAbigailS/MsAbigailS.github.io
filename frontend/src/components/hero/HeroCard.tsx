@@ -1,12 +1,19 @@
 import type { ReactNode } from "react";
 import { Button } from "@/components/Button.tsx";
 import { Card } from "@/components/Card.tsx";
+import { Tag } from "@/components/Tag.tsx";
 import { useMe } from "@/hooks/useMe.tsx";
 import { useSocials } from "@/hooks/useSocials.tsx";
 
 const Header = (props: { me: ReturnType<typeof useMe> }): ReactNode => (
 	<div className="sub-title flex flex-wrap items-center justify-between gap-x-4 gap-y-2 text-sm">
-		<div className="rounded-full bg-accent/25 px-3.5 py-1.5">ABC</div>
+		<Tag
+			label={props.me.tag}
+			variant="primary"
+			icon={
+				<span aria-hidden="true" className="size-3 rounded-full bg-current" />
+			}
+		/>
 		<div className="font-normal">
 			{`${props.me.location.city}, ${props.me.location.state}`}
 		</div>
@@ -33,7 +40,7 @@ export const HeroCard = () => {
 
 	return (
 		<Card
-			variant="primary"
+			variant="spotlight"
 			size="md"
 			header={<Header me={me} />}
 			footer={<Footer actions={socials} />}

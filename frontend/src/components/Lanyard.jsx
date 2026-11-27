@@ -651,16 +651,17 @@ const solvePin = (body, grab, target) => {
 	pushBody(body, r, normal.multiplyScalar(lambda));
 };
 
-const placeHanging = (sim, layout, intro) => {
+const placeHanging = (sim, layout, intro, fromTop = false) => {
 	const { nodes, previous, velocities, body, anchor } = sim;
 	nodes[0].copy(anchor);
 	for (let i = 1; i <= JOINTS; i++) {
 		nodes[i].copy(nodes[i - 1]);
-		if (intro) nodes[i].x += sim.rest;
+		if (intro && fromTop) nodes[i].y += layout.height / JOINTS;
+		else if (intro) nodes[i].x += sim.rest;
 		else nodes[i].y -= sim.rest;
 	}
 	body.quaternion.identity();
-	if (intro)
+	if (intro && !fromTop)
 		body.quaternion.setFromAxisAngle(new Three.Vector3(0, 0, 1), Math.PI / 2);
 	body.hang.set(0, layout.hangY, 0);
 	const offset = scratch.a.copy(body.hang).applyQuaternion(body.quaternion);
@@ -843,6 +844,7 @@ const Lanyard = ({
 	breeze = 0.5,
 	interactive = true,
 	overlay = false,
+	attachToPageTop = false,
 	intro = true,
 	className = "",
 	style,
@@ -1018,7 +1020,9 @@ const Lanyard = ({
 		const mouth = new Three.Vector3();
 		const tuck = new Three.Vector3();
 		const curve = new Three.CatmullRomCurve3(controls, false, "centripetal");
-		const view = { width: 1, height: 1 };
+		const view = { width: 1, height: 1, pageOffset: 0 };
+		const pageOffset = (slot) =>
+			overlay && attachToPageTop ? Math.max(0, slot.top + window.scrollY) : 0;
 		const viewport = { width: 1, height: 1 };
 		let layout = cardLayout("portrait", 0.3);
 		let applied = {};
@@ -1099,7 +1103,8 @@ const Lanyard = ({
 				.normalize()
 				.transformDirection(camera.matrixWorldInverse);
 			const anchorX = ((ANCHORS[s.anchor] ?? 0.5) - 0.5) * viewWidth;
-			const anchorY = viewHeight / 2 + 0.2;
+			// Extend the strap above the slot while keeping the badge's resting height.
+			const anchorY = viewHeight * (0.5 + view.pageOffset / view.height) + 0.2;
 			const cardTop =
 				viewHeight / 2 -
 				viewHeight * mix(0.12, 0.42, clamp(s.strapLength, 0, 1));
@@ -1128,11 +1133,16 @@ const Lanyard = ({
 				ring.position.set(0, layout.ringY, 0);
 				applied.framingKey = "";
 			}
-			const framingKey = `${layoutKey}|${s.size}|${s.anchor}|${s.strapLength}|${view.width}|${view.height}`;
+			const framingKey = `${layoutKey}|${s.size}|${s.anchor}|${s.strapLength}|${view.width}|${view.height}|${view.pageOffset}`;
 			if (framingKey !== applied.framingKey) {
 				frameView();
 				if (!placed) {
-					placeHanging(sim, layout, s.intro && !reducedMotion);
+					placeHanging(
+						sim,
+						layout,
+						s.intro && !reducedMotion,
+						overlay && attachToPageTop,
+					);
 					placed = true;
 				} else if (layoutKey !== applied.layoutKey) {
 					placeHanging(sim, layout, false);
@@ -1338,6 +1348,11 @@ const Lanyard = ({
 			if (overlay) {
 				// Expand the camera's view around the grid slot, keeping its anchor and scale.
 				const slot = container.getBoundingClientRect();
+				const offset = pageOffset(slot);
+				if (Math.abs(offset - view.pageOffset) > 0.01) {
+					view.pageOffset = offset;
+					frameView();
+				}
 				camera.setViewOffset(
 					slot.width || 1,
 					slot.height || 1,
@@ -1534,6 +1549,7 @@ const Lanyard = ({
 		const resize = () => {
 			view.width = Math.max(1, container.clientWidth);
 			view.height = Math.max(1, container.clientHeight);
+			view.pageOffset = pageOffset(container.getBoundingClientRect());
 			renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
 			viewport.width = Math.max(1, surface.clientWidth);
 			viewport.height = Math.max(1, surface.clientHeight);
@@ -1598,7 +1614,7 @@ const Lanyard = ({
 			renderer.dispose();
 			canvas.remove();
 		};
-	}, [overlay]);
+	}, [overlay, attachToPageTop]);
 
 	const surface = (
 		<div

@@ -4,15 +4,15 @@ import {
 	GitFork,
 	type LucideIcon,
 } from "lucide-react";
-import type { buttonVariant } from "@/components/Button.tsx";
+import type { ButtonVariant } from "@/components/Button.tsx";
 import type { Link } from "@/types/Link.ts";
 
-type Social = {
-	name: string;
-	link: Link;
-	icon: LucideIcon;
-	variant?: buttonVariant;
-};
+interface Social {
+	readonly name: string;
+	readonly link: Link;
+	readonly icon: LucideIcon;
+	readonly variant?: ButtonVariant;
+}
 
 export const socials: Social[] = [
 	{

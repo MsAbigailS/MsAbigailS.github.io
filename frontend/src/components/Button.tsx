@@ -3,21 +3,22 @@ import type { ComponentProps, MouseEventHandler } from "react";
 import SpecularButton from "@/components/SpecularButton.jsx";
 import { Button as StyledButton } from "@/components/ui/button.tsx";
 
-export type buttonVariant =
-	| NonNullable<ComponentProps<typeof StyledButton>["variant"]>
-	| "accent";
-
 const accentAppearance = {
 	tint: "var(--accent)",
 	tintOpacity: 1,
 	textColor: "var(--accent-foreground)",
 	style: { outlineColor: "var(--accent)" },
+	lineColor: "var(--accent)",
 };
+
+export type ButtonVariant =
+	| NonNullable<ComponentProps<typeof StyledButton>["variant"]>
+	| "accent";
 
 export interface ButtonProps {
 	label: string;
 	icon?: LucideIcon;
-	variant?: buttonVariant;
+	variant?: ButtonVariant;
 	size?: "sm" | "md" | "lg";
 	onClick?: MouseEventHandler<HTMLButtonElement>;
 	isLoading?: boolean;

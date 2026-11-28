@@ -5,6 +5,7 @@ interface SectionProps {
 	readonly children: ReactNode;
 	readonly title?: string;
 	readonly subtitle?: string;
+	readonly animateOpacity?: boolean;
 }
 
 export const Section = (props: SectionProps) => (
@@ -13,6 +14,7 @@ export const Section = (props: SectionProps) => (
 		distance={120}
 		direction="vertical"
 		duration={1.6}
+		animateOpacity={props.animateOpacity}
 		ease="elastic.out(1, 0.55)"
 		blur={0}
 		stagger={0.08}

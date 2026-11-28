@@ -21,6 +21,9 @@
 		"enabled": true,
 		"rules": {
 			"preset": "all",
+			"complexity": {
+				"noExcessiveLinesPerFunction": "off"
+			},
 			"correctness": {
 				"noUnknownFunction": {
 					"level": "error",

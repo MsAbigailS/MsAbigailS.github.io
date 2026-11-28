@@ -6,9 +6,11 @@ export const ExperienceSection = () => {
 	const experiences: ReturnType<typeof useExperiences> = useExperiences();
 
 	return (
-		<Section title="Experience" subtitle="career">
+		<Section title="Experience" subtitle="career" animateOpacity={false}>
 			{experiences.experience.map((entry) => (
-				<ExperienceCard key={entry.company.name} experience={entry} />
+				<Section key={entry.company.name}>
+					<ExperienceCard experience={entry} />
+				</Section>
 			))}
 		</Section>
 	);

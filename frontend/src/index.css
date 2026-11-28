@@ -2,7 +2,7 @@
 
 @layer base {
 	body {
-		@apply mx-auto max-w-content pb-card-inset m-0 font-inter text-text-primary bg-background-primary tracking-tight;
+		@apply m-0 font-inter text-text-primary bg-background-primary tracking-tight;
 	}
 
 	.title {
@@ -23,6 +23,10 @@
 
 	.tag {
 		@apply font-serif font-thin;
+	}
+
+	.footer {
+		@apply w-full bg-background-primary py-6 font-serif font-semibold;
 	}
 }
 
